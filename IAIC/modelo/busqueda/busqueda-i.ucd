@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="busqueda-i" description="" id="modelo.busqueda" metadata="uml2-1.0" initialized="true" scrolledX="315" scrolledY="847" tag="1000" key="323030363130303620496E74656C6967656E6369614172746966696369616C2F446965676F">
+  <children xsi:type="editmodel:ClassEditModel" name="Voraz" location="519,1021" size="501,235" id="modelo.busqueda/Voraz" runTimeClassModel="construyeNodo(Lmodelo.problema.Estado;ILmodelo.busqueda.NodoInformado;Lmodelo.problema.Operador;),Voraz(),modelo.busqueda.Voraz.NodoVor,getNombreAlgoritmo()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="557,54">
+      <children xsi:type="editmodel:MethodEditModel" name="Voraz" id="modelo.busqueda/Voraz#Voraz()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="486,135">
+      <children xsi:type="editmodel:ClassEditModel" name="NodoVor" size="486,133" id="modelo.busqueda/Voraz$NodoVor" runTimeClassModel="mostrarCoste(),NodoVor(Lmodelo.problema.Estado;ILmodelo.problema.Operador;Lmodelo.busqueda.NodoInformado;),getCriterio()">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="463,54">
+          <children xsi:type="editmodel:MethodEditModel" name="NodoVor" id="modelo.busqueda/Voraz$NodoVor#NodoVor(Lmodelo.problema.Estado;ILmodelo.problema.Operador;Lmodelo.busqueda.NodoInformado;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getCriterio" id="modelo.busqueda/Voraz$NodoVor#getCriterio()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="mostrarCoste" id="modelo.busqueda/Voraz$NodoVor#mostrarCoste()"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/NodoInformado&lt;-modelo.busqueda/Voraz$NodoVor" source="//@children.0/@children.2/@children.0" target="//@children.5" targetEnd="//@children.0/@children.2/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.2/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="340,133" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="145,0"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.6/@sourceConnections.0" autoLocated="true" id="modelo.busqueda/AlgoritmoPrioritario&lt;-modelo.busqueda/Voraz" source="//@children.0" target="//@children.7" targetEnd="//@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="250,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="120,142" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Uniforme" location="1064,1016" size="441,234" id="modelo.busqueda/Uniforme" runTimeClassModel="Uniforme(),modelo.busqueda.Uniforme.NodoUni,construyeNodo(Lmodelo.problema.Estado;ILmodelo.busqueda.NodoInformado;Lmodelo.problema.Operador;),getNombreAlgoritmo()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="557,54">
+      <children xsi:type="editmodel:MethodEditModel" name="Uniforme" id="modelo.busqueda/Uniforme#Uniforme()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="424,135">
+      <children xsi:type="editmodel:ClassEditModel" name="NodoUni" size="424,133" id="modelo.busqueda/Uniforme$NodoUni" runTimeClassModel="mostrarCoste(),NodoUni(Lmodelo.problema.Estado;ILmodelo.busqueda.NodoInformado;Lmodelo.problema.Operador;),getCriterio()">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="401,54">
+          <children xsi:type="editmodel:MethodEditModel" name="NodoUni" id="modelo.busqueda/Uniforme$NodoUni#NodoUni(Lmodelo.problema.Estado;ILmodelo.busqueda.NodoInformado;Lmodelo.problema.Operador;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getCriterio" id="modelo.busqueda/Uniforme$NodoUni#getCriterio()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="mostrarCoste" id="modelo.busqueda/Uniforme$NodoUni#mostrarCoste()"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/NodoInformado&lt;-modelo.busqueda/Uniforme$NodoUni" source="//@children.1/@children.2/@children.0" target="//@children.5" targetEnd="//@children.1/@children.2/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@children.2/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="45,133" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="395,0"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/AlgoritmoPrioritario&lt;-modelo.busqueda/Uniforme" source="//@children.1" target="//@children.0/@sourceConnections.0" targetEnd="//@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="220,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.0" name="AlgoritmoAbstracto" location="1339,335" size="210,191" id="modelo.busqueda/AlgoritmoAbstracto" runTimeClassModel="getProblema(),haySolucion(),muestra(),cuentaNodo,getNombreAlgoritmo(),problema,estaResuelto(),fallido,AlgoritmoAbstracto(),setProblema(Lmodelo.problema.Problema;),getSolucion(),imprimeExpandidos(),expandidos,imprimeSolucion()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="113,72"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="187,180">
+      <children xsi:type="editmodel:MethodEditModel" name="setProblema" id="modelo.busqueda/AlgoritmoAbstracto#setProblema(Lmodelo.problema.Problema;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getProblema" id="modelo.busqueda/AlgoritmoAbstracto#getProblema()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="AlgoritmoAbstracto" id="modelo.busqueda/AlgoritmoAbstracto#AlgoritmoAbstracto()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="estaResuelto" id="modelo.busqueda/AlgoritmoAbstracto#estaResuelto()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="muestra" id="modelo.busqueda/AlgoritmoAbstracto#muestra()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/IAlgoritmo&lt;-modelo.busqueda/AlgoritmoAbstracto" source="//@children.2" target="//@children.4" targetEnd="//@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="105,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="89,192"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Profundidad" location="1547,1021" size="131,120" id="modelo.busqueda/Profundidad" runTimeClassModel="estaEnAbiertos(Lmodelo.busqueda.NodoCiego;),getNombreAlgoritmo(),vaciaAbiertos(),sacaAbierto(),quedanAbiertos(),Profundidad(),añadirAbierto(Lmodelo.busqueda.NodoCiego;),abiertos">
+    <children xsi:type="editmodel:CompartmentEditModel" size="116,18"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="223,126">
+      <children xsi:type="editmodel:MethodEditModel" name="Profundidad" id="modelo.busqueda/Profundidad#Profundidad()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/AlgoritmoCiego&lt;-modelo.busqueda/Profundidad" source="//@children.3" target="//@children.11/@sourceConnections.0" targetEnd="//@children.3/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="65,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.2/@sourceConnections.0" name="IAlgoritmo" location="1355,64" size="179,192" id="modelo.busqueda/IAlgoritmo" runTimeClassModel="setProblema(Lmodelo.problema.Problema;),getProblema(),inicializar(),muestra(),avanzarPaso(),problema,estaResuelto()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="63,18"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="156,108">
+      <children xsi:type="editmodel:MethodEditModel" name="setProblema" id="modelo.busqueda/IAlgoritmo#setProblema(Lmodelo.problema.Problema;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getProblema" id="modelo.busqueda/IAlgoritmo#getProblema()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="muestra" id="modelo.busqueda/IAlgoritmo#muestra()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="estaResuelto" id="modelo.busqueda/IAlgoritmo#estaResuelto()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="inicializar" id="modelo.busqueda/IAlgoritmo#inicializar()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="avanzarPaso" id="modelo.busqueda/IAlgoritmo#avanzarPaso()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@children.2/@children.0/@sourceConnections.0 //@children.1/@children.2/@children.0/@sourceConnections.0 //@children.6/@children.2/@children.0/@sourceConnections.0" name="NodoInformado" location="714,1372" size="441,139" id="modelo.busqueda/NodoInformado" runTimeClassModel="NodoInformado(Lmodelo.problema.Estado;ILmodelo.problema.Operador;Lmodelo.busqueda.Nodo;),compareTo(Ljava.lang.Object;),getHeuristica(),equals(Ljava.lang.Object;),heuristica,getCriterio()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="83,18"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="445,90">
+      <children xsi:type="editmodel:MethodEditModel" name="NodoInformado" id="modelo.busqueda/NodoInformado#NodoInformado(Lmodelo.problema.Estado;ILmodelo.problema.Operador;Lmodelo.busqueda.Nodo;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getHeuristica" id="modelo.busqueda/NodoInformado#getHeuristica()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="compareTo" id="modelo.busqueda/NodoInformado#compareTo(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="equals" id="modelo.busqueda/NodoInformado#equals(Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/Nodo&lt;-modelo.busqueda/NodoInformado" source="//@children.5" target="//@children.10" targetEnd="//@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,69" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="396,81" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Optima" location="40,1021" size="441,235" id="modelo.busqueda/Optima" runTimeClassModel="construyeNodo(Lmodelo.problema.Estado;ILmodelo.busqueda.NodoInformado;Lmodelo.problema.Operador;),getNombreAlgoritmo(),modelo.busqueda.Optima.NodoOpt,Optima()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="557,54">
+      <children xsi:type="editmodel:MethodEditModel" name="Optima" id="modelo.busqueda/Optima#Optima()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="410,135">
+      <children xsi:type="editmodel:ClassEditModel" name="NodoOpt" size="410,133" id="modelo.busqueda/Optima$NodoOpt" runTimeClassModel="NodoOpt(Lmodelo.problema.Estado;ILmodelo.busqueda.NodoInformado;Lmodelo.problema.Operador;),mostrarCoste(),getCriterio()">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="387,54">
+          <children xsi:type="editmodel:MethodEditModel" name="NodoOpt" id="modelo.busqueda/Optima$NodoOpt#NodoOpt(Lmodelo.problema.Estado;ILmodelo.busqueda.NodoInformado;Lmodelo.problema.Operador;)"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getCriterio" id="modelo.busqueda/Optima$NodoOpt#getCriterio()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="mostrarCoste" id="modelo.busqueda/Optima$NodoOpt#mostrarCoste()"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/NodoInformado&lt;-modelo.busqueda/Optima$NodoOpt" source="//@children.6/@children.2/@children.0" target="//@children.5" targetEnd="//@children.6/@children.2/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.6/@children.2/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="335,133" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="86,0"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/AlgoritmoPrioritario&lt;-modelo.busqueda/Optima" source="//@children.6" target="//@children.0/@sourceConnections.0" targetEnd="//@children.6/@sourceConnections.0/@children.1" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="220,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.0/@sourceConnections.0" name="AlgoritmoPrioritario" location="740,723" size="242,143" id="modelo.busqueda/AlgoritmoPrioritario" runTimeClassModel="AlgoritmoPrioritario(),inicializar(),construyeNodo(Lmodelo.problema.Estado;ILmodelo.busqueda.NodoInformado;Lmodelo.problema.Operador;),solucion,avanzarPaso(),getSolucion(),getNombreAlgoritmo(),abiertos">
+    <children xsi:type="editmodel:CompartmentEditModel" size="138,36"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="557,108">
+      <children xsi:type="editmodel:MethodEditModel" name="inicializar" id="modelo.busqueda/AlgoritmoPrioritario#inicializar()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="AlgoritmoPrioritario" id="modelo.busqueda/AlgoritmoPrioritario#AlgoritmoPrioritario()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="avanzarPaso" id="modelo.busqueda/AlgoritmoPrioritario#avanzarPaso()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.9/@sourceConnections.0" autoLocated="true" id="modelo.busqueda/AlgoritmoAbstracto&lt;-modelo.busqueda/AlgoritmoPrioritario" source="//@children.7" target="//@children.2" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="120,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="105,191" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="NodoCiego" location="714,1525" size="447,101" id="modelo.busqueda/NodoCiego" runTimeClassModel="mostrarCoste(),equals(Ljava.lang.Object;),NodoCiego(Lmodelo.problema.Estado;ILmodelo.problema.Operador;Lmodelo.busqueda.Nodo;)">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="424,54">
+      <children xsi:type="editmodel:MethodEditModel" name="NodoCiego" id="modelo.busqueda/NodoCiego#NodoCiego(Lmodelo.problema.Estado;ILmodelo.problema.Operador;Lmodelo.busqueda.Nodo;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="equals" id="modelo.busqueda/NodoCiego#equals(Ljava.lang.Object;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/Nodo&lt;-modelo.busqueda/NodoCiego" source="//@children.8" target="//@children.10" targetEnd="//@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,43" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="396,208" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.0" name="AlgoritmoCiego" location="1599,723" size="151,152" id="modelo.busqueda/AlgoritmoCiego" runTimeClassModel="inicializar(),avanzarPaso(),AlgoritmoCiego()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="117,18"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="223,180">
+      <children xsi:type="editmodel:MethodEditModel" name="AlgoritmoCiego" id="modelo.busqueda/AlgoritmoCiego#AlgoritmoCiego()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="inicializar" id="modelo.busqueda/AlgoritmoCiego#inicializar()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="avanzarPaso" id="modelo.busqueda/AlgoritmoCiego#avanzarPaso()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/AlgoritmoAbstracto&lt;-modelo.busqueda/AlgoritmoCiego" source="//@children.9" target="//@children.7/@sourceConnections.0" targetEnd="//@children.9/@sourceConnections.0/@children.1" sourceEnd="//@children.9/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="74,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.0 //@children.8/@sourceConnections.0" name="Nodo" location="62,1360" size="396,251" id="modelo.busqueda/Nodo" runTimeClassModel="getNumero(),getPadre(),muestra(),getEstado(),getCoste(),mostrarCoste(),numero,padre,setPadre(Lmodelo.busqueda.Nodo;),coste,operador,estado,Nodo(Lmodelo.problema.Estado;ILmodelo.problema.Operador;Lmodelo.busqueda.Nodo;),getOperador(),setNumero(I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="115,90"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="397,180">
+      <children xsi:type="editmodel:MethodEditModel" name="setPadre" id="modelo.busqueda/Nodo#setPadre(Lmodelo.busqueda.Nodo;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getPadre" id="modelo.busqueda/Nodo#getPadre()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getNumero" id="modelo.busqueda/Nodo#getNumero()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setNumero" id="modelo.busqueda/Nodo#setNumero(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getEstado" id="modelo.busqueda/Nodo#getEstado()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOperador" id="modelo.busqueda/Nodo#getOperador()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCoste" id="modelo.busqueda/Nodo#getCoste()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="muestra" id="modelo.busqueda/Nodo#muestra()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Nodo" id="modelo.busqueda/Nodo#Nodo(Lmodelo.problema.Estado;ILmodelo.problema.Operador;Lmodelo.busqueda.Nodo;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Anchura" location="1712,1023" size="100,115" id="modelo.busqueda/Anchura" runTimeClassModel="Anchura(),estaEnAbiertos(Lmodelo.busqueda.NodoCiego;),getNombreAlgoritmo(),vaciaAbiertos(),sacaAbierto(),quedanAbiertos(),añadirAbierto(Lmodelo.busqueda.NodoCiego;),abiertos">
+    <children xsi:type="editmodel:CompartmentEditModel" size="116,18"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="223,126">
+      <children xsi:type="editmodel:MethodEditModel" name="Anchura" id="modelo.busqueda/Anchura#Anchura()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.3/@sourceConnections.0" autoLocated="true" id="modelo.busqueda/AlgoritmoCiego&lt;-modelo.busqueda/Anchura" source="//@children.11" target="//@children.9" targetEnd="//@children.11/@sourceConnections.0/@children.1" sourceEnd="//@children.11/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="49,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="74,150" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ServidorAlgoritmo" location="284,274" size="285,282" id="modelo.busqueda/ServidorAlgoritmo" runTimeClassModel="lista,dameAlgoritmo(Ljava.lang.Object;),modelo.busqueda.ServidorAlgoritmo.Codigo,dameListaAlgoritmos()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="81,18"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="262,36">
+      <children xsi:type="editmodel:MethodEditModel" name="dameAlgoritmo" id="modelo.busqueda/ServidorAlgoritmo#dameAlgoritmo(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dameListaAlgoritmos" id="modelo.busqueda/ServidorAlgoritmo#dameListaAlgoritmos()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="100,175">
+      <children xsi:type="editmodel:EnumerationEditModel" name="Codigo" size="100,173" id="modelo.busqueda/ServidorAlgoritmo$Codigo" runTimeClassModel="Uniforme%,Optima%,Voraz%,Anchura%,Profundidad%">
+        <children xsi:type="editmodel:CompartmentEditModel" size="77,90">
+          <children xsi:type="editmodel:EnumerationLiteralEditModel" name="Anchura" id="modelo.busqueda/ServidorAlgoritmo$Codigo#Anchura%"/>
+          <children xsi:type="editmodel:EnumerationLiteralEditModel" name="Optima" id="modelo.busqueda/ServidorAlgoritmo$Codigo#Optima%"/>
+          <children xsi:type="editmodel:EnumerationLiteralEditModel" name="Profundidad" id="modelo.busqueda/ServidorAlgoritmo$Codigo#Profundidad%"/>
+          <children xsi:type="editmodel:EnumerationLiteralEditModel" name="Uniforme" id="modelo.busqueda/ServidorAlgoritmo$Codigo#Uniforme%"/>
+          <children xsi:type="editmodel:EnumerationLiteralEditModel" name="Voraz" id="modelo.busqueda/ServidorAlgoritmo$Codigo#Voraz%"/>
+        </children>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showAssociationMember="true"/>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="modelo.busqueda/IAlgoritmoServidor&lt;-modelo.busqueda/ServidorAlgoritmo" source="//@children.12" target="//@children.13" targetEnd="//@children.12/@sourceConnections.0/@children.1" sourceEnd="//@children.12/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="144,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="139,129"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.12/@sourceConnections.0" name="IAlgoritmoServidor" location="289,100" size="285,129" id="modelo.busqueda/IAlgoritmoServidor" runTimeClassModel="dameAlgoritmo(Ljava.lang.Object;),dameListaAlgoritmos()">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="262,36">
+      <children xsi:type="editmodel:MethodEditModel" name="dameAlgoritmo" id="modelo.busqueda/IAlgoritmoServidor#dameAlgoritmo(Ljava.lang.Object;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="dameListaAlgoritmos" id="modelo.busqueda/IAlgoritmoServidor#dameListaAlgoritmos()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" interactive="false" level="-1" showScope="InPackage" properties="wireOptions=3"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="pixel">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showMethodsParameterTypes="true" showMethodsReturnType="true" showMethodsParameterNames="true" showMethodsParameterKinds="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showMethods="true" showAttributes="true" showLiterlas="true"/>
+</editmodel:ClassDiagramEditModel>

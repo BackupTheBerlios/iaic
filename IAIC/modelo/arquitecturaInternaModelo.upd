@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ComponentDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="arquitecturaInternaModelo" metadata="uml2-1.0" initialized="true" tag="1000" key="323030363130303620496E74656C6967656E6369614172746966696369616C2F446965676F">
+  <children xsi:type="editmodel:ComponentEditModel" location="55,45" size="911,591" stereotype="" taggedValues="{profile.object.name=modelo}" itemName="modelo">
+    <children xsi:type="editmodel:ComponentEditModel" location="63,44" size="337,212" stereotype="" taggedValues="{profile.object.name=Busquedas}" itemName="Busquedas">
+      <children xsi:type="editmodel:ComponentEditModel" location="28,22" size="92,60" stereotype="" taggedValues="{profile.object.name=Voraz}" itemName="Voraz"/>
+      <children xsi:type="editmodel:ComponentEditModel" location="58,98" size="84,56" stereotype="" taggedValues="{profile.object.name=Optima}" itemName="Optima"/>
+      <children xsi:type="editmodel:ComponentEditModel" location="133,20" size="90,61" stereotype="" taggedValues="{profile.object.name=Uniforme}" itemName="Uniforme"/>
+      <children xsi:type="editmodel:ComponentEditModel" location="235,26" size="79,59" stereotype="" taggedValues="{profile.object.name=Anchura}" itemName="Anchura"/>
+      <children xsi:type="editmodel:ComponentEditModel" location="177,99" size="110,63" stereotype="" taggedValues="{profile.object.name=Profundidad}" itemName="Profundidad"/>
+      <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" source="//@children.0/@children.0" target="//@children.0/@children.6" targetEnd="//@children.0/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+        <children xsi:type="editmodel:ComponentEndEditModel" location="317,212" attachSource="true"/>
+        <children xsi:type="editmodel:ComponentEndEditModel" location="6,0"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:ComponentRealizeEditModel" autoLocated="true" source="//@children.0/@children.0" target="//@children.0/@children.7" targetEnd="//@children.0/@children.0/@sourceConnections.1/@children.1" sourceEnd="//@children.0/@children.0/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:ComponentEndEditModel" location="337,77" attachSource="true"/>
+        <children xsi:type="editmodel:ComponentEndEditModel" location="0,6"/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="editmodel:ComponentEditModel" location="63,379" size="339,182" stereotype="" taggedValues="{profile.object.name=Problemas}" itemName="Problemas">
+      <children xsi:type="editmodel:ComponentEditModel" location="40,27" size="109,54" stereotype="" taggedValues="{profile.object.name=Jarras}" itemName="Jarras"/>
+      <children xsi:type="editmodel:ComponentEditModel" location="184,24" size="105,48" stereotype="" taggedValues="{profile.object.name=Mono}" itemName="Mono"/>
+      <children xsi:type="editmodel:ComponentEditModel" location="47,97" size="95,55" stereotype="" taggedValues="{profile.object.name=OchoPuzzle}" itemName="OchoPuzzle"/>
+      <children xsi:type="editmodel:ComponentEditModel" location="178,93" size="107,53" stereotype="" taggedValues="{profile.object.name=Canibales}" itemName="Canibales"/>
+      <sourceConnections xsi:type="editmodel:ComponentRealizeEditModel" autoLocated="true" source="//@children.0/@children.1" target="//@children.0/@children.6" targetEnd="//@children.0/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:ComponentEndEditModel" location="317,0" attachSource="true"/>
+        <children xsi:type="editmodel:ComponentEndEditModel" location="6,14"/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="editmodel:ComponentEditModel" location="580,39" size="293,169" stereotype="" taggedValues="{profile.object.name=FachadaModelo}" itemName="FachadaModelo">
+      <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" source="//@children.0/@children.2" target="//@children.0/@children.4" targetEnd="//@children.0/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+        <children xsi:type="editmodel:ComponentEndEditModel" location="240,169" attachSource="true"/>
+        <children xsi:type="editmodel:ComponentEndEditModel" location="6,0"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:ComponentRealizeEditModel" autoLocated="true" source="//@children.0/@children.2" target="//@children.0/@children.5" targetEnd="//@children.0/@children.2/@sourceConnections.1/@children.1" sourceEnd="//@children.0/@children.2/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:ComponentEndEditModel" location="80,169" attachSource="true"/>
+        <children xsi:type="editmodel:ComponentEndEditModel" location="6,0"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" source="//@children.0/@children.2" target="//@children.0/@children.7" targetEnd="//@children.0/@children.2/@sourceConnections.2/@children.1" sourceEnd="//@children.0/@children.2/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+        <children xsi:type="editmodel:ComponentEndEditModel" location="0,83" attachSource="true"/>
+        <children xsi:type="editmodel:ComponentEndEditModel" location="14,7"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:ComponentRealizeEditModel" autoLocated="true" source="//@children.0/@children.2" target="//@children.2" targetEnd="//@children.0/@children.2/@sourceConnections.3/@children.1" sourceEnd="//@children.0/@children.2/@sourceConnections.3/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:ComponentEndEditModel" location="293,23" attachSource="true"/>
+        <children xsi:type="editmodel:ComponentEndEditModel" location="0,7"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" source="//@children.0/@children.2" target="//@children.1" targetEnd="//@children.0/@children.2/@sourceConnections.4/@children.1" sourceEnd="//@children.0/@children.2/@sourceConnections.4/@children.0" connectionRouterKind="Manhattan">
+        <children xsi:type="editmodel:ComponentEndEditModel" location="293,113" attachSource="true"/>
+        <children xsi:type="editmodel:ComponentEndEditModel" location="0,7"/>
+      </sourceConnections>
+    </children>
+    <children xsi:type="editmodel:ComponentEditModel" location="553,375" size="340,183" stereotype="" taggedValues="{profile.object.name=Laberinto}" itemName="Laberinto">
+      <children xsi:type="editmodel:ComponentEditModel" location="212,58" size="107,83" stereotype="" taggedValues="{profile.object.name=LaberintoDatos}" itemName="LaberintoDatos">
+        <sourceConnections xsi:type="editmodel:ComponentRealizeEditModel" autoLocated="true" source="//@children.0/@children.3/@children.0" target="//@children.0/@children.4" targetEnd="//@children.0/@children.3/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.3/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:ComponentEndEditModel" location="55,0" attachSource="true"/>
+          <children xsi:type="editmodel:ComponentEndEditModel" location="6,14"/>
+        </sourceConnections>
+        <sourceConnections xsi:type="editmodel:ComponentRealizeEditModel" autoLocated="true" source="//@children.0/@children.3/@children.0" target="//@children.0/@children.3/@children.2" targetEnd="//@children.0/@children.3/@children.0/@sourceConnections.1/@children.1" sourceEnd="//@children.0/@children.3/@children.0/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:ComponentEndEditModel" location="0,41" attachSource="true"/>
+          <children xsi:type="editmodel:ComponentEndEditModel" location="14,7"/>
+        </sourceConnections>
+      </children>
+      <children xsi:type="editmodel:ComponentEditModel" location="29,57" size="123,94" stereotype="" taggedValues="{profile.object.name=LaberintoProblema}" itemName="LaberintoProblema">
+        <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" source="//@children.0/@children.3/@children.1" target="//@children.0/@children.3/@children.2" targetEnd="//@children.0/@children.3/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.3/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+          <children xsi:type="editmodel:ComponentEndEditModel" location="123,42" attachSource="true"/>
+          <children xsi:type="editmodel:ComponentEndEditModel" location="0,7"/>
+        </sourceConnections>
+        <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" source="//@children.0/@children.3/@children.1" target="//@children.0/@children.5" targetEnd="//@children.0/@children.3/@children.1/@sourceConnections.1/@children.1" sourceEnd="//@children.0/@children.3/@children.1/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+          <children xsi:type="editmodel:ComponentEndEditModel" location="78,0" attachSource="true"/>
+          <children xsi:type="editmodel:ComponentEndEditModel" location="6,14"/>
+        </sourceConnections>
+        <sourceConnections xsi:type="editmodel:ComponentRealizeEditModel" autoLocated="true" source="//@children.0/@children.3/@children.1" target="//@children.0/@children.6" targetEnd="//@children.0/@children.3/@children.1/@sourceConnections.2/@children.1" sourceEnd="//@children.0/@children.3/@children.1/@sourceConnections.2/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:ComponentEndEditModel" location="0,10" attachSource="true"/>
+          <children xsi:type="editmodel:ComponentEndEditModel" location="13,10"/>
+        </sourceConnections>
+      </children>
+      <children xsi:type="editmodel:ComponentInterfaceEditModel" targetConnections="//@children.0/@children.3/@children.0/@sourceConnections.1 //@children.0/@children.3/@children.1/@sourceConnections.0" location="177,92" size="14,31" interfaceName=">&lt;"/>
+    </children>
+    <children xsi:type="editmodel:ComponentInterfaceEditModel" targetConnections="//@children.0/@children.3/@children.0/@sourceConnections.0 //@children.0/@children.2/@sourceConnections.0" location="784,268" size="75,31" interfaceName="ILaberintoDatos"/>
+    <children xsi:type="editmodel:ComponentInterfaceEditModel" targetConnections="//@children.0/@children.2/@sourceConnections.1 //@children.0/@children.3/@children.1/@sourceConnections.1" location="634,275" size="54,31" interfaceName="AvisoLocal"/>
+    <children xsi:type="editmodel:ComponentInterfaceEditModel" targetConnections="//@children.0/@children.1/@sourceConnections.0 //@children.0/@children.3/@children.1/@sourceConnections.2 //@children.0/@children.0/@sourceConnections.0" location="359,314" size="44,31" interfaceName="Problema"/>
+    <children xsi:type="editmodel:ComponentInterfaceEditModel" targetConnections="//@children.0/@children.0/@sourceConnections.1 //@children.0/@children.2/@sourceConnections.2" location="473,115" size="45,31" interfaceName="Algoritmo"/>
+  </children>
+  <children xsi:type="editmodel:ComponentInterfaceEditModel" targetConnections="//@children.0/@children.2/@sourceConnections.4" location="1014,190" size="69,31" interfaceName="OyenteModelo"/>
+  <children xsi:type="editmodel:ComponentInterfaceEditModel" targetConnections="//@children.0/@children.2/@sourceConnections.3" location="1025,100" size="48,31" interfaceName="Modelable"/>
+  <diagramOptions xsi:type="options:ComponentDiagramOptions" level="0" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="pixel">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+</editmodel:ComponentDiagramEditModel>

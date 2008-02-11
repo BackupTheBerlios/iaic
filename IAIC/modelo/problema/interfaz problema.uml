@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="ASCII"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_jpX7MN8WEdu_nuGwfpxioQ" name="problema">
+  <packagedElement xmi:type="uml:Interface" xmi:id="_lZsRAN8QEdu_nuGwfpxioQ" name="IServidorProblemas" clientDependency="_WlYV5d8VEdu_nuGwfpxioQ">
+    <ownedOperation xmi:id="_WlYV4N8VEdu_nuGwfpxioQ" name="dameNumeroProblemas" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_WlYV4d8VEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_WlYV4t8VEdu_nuGwfpxioQ" name="dameProblema" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_WlYV498VEdu_nuGwfpxioQ" name="i">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_WlYV5N8VEdu_nuGwfpxioQ" type="_lZigAN8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <nestedClassifier xmi:type="uml:Enumeration" xmi:id="_lZsRAd8QEdu_nuGwfpxioQ" name="Codigo">
+      <ownedLiteral xmi:id="_Wm4KsN8VEdu_nuGwfpxioQ" name="Granjero"/>
+      <ownedLiteral xmi:id="_Wm4Ksd8VEdu_nuGwfpxioQ" name="Mono"/>
+      <ownedLiteral xmi:id="_Wm4Kst8VEdu_nuGwfpxioQ" name="Test"/>
+      <ownedLiteral xmi:id="_Wm4Ks98VEdu_nuGwfpxioQ" name="OchoPuzzle"/>
+      <ownedLiteral xmi:id="_Wm4KtN8VEdu_nuGwfpxioQ" name="Can&#xed;bales"/>
+      <ownedLiteral xmi:id="_Wm4Ktd8VEdu_nuGwfpxioQ" name="Jarras"/>
+    </nestedClassifier>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_lZigAN8QEdu_nuGwfpxioQ" name="Problema" clientDependency="_WpZ6QN8VEdu_nuGwfpxioQ _WpZ6Q98VEdu_nuGwfpxioQ">
+    <ownedOperation xmi:id="_WpQwUN8VEdu_nuGwfpxioQ" name="evaluarHeuristica" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_WpQwUd8VEdu_nuGwfpxioQ" name="e" type="_lZPlEd8QEdu_nuGwfpxioQ"/>
+      <ownedParameter xmi:id="_WpQwUt8VEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_WpQwU98VEdu_nuGwfpxioQ" name="getNombre" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_WpQwVN8VEdu_nuGwfpxioQ" type="_ml1UA98QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_WpQwVd8VEdu_nuGwfpxioQ" name="getInicial" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_WpQwVt8VEdu_nuGwfpxioQ" type="_lZPlEd8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_WpQwV98VEdu_nuGwfpxioQ" name="esObjetivo" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_WpQwWN8VEdu_nuGwfpxioQ" name="e" type="_lZPlEd8QEdu_nuGwfpxioQ"/>
+      <ownedParameter xmi:id="_WpQwWd8VEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_lZYvAd8QEdu_nuGwfpxioQ" name="ServidorProblemas" clientDependency="_WnU2oN8VEdu_nuGwfpxioQ _WnU2o98VEdu_nuGwfpxioQ _WneAkd8VEdu_nuGwfpxioQ _WneAk98VEdu_nuGwfpxioQ _Wnnxkt8VEdu_nuGwfpxioQ _WnnxlN8VEdu_nuGwfpxioQ _Wnw7gt8VEdu_nuGwfpxioQ _Wnw7hd8VEdu_nuGwfpxioQ _Wn6sgN8VEdu_nuGwfpxioQ _Wn6sgt8VEdu_nuGwfpxioQ">
+    <generalization xmi:id="_WnLFoN8VEdu_nuGwfpxioQ" general="_lZsRAN8QEdu_nuGwfpxioQ"/>
+    <ownedOperation xmi:id="_WnLFod8VEdu_nuGwfpxioQ" name="dameProblema" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_WnLFot8VEdu_nuGwfpxioQ" name="i">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_WnLFo98VEdu_nuGwfpxioQ" type="_lZigAN8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_WnLFpN8VEdu_nuGwfpxioQ" name="dameNumeroProblemas" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_WnLFpd8VEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_lZYvAN8QEdu_nuGwfpxioQ" name="Operador" clientDependency="_3MI-8N8QEdu_nuGwfpxioQ _3MI-898QEdu_nuGwfpxioQ">
+    <ownedOperation xmi:id="_3L_N8N8QEdu_nuGwfpxioQ" name="getNombre" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_3L_N8d8QEdu_nuGwfpxioQ" type="_ml1UA98QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_3L_N8t8QEdu_nuGwfpxioQ" name="getCoste" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_3L_N898QEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_3L_N9N8QEdu_nuGwfpxioQ" name="getFinal" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_3L_N9d8QEdu_nuGwfpxioQ" type="_lZPlEd8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_3L_N9t8QEdu_nuGwfpxioQ" name="getInicial" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_3L_N998QEdu_nuGwfpxioQ" type="_lZPlEd8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_lZPlEd8QEdu_nuGwfpxioQ" name="Estado" clientDependency="_mnLX0N8QEdu_nuGwfpxioQ _mnxNsd8QEdu_nuGwfpxioQ">
+    <ownedOperation xmi:id="_ml1UAN8QEdu_nuGwfpxioQ" name="mostrarInfo" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_EThE4N8REdu_nuGwfpxioQ" type="_ml1UA98QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ml1UBd8QEdu_nuGwfpxioQ" name="getHeuristica" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_EThE498REdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ml1UB98QEdu_nuGwfpxioQ" name="getOperadoresAplicables" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_EThE5N8REdu_nuGwfpxioQ" type="_ml_FAN8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_ml_FAt8QEdu_nuGwfpxioQ" name="equals" visibility="public" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_EThE4d8REdu_nuGwfpxioQ" name="e" type="_ml_FA98QEdu_nuGwfpxioQ"/>
+      <ownedParameter xmi:id="_EThE4t8REdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_lTlB8N8QEdu_nuGwfpxioQ" name="AlgoritmoAbstracto" visibility="package" isAbstract="true"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_lUBt4N8QEdu_nuGwfpxioQ" name="NodoInformado" visibility="package" clientDependency="_Ea0myd8REdu_nuGwfpxioQ _Ea9wst8REdu_nuGwfpxioQ _Ea9wtd8REdu_nuGwfpxioQ" isAbstract="true">
+    <generalization xmi:id="_Eahr3d8REdu_nuGwfpxioQ" general="_lWHYkN8QEdu_nuGwfpxioQ"/>
+    <generalization xmi:id="_Eahr398REdu_nuGwfpxioQ" general="_Eahr3t8REdu_nuGwfpxioQ"/>
+    <ownedAttribute xmi:id="_Eaq1wN8REdu_nuGwfpxioQ" name="heuristica" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ea0myN8REdu_nuGwfpxioQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ea0mx98REdu_nuGwfpxioQ"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_Eaq1wd8REdu_nuGwfpxioQ" name="getCriterio" visibility="protected" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_kxbaV98UEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Eaq1w98REdu_nuGwfpxioQ" name="compareTo" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_kxbaVd8UEdu_nuGwfpxioQ" name="o" type="_ml_FA98QEdu_nuGwfpxioQ"/>
+      <ownedParameter xmi:id="_kxbaVt8UEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Ea0mwN8REdu_nuGwfpxioQ" name="getHeuristica" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_kxbaVN8UEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_Ea0mwt8REdu_nuGwfpxioQ" name="NodoInformado" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_kxbaUN8UEdu_nuGwfpxioQ" name="estado" type="_lZPlEd8QEdu_nuGwfpxioQ"/>
+      <ownedParameter xmi:id="_kxbaUd8UEdu_nuGwfpxioQ" name="numero">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_kxbaUt8UEdu_nuGwfpxioQ" name="operador" type="_lZYvAN8QEdu_nuGwfpxioQ"/>
+      <ownedParameter xmi:id="_kxbaU98UEdu_nuGwfpxioQ" name="padre" type="_lWHYkN8QEdu_nuGwfpxioQ"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_lWHYkN8QEdu_nuGwfpxioQ" name="Nodo" visibility="package" clientDependency="_mqmfQN8QEdu_nuGwfpxioQ _mqwQQd8QEdu_nuGwfpxioQ _mq5aMt8QEdu_nuGwfpxioQ _mrDLMt8QEdu_nuGwfpxioQ _mrMVIN8QEdu_nuGwfpxioQ _s4Z9998TEdu_nuGwfpxioQ _s71FY98TEdu_nuGwfpxioQ _tUuGgN8TEdu_nuGwfpxioQ" isAbstract="true">
+    <ownedAttribute xmi:id="_mptHYN8QEdu_nuGwfpxioQ" name="numero" visibility="protected">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mqJzU98QEdu_nuGwfpxioQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mqJzUt8QEdu_nuGwfpxioQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_mptHYd8QEdu_nuGwfpxioQ" name="padre" visibility="protected" type="_lWHYkN8QEdu_nuGwfpxioQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mqTkUd8QEdu_nuGwfpxioQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mqTkUN8QEdu_nuGwfpxioQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_mptHYt8QEdu_nuGwfpxioQ" name="coste" visibility="protected">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mqTkU98QEdu_nuGwfpxioQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mqTkUt8QEdu_nuGwfpxioQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_mptHY98QEdu_nuGwfpxioQ" name="operador" visibility="protected" type="_lZYvAN8QEdu_nuGwfpxioQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mqTkVd8QEdu_nuGwfpxioQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mqTkVN8QEdu_nuGwfpxioQ"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_mptHZN8QEdu_nuGwfpxioQ" name="estado" visibility="protected" type="_lZPlEd8QEdu_nuGwfpxioQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mqTkV98QEdu_nuGwfpxioQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mqTkVt8QEdu_nuGwfpxioQ"/>
+    </ownedAttribute>
+    <ownedOperation xmi:id="_mptHZd8QEdu_nuGwfpxioQ" name="equals" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUbLkN8TEdu_nuGwfpxioQ" name="o" type="_ml_FA98QEdu_nuGwfpxioQ"/>
+      <ownedParameter xmi:id="_tUbLkd8TEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mptHaN8QEdu_nuGwfpxioQ" name="getCoste" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUbLl98TEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mptHat8QEdu_nuGwfpxioQ" name="Nodo" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUbLk98TEdu_nuGwfpxioQ" name="estado" type="_lZPlEd8QEdu_nuGwfpxioQ"/>
+      <ownedParameter xmi:id="_tUbLlN8TEdu_nuGwfpxioQ" name="numero">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+      <ownedParameter xmi:id="_tUbLld8TEdu_nuGwfpxioQ" name="operador" type="_lZYvAN8QEdu_nuGwfpxioQ"/>
+      <ownedParameter xmi:id="_tUbLlt8TEdu_nuGwfpxioQ" name="padre" type="_lWHYkN8QEdu_nuGwfpxioQ"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mp24ZN8QEdu_nuGwfpxioQ" name="mostrarCoste" visibility="protected" isAbstract="true" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUkVgt8TEdu_nuGwfpxioQ" type="_mp24Zd8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mp24Z98QEdu_nuGwfpxioQ" name="getEstado" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUbLmd8TEdu_nuGwfpxioQ" type="_lZPlEd8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mp24ad8QEdu_nuGwfpxioQ" name="getPadre" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUkVgd8TEdu_nuGwfpxioQ" type="_lWHYkN8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mp24a98QEdu_nuGwfpxioQ" name="setNumero" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUkVhN8TEdu_nuGwfpxioQ" name="numero">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mqACUd8QEdu_nuGwfpxioQ" name="muestra" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUkVg98TEdu_nuGwfpxioQ" type="_mp24Zd8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mqACU98QEdu_nuGwfpxioQ" name="getOperador" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUbLmN8TEdu_nuGwfpxioQ" type="_lZYvAN8QEdu_nuGwfpxioQ" direction="return"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mqACVd8QEdu_nuGwfpxioQ" name="setPadre" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUkVgN8TEdu_nuGwfpxioQ" name="padre" type="_lWHYkN8QEdu_nuGwfpxioQ"/>
+    </ownedOperation>
+    <ownedOperation xmi:id="_mqJzUN8QEdu_nuGwfpxioQ" name="getNumero" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:id="_tUbLkt8TEdu_nuGwfpxioQ" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Cs22298WEdu_nuGwfpxioQ">
+    <name xsi:nil="true"/>
+    <ownedEnd xmi:id="_Cs223N8WEdu_nuGwfpxioQ" name="" association="_Cs22298WEdu_nuGwfpxioQ">
+      <type xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Cs223d8WEdu_nuGwfpxioQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Cs223t8WEdu_nuGwfpxioQ"/>
+    </ownedEnd>
+    <memberEnd href="platform:/resource/InteligenciaArtificial/.repository.uml2#_Cs220N8WEdu_nuGwfpxioQ"/>
+    <memberEnd href="file:/D:/Documents%20and%20Settings/Diego.SN113748830317/Mis%20documentos/Apuntes/workspace/InteligenciaArtificial/modelo/problema/interfaz%20problema.uml#_Cs223N8WEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_ml1UAd8QEdu_nuGwfpxioQ" name="java.lang">
+    <packagedElement xmi:type="uml:Class" xmi:id="_ml1UA98QEdu_nuGwfpxioQ" name="String" isLeaf="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ml_FA98QEdu_nuGwfpxioQ" name="Object"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_mp24Zd8QEdu_nuGwfpxioQ" name="StringBuffer" isLeaf="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1boqoN8QEdu_nuGwfpxioQ" name="Math" isLeaf="true"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_Eahr3t8REdu_nuGwfpxioQ" name="Comparable" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_EbHhtt8REdu_nuGwfpxioQ" name="Integer" isLeaf="true"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_ml1UCN8QEdu_nuGwfpxioQ" name="java.util">
+    <packagedElement xmi:type="uml:Interface" xmi:id="_ml_FAN8QEdu_nuGwfpxioQ" name="List" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_qRtv4N8QEdu_nuGwfpxioQ" name="LinkedList"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_EaOJ0t8REdu_nuGwfpxioQ" name="HashMap"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_EaOJ1N8REdu_nuGwfpxioQ" name="PriorityQueue"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_w_y8AN8REdu_nuGwfpxioQ" name="Hashtable"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mnLX0N8QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ" client="_lZPlEd8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mnxNsd8QEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ" client="_lZPlEd8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mqmfQN8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ" client="_lWHYkN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mqwQQd8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ" client="_lWHYkN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mq5aMt8QEdu_nuGwfpxioQ" supplier="_lZYvAN8QEdu_nuGwfpxioQ" client="_lWHYkN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mrDLMt8QEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ" client="_lWHYkN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mrMVIN8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ" client="_lWHYkN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_msiY-N8QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lgsQ4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mssJ8t8QEdu_nuGwfpxioQ">
+    <supplier xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lhSGwN8QEdu_nuGwfpxioQ"/>
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lgsQ4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ms1T4t8QEdu_nuGwfpxioQ">
+    <supplier xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lgsQ4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ms1T5d8QEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lgsQ4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_qRtv4d8QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_qR3g4t8QEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_qR3g5d8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_qSBR4d8QEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_qUGVgt8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_qUjBcN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_qbG8cN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_sEdf4N8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_sMgBkN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_sN2FYN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_sS6Lk98QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_u8om4N8QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_u8yX4t8QEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_u8yX5d8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_u87h0d8QEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_u_UHcN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_vedhkN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_vhvfEN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_vr3rcN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_wDQ3wN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_wgUnMN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_wvXv0N8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_wv-MwN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_w4UQcN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zLsBR98QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ldRJcd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zL1yQt8QEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ldRJcd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zL1yRd8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ldRJcd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zL-8Md8QEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ldRJcd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zOOX4N8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ldRJcd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zruMMN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ldRJcd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zsxVEN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ldRJcd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_zt9n4N8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ldRJcd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0dpYYN8QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lemmMN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0dyiUt8QEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lemmMN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0dyiVd8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lemmMN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0fucAN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lemmMN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_02FGgN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lemmMN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_05p-8N8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lemmMN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_08yLcN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lemmMN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1boqod8QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1bx0kt8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1bx0lN8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1b7lkt8QEdu_nuGwfpxioQ" supplier="_1boqoN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1b7lld8QEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1cFWkt8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1cFWlN8QEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1ew3Kd8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_1e6BEd8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_2ZeL4N8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_2ZeL4t8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_2mla0d8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_2mvL0d8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_2nxtoN8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_2n7eod8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_2sZH4N8QEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_2si44d8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3MI-8N8QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ" client="_lZYvAN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3MI-898QEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ" client="_lZYvAN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3Mb54N8QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3MlD0t8QEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3Mu00t8QEdu_nuGwfpxioQ" supplier="_lZYvAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3Mu01d8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3OXzlN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3rIoFN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3sU64N8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_3s6wwN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_4D3RIN8QEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lh4jsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_4EBCIt8QEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lh4jsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_4EBCJd8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lh4jsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_4EKzId8QEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lh4jsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_4G2TsN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lh4jsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_4qArI98QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lh4jsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_4ux2YN8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lh4jsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_4yWu0N8QEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lh4jsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_DUyLwN8REdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lh4jsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_DbMVwN8REdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lg_L0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_DhTk0N8REdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_DhTk0t8REdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Dk4dQd8REdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_DlBnMd8REdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lf8qAN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Dsx1AN8REdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lemmMN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_D1tukN8REdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ldRJcd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_D_2iAN8REdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_laSG4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_EHv5wN8REdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ELd8I98REdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lcE2oN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Ea0myd8REdu_nuGwfpxioQ" supplier="_lWHYkN8QEdu_nuGwfpxioQ" client="_lUBt4N8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Ea9wst8REdu_nuGwfpxioQ" supplier="_lZYvAN8QEdu_nuGwfpxioQ" client="_lUBt4N8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Ea9wtd8REdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ" client="_lUBt4N8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_EbRSst8REdu_nuGwfpxioQ" supplier="_lWHYkN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_EbRStd8REdu_nuGwfpxioQ" supplier="_lZYvAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Ebacpd8REdu_nuGwfpxioQ" supplier="_lUBt4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_EbkNot8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Eb3Ikt8REdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Eb3Ild8REdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_EcA5kt8REdu_nuGwfpxioQ" supplier="_EaOJ1N8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Fm0f0N8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_F6VRsN8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_H7YjcN8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TtPA4N8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WZCf0N8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_bsCqgN8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_md0LAN8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mp44It8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mqeuAN8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mxfU8N8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_tmPmQN8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_toBu8N8REdu_nuGwfpxioQ" supplier="_EaOJ0t8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_xBI_0N8REdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_xHGd4N8REdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_yDvsUN8REdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_yEMYQN8REdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_yKAFUN8REdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0eROAN8REdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="__aUr4N8REdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_a9dbUN8TEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_dMgs0N8TEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_s4Z9998TEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ" client="_lWHYkN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_s71FY98TEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ" client="_lWHYkN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_tUuGgN8TEdu_nuGwfpxioQ" supplier="_mp24Zd8QEdu_nuGwfpxioQ" client="_lWHYkN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_tdEKMN8TEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUeZ0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_tdEKM98TEdu_nuGwfpxioQ" supplier="_lZYvAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUeZ0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_tdNUIt8TEdu_nuGwfpxioQ" supplier="_lUBt4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUeZ0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_tdNUJd8TEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUeZ0N8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ulfK098TEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_EjQpsN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ElfeUN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LhPvgN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LjoVId8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LlIJ8N8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LrFoAN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_PimFEN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_PkYNwN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_SYsIcN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ShxzAN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_UzNqIN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_U0Ga8t8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_U6gk8N8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_V1EvwN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_V1-HoN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_V9kkcN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_cyUOsN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_dUJJYN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_dU4wQN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ddYk8N8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_e7aCKd8UEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVz2kN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_e7jzIt8UEdu_nuGwfpxioQ" supplier="_lZYvAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVz2kN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_e72uEt8UEdu_nuGwfpxioQ" supplier="_lUBt4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVz2kN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_e72uFd8UEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVz2kN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_mzEh8N8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_xLqGYN8UEdu_nuGwfpxioQ" supplier="_w_y8AN8REdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0ZTHE98UEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUxUwN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0ZTHFt8UEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUxUwN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0Zc4Et8UEdu_nuGwfpxioQ" supplier="_lWHYkN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUxUwN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0Zc4Fd8UEdu_nuGwfpxioQ" supplier="_lZYvAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUxUwN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0ZmCAt8UEdu_nuGwfpxioQ">
+    <supplier xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsN8QEdu_nuGwfpxioQ"/>
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUxUwN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0Z488t8UEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lUxUwN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="__7pv8N8UEdu_nuGwfpxioQ" supplier="_ml_FAN8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WlYV5d8VEdu_nuGwfpxioQ" supplier="_lZigAN8QEdu_nuGwfpxioQ" client="_lZsRAN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WnU2oN8VEdu_nuGwfpxioQ" supplier="_1boqoN8QEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WnU2o98VEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ">
+    <supplier xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lc0dgN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WneAkd8VEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ">
+    <supplier xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lc9ncd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WneAk98VEdu_nuGwfpxioQ" supplier="_lZigAN8QEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Wnnxkt8VEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ">
+    <supplier xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_ledcQd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WnnxlN8VEdu_nuGwfpxioQ" supplier="_lZsRAd8QEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Wnw7gt8VEdu_nuGwfpxioQ" supplier="_lZsRAd8QEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Wnw7hd8VEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ">
+    <supplier xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lbeZsN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Wn6sgN8VEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ">
+    <supplier xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lgsQ4d8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Wn6sgt8VEdu_nuGwfpxioQ" client="_lZYvAd8QEdu_nuGwfpxioQ">
+    <supplier xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lfy5AN8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WpZ6QN8VEdu_nuGwfpxioQ" supplier="_ml1UA98QEdu_nuGwfpxioQ" client="_lZigAN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WpZ6Q98VEdu_nuGwfpxioQ" supplier="_lZPlEd8QEdu_nuGwfpxioQ" client="_lZigAN8QEdu_nuGwfpxioQ"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_GhFWYN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_GplLEd8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_KFOLgN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_KWW-0N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_KXQWsN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_KdN0wN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_KwvNsN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LIuP4N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LXVToN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LmE6QN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Lso1QN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_LtrXEN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_L0YcAN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_QZ8R4N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Qj7UUN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Q8XCcN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_RPR-c98WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_RiqNcN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_R_t84N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_SOBeoN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_SceKUd8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_S639kd8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TIIWdN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TSRJ4N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Tz8TkN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_UCZmUN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_UIXEYN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_UIp_UN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_URS98N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_UasKgN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Vdlx8N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_VnbDYN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_V2CHIN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WEoj0N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WcxXAN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_W06KMN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_W2_04N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_W3vbwN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_W-cgs98WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ZVsr8N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ZpOE4N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_aKvdkN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_aUblEN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_bXe9gN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_brdCYN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_cHxK8N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_cRmcYN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_cT1RAN8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_cUuo4N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_cbSj4N8WEdu_nuGwfpxioQ" supplier="_qRtv4N8QEdu_nuGwfpxioQ">
+    <client xmi:type="uml:Class" href="platform:/resource/InteligenciaArtificial/.repository.uml2#_lVOAsd8QEdu_nuGwfpxioQ"/>
+  </packagedElement>
+</uml:Model>

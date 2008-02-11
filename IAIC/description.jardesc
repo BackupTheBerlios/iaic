@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+<jar path="D:/Documents and Settings/Diego.SN113748830317/Mis documentos/programa.jar"/>
+<options buildIfNeeded="true" compress="true" descriptionLocation="/InteligenciaArtificial/description.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+<storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+<selectedProjects/>
+<manifest generateManifest="true" mainClassHandleIdentifier="=InteligenciaArtificial/&lt;principal{Principal.java[Principal" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+<sealing sealJar="false">
+<packagesToSeal/>
+<packagesToUnSeal/>
+</sealing>
+</manifest>
+<selectedElements exportClassFiles="false" exportJavaFiles="false" exportOutputFolder="true">
+<file path="/InteligenciaArtificial/.project"/>
+<file path="/InteligenciaArtificial/diagramaclasesbusquedas.jpg"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.problema.jarras"/>
+<file path="/InteligenciaArtificial/.classpath"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;controlador"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;principal"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.problema.canibales"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.problema.granjero"/>
+<file path="/InteligenciaArtificial/diagramaEstadosVista.jpg"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.problema.mono"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo"/>
+<file path="/InteligenciaArtificial/arquitecturaMVC.jpg"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.problema.ochopuzzle"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.problema"/>
+<file path="/InteligenciaArtificial/.umlproject"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;vista"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.problema.probprueba"/>
+<file path="/InteligenciaArtificial/arquitecturaMVCl.upd"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.laberinto"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.busqueda"/>
+<javaElement handleIdentifier="=InteligenciaArtificial/&lt;modelo.problema.problemaTesting"/>
+</selectedElements>
+</jardesc>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:StateDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="vista" metadata="uml2-1.0" initialized="true" tag="1000" key="323030363130303620496E74656C6967656E6369614172746966696369616C2F446965676F">
+  <children xsi:type="editmodel:StartEditModel" location="70,40" size="21,21">
+    <sourceConnections xsi:type="editmodel:TransitionEditModel" autoLocated="true" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.0/@children.1" label="//@children.0/@sourceConnections.0/@children.2" sourceEnd="//@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual" eventName="" eventArgument="" condition="" action="">
+      <children xsi:type="editmodel:StateEndEditModel" location="21,14" attachSource="true"/>
+      <children xsi:type="editmodel:StateEndEditModel" location="0,13"/>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:StateEditModel" targetConnections="//@children.0/@sourceConnections.0 //@children.2/@sourceConnections.0" location="170,70" size="116,71" itemName="sinLaberinto" content="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:TransitionEditModel" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.0/@children.1" label="//@children.1/@sourceConnections.0/@children.2" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual" eventName="nuevo, cargar,leer" eventArgument="" condition="" action="">
+      <children xsi:type="editmodel:StateEndEditModel" location="115,17" attachSource="true"/>
+      <children xsi:type="editmodel:StateEndEditModel" location="0,17"/>
+      <children xsi:type="editmodel:WireLabelEditModel" name="nuevo, cargar,leer" size="89,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:TransitionEditModel" autoLocated="true" source="//@children.1" target="//@children.4" targetEnd="//@children.1/@sourceConnections.1/@children.1" label="//@children.1/@sourceConnections.1/@children.2" sourceEnd="//@children.1/@sourceConnections.1/@children.0" connectionRouterKind="Manual" eventName="cerrar, menuSalir" eventArgument="" condition="" action="">
+      <children xsi:type="editmodel:StateEndEditModel" location="0,60" attachSource="true"/>
+      <children xsi:type="editmodel:StateEndEditModel" location="21,5"/>
+      <children xsi:type="editmodel:WireLabelEditModel" name="cerrar, menuSalir" size="83,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:StateEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.3/@sourceConnections.0 //@children.3/@children.0/@children.0/@sourceConnections.0" location="400,70" size="191,71" itemName="conLaberinto" content="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:TransitionEditModel" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.0/@children.1" label="//@children.2/@sourceConnections.0/@children.2" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual" eventName="cerrar" eventArgument="" condition="" action="">
+      <children xsi:type="editmodel:StateEndEditModel" location="0,55" attachSource="true"/>
+      <children xsi:type="editmodel:StateEndEditModel" location="115,55"/>
+      <children xsi:type="editmodel:WireLabelEditModel" name="cerrar" size="30,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:TransitionEditModel" source="//@children.2" target="//@children.3/@children.0/@children.1" targetEnd="//@children.2/@sourceConnections.1/@children.1" label="//@children.2/@sourceConnections.1/@children.2" sourceEnd="//@children.2/@sourceConnections.1/@children.0" connectionRouterKind="Manual" eventName="iniciarGlobal" eventArgument="" condition="" action="">
+      <children xsi:type="editmodel:StateEndEditModel" location="148,71" attachSource="true"/>
+      <children xsi:type="editmodel:StateEndEditModel" location="110,0"/>
+      <children xsi:type="editmodel:WireLabelEditModel" name="iniciarGlobal" location="540,210" size="58,14" fontInfo="Arial-8-0" automaticRelocationAllowed="false" locationOnWireFromSource="6.287232579559731" distanceFromWire="42.11259558006989" anchorKind="MiddlePart"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:StateEditModel" location="90,220" size="586,261" itemName="ejecutando" content="">
+    <children xsi:type="editmodel:CompartmentEditModel" size="440,223">
+      <children xsi:type="editmodel:StateEditModel" targetConnections="//@children.3/@children.0/@children.1/@sourceConnections.0" location="29,14" size="152,71" itemName="terminadoGlobal" content="">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:TransitionEditModel" source="//@children.3/@children.0/@children.0" target="//@children.2" targetEnd="//@children.3/@children.0/@children.0/@sourceConnections.0/@children.1" label="//@children.3/@children.0/@children.0/@sourceConnections.0/@children.2" sourceEnd="//@children.3/@children.0/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual" eventName="ok" eventArgument="" condition="" action="">
+          <children xsi:type="editmodel:StateEndEditModel" location="145,0" attachSource="true"/>
+          <children xsi:type="editmodel:StateEndEditModel" location="0,64"/>
+          <children xsi:type="editmodel:WireLabelEditModel" name="ok" size="11,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+        </sourceConnections>
+      </children>
+      <children xsi:type="editmodel:StateEditModel" targetConnections="//@children.3/@children.0/@children.3/@sourceConnections.0 //@children.2/@sourceConnections.1 //@children.3/@children.0/@children.1/@sourceConnections.1 //@children.3/@children.0/@children.2/@sourceConnections.1" location="311,16" size="137,69" itemName="ejecutandoGlobal" content="">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:TransitionEditModel" autoLocated="true" source="//@children.3/@children.0/@children.1" target="//@children.3/@children.0/@children.0" targetEnd="//@children.3/@children.0/@children.1/@sourceConnections.0/@children.1" label="//@children.3/@children.0/@children.1/@sourceConnections.0/@children.2" sourceEnd="//@children.3/@children.0/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual" eventName="ejecutaPasoGlobal" eventArgument="" condition="" action="">
+          <children xsi:type="editmodel:StateEndEditModel" location="0,34" attachSource="true"/>
+          <children xsi:type="editmodel:StateEndEditModel" location="152,36"/>
+          <children xsi:type="editmodel:WireLabelEditModel" name="ejecutaPasoGlobal" size="89,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+        </sourceConnections>
+        <sourceConnections xsi:type="editmodel:TransitionEditModel" source="//@children.3/@children.0/@children.1" target="//@children.3/@children.0/@children.1" targetEnd="//@children.3/@children.0/@children.1/@sourceConnections.1/@children.1" label="//@children.3/@children.0/@children.1/@sourceConnections.1/@children.2" sourceEnd="//@children.3/@children.0/@children.1/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan" eventName="ejecutaPasoGlobal" eventArgument="" condition="" action="">
+          <children xsi:type="editmodel:StateEndEditModel" location="137,21" attachSource="true"/>
+          <children xsi:type="editmodel:StateEndEditModel" location="137,49"/>
+          <children xsi:type="editmodel:WireLabelEditModel" name="ejecutaPasoGlobal" size="89,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+        </sourceConnections>
+      </children>
+      <children xsi:type="editmodel:StateEditModel" targetConnections="//@children.3/@children.0/@children.2/@sourceConnections.2" location="310,154" size="129,69" itemName="ejecutandoLocal" content="">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:TransitionEditModel" autoLocated="true" source="//@children.3/@children.0/@children.2" target="//@children.3/@children.0/@children.3" targetEnd="//@children.3/@children.0/@children.2/@sourceConnections.0/@children.1" label="//@children.3/@children.0/@children.2/@sourceConnections.0/@children.2" sourceEnd="//@children.3/@children.0/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual" eventName="ejecutaPasoGlobal" eventArgument="" condition="" action="">
+          <children xsi:type="editmodel:StateEndEditModel" location="0,32" attachSource="true"/>
+          <children xsi:type="editmodel:StateEndEditModel" location="134,42"/>
+          <children xsi:type="editmodel:WireLabelEditModel" name="ejecutaPasoGlobal" size="89,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+        </sourceConnections>
+        <sourceConnections xsi:type="editmodel:TransitionEditModel" autoLocated="true" source="//@children.3/@children.0/@children.2" target="//@children.3/@children.0/@children.1" targetEnd="//@children.3/@children.0/@children.2/@sourceConnections.1/@children.1" label="//@children.3/@children.0/@children.2/@sourceConnections.1/@children.2" sourceEnd="//@children.3/@children.0/@children.2/@sourceConnections.1/@children.0" connectionRouterKind="Manual" eventName="cierraLocal" eventArgument="" condition="" action="">
+          <children xsi:type="editmodel:StateEndEditModel" location="64,0" attachSource="true"/>
+          <children xsi:type="editmodel:StateEndEditModel" location="63,69"/>
+          <children xsi:type="editmodel:WireLabelEditModel" name="cierraLocal" location="471,346" size="54,14" fontInfo="Arial-8-0" automaticRelocationAllowed="false" locationOnWireFromSource="9.0" distanceFromWire="-31.0" anchorKind="MiddlePart"/>
+        </sourceConnections>
+        <sourceConnections xsi:type="editmodel:TransitionEditModel" source="//@children.3/@children.0/@children.2" target="//@children.3/@children.0/@children.2" targetEnd="//@children.3/@children.0/@children.2/@sourceConnections.2/@children.1" label="//@children.3/@children.0/@children.2/@sourceConnections.2/@children.2" sourceEnd="//@children.3/@children.0/@children.2/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan" eventName="ejecutaPasoLocal" eventArgument="" condition="" action="">
+          <children xsi:type="editmodel:StateEndEditModel" location="129,24" attachSource="true"/>
+          <children xsi:type="editmodel:StateEndEditModel" location="129,47"/>
+          <children xsi:type="editmodel:WireLabelEditModel" name="ejecutaPasoLocal" size="85,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+        </sourceConnections>
+      </children>
+      <children xsi:type="editmodel:StateEditModel" targetConnections="//@children.3/@children.0/@children.2/@sourceConnections.0" location="39,144" size="134,74" itemName="terminadoLocal" content="">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:TransitionEditModel" autoLocated="true" source="//@children.3/@children.0/@children.3" target="//@children.3/@children.0/@children.1" targetEnd="//@children.3/@children.0/@children.3/@sourceConnections.0/@children.1" label="//@children.3/@children.0/@children.3/@sourceConnections.0/@children.2" sourceEnd="//@children.3/@children.0/@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manual" eventName="okButton" eventArgument="" condition="" action="">
+          <children xsi:type="editmodel:StateEndEditModel" location="134,5" attachSource="true"/>
+          <children xsi:type="editmodel:StateEndEditModel" location="0,67"/>
+          <children xsi:type="editmodel:WireLabelEditModel" name="okButton" size="42,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+        </sourceConnections>
+      </children>
+    </children>
+    <sourceConnections xsi:type="editmodel:TransitionEditModel" autoLocated="true" source="//@children.3" target="//@children.2" targetEnd="//@children.3/@sourceConnections.0/@children.1" label="//@children.3/@sourceConnections.0/@children.2" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manual" eventName="menuTerminar" eventArgument="" condition="" action="">
+      <children xsi:type="editmodel:StateEndEditModel" location="405,0" attachSource="true"/>
+      <children xsi:type="editmodel:StateEndEditModel" location="95,71"/>
+      <children xsi:type="editmodel:WireLabelEditModel" name="menuTerminar" size="68,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+    </sourceConnections>
+  </children>
+  <children xsi:type="editmodel:EndEditModel" targetConnections="//@children.1/@sourceConnections.1" location="70,160" size="21,21"/>
+  <diagramOptions xsi:type="options:StateDiagramOptions" level="0" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="pixel">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+</editmodel:StateDiagramEditModel>
