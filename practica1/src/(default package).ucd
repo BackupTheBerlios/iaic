@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="(default package)" foregroundRGB="255,255,255" id="{UMLID=_il3zoNWnEdyaDNbJOnqhQA,JavaID=}" metadata="uml2-1.0" initialized="true" scrolledY="233" tag="1000" key="323030373036323920494149432F676E7566656465" Shrink="true">
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@sourceConnections.1" name="Busqueda" location="50,230" size="102,40" id="{UMLID=_mrbcQNaCEdy4SanPjrNl9Q,JavaID=/Busqueda}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="problema" id="{UMLID=_0N5iwNaCEdy4SanPjrNl9Q,JavaID=/Problema@problema+/Busqueda@busqueda|/Problema#problema}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_11->T0NaCEdy4SanPjrNl9Q,JavaID=/Busqueda" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="287,210" size="120,26" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="102,20" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_122dkNaCEdy4SanPjrNl9Q,JavaID=/Problema@problema+/Busqueda@busqueda}" source="//@children.0" target="//@children.1" targetEnd="//@children.0/@sourceConnections.1/@children.2" label="//@children.0/@sourceConnections.1/@children.0" sourceEnd="//@children.0/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="287,243" size="0,13" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="busqueda" location="97,0" id="{UMLID=_GGsLUNWpEdyaDNbJOnqhQA,JavaID=/Problema@problema+/Busqueda@busqueda|/Busqueda#busqueda}" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.0/@sourceConnections.1/@children.1/@children.2" orderingLabel="//@children.0/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" scopeKind="1" navigable="true" changeability="2" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="{order}" location="110,197" size="30,13" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="154,210" size="4,13" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="+ busqueda" location="84,210" size="56,13" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="problema" location="5,40" id="{UMLID=_0N5iwNaCEdy4SanPjrNl9Q,JavaID=/Problema@problema+/Busqueda@busqueda|/Problema#problema}" multiplicityLabel="//@children.0/@sourceConnections.1/@children.2/@children.1" roleLabel="//@children.0/@sourceConnections.1/@children.2/@children.2" orderingLabel="//@children.0/@sourceConnections.1/@children.2/@children.0" scopeKind="1" navigable="true" changeability="2" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="{order}" location="414,277" size="30,13" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="382,277" size="18,13" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="+ problema" location="414,290" size="52,13" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.0/@sourceConnections.0 //@children.0/@sourceConnections.1 //@children.2/@sourceConnections.1" name="Problema" location="402,230" size="100,40" id="{UMLID=_oLbG4NWnEdyaDNbJOnqhQA,JavaID=/Problema}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="busqueda" id="{UMLID=_GGsLUNWpEdyaDNbJOnqhQA,JavaID=/Problema@problema+/Busqueda@busqueda|/Busqueda#busqueda}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="puerta" id="{UMLID=_JVBvkNWpEdyaDNbJOnqhQA,JavaID=/Problema@problema+/Puerta@puerta|/Puerta#puerta}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_JgvQUNWpEdyaDNbJOnqhQA,JavaID=/Problema->/Puerta}" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="347,331" size="120,26" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,34" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="80,15"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_o4ZDEtaCEdy4SanPjrNl9Q,JavaID=/Problema->/Busqueda}" source="//@children.1" target="//@children.0" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="222,224" size="120,26" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,20" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="102,20"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_JU_TUNWpEdyaDNbJOnqhQA,JavaID=/Problema@problema+/Puerta@puerta}" source="//@children.1" target="//@children.2" targetEnd="//@children.1/@sourceConnections.2/@children.2" label="//@children.1/@sourceConnections.2/@children.0" sourceEnd="//@children.1/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="309,217" size="0,13" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="problema" id="{UMLID=_JVAhcNWpEdyaDNbJOnqhQA,JavaID=/Problema@problema+/Puerta@puerta|/Problema#problema}" attachSource="true" multiplicityLabel="//@children.1/@sourceConnections.2/@children.1/@children.0" roleLabel="//@children.1/@sourceConnections.2/@children.1/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="389,237" size="6,13" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- problema" location="409,210" size="49,13" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="puerta" location="14,0" id="{UMLID=_JVBvkNWpEdyaDNbJOnqhQA,JavaID=/Problema@problema+/Puerta@puerta|/Puerta#puerta}" multiplicityLabel="//@children.1/@sourceConnections.2/@children.2/@children.1" roleLabel="//@children.1/@sourceConnections.2/@children.2/@children.2" orderingLabel="//@children.1/@sourceConnections.2/@children.2/@children.0" scopeKind="1" navigable="true" changeability="2" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="{order}" location="169,377" size="30,13" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="213,390" size="6,13" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="+ puerta" location="160,390" size="39,13" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0 //@children.1/@sourceConnections.2 //@children.3/@sourceConnections.1" name="Puerta" location="192,410" size="80,27" stereotype="" id="{UMLID=_fJZ3UNWoEdyaDNbJOnqhQA,JavaID=/Puerta}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="habitacion" id="{UMLID=_gttisNWoEdyaDNbJOnqhQA,JavaID=/Puerta@puerta+/Habitacion@habitacion|/Habitacion#habitacion}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="problema" id="{UMLID=_JVAhcNWpEdyaDNbJOnqhQA,JavaID=/Problema@problema+/Puerta@puerta|/Problema#problema}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="108,92">
+      <children xsi:type="editmodel:MethodEditModel" name="getHabitacion" id="{UMLID=_g5nQsNWoEdyaDNbJOnqhQA,JavaID=/Puerta#getHabitacion()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setHabitacion" id="{UMLID=_g5qUANWoEdyaDNbJOnqhQA,JavaID=/Puerta#setHabitacion(LHabitacion;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getProblema" id="{UMLID=_JYGRsNWpEdyaDNbJOnqhQA,JavaID=/Puerta#getProblema()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setProblema" id="{UMLID=_JXd_kNWpEdyaDNbJOnqhQA,JavaID=/Puerta#setProblema(LProblema;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_g5waoNWoEdyaDNbJOnqhQA,JavaID=/Puerta->/Habitacion}" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="334,259" size="120,26" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="50,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="5,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_JZqX8dWpEdyaDNbJOnqhQA,JavaID=/Puerta->/Problema}" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="272,322" size="120,26" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="70,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,30"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_gtrGcNWoEdyaDNbJOnqhQA,JavaID=/Puerta@puerta+/Habitacion@habitacion}" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.2/@children.2" label="//@children.2/@sourceConnections.2/@children.0" sourceEnd="//@children.2/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="409,422" size="0,13" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="puerta" location="80,25" id="{UMLID=_gts7oNWoEdyaDNbJOnqhQA,JavaID=/Puerta@puerta+/Habitacion@habitacion|/Puerta#puerta}" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.2/@children.1/@children.0" roleLabel="//@children.2/@sourceConnections.2/@children.1/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="279,415" size="4,13" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- puerta" location="279,442" size="36,13" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="habitacion" location="5,27" id="{UMLID=_gttisNWoEdyaDNbJOnqhQA,JavaID=/Puerta@puerta+/Habitacion@habitacion|/Habitacion#habitacion}" multiplicityLabel="//@children.2/@sourceConnections.2/@children.2/@children.0" roleLabel="//@children.2/@sourceConnections.2/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="523,354" size="6,13" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- habitacion" location="543,354" size="54,13" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0 //@children.2/@sourceConnections.2" name="Habitacion" location="531,320" size="106,27" stereotype="" id="{UMLID=_AxNw4NWoEdyaDNbJOnqhQA,JavaID=/Habitacion}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="puerta" id="{UMLID=_gts7oNWoEdyaDNbJOnqhQA,JavaID=/Puerta@puerta+/Habitacion@habitacion|/Puerta#puerta}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="cubo" id="{UMLID=_UrrUMNWoEdyaDNbJOnqhQA,JavaID=/Habitacion@_habitacion+/Cubo@cubo+@|/Cubo#cubo}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="125,299">
+      <children xsi:type="editmodel:MethodEditModel" name="getPuerta" id="{UMLID=_gwslQNWoEdyaDNbJOnqhQA,JavaID=/Habitacion#getPuerta()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="puertaIterator" id="{UMLID=_gxAuUNWoEdyaDNbJOnqhQA,JavaID=/Habitacion#puertaIterator()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isPuertaEmpty" id="{UMLID=_gwph8dWoEdyaDNbJOnqhQA,JavaID=/Habitacion#isPuertaEmpty()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="containsPuerta" id="{UMLID=_gw4LcNWoEdyaDNbJOnqhQA,JavaID=/Habitacion#containsPuerta(LPuerta;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="containsAllPuerta" id="{UMLID=_gw1IINWoEdyaDNbJOnqhQA,JavaID=/Habitacion#containsAllPuerta(LPuerta;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="puertaSize" id="{UMLID=_gw9D8NWoEdyaDNbJOnqhQA,JavaID=/Habitacion#puertaSize()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="puertaToArray" id="{UMLID=_gwl3kNWoEdyaDNbJOnqhQA,JavaID=/Habitacion#puertaToArray()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addPuerta" id="{UMLID=_gwd7wNWoEdyaDNbJOnqhQA,JavaID=/Habitacion#addPuerta(LPuerta;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setPuerta" id="{UMLID=_nIL2UNWpEdyaDNbJOnqhQA,JavaID=/Habitacion#setPuerta(LPuerta;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removePuerta" id="{UMLID=_gwvokNWoEdyaDNbJOnqhQA,JavaID=/Habitacion#removePuerta(LPuerta;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="clearPuerta" id="{UMLID=_gwz6ANWoEdyaDNbJOnqhQA,JavaID=/Habitacion#clearPuerta()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getCubo" id="{UMLID=_U3EE0NWoEdyaDNbJOnqhQA,JavaID=/Habitacion#getCubo()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setCubo" id="{UMLID=_U3HIINWoEdyaDNbJOnqhQA,JavaID=/Habitacion#setCubo(LCubo;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_U3NOwNWoEdyaDNbJOnqhQA,JavaID=/Habitacion->/Cubo}" source="//@children.3" target="//@children.4" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="466,311" size="120,26" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,17" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="63,0"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:DependencyEditModel" size="2,1" autoLocated="true" id="{UMLID=_gyYnUdWoEdyaDNbJOnqhQA,JavaID=/Habitacion->/Puerta}" source="//@children.3" target="//@children.2" targetEnd="//@children.3/@sourceConnections.1/@children.2" label="//@children.3/@sourceConnections.1/@children.0" sourceEnd="//@children.3/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" location="342,311" size="120,26" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="0,17" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="70,0"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0" name="Cubo" location="448,410" size="73,27" stereotype="" id="{UMLID=_u7JuQNWnEdyaDNbJOnqhQA,JavaID=cubo/Cubo}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel" size="82,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="_dimension" id="{UMLID=_Y5F4UNaDEdy4SanPjrNl9Q,JavaID=/Cubo#_dimension}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,54">
+      <children xsi:type="editmodel:MethodEditModel" name="get_dimension" id="{UMLID=_Y_QKsNaDEdy4SanPjrNl9Q,JavaID=/Cubo#get_dimension()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="get_habitacion" id="{UMLID=_UvGboNWoEdyaDNbJOnqhQA,JavaID=/Cubo#get_habitacion(III)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="set_habitacion" id="{UMLID=_UvLUINWoEdyaDNbJOnqhQA,JavaID=/Cubo#set_habitacion(IIILHabitacion;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" name="Ciego" location="232,320" size="82,40" id="{UMLID=_41UxANWqEdyaDNbJOnqhQA,JavaID=algoritmo/Ciego}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Anchura" location="50,410" size="92,27" stereotype="" id="{UMLID=_TAoAQNWrEdyaDNbJOnqhQA,JavaID=/Anchura}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="CosteUniforme" location="50,320" size="132,27" stereotype="" id="{UMLID=_3ECkINWrEdyaDNbJOnqhQA,JavaID=/CosteUniforme}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Profundidad" location="364,320" size="117,27" stereotype="" id="{UMLID=_iYKyANWrEdyaDNbJOnqhQA,JavaID=/Profundidad}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ProfundidadLimitada" location="280,140" size="171,27" stereotype="" id="{UMLID=_vsJJgNWrEdyaDNbJOnqhQA,JavaID=/ProfundidadLimitada}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ProfundizacionIterativa" location="588,50" size="184,27" stereotype="" id="{UMLID=_8Y5wANWrEdyaDNbJOnqhQA,JavaID=/ProfundizacionIterativa}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" name="Heuristico" location="721,140" size="103,40" id="{UMLID=_DyFZgNWrEdyaDNbJOnqhQA,JavaID=/Heuristico}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="A" location="571,410" size="49,27" stereotype="" id="{UMLID=_29-tgNWtEdyaDNbJOnqhQA,JavaID=/A}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" name="PrimeroMejor" location="413,50" size="125,40" id="{UMLID=_o7wI4NWtEdyaDNbJOnqhQA,JavaID=/PrimeroMejor}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" name="ConAdversario" location="50,50" size="132,40" id="{UMLID=_CSrU4NWuEdyaDNbJOnqhQA,JavaID=/ConAdversario}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" name="MejoraIterativa" location="232,50" size="131,40" id="{UMLID=_Xp5KENWuEdyaDNbJOnqhQA,JavaID=/MejoraIterativa}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="EnfriamientoSimulado" location="50,140" size="180,27" stereotype="" id="{UMLID=_9iQdYNWuEdyaDNbJOnqhQA,JavaID=/EnfriamientoSimulado}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="EscaladaSimple" location="552,230" size="140,27" stereotype="" id="{UMLID=_ecWVUNWuEdyaDNbJOnqhQA,JavaID=/EscaladaSimple}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MaximaPendiente" location="202,230" size="150,27" stereotype="" id="{UMLID=_4Yu-0NWuEdyaDNbJOnqhQA,JavaID=/MaximaPendiente}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Minimax" location="831,320" size="93,27" stereotype="" id="{UMLID=_sxL-0NWsEdyaDNbJOnqhQA,JavaID=/Minimax}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="PodaAlphaBeta" location="742,230" size="135,27" stereotype="" id="{UMLID=_yGa-INWsEdyaDNbJOnqhQA,JavaID=/PodaAlphaBeta}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Aestrella" location="687,320" size="94,27" stereotype="" id="{UMLID=_zDvFgNWtEdyaDNbJOnqhQA,JavaID=/Aestrella}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Voraz" location="322,410" size="76,27" stereotype="" id="{UMLID=_s5PSINWtEdyaDNbJOnqhQA,JavaID=/Voraz}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MisionerosCanibales" location="501,140" size="170,27" stereotype="" id="{UMLID=__SVtMNWpEdyaDNbJOnqhQA,JavaID=/MisionerosCanibales}" shortShow="true">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" level="-1" showScope="InPackage" properties="wireOptions=7"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="pixel">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedMethods="true" showPublicMethods="true" showPackageMethods="true" showPrivateMethods="true" showStaticMethods="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showMethods="true" showAttributes="true" showLiterlas="true" showInnerEntity="true"/>
+</editmodel:ClassDiagramEditModel>

@@ -14,7 +14,7 @@ public interface Problema {
 	/**
  *
  */
-public Collection<Algoritmo> algoritmo = null;
+ Collection<Busqueda> busqueda = null;
 
 /*
  * (non-javadoc)
