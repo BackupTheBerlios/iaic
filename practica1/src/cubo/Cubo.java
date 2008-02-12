@@ -132,21 +132,27 @@ System.out.println("Abrimos la puerta "+puerta);
 		int x = (num % 10);
 		int y = (num/10) % 10;
 		int z = (num/100) % 10;
-		int h = 0;
+		int h = 0;//1; //FIXME: Antes era 0
+/*
+
 //System.out.println("x: "+x+" y: "+y+" z: "+z);
-		h+= x % (_longitud-1);
+		h*= x % (_longitud-1);
 //System.out.println("hx1: "+h);
-		h+= y % (_longitud-1);
+		h*= y % (_longitud-1);
 //System.out.println("hy1: "+h);
-		h+= z % (_longitud-1);	
+		h*= z % (_longitud-1);	
 //System.out.println("hz1: "+h);
 
-		h+= ((_longitud-1-x) % (_longitud-1));
+		h*= ((_longitud-1-x) % (_longitud-1));
 //System.out.println("hx2: "+h);
-		h+= ((_longitud-1-y) % (_longitud-1));
+		h*= ((_longitud-1-y) % (_longitud-1));
 //System.out.println("hy2: "+h);
-		h+= ((_longitud-1-z) % (_longitud-1));
+		h*= ((_longitud-1-z) % (_longitud-1));
 //System.out.println("hz2: "+h);		
+*/
+		h+= Math.min ((x % (_longitud-1)), ((_longitud-1-x) % (_longitud-1)));
+		h+= Math.min ((y % (_longitud-1)),((_longitud-1-y) % (_longitud-1)));
+		h+= Math.min ((z % (_longitud-1)), ((_longitud-1-z) % (_longitud-1))) ;	
 		return h;
 	//	return Math.abs(((num % 10)+((num/10) % 10)+((num/100) % 10)) - 3*(_longitud/2));
 	}
@@ -160,14 +166,25 @@ System.out.println("Abrimos la puerta "+puerta);
 
 	public static void main (String args[]){
 	try{
-		Cubo cubo = new Cubo(Integer.parseInt(args[0]));
+		int longitud_cubo = Integer.parseInt(args[0]);
+		Cubo cubo = new Cubo(longitud_cubo);
+/*
+		for (int i = 0; i<longitud_cubo; i++){
+			for (int j = 0; j < longitud_cubo; j++){
+				for (int k = 0; k < longitud_cubo; k++)
+					System.out.print(cubo.H(i*100+j*10+k) + " ");
+				System.out.println();
+			}
+			System.out.println();
+		}
+*/
 
 
 System.out.println("Empezamos en: " +cubo.getEstado().getNumHabitacion());
 		while (!cubo.isExit()){
 			int direcc = cubo.getEstado().getNumHabitacion();
 //			int dir2 = direcc;
-			for (int direccion = 0; direccion<6; direccion++){
+			for (int direccion = (int)(Math.random()*6); direccion<6; direccion++){
 				int dirnueva = cubo.irHacia(direccion,cubo.getEstado().getNumHabitacion());
 	System.out.println(direccion+": "+cubo.H(dirnueva)+" vs "+cubo.H());
 
@@ -177,16 +194,18 @@ System.out.println("Empezamos en: " +cubo.getEstado().getNumHabitacion());
 	System.out.println("vamos hacia: "+direccion);
 
 					cubo.setEstado(cubo.irHacia(direccion));
-	System.out.println("Ahora estamos en "+cubo.getEstado().getNumHabitacion());}
-
-				
-				//	if (direccion%2 == 0) direccion++;
+	System.out.println("Ahora estamos en "+cubo.getEstado().getNumHabitacion());
+					if ((direccion%2)==0) direccion --;
+	//				direccion--;
+				}
 
 			}
-		if (direcc == cubo.getEstado().getNumHabitacion())
-			break;
+//		if (direcc == cubo.getEstado().getNumHabitacion())
+//			break;
 		}
 System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
+
+
 
 		}catch (Exception e){
 		System.out.println("Ha ocurrido una excepcion");
