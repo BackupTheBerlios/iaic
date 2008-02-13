@@ -1,12 +1,13 @@
 package cubo;
-import Problema;
+//import  EstadoCubo;
+//import Problema;
 
 //import java.util.ArrayList;
 /**
  * @author gnufede
  *
  */
-public class Cubo implements Problema {
+public class Cubo{// implements Problema {
 
 	/*
 	 * (non-javadoc)
@@ -168,7 +169,7 @@ System.out.println("Abrimos la puerta "+puerta);
 	try{
 		int longitud_cubo = Integer.parseInt(args[0]);
 		Cubo cubo = new Cubo(longitud_cubo);
-/*
+
 		for (int i = 0; i<longitud_cubo; i++){
 			for (int j = 0; j < longitud_cubo; j++){
 				for (int k = 0; k < longitud_cubo; k++)
@@ -177,9 +178,9 @@ System.out.println("Abrimos la puerta "+puerta);
 			}
 			System.out.println();
 		}
-*/
 
 
+/*
 System.out.println("Empezamos en: " +cubo.getEstado().getNumHabitacion());
 		while (!cubo.isExit()){
 			int direcc = cubo.getEstado().getNumHabitacion();
@@ -206,7 +207,7 @@ System.out.println("Empezamos en: " +cubo.getEstado().getNumHabitacion());
 System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 
 
-
+*/
 		}catch (Exception e){
 		System.out.println("Ha ocurrido una excepcion");
 		e.printStackTrace();
