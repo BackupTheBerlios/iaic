@@ -1,5 +1,5 @@
 package algoritmo;
-import Busqueda;
+import problema.Busqueda;
 
 /**
  * 

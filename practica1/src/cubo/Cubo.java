@@ -1,6 +1,6 @@
 package cubo;
 //import  EstadoCubo;
-//import Problema;
+//import problema.Problema;
 
 //import java.util.ArrayList;
 /**
