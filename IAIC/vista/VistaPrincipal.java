@@ -33,13 +33,13 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private static final long serialVersionUID = 441754492724484437L;
 	private JPanel principalContentPane = null;
 	private JMenuBar menu = null;
-	private JMenu laberintoMenu = null;
+	private JMenu cuboMenu = null;
 	private JMenuItem nuevoMenuItem = null;
 	private JMenuItem cargarMenuItem = null;
 	private JMenuItem salirMenuItem = null;
 	private JMenuItem guardarMenuItem = null;
-	private JLabel laberintoDatosLabel = null;
-	private JTextArea datosLaberintoTextArea = null;
+	private JLabel cuboDatosLabel = null;
+	private JTextArea datosCuboTextArea = null;
 	private JFileChooser archivoFileChooser = null;
 	private JLabel busquedaGlobalLabel = null;
 	private JTextArea busquedaGlobalTextArea = null;
@@ -51,7 +51,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private JButton pasoGlobalButton = null;
 	private JSlider globalSlider = null;
 	private JScrollPane globalScrollPane = null;
-	private JScrollPane laberintoScrollPane = null;
+	private JScrollPane cuboScrollPane = null;
 	private JScrollPane localScrollPane = null;
 	private JSlider localSlider = null;
 	private DialogoNuevo dialogoNuevo = null;
@@ -74,10 +74,10 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 		this.setJMenuBar(getMenu());
 		this.setContentPane(getPrincipalContentPane());
-		this.setTitle("Inteligencia Artificial - Cubo");
+		this.setTitle("Inteligencia Artificial - Micromundo cúbico");
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowOpened(java.awt.event.WindowEvent e) {
-				estado.ponSinLaberinto();
+				estado.ponSinCubo();
 			}
 		});
 	}
@@ -90,17 +90,17 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private JPanel getPrincipalContentPane() {
 		if (principalContentPane == null) {
 			busquedaGlobalLabel = new JLabel();
-			busquedaGlobalLabel.setText("Búsqueda en el Cubo");
-			busquedaGlobalLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD, 24));  // | java.awt.Font.ITALIC
+			busquedaGlobalLabel.setText("Búsqueda Global");
+			busquedaGlobalLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD, 24)); // | java.awt.Font.ITALIC
 			busquedaLocalLabel = new JLabel();
-			busquedaLocalLabel.setText("Solucionando Problema para abrir puerta");
+			busquedaLocalLabel.setText("Búsqueda Local");
 			busquedaLocalLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD, 24));
-			laberintoDatosLabel = new JLabel();
-			laberintoDatosLabel.setText("Datos del Cubo");
-			laberintoDatosLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD, 24));
+			cuboDatosLabel = new JLabel();
+			cuboDatosLabel.setText("Datos del Cubo");
+			cuboDatosLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD, 24)); // | java.awt.Font.ITALIC
 			principalContentPane = new JPanel();
 			principalContentPane.setLayout(new BoxLayout(getPrincipalContentPane(), BoxLayout.Y_AXIS));
-			principalContentPane.add(getLaberintoPanel(), null);
+			principalContentPane.add(getCuboPanel(), null);
 			principalContentPane.add(getGlobalPanel(), null);
 			principalContentPane.add(getLocalPanel(), null);
 		}
@@ -122,22 +122,23 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	}
 
 	/**
-	 * This method initializes CuboMenu	
+	 * This method initializes laberintoMenu	
 	 * @return  javax.swing.JMenu
+	 * @uml.property  name="laberintoMenu"
 	 */
 	private JMenu getCuboMenu() {
-		if (laberintoMenu == null) {
-			laberintoMenu = new JMenu();
-			laberintoMenu.setText("Cubo");
-			laberintoMenu.add(getNuevoMenuItem());
-			laberintoMenu.add(getGuardarMenuItem());
-			laberintoMenu.add(getCargarMenuItem());
-			laberintoMenu.add(getAbrirTextoMenuItem());
-			laberintoMenu.add(getGuardarTextoMenuItem());
-			laberintoMenu.add(getCerrarMenuItem());
-			laberintoMenu.add(getSalirMenuItem());
+		if (cuboMenu == null) {
+			cuboMenu = new JMenu();
+			cuboMenu.setText("Cubo");
+			cuboMenu.add(getNuevoMenuItem());
+			cuboMenu.add(getGuardarMenuItem());
+			cuboMenu.add(getCargarMenuItem());
+			cuboMenu.add(getAbrirTextoMenuItem());
+			cuboMenu.add(getGuardarTextoMenuItem());
+			cuboMenu.add(getCerrarMenuItem());
+			cuboMenu.add(getSalirMenuItem());
 		}
-		return laberintoMenu;
+		return cuboMenu;
 	}
 
 	/**
@@ -276,12 +277,12 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	 * @return  javax.swing.JTextArea
 	 * @uml.property  name="datosLaberintoTextArea"
 	 */
-	private JTextArea getDatosLaberintoTextArea() {
-		if (datosLaberintoTextArea == null) {
-			datosLaberintoTextArea = new JTextArea();
-			datosLaberintoTextArea.setEditable(false);
+	private JTextArea getDatosCuboTextArea() {
+		if (datosCuboTextArea == null) {
+			datosCuboTextArea = new JTextArea();
+			datosCuboTextArea.setEditable(false);
 		}
-		return datosLaberintoTextArea;
+		return datosCuboTextArea;
 	}
 
 	/**
@@ -441,11 +442,11 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	 * @uml.property  name="laberintoScrollPane"
 	 */
 	private JScrollPane getLaberintoScrollPane() {
-		if (laberintoScrollPane == null) {
-			laberintoScrollPane = new JScrollPane();
-			laberintoScrollPane.setViewportView(getDatosLaberintoTextArea());
+		if (cuboScrollPane == null) {
+			cuboScrollPane = new JScrollPane();
+			cuboScrollPane.setViewportView(getDatosCuboTextArea());
 		}
-		return laberintoScrollPane;
+		return cuboScrollPane;
 	}
 
 	/**
@@ -594,7 +595,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private JMenuItem terminarMenuItem = null;
 	private JMenuItem cerrarMenuItem = null;
 	private DialogoAlgoritmo dialogoAlgoritmo = null;
-	private JPanel laberintoPanel = null;
+	private JPanel cuboPanel = null;
 	private JPanel globalPanel = null;
 	private JPanel localPanel = null;
 	private JMenuItem algoritmoMenuItem = null;
@@ -615,7 +616,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		 * ejecución está desactivado, así como las opciones cerrar, guardar de Archivo.*/
 		public	Estado	miEstado;
 		
-		public void	ponSinLaberinto(){
+		public void	ponSinCubo(){
 			miEstado	=	Estado.Sin;
 			mostrarMenus(false, false);
 			ponPaneles(false,false,false,false,false);
@@ -623,7 +624,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		
 		/** Cuando hay un laberinto pero no hay ejecución, solo se ve el panel de laberinto.
 		 * Todas las opciones de Archivo están activadas y solo está desactivado Ejecución ->Terminar.*/
-		public void	ponConLaberinto(){
+		public void	ponConCubo(){
 			miEstado	=	Estado.Con;
 			mostrarMenus(true, false);
 			ponPaneles(true,false,false,false,false);
@@ -677,7 +678,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		}
 		
 		private void ponPaneles(boolean lab, boolean glo, boolean conglo, boolean loc, boolean conloc){
-			getLaberintoPanel().setVisible(lab);
+			getCuboPanel().setVisible(lab);
 			getGlobalPanel().setVisible(glo);
 			getControlGlobalPanel().setVisible(conglo);
 			getLocalPanel().setVisible(loc);
@@ -793,15 +794,15 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	 * @return  javax.swing.JPanel
 	 * @uml.property  name="laberintoPanel"
 	 */
-	private JPanel getLaberintoPanel() {
-		if (laberintoPanel == null) {
-			laberintoPanel = new JPanel();
-			laberintoPanel.setLayout(new BoxLayout(getLaberintoPanel(), BoxLayout.Y_AXIS));
-			laberintoPanel.setBorder(BorderFactory.createLineBorder(Color.red, 5));
-			laberintoPanel.add(laberintoDatosLabel, null);
-			laberintoPanel.add(getLaberintoScrollPane(), null);
+	private JPanel getCuboPanel() {
+		if (cuboPanel == null) {
+			cuboPanel = new JPanel();
+			cuboPanel.setLayout(new BoxLayout(getCuboPanel(), BoxLayout.Y_AXIS));
+			cuboPanel.setBorder(BorderFactory.createLineBorder(Color.red, 5));
+			cuboPanel.add(cuboDatosLabel, null);
+			cuboPanel.add(getLaberintoScrollPane(), null);
 		}
-		return laberintoPanel;
+		return cuboPanel;
 	}
 
 	/**
@@ -895,7 +896,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	}
 	
 	public void muestraLaberinto(String infoLab) {
-		getDatosLaberintoTextArea().setText(infoLab);
+		getDatosCuboTextArea().setText(infoLab);
 	}
 
 	public void muestraGlobal(String infoGlob) {
@@ -927,11 +928,11 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	}
 
 	public void atiendeConLaberinto() {
-		estado.ponConLaberinto();		
+		estado.ponConCubo();		
 	}
 
 	public void atiendeSinLaberinto() {
-		estado.ponSinLaberinto();
+		estado.ponSinCubo();
 	}
 
 
