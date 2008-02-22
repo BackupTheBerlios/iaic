@@ -74,7 +74,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		this.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 		this.setJMenuBar(getMenu());
 		this.setContentPane(getPrincipalContentPane());
-		this.setTitle("Inteligencia Artificial - Laberinto");
+		this.setTitle("Inteligencia Artificial - Cubo");
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowOpened(java.awt.event.WindowEvent e) {
 				estado.ponSinLaberinto();
@@ -90,14 +90,14 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private JPanel getPrincipalContentPane() {
 		if (principalContentPane == null) {
 			busquedaGlobalLabel = new JLabel();
-			busquedaGlobalLabel.setText("Búsqueda Global");
-			busquedaGlobalLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD | java.awt.Font.ITALIC, 24));
+			busquedaGlobalLabel.setText("Búsqueda en el Cubo");
+			busquedaGlobalLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD, 24));  // | java.awt.Font.ITALIC
 			busquedaLocalLabel = new JLabel();
-			busquedaLocalLabel.setText("Búsqueda Local");
-			busquedaLocalLabel.setFont(new java.awt.Font("Comic Sans MS", java.awt.Font.BOLD, 24));
+			busquedaLocalLabel.setText("Solucionando Problema para abrir puerta");
+			busquedaLocalLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD, 24));
 			laberintoDatosLabel = new JLabel();
-			laberintoDatosLabel.setText("Datos del laberinto");
-			laberintoDatosLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD | java.awt.Font.ITALIC, 24));
+			laberintoDatosLabel.setText("Datos del Cubo");
+			laberintoDatosLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.BOLD, 24));
 			principalContentPane = new JPanel();
 			principalContentPane.setLayout(new BoxLayout(getPrincipalContentPane(), BoxLayout.Y_AXIS));
 			principalContentPane.add(getLaberintoPanel(), null);
@@ -115,21 +115,20 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private JMenuBar getMenu() {
 		if (menu == null) {
 			menu = new JMenuBar();
-			menu.add(getLaberintoMenu());
+			menu.add(getCuboMenu());
 			menu.add(getEjecucionMenu());
 		}
 		return menu;
 	}
 
 	/**
-	 * This method initializes laberintoMenu	
+	 * This method initializes CuboMenu	
 	 * @return  javax.swing.JMenu
-	 * @uml.property  name="laberintoMenu"
 	 */
-	private JMenu getLaberintoMenu() {
+	private JMenu getCuboMenu() {
 		if (laberintoMenu == null) {
 			laberintoMenu = new JMenu();
-			laberintoMenu.setText("Laberinto");
+			laberintoMenu.setText("Cubo");
 			laberintoMenu.add(getNuevoMenuItem());
 			laberintoMenu.add(getGuardarMenuItem());
 			laberintoMenu.add(getCargarMenuItem());
@@ -149,7 +148,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private JMenuItem getNuevoMenuItem() {
 		if (nuevoMenuItem == null) {
 			nuevoMenuItem = new JMenuItem();
-			nuevoMenuItem.setText("Nuevo Laberinto");
+			nuevoMenuItem.setText("Nuevo Cubo");
 			nuevoMenuItem.setMnemonic(java.awt.event.KeyEvent.VK_N);
 			nuevoMenuItem.addActionListener(new java.awt.event.ActionListener() {   
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -180,7 +179,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private JMenuItem getCargarMenuItem() {
 		if (cargarMenuItem == null) {
 			cargarMenuItem = new JMenuItem();
-			cargarMenuItem.setText("Abrir Laberinto");
+			cargarMenuItem.setText("Abrir Cubo");
 			cargarMenuItem.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					cargarBinarioArchivo();
@@ -239,7 +238,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private JMenuItem getGuardarMenuItem() {
 		if (guardarMenuItem == null) {
 			guardarMenuItem = new JMenuItem();
-			guardarMenuItem.setText("Guardar Laberinto");
+			guardarMenuItem.setText("Guardar Cubo");
 			guardarMenuItem.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					guardarBinarioArchivo();
@@ -632,7 +631,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		
 		public void	ponEjecutandoGlobal(){
 			miEstado	=	Estado.ExecGlob;
-			getLaberintoMenu().setEnabled(false);
+			getCuboMenu().setEnabled(false);
 			mostrarMenus(true, true);
 			ponPaneles(true,true,true,false,false);
 			
@@ -696,7 +695,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 			getCargarMenuItem().setEnabled(! arch);
 
 			getIniciarMenuItem().setEnabled(!term);
-			getLaberintoMenu().setEnabled(! term);
+			getCuboMenu().setEnabled(! term);
 			getTerminarMenuItem().setEnabled(term);
 			
 
