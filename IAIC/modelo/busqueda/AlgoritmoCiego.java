@@ -23,12 +23,12 @@ abstract class AlgoritmoCiego extends AlgoritmoAbstracto {
 		vaciaAbiertos();
 		//metemos en abiertos el primer nodo
 		NodoCiego	inicial = new NodoCiego(problema.getInicial(), 0, null, null);
-		añadirAbierto(inicial);
+		agnadirAbierto(inicial);
 	}
 
 	public void avanzarPaso() {
 		if ((solucion == null) && (quedanAbiertos())){
-			NodoCiego nodoAct = sacaAbierto(); //recupera y eliminar el 1ºelemento de la lista
+			NodoCiego nodoAct = sacaAbierto(); //recupera y eliminar el 1ï¿½elemento de la lista
 			expandidos.add(nodoAct);
 			if (problema.esObjetivo(nodoAct.getEstado())) {
 				solucion = nodoAct;
@@ -42,7 +42,7 @@ abstract class AlgoritmoCiego extends AlgoritmoAbstracto {
 					if (! expandidos.contains(nue) && ! estaEnAbiertos(nue)){
 						cuentaNodo	++;
 						nue.setNumero(cuentaNodo);
-						añadirAbierto(nue);
+						agnadirAbierto(nue);
 					} 
 				}
 				fallido	=	! quedanAbiertos();
@@ -64,7 +64,7 @@ abstract class AlgoritmoCiego extends AlgoritmoAbstracto {
 	protected abstract void vaciaAbiertos();
 
 	protected	abstract	boolean		quedanAbiertos();
-	protected	abstract	void		añadirAbierto(NodoCiego n);
+	protected	abstract	void		agnadirAbierto(NodoCiego n);
 	protected	abstract	NodoCiego	sacaAbierto();
 	protected	abstract	boolean		estaEnAbiertos(NodoCiego n);
 }

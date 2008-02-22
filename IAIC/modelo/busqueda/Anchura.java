@@ -18,7 +18,7 @@ class Anchura extends AlgoritmoCiego{
 		return ! abiertos.isEmpty();
 	}
 
-	protected void añadirAbierto(NodoCiego n) {
+	protected void agnadirAbierto(NodoCiego n) {
 		abiertos.add(n);		
 	}
 

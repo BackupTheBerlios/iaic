@@ -15,7 +15,7 @@ public class ServidorProblemas implements IServidorProblemas {
 		Codigo[]  lista	=	Codigo.values();
 		int	indice	=	Math.abs(i) % lista.length;
 		Codigo	c	=	lista[indice];
-		if (c == Codigo.Caníbales){
+		if (c == Codigo.Canibales){
 			respuesta	=	new	 CanibalesProblema();
 		} else if (c == Codigo.Jarras){
 			respuesta	=	new	JarrasProblema();

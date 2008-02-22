@@ -20,7 +20,7 @@ import java.util.Stack;
 		return ! abiertos.isEmpty();
 	}
 
-	protected void añadirAbierto(NodoCiego n) {
+	protected void agnadirAbierto(NodoCiego n) {
 		abiertos.push(n);		
 	}
 
