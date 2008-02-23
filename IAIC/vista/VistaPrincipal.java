@@ -163,7 +163,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		}
 		return nuevoMenuItem;
 	}
-
+//TODO Cositas por corregir
 	protected void nuevoLaberinto() {
 		int habit = dialogoNuevo.getNumeroHabitaciones();
 		int puertas = dialogoNuevo.getNumeroPuertas();
