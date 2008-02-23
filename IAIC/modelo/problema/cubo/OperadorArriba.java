@@ -1,5 +1,24 @@
 package modelo.problema.cubo;
 
-public class OperadorArriba {
+import modelo.problema.cubo.EstadoCubo;
 
+public class OperadorArriba extends OperadorCubo{
+
+
+	public OperadorArriba(EstadoCubo inicial) {
+		super(inicial);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public String toString() {
+		return "Cruzamos la puerta de arriba";
+	}
+
+	@Override
+	protected void transitar() {
+		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
+		int num = c.getNumHabitacion();
+		EstadoFinal =  new EstadoCubo(num+100,c.abrirPuerta(num));
+
+	}
 }

@@ -1,7 +1,6 @@
 package modelo.problema.cubo;
 
-import cubo.EstadoCubo;
-import modelo.problema.granjero.GranjeroEstado;
+import modelo.problema.cubo.EstadoCubo;
 
 public class OperadorAtras extends OperadorCubo{
 
@@ -10,21 +9,16 @@ public class OperadorAtras extends OperadorCubo{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getNombre() {
+	public String toString() {
 		return "Cruzamos la puerta de atras";
 	}
 
 	@Override
 	protected void transitar() {
 		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
-		
-		int aux = 0;
-		if (aux == 0) aux = 1;
-		else aux = 0;
-		//EstadoFinal = new EstadoCubo(aux,c.getLO(),aux,c.getCO());
-		EstadoFinal =  new EstadoCubo(c.getNumHabitacion()-1,abrirPuerta(num-1+2000,puertas));
-		
-		
+		int num = c.getNumHabitacion();
+		EstadoFinal =  new EstadoCubo(num-1,c.abrirPuerta(num-1+2000));
+
 	}
 
 }

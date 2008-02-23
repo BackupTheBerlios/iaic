@@ -8,14 +8,12 @@ import modelo.problema.Operador;
 public abstract class OperadorCubo implements Operador  {
 
 	private EstadoCubo inicial;
-	protected	EstadoCubo	EstadoFinal;
+	protected EstadoCubo EstadoFinal;
 	
 	public int getCoste() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-
 
 	
 	public Estado getFinal() {
@@ -25,10 +23,9 @@ public abstract class OperadorCubo implements Operador  {
 		return EstadoFinal;
 	}
 	
-	protected	abstract	void	transitar();
+	protected abstract void transitar();
 
-	
-	
+
 	
 	public void setInicial(Estado e) {
 		inicial = (EstadoCubo) e;
@@ -40,7 +37,7 @@ public abstract class OperadorCubo implements Operador  {
 		return inicial;
 	}
 
-	public String getNombre() {
+	public String toString() {
 		// TODO Auto-generated method stub
 		return null;
 	}

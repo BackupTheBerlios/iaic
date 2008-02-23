@@ -1,8 +1,8 @@
 package modelo.problema.cubo;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
 import modelo.problema.Estado;
 import modelo.problema.Operador;
 
@@ -10,22 +10,25 @@ import modelo.problema.Operador;
 public class EstadoCubo  implements Estado{
 	private int longitudCubo;
 	private int numHabitacion;
-	private boolean[][][][] puertasAbiertas; 
+	private ArrayList<Puerta> puertasAbiertas;
+//	private boolean[][][][] puertasAbiertas; 
 
 
 	EstadoCubo(int longitud){
 		longitudCubo = longitud;
 		numHabitacion = (int)(Math.random()*longitud-1) *100 + (int)(Math.random()*longitud-1) * 10 + (int)(Math.random()*longitud-1);
-//numHabitacion = 1;
-		puertasAbiertas = new boolean [longitud][longitud][longitud][3];
-		for (int i = 0; i<longitud; i++)
+		puertasAbiertas = new ArrayList<Puerta>();
+		//boolean [longitud][longitud][longitud][3];
+/*		for (int i = 0; i<longitud; i++)
 			for (int j = 0; j<longitud; j++)
 				for (int k = 0; k<longitud; k++)
 					for (int l = 0; l<3; l++)
-						puertasAbiertas[i][j][k][l] = false;
+						puertasAbiertas.[i][j][k][l] = false;
+						
+*/
 	}
 
-	EstadoCubo(int numHabitacion, boolean[][][][] puertas){
+	EstadoCubo(int numHabitacion, ArrayList<Puerta> puertas){
 		this.numHabitacion = numHabitacion;
 		this.puertasAbiertas = puertas;
 	}
@@ -38,14 +41,20 @@ public class EstadoCubo  implements Estado{
 		numHabitacion = num;
 	}
 
-	public boolean[][][][] getPuertasAbiertas(){
+	public ArrayList<Puerta> getPuertasAbiertas(){
 		return this.puertasAbiertas;
 	}
 
-	public void setPuertasAbiertas(boolean[][][][] puertas){
+	public void setPuertasAbiertas(ArrayList<Puerta>  puertas){
 		this.puertasAbiertas = puertas;
 	}
 
+	public ArrayList<Puerta> abrirPuerta(int puerta){
+		ArrayList<Puerta> puertasAux = this.puertasAbiertas;
+		puertasAux.add(new Puerta(puerta));
+		return puertasAux;
+	}
+	
 	public int getHeuristica() {
 		int x = (numHabitacion % 10);
 		int y = (numHabitacion/10) % 10;
