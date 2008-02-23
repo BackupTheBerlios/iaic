@@ -53,7 +53,7 @@ abstract class AlgoritmoAbstracto implements IAlgoritmo {
 		if (haySolucion()){
 			informacion.append(imprimeSolucion());
 		} else if (fallido){
-			informacion.append("Lo sentimos, La b�squeda Ha Fracasado y no hay soluci�n\n");
+			informacion.append("Lo sentimos, La busqueda Ha Fracasado y no hay solucion\n");
 		}
 		return informacion.toString();
 	}
@@ -74,7 +74,7 @@ abstract class AlgoritmoAbstracto implements IAlgoritmo {
 			costeTotal	+=	ope.getCoste();
 			res.append(ope.toString()  + "\n");
 		}
-		res.append("Coste total de la soluci�n: " + costeTotal + "\n");
+		res.append("Coste total de la solucion: " + costeTotal + "\n");
 		return res;		
 	}
 	
