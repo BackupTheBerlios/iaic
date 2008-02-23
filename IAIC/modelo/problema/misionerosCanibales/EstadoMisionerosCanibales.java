@@ -80,7 +80,6 @@ public class EstadoMisionerosCanibales implements Estado{
 	}
 	//Lista de operadores aplicables a un estado
 	
-//	FIXME: No esta parametrizado!!!
 	public List<Operador> getOperadoresAplicables(){
 		List<Operador>	listaOperadores	=	new	LinkedList<Operador>();
 		/** Mover 1 Misionero
@@ -90,13 +89,13 @@ public class EstadoMisionerosCanibales implements Estado{
 		 *  Mover 1 Misionero y 1 Canibal
 		 * */
 		if (!peligro()){
-			if (((numMisioneros > 0) && (posicionBarca == 1)) || ((numMisioneros < 3) && (posicionBarca == 0)))
+			if (((numMisioneros > 0) && (posicionBarca == 1)) || ((numMisioneros < tamMaxMisioneros) && (posicionBarca == 0)))
 				listaOperadores.add(new OperadorMover1Misionero(this));
-			if (((numMisioneros > 1) && (posicionBarca == 1)) || ((numMisioneros < 2) && (posicionBarca == 0)))
+			if (((numMisioneros > 1) && (posicionBarca == 1)) || ((numMisioneros < (tamMaxMisioneros-1)) && (posicionBarca == 0)))
 				listaOperadores.add(new OperadorMover2Misioneros(this));
-			if (((numCanibales > 0) && (posicionBarca == 1)) || ((numCanibales < 3) && (posicionBarca == 0)))
+			if (((numCanibales > 0) && (posicionBarca == 1)) || ((numCanibales < tamMaxCanibales) && (posicionBarca == 0)))
 				listaOperadores.add(new OperadorMover1Canibal(this));
-			if (((numCanibales > 1) && (posicionBarca == 1)) || ((numCanibales < 2) && (posicionBarca == 0)))
+			if (((numCanibales > 1) && (posicionBarca == 1)) || ((numCanibales < (tamMaxCanibales-1)) && (posicionBarca == 0)))
 				listaOperadores.add(new OperadorMover2Canibales(this));
 			if (((numMisioneros > 0) && (numCanibales > 0) && (posicionBarca == 1)) || 
 					((numMisioneros < tamMaxMisioneros) && (numCanibales < tamMaxCanibales) && (posicionBarca == 0)))
