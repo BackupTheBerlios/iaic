@@ -151,7 +151,7 @@ class DialogoNuevo extends JDialog {
 	private JSlider getDimensionesSlider() {
 		if (dimensionesSlider == null) {
 			dimensionesSlider = new JSlider();
-			dimensionesSlider.setMaximum(9);
+			dimensionesSlider.setMaximum(10);
 			dimensionesSlider.setMinorTickSpacing(1);
 			dimensionesSlider.setPaintTicks(true);
 			dimensionesSlider.setPaintLabels(true);

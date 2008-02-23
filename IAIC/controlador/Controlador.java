@@ -47,11 +47,10 @@ public class Controlador implements OyenteVista, OyenteModelo {
 		this.vista = vista;
 	}
 
-	public void nuevoLaberinto(int habitaciones, int puertas, int ventanas,
-			int salidas) {
-		modelo.nuevoLaberinto(habitaciones,puertas,ventanas,salidas);
-		vista.muestraLaberinto(modelo.mostrarLaberinto());
-		vista.atiendeConLaberinto();
+	public void nuevoCubo(int habitaciones, int puertas) { //, int ventanas,int salidas
+		modelo.nuevoCubo(habitaciones,puertas); //,ventanas,salidas
+		vista.muestraCubo(modelo.mostrarCubo());
+		vista.atiendeConCubo();
 	}
 
 	public void guardarBinario(ObjectOutputStream output) throws Exception {
@@ -60,8 +59,8 @@ public class Controlador implements OyenteVista, OyenteModelo {
 
 	public void cargarBinario(ObjectInputStream input) throws Exception {
 		modelo.cargarBinario(input);
-		vista.muestraLaberinto(modelo.mostrarLaberinto());
-		vista.atiendeConLaberinto();
+		vista.muestraCubo(modelo.mostrarCubo());
+		vista.atiendeConCubo();
 	}
 
 	public void guardarTexto(FileWriter fil) throws Exception {
@@ -70,13 +69,13 @@ public class Controlador implements OyenteVista, OyenteModelo {
 
 	public void cargarTexto(FileReader input) throws Exception {
 		modelo.cargarTexto(input);
-		vista.muestraLaberinto(modelo.mostrarLaberinto());
-		vista.atiendeConLaberinto();
+		vista.muestraCubo(modelo.mostrarCubo());
+		vista.atiendeConCubo();
 	}
 
-	public void cerrarLaberinto() {
-		modelo.cerrarLaberinto();
-		vista.atiendeSinLaberinto();
+	public void cerrarCubo() {
+		modelo.cerrarCubo();
+		vista.atiendeSinCubo();
 	}
 
 	public void iniciarEjecucionGlobal() {
@@ -101,7 +100,7 @@ public class Controlador implements OyenteVista, OyenteModelo {
 
 	public void cierraGlobal() {
 		modelo.cierraGlobal();
-		vista.atiendeConLaberinto();
+		vista.atiendeConCubo();
 	}
 
 	public void cierraLocal() {

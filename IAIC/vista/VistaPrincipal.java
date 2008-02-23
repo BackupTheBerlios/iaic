@@ -894,7 +894,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		return okLocalButton;
 	}
 	
-	public void muestraLaberinto(String infoLab) {
+	public void muestraCubo(String infoLab) {
 		getDatosCuboTextArea().setText(infoLab);
 	}
 
@@ -926,11 +926,11 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		estado.ponTerminadaLocal();
 	}
 
-	public void atiendeConLaberinto() {
+	public void atiendeConCubo() {
 		estado.ponConCubo();		
 	}
 
-	public void atiendeSinLaberinto() {
+	public void atiendeSinCubo() {
 		estado.ponSinCubo();
 	}
 

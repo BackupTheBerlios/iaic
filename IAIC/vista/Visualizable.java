@@ -13,10 +13,10 @@ public interface Visualizable {
 	Object	escogeAlgoritmo();
 
 	/** Manda a la vista que se ponga en el modo sin laberinto*/
-	void	atiendeSinLaberinto();
+	void	atiendeSinCubo();
 	/** Manda al visualizable que se ponga en el modo de estar con 
 	 * un laberinto pero sin ejecución*/
-	void	atiendeConLaberinto();
+	void	atiendeConCubo();
 	
 	/** Manda al visualizable que se prepare pàra estar en modo
 	 * de ejecución Local.*/
@@ -36,7 +36,7 @@ public interface Visualizable {
 	
 	/** Manda   que imprima la información 	 del Laberinto.
 	 * @param infoLab la información que hay que imprimir*/
-	void	muestraLaberinto(String infoLab);
+	void	muestraCubo(String infoLab);
 	
 	/** Manda imprimir la información sobre la búsqueda global
 	 * @param infoGlob la información que hay que imprimir.*/

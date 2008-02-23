@@ -34,9 +34,9 @@ public interface OyenteVista {
 	 * al que se accede con un FileReader*/
 	public abstract void cargarTexto(FileReader input) throws Exception;
 
-	/** Manda cerrar un laberinto*//*
-	public abstract void cerrarLaberinto();
-*/
+	/** Manda cerrar un laberinto*/
+	public abstract void cerrarCubo();
+
 	/**Da la orden para que comience la ejecución de la búsqueda de nivel global.
 	 * El modelo luego debe avisar de que su estado ha cambiado*/
 	public abstract void iniciarEjecucionGlobal();

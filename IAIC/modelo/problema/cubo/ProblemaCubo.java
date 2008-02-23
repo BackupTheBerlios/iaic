@@ -261,19 +261,19 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	
 	public String toString (){
 		String cadena = "";
-		cadena = cadena + "TamaÃ±o: " + _longitud + "\n";
-		cadena = cadena + "Salidas: "+ "000,00"+(_longitud-1)+",0"+(_longitud-1)+"0,"+"0"+(_longitud-1)+""+(_longitud-1)+","+
+		cadena = cadena + "Tamaño: " + _longitud + "\n";
+		cadena = cadena + "Salidas: \n"+ "000,00"+(_longitud-1)+",0"+(_longitud-1)+"0,"+"0"+(_longitud-1)+""+(_longitud-1)+","+
 		(_longitud-1)+"00,"+(_longitud-1)+"0"+(_longitud-1)+","+(_longitud-1)+""+(_longitud-1)+"0,"+
 		(_longitud-1)+""+(_longitud-1)+""+(_longitud-1);
 		puertasCerradas.trimToSize();
-		cadena = cadena + "Puertas clausuradas: ";
+		cadena = cadena+ "\n" + "Puertas clausuradas: \n";
 		String aux = "";
 		for (Iterator<Puerta> iterator = puertasCerradas.iterator(); iterator.hasNext();) {
 			if (aux.length() > 0) aux = aux + ",";
 			Puerta puertaAux = (Puerta) iterator.next();
 			aux = aux + puertaAux.getNumeroPuerta();
 		}
-		cadena = cadena + aux;
+		cadena = cadena + aux + "\n";
 		return cadena;
 	}
 }

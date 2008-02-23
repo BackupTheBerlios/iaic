@@ -23,7 +23,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	private	ProblemaCubo	cubo;
 
 	public void nuevoCubo(int dim, int puertas) { //, int ventanas, int salidas
-		cubo.inicializa(dim,puertas); //FIXME: , probserver.dameNumeroProblemas()
+		cubo.inicializa(dim,puertas, probserver.dameNumeroProblemas()); //FIXME: 
 		//,ventanas, salidas
 	}
 
