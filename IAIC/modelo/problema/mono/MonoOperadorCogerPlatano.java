@@ -21,7 +21,7 @@ public class MonoOperadorCogerPlatano extends MonoOperador {
 	}
 
 	public String toString() {
-		return "El Mono coge el Pl�tano";
+		return "El Mono coge el Platano";
 	}
 
 }
