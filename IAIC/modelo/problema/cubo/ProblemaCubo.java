@@ -124,7 +124,10 @@ System.out.println("Abrimos la puerta "+puerta);
 		puertasAbiertas[x][y][z][pos] = true;
 		return puertasAbiertas;
 	}
-
+/* Esto no sé si sigue siendo así
+ * 
+ * 
+ 
 	public EstadoCubo irHacia(int direccion){
 		return irHacia(direccion, _estado);
 	}
@@ -160,10 +163,9 @@ System.out.println("Abrimos la puerta "+puerta);
 		}
 	}
 
-
 	public EstadoCubo irHacia(int direccion, EstadoCubo estado){
 		int num = estado.getNumHabitacion();
-		boolean[][][][] puertas = estado.getPuertasAbiertas();
+		ArrayList<Puerta> puertas = estado.getPuertasAbiertas();
 		switch (direccion){
 			case 0: //Arriba
 				if ((num/100)%10 != _longitud-1)
@@ -193,6 +195,7 @@ System.out.println("Abrimos la puerta "+puerta);
 				return estado;
 		}
 	}
+*/
 
 	public boolean isExit (){
 		return isExit(this._estado);
@@ -261,7 +264,7 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	
 	public String toString (){
 		String cadena = "";
-		cadena = cadena + "Tama�o: " + _longitud + "\n";
+		cadena = cadena + "Tama�o: " + _longitud + "\n";
 		cadena = cadena + "Salidas: \n"+ "000,00"+(_longitud-1)+",0"+(_longitud-1)+"0,"+"0"+(_longitud-1)+""+(_longitud-1)+","+
 		(_longitud-1)+"00,"+(_longitud-1)+"0"+(_longitud-1)+","+(_longitud-1)+""+(_longitud-1)+"0,"+
 		(_longitud-1)+""+(_longitud-1)+""+(_longitud-1);
