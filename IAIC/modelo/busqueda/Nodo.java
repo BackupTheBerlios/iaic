@@ -76,9 +76,9 @@ abstract class Nodo {
 
 	public StringBuffer muestra() {
 		StringBuffer	res	=	new	StringBuffer();
-		res.append("Nodo de b�squeda n�mero " + numero + "\n");
+		res.append("Nodo de busqueda numero " + numero + "\n");
 		if (padre == null){
-			res.append("Es el nodo inicial, la ra�z del �rbol\n");				
+			res.append("Es el nodo inicial, la raiz del arbol\n");				
 		} else {
 			res.append("Nodo Padre: " + getPadre().numero + "\n");
 			res.append("Operador aplicado: " + operador.toString() + "\n");
