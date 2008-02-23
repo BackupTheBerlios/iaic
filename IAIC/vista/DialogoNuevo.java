@@ -59,7 +59,7 @@ class DialogoNuevo extends JDialog {
 		if (dialogoContentPane == null) {
 			dialogoContentPane = new JPanel();
 			dialogoContentPane.setLayout(new BoxLayout(getJContentPane(), BoxLayout.Y_AXIS));
-			dialogoContentPane.add(getDimensionCuboPanel(), null);
+			dialogoContentPane.add(getDimensionesCuboPanel(), null);
 			dialogoContentPane.add(getPuertasPanel(), null);
 			//dialogoContentPane.add(getSalidasPanel(), null);
 			dialogoContentPane.add(getBotonesPanel(), null);
@@ -92,14 +92,14 @@ class DialogoNuevo extends JDialog {
 	 * @return  javax.swing.JPanel
 	 * @uml.property  name="DimensionCuboPanel"
 	 */
-	private JPanel getDimensionCuboPanel() {
+	private JPanel getDimensionesCuboPanel() {
 		if (dimensionesCuboPanel == null) {
 			dimCuboLabel = new JLabel();
 			dimCuboLabel.setText("4");
 			dimCuboLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
-			dimCuboLabel = new JLabel();
-			dimCuboLabel.setText("Dimension del Cubo");
-			dimCuboLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
+			dimensionesCuboLabel = new JLabel();
+			dimensionesCuboLabel.setText("Dimension del Cubo");
+			dimensionesCuboLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
 			dimensionesCuboPanel = new JPanel();
 			dimensionesCuboPanel.setLayout(new FlowLayout());
 			dimensionesCuboPanel.add(dimensionesCuboLabel, null);
