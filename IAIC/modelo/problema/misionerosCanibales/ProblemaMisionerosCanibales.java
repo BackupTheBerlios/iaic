@@ -32,7 +32,7 @@ public class ProblemaMisionerosCanibales implements Problema {
 			return false;
 	}
 	
-	public String getNombre(){
+	public String toString(){
 		return "Problema de los Misioneros y los Canibales";
 	}
 

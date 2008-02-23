@@ -31,7 +31,7 @@ public class ProblemaJarras implements Problema{
 			return false;			
 	}
 	
-	public String	getNombre(){
+	public String	toString(){
 		return ("Problema de las jarras");
 	}
 

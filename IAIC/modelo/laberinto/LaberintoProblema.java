@@ -30,7 +30,7 @@ public	class LaberintoProblema implements Problema {
 		return milaberinto.isSalida(l.getMihabitacion());
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "PROBLEMA GLOBAL: el Laberinto";
 	}
 

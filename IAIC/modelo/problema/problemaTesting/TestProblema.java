@@ -29,7 +29,7 @@ public	class TestProblema implements Problema {
 		return i ;
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Problema de testing";
 	}
 	

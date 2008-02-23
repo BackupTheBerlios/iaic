@@ -20,7 +20,7 @@ public class ProbpruebaProblema implements Problema {
 		return (c.getID() == 1);
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Problema de los Canibales y Misioneros.";
 	}
 

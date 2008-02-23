@@ -18,7 +18,7 @@ public class GranjeroProblema implements Problema{
 		return (g.getCA() == 1) && (g.getCO() == 1) && (g.getGB() == 1) && (g.getLO() == 1);
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Problema del Granjero la col la cabra y el lobo \n\n";
 	}
 

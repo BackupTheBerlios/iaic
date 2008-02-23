@@ -5,12 +5,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 
+import modelo.IAvisoLocal;
 import modelo.laberinto.Habitacion;
+import modelo.problema.Estado;
+import modelo.problema.Problema;
 /**
  * @author gnufede
  *
  */
-public class ProblemaCubo{// implements Problema {
+public class ProblemaCubo implements Problema {
 
 	/*
 	 * (non-javadoc)
@@ -18,6 +21,10 @@ public class ProblemaCubo{// implements Problema {
 	private int _longitud;
 	private ArrayList<Puerta> puertasCerradas;
 	private ArrayList<Puerta> puertas;
+	
+	private IAvisoLocal avisos;
+	
+	
 //	private boolean[][][][] puertasCerradas; 
 //	private String strPuertasCerradas;
 	/**
@@ -38,6 +45,15 @@ public class ProblemaCubo{// implements Problema {
 		puertas = new ArrayList<Puerta>();
 		cerrarPuertas(longitud,puertasCerradasPorHab);
 		_estado = new EstadoCubo (longitud);
+	}
+	
+	public ProblemaCubo(IAvisoLocal avisos){
+		super();
+		this.avisos = avisos;
+		_longitud = 0;
+		puertasCerradas = new ArrayList<Puerta>();
+		puertas = new ArrayList<Puerta>();
+		_estado = new EstadoCubo (0);
 	}
 
 	public void inicializa (int longitud, int puertasCerradasPorHab, int numPro){
@@ -113,7 +129,9 @@ public class ProblemaCubo{// implements Problema {
 	public boolean estaCerrada(int puerta){
 		return puertasCerradas.contains(new Puerta(puerta));
 	}
-
+	/* Esto no sé si sigue siendo así
+	 * 
+	 * 
 	public boolean[][][][] abrirPuerta(int puerta, boolean[][][][] puertasAbiertas){
 		int x,y,z,pos;
 System.out.println("Abrimos la puerta "+puerta);
@@ -124,9 +142,7 @@ System.out.println("Abrimos la puerta "+puerta);
 		puertasAbiertas[x][y][z][pos] = true;
 		return puertasAbiertas;
 	}
-/* Esto no sÃ© si sigue siendo asÃ­
- * 
- * 
+
  
 	public EstadoCubo irHacia(int direccion){
 		return irHacia(direccion, _estado);
@@ -264,7 +280,7 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	
 	public String toString (){
 		String cadena = "";
-		cadena = cadena + "Tamaï¿½o: " + _longitud + "\n";
+		cadena = cadena + "Tamaño: " + _longitud + "\n";
 		cadena = cadena + "Salidas: \n"+ "000,00"+(_longitud-1)+",0"+(_longitud-1)+"0,"+"0"+(_longitud-1)+""+(_longitud-1)+","+
 		(_longitud-1)+"00,"+(_longitud-1)+"0"+(_longitud-1)+","+(_longitud-1)+""+(_longitud-1)+"0,"+
 		(_longitud-1)+""+(_longitud-1)+""+(_longitud-1);
@@ -279,4 +295,17 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 		cadena = cadena + aux + "\n";
 		return cadena;
 	}
+
+	public boolean esObjetivo(Estado e) {
+		return isExit((EstadoCubo)e);
+	}
+
+	public int evaluarHeuristica(Estado e) {
+		return ((EstadoCubo)e).getHeuristica();
+	}
+
+	public Estado getInicial() {
+		return new EstadoCubo(_longitud);
+	}
+
 }

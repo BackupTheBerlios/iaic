@@ -50,7 +50,7 @@ public class PuzzleProblema implements Problema {
 		return estaresuelto;
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Problema del 8-puzzle \n\n";
 	}
 

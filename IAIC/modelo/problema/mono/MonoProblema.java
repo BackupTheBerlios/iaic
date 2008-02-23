@@ -18,8 +18,8 @@ public class MonoProblema implements Problema {
 		return (m.getPlatano() == 1);
 	}
 
-	public String getNombre() {
-		return "Problema del Mono y el Plátano \n";
+	public String toString() {
+		return "Problema del Mono y el Plï¿½tano \n";
 	}
 
 }

@@ -19,7 +19,7 @@ public class CanibalesProblema implements Problema {
 		return (c.getNM() == 0)&&(c.getNC() == 0)&&(c.getB() == 1);
 	}
 
-	public String getNombre() {
+	public String toString() {
 		
 		return "Problema de los Canibales y Misioneros.";
 	}
