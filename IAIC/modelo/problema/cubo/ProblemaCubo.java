@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 import modelo.IAvisoLocal;
-import modelo.laberinto.Habitacion;
 import modelo.problema.Estado;
 import modelo.problema.Problema;
 /**
