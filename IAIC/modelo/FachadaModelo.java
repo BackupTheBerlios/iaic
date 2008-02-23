@@ -23,12 +23,11 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	private	ProblemaCubo	cubo;
 
 	public void nuevoCubo(int dim, int puertas) { //, int ventanas, int salidas
-		cubo.inicializa(dim,puertas, probserver.dameNumeroProblemas()); //FIXME: 
-		//,ventanas, salidas
+		cubo.inicializa(dim,puertas, probserver.dameNumeroProblemas());
 	}
 
 	public void guardarTexto(FileWriter fil) throws Exception {
-		fil.write(cubo.escribe());
+		//FIXME: fil.write(cubo.escribe());
 	}
 
 	public void guardarBinario(ObjectOutputStream output) throws Exception{
@@ -46,13 +45,13 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 			input.read(buf,0,1);
 			s.append(buf);
 		}
-		cubo.lee(s.toString());
+		//FIXME: cubo.lee(s.toString());
 	}
 
-/*	public void cerrarLaberinto() {
-		laberinto.vacia();
+	public void cerrarCubo() {
+		cubo.vacia();
 	}
-*/	
+	
 	public	FachadaModelo(){
 		cubo	=	new	ProblemaCubo();
 		probserver	=	new	ServidorProblemas();
@@ -95,7 +94,6 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	public void iniciarEjecucionGlobal() {
 		
 		global	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
-		//FIXME
 		problemaGlobal	=	new	ProblemaCubo(this);
 		global.setProblema(problemaGlobal);
 		global.inicializar();
