@@ -79,6 +79,8 @@ public class EstadoMisionerosCanibales implements Estado{
 			return false;
 	}
 	//Lista de operadores aplicables a un estado
+	
+//	FIXME: No esta parametrizado!!!
 	public List<Operador> getOperadoresAplicables(){
 		List<Operador>	listaOperadores	=	new	LinkedList<Operador>();
 		/** Mover 1 Misionero
