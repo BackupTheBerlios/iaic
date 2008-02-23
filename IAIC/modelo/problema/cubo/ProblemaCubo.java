@@ -47,9 +47,9 @@ public class ProblemaCubo{// implements Problema {
 		for (int i = 0; i<longitud; i++)
 			for (int j = 0; j<longitud; j++)
 				for (int k = 0; k<longitud; k++)
-					for (int j = 0; j<3; j++){
+					for (int l = 0; l<3; l++){
 						a = (int)Math.random() * numPro;
-						puertas.add(new Puerta(j*1000+i*100+j*10+k, a));
+						puertas.add(new Puerta(l*1000+i*100+j*10+k, a));
 					}
 		cerrarPuertas(longitud,puertasCerradasPorHab);
 	}
@@ -62,7 +62,7 @@ public class ProblemaCubo{// implements Problema {
 			Puerta aux = puertas.get(indice);
 			aux.setCodigoProblema(a);
 		}
-	}
+	
 	
 	public EstadoCubo getEstado(){
 		return this._estado;
