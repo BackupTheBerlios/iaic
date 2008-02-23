@@ -21,8 +21,8 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	private	OyenteModelo	oyente;
 	private	Laberinto	laberinto;
 
-	public void nuevoLaberinto(int habitaciones, int puertas, int ventanas, int salidas) {
-		laberinto.inicializa(habitaciones,puertas,ventanas, salidas, probserver.dameNumeroProblemas());
+	public void nuevoLaberinto(int dim, int puertas) { //, int ventanas, int salidas
+		laberinto.inicializa(dim,puertas, probserver.dameNumeroProblemas());//,ventanas, salidas
 	}
 
 	public void guardarTexto(FileWriter fil) throws Exception {

@@ -156,7 +156,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 					getDialogoNuevo().setEnabled(true);
 					getDialogoNuevo().setVisible(true);
 					if (getDialogoNuevo().isAceptado()){
-						nuevoLaberinto();
+						nuevoCubo();
 					}
 				}
 			});
@@ -164,12 +164,11 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		return nuevoMenuItem;
 	}
 //TODO Cositas por corregir
-	protected void nuevoLaberinto() {
-		int habit = dialogoNuevo.getNumeroHabitaciones();
+	protected void nuevoCubo() {
+		int dim = dialogoNuevo.getDimensionCubo();
 		int puertas = dialogoNuevo.getNumeroPuertas();
-		int vent = dialogoNuevo.getNumeroVentanas(); 
-		int	sali	=	dialogoNuevo.getNumeroSalidas();
-		modelo.nuevoLaberinto(habit,puertas,vent,sali);				
+		//int	sali	=	dialogoNuevo.getNumeroSalidas();
+		modelo.nuevoLaberinto(dim,puertas); //,vent,sali				
 	}
 
 	/**
