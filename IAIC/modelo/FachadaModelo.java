@@ -7,11 +7,12 @@ import java.io.ObjectOutputStream;
 import modelo.busqueda.IAlgoritmo;
 import modelo.busqueda.IAlgoritmoServidor;
 import modelo.busqueda.ServidorAlgoritmo;
-import modelo.laberinto.Laberinto;
-import modelo.laberinto.LaberintoProblema;
+//import modelo.laberinto.Laberinto;
+//import modelo.laberinto.LaberintoProblema;
 import modelo.problema.IServidorProblemas;
 import modelo.problema.Problema;
 import modelo.problema.ServidorProblemas;
+import modelo.problema.cubo.ProblemaCubo;
 
 /**
  * @author  Diego
@@ -19,22 +20,23 @@ import modelo.problema.ServidorProblemas;
 public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	private	OyenteModelo	oyente;
-	private	Laberinto	laberinto;
+	private	ProblemaCubo	cubo;
 
 	public void nuevoCubo(int dim, int puertas) { //, int ventanas, int salidas
-		laberinto.inicializa(dim,puertas, probserver.dameNumeroProblemas());//,ventanas, salidas
+		cubo.inicializa(dim,puertas); //FIXME: , probserver.dameNumeroProblemas()
+		//,ventanas, salidas
 	}
 
 	public void guardarTexto(FileWriter fil) throws Exception {
-		fil.write(laberinto.escribe());
+		fil.write(cubo.escribe());
 	}
 
 	public void guardarBinario(ObjectOutputStream output) throws Exception{
-		output.writeObject(laberinto);		
+		output.writeObject(cubo);		
 	}
 	
 	public void cargarBinario(ObjectInputStream input) throws Exception {
-		laberinto	=	(Laberinto) input.readObject();
+		cubo	=	(ProblemaCubo) input.readObject();
 	}
 
 	public void cargarTexto(FileReader input) throws Exception {
@@ -44,15 +46,15 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 			input.read(buf,0,1);
 			s.append(buf);
 		}
-		laberinto.lee(s.toString());
+		cubo.lee(s.toString());
 	}
 
-	public void cerrarLaberinto() {
+/*	public void cerrarLaberinto() {
 		laberinto.vacia();
 	}
-	
+*/	
 	public	FachadaModelo(){
-		laberinto	=	new	Laberinto();
+		cubo	=	new	ProblemaCubo();
 		probserver	=	new	ServidorProblemas();
 		algserver	=	new	ServidorAlgoritmo();
 	}
@@ -93,8 +95,8 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	public void iniciarEjecucionGlobal() {
 		
 		global	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
-		
-		problemaGlobal	=	new	LaberintoProblema(this,laberinto);
+		//FIXME
+		problemaGlobal	=	new	ProblemaCubo(this,cubo);
 		global.setProblema(problemaGlobal);
 		global.inicializar();
 	}
@@ -123,8 +125,8 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		this.oyente = oyente;
 	}
 
-	public String mostrarLaberinto() {
-		return laberinto.muestra();
+	public String mostrarCubo() {
+		return cubo.toString();
 	}
 
 	public String mostrarGlobal() {

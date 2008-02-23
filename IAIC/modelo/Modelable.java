@@ -10,8 +10,8 @@ import vista.OyenteVista;
  * */
 public interface Modelable extends OyenteVista {
 	
-	/** Pide la información del laberinto*/
-	String	mostrarLaberinto();
+	/** Pide la información del cubo*/
+	String	mostrarCubo();
 
 	/** Pide la información de búsquedaGlobal */
 	String	mostrarGlobal();
