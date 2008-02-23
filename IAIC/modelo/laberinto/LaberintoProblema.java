@@ -45,7 +45,7 @@ public	class LaberintoProblema implements Problema {
 	public	void	visitar(Habitacion h){
 		if (!visitadas.contains(h)){
 			visitadas.add(h);
-			avisos.iniciarEjecucionLocal(h.getCodigoProblema());
+			avisos.iniciarEjecucionLocal(h.getCodigoProblema(),false);
 		}
 	}
 

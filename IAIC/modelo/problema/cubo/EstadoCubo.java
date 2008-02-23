@@ -61,7 +61,7 @@ public class EstadoCubo  implements Estado{
 		ArrayList<Puerta> puertas = cubo.getPuertas();
 		Puerta puertaAux = puertas.get(puertas.indexOf(new Puerta(puerta)));
 		puertasAux.add(puertaAux);
-		aviso.iniciarEjecucionLocal(puertaAux.getCodigoProblema());
+		aviso.iniciarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
 		return puertasAux;
 	}
 	
