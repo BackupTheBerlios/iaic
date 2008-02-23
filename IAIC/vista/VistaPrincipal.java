@@ -168,7 +168,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		int dim = dialogoNuevo.getDimensionCubo();
 		int puertas = dialogoNuevo.getNumeroPuertas();
 		//int	sali	=	dialogoNuevo.getNumeroSalidas();
-		modelo.nuevoLaberinto(dim,puertas); //,vent,sali				
+		modelo.nuevoCubo(dim,puertas); //,vent,sali				
 	}
 
 	/**

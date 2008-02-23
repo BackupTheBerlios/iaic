@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 
 /**
- * @author  Diego
+ * @author  Paloma
  */
 class DialogoNuevo extends JDialog {
 
@@ -18,19 +18,15 @@ class DialogoNuevo extends JDialog {
 	private JPanel dialogoContentPane = null;
 	private JButton aceptarButton = null;
 	private JButton cancelarButton = null;
-	private JPanel habitacionesPanel = null;
-	private JLabel habitacionesLabel = null;
+	private JPanel dimensionesCuboPanel = null;
+	private JLabel dimensionesCuboLabel = null;
 	private JPanel botonesPanel = null;
-	private JSlider habitacionesSlider = null;
-	private JLabel numHabLabel = null;
+	private JSlider dimensionesSlider = null;
+	private JLabel dimCuboLabel = null;
 	private JPanel puertasPanel = null;
 	private JLabel puertasLabel = null;
 	private JSlider puertasSlider = null;
 	private JLabel numPuertLabel = null;
-	private JPanel ventanasPanel = null;
-	private JLabel ventanasLabel = null;
-	private JSlider ventanasSlider = null;
-	private JLabel numVentLabel = null;
 	/** This is the default constructor	 */
 	public DialogoNuevo() {
 		super();
@@ -44,7 +40,7 @@ class DialogoNuevo extends JDialog {
 	private void initialize() {
 		this.setSize(400, 300);
 		this.setModal(true);
-		this.setTitle("Nuevo Laberinto");
+		this.setTitle("Nuevo Cubo");
 		this.setContentPane(getJContentPane());
 		this.addWindowListener(new java.awt.event.WindowAdapter() {
 			public void windowClosing(java.awt.event.WindowEvent e) {
@@ -63,10 +59,9 @@ class DialogoNuevo extends JDialog {
 		if (dialogoContentPane == null) {
 			dialogoContentPane = new JPanel();
 			dialogoContentPane.setLayout(new BoxLayout(getJContentPane(), BoxLayout.Y_AXIS));
-			dialogoContentPane.add(getHabitacionesPanel(), null);
+			dialogoContentPane.add(getDimensionCuboPanel(), null);
 			dialogoContentPane.add(getPuertasPanel(), null);
-			dialogoContentPane.add(getVentanasPanel(), null);
-			dialogoContentPane.add(getSalidasPanel(), null);
+			//dialogoContentPane.add(getSalidasPanel(), null);
 			dialogoContentPane.add(getBotonesPanel(), null);
 		}
 		return dialogoContentPane;
@@ -95,23 +90,23 @@ class DialogoNuevo extends JDialog {
 	/**
 	 * This method initializes habitacionesPanel	
 	 * @return  javax.swing.JPanel
-	 * @uml.property  name="habitacionesPanel"
+	 * @uml.property  name="DimensionCuboPanel"
 	 */
-	private JPanel getHabitacionesPanel() {
-		if (habitacionesPanel == null) {
-			numHabLabel = new JLabel();
-			numHabLabel.setText("11");
-			numHabLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
-			habitacionesLabel = new JLabel();
-			habitacionesLabel.setText("Habitaciones");
-			habitacionesLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
-			habitacionesPanel = new JPanel();
-			habitacionesPanel.setLayout(new FlowLayout());
-			habitacionesPanel.add(habitacionesLabel, null);
-			habitacionesPanel.add(getHabitacionesSlider(), null);
-			habitacionesPanel.add(numHabLabel, null);
+	private JPanel getDimensionCuboPanel() {
+		if (dimensionesCuboPanel == null) {
+			dimCuboLabel = new JLabel();
+			dimCuboLabel.setText("4");
+			dimCuboLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
+			dimCuboLabel = new JLabel();
+			dimCuboLabel.setText("Dimension del Cubo");
+			dimCuboLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
+			dimensionesCuboPanel = new JPanel();
+			dimensionesCuboPanel.setLayout(new FlowLayout());
+			dimensionesCuboPanel.add(dimensionesCuboLabel, null);
+			dimensionesCuboPanel.add(getDimensionesSlider(), null);
+			dimensionesCuboPanel.add(dimCuboLabel, null);
 		}
-		return habitacionesPanel;
+		return dimensionesCuboPanel;
 	}
 
 	/**
@@ -153,30 +148,29 @@ class DialogoNuevo extends JDialog {
 	 * @return  javax.swing.JSlider
 	 * @uml.property  name="habitacionesSlider"
 	 */
-	private JSlider getHabitacionesSlider() {
-		if (habitacionesSlider == null) {
-			habitacionesSlider = new JSlider();
-			habitacionesSlider.setMaximum(19);
-			habitacionesSlider.setMinorTickSpacing(1);
-			habitacionesSlider.setPaintTicks(true);
-			habitacionesSlider.setPaintLabels(true);
-			habitacionesSlider.setMajorTickSpacing(4);
-			habitacionesSlider.setValue(11);
-			habitacionesSlider.setMinimum(1);
-			habitacionesSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+	private JSlider getDimensionesSlider() {
+		if (dimensionesSlider == null) {
+			dimensionesSlider = new JSlider();
+			dimensionesSlider.setMaximum(9);
+			dimensionesSlider.setMinorTickSpacing(1);
+			dimensionesSlider.setPaintTicks(true);
+			dimensionesSlider.setPaintLabels(true);
+			dimensionesSlider.setMajorTickSpacing(4);
+			dimensionesSlider.setValue(4);
+			dimensionesSlider.setMinimum(2);
+			dimensionesSlider.addChangeListener(new javax.swing.event.ChangeListener() {
 				public void stateChanged(javax.swing.event.ChangeEvent e) {
 					/* El máximo de puertas posible sigue la formula del numero maximo de aristas
 					 * en un grafo no dirigido de "nod" nodos y el numero maximo de ventanas le
 					 * hemos puesto el doble del numero de nodos */
-					int nod = habitacionesSlider.getValue();
-					numHabLabel.setText(Integer.toString(nod));					
-					puertasSlider.setMaximum( (nod * (nod-1)) / 2);
-					ventanasSlider.setMaximum(2*nod);
-					salidasSlider.setMaximum(nod);
+					int nod = dimensionesSlider.getValue();
+					dimCuboLabel.setText(Integer.toString(nod));					
+					puertasSlider.setMaximum(2); //(nod * (nod-1)) / 
+					//salidasSlider.setMaximum(8);
 				}
 			});
 		}
-		return habitacionesSlider;
+		return dimensionesSlider;
 	}
 
 	/**
@@ -187,10 +181,10 @@ class DialogoNuevo extends JDialog {
 	private JPanel getPuertasPanel() {
 		if (puertasPanel == null) {
 			numPuertLabel = new JLabel();
-			numPuertLabel.setText("55");
+			numPuertLabel.setText("1");
 			numPuertLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
 			puertasLabel = new JLabel();
-			puertasLabel.setText("Puertas");
+			puertasLabel.setText("Maximo de Puertas Clausuradas");
 			puertasLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
 			puertasPanel = new JPanel();
 			puertasPanel.add(puertasLabel, null);
@@ -211,7 +205,7 @@ class DialogoNuevo extends JDialog {
 			puertasSlider.setMajorTickSpacing(20);
 			puertasSlider.setPaintLabels(true);
 			puertasSlider.setPaintTicks(true);
-			puertasSlider.setMaximum(55);
+			puertasSlider.setMaximum(2);
 			puertasSlider.setMinorTickSpacing(1);
 			puertasSlider.addChangeListener(new javax.swing.event.ChangeListener() {
 				public void stateChanged(javax.swing.event.ChangeEvent e) {
@@ -222,71 +216,25 @@ class DialogoNuevo extends JDialog {
 		return puertasSlider;
 	}
 
-	/**
-	 * This method initializes ventanasPanel	
-	 * @return  javax.swing.JPanel
-	 * @uml.property  name="ventanasPanel"
-	 */
-	private JPanel getVentanasPanel() {
-		if (ventanasPanel == null) {
-			numVentLabel = new JLabel();
-			numVentLabel.setText("22");
-			numVentLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
-			ventanasLabel = new JLabel();
-			ventanasLabel.setText("Ventanas");
-			ventanasLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
-			ventanasPanel = new JPanel();
-			ventanasPanel.add(ventanasLabel, null);
-			ventanasPanel.add(getVentanasSlider(), null);
-			ventanasPanel.add(numVentLabel, null);
-		}
-		return ventanasPanel;
-	}
-
-	/**
-	 * This method initializes ventanasSlider	
-	 * @return  javax.swing.JSlider
-	 * @uml.property  name="ventanasSlider"
-	 */
-	private JSlider getVentanasSlider() {
-		if (ventanasSlider == null) {
-			ventanasSlider = new JSlider();
-			ventanasSlider.setMaximum(22);
-			ventanasSlider.setMinorTickSpacing(1);
-			ventanasSlider.setPaintLabels(true);
-			ventanasSlider.setPaintTicks(true);
-			ventanasSlider.setMajorTickSpacing(5);
-			ventanasSlider.addChangeListener(new javax.swing.event.ChangeListener() {
-				public void stateChanged(javax.swing.event.ChangeEvent e) {
-					numVentLabel.setText(Integer.toString(ventanasSlider.getValue()));
-				}
-			});
-		}
-		return ventanasSlider;
-	}
-	
-	public	int	getNumeroHabitaciones(){
-		return habitacionesSlider.getValue();
+		
+	public	int	getDimensionCubo(){
+		return dimensionesSlider.getValue();
 	}
 	
 	public	int	getNumeroPuertas(){
 		return puertasSlider.getValue();
 	}
 	
-	public	int	getNumeroVentanas(){
-		return ventanasSlider.getValue();
-	}
-	
-	public	int	getNumeroSalidas(){
+	/*public	int	getNumeroSalidas(){
 		return	salidasSlider.getValue();
-	}
+	}*/
 	
 	private boolean aceptado;
-	private JPanel salidasPanel = null;
+	/*private JPanel salidasPanel = null;
 	private JLabel salidasLabel = null;
 	private JSlider salidasSlider = null;
 	private JLabel numSalLabel = null;
-	
+	*/
 	/**
 	 * @return  the aceptado
 	 * @uml.property  name="aceptado"
@@ -294,12 +242,12 @@ class DialogoNuevo extends JDialog {
 	public boolean isAceptado() {
 		return aceptado;
 	}
-
-	/**
+/*
+	*//**
 	 * This method initializes salidasPanel	
 	 * @return  javax.swing.JPanel
 	 * @uml.property  name="salidasPanel"
-	 */
+	 *//*
 	private JPanel getSalidasPanel() {
 		if (salidasPanel == null) {
 			numSalLabel = new JLabel();
@@ -317,11 +265,11 @@ class DialogoNuevo extends JDialog {
 		return salidasPanel;
 	}
 
-	/**
+	*//**
 	 * This method initializes salidasSlider	
 	 * @return  javax.swing.JSlider
 	 * @uml.property  name="salidasSlider"
-	 */
+	 *//*
 	private JSlider getSalidasSlider() {
 		if (salidasSlider == null) {
 			salidasSlider = new JSlider();
@@ -340,5 +288,5 @@ class DialogoNuevo extends JDialog {
 		}
 		return salidasSlider;
 	}
-
+*/
 }  //  @jve:decl-index=0:visual-constraint="-22,-34"
