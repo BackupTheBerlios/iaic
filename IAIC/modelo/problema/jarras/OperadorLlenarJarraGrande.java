@@ -2,19 +2,19 @@ package modelo.problema.jarras;
 
 import modelo.problema.Estado;
 
-public class OperadorLlenarJ4 extends OperadorJarras{
+public class OperadorLlenarJarraGrande extends OperadorJarras{
 	
-	public OperadorLlenarJ4(EstadoJarras inicial){
+	public OperadorLlenarJarraGrande(EstadoJarras inicial){
 		super(inicial);
 	}
 	
 	public Estado transitar(){
 		EstadoJarras eFinal = (EstadoJarras)getInicial();
-		estadoFinal = new EstadoJarras(eFinal.getJarra3(),4);
+		estadoFinal = new EstadoJarras(eFinal.getJPeque(),eFinal.getTamG());
 		return estadoFinal;
 	}
 	
-	public String getNombre(){
+	public String toString(){
 		return ("Llenar jarra 4 litros");
 	}
 }

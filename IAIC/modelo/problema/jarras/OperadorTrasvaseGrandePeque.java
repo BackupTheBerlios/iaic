@@ -2,26 +2,26 @@ package modelo.problema.jarras;
 
 import modelo.problema.*;
 
-public class OperadorTrasvaseJ4J3 extends OperadorJarras{
+public class OperadorTrasvaseGrandePeque extends OperadorJarras{
 	
-	public OperadorTrasvaseJ4J3(EstadoJarras inicial){
+	public OperadorTrasvaseGrandePeque(EstadoJarras inicial){
 		super(inicial);
 	}
 	int big = 0;
 	int little = 0;
 	public Estado transitar(){
 		EstadoJarras eFinal = (EstadoJarras)getInicial();
-		big = eFinal.getJarra4() - (3 - eFinal.getJarra3());
+		big = eFinal.getJGrande() - (3 - eFinal.getJPeque());
 		if (big < 0)
 			big = 0;
-		little = eFinal.getJarra3() + big;
+		little = eFinal.getJPeque() + big;
 		if (big > 3)
 			big = 3;
 		estadoFinal = new EstadoJarras(little,big);
 		return estadoFinal;
 	}
 	
-	public String getNombre(){
+	public String toString(){
 		return ("Trasvase jarra de 4 litros a jarra de 3 litros");
 	}
 }

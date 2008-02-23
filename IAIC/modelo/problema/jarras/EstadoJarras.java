@@ -5,35 +5,50 @@ import java.util.List;
 import modelo.problema.*;
 
 public class EstadoJarras implements Estado{
-	int jarra3,jarra4;
+	int jPeque,jGrande;
+	int tamP,tamG;
 	
-	public EstadoJarras(int j3,int j4) {
+	public EstadoJarras(int jP,int jG,int tamP,int tamG) {
 		super();
-		this.jarra3 = j3;
-		this.jarra4 = j4;
+		this.jPeque = jP;
+		this.jGrande = jG;
+		this.tamP = tamP;
+		this.tamG = tamG;
 	}
-	public int getJarra3() {
-		return this.jarra3;
+	
+	public EstadoJarras(int jP,int jG) {
+		super();
+		this.jPeque = jP;
+		this.jGrande = jG;
 	}
-	public void setJarra3(int jarra3) {
-		this.jarra3 = jarra3;
+
+	public int getJGrande() {
+		return jGrande;
 	}
-	public int getJarra4() {
-		return this.jarra4;
+
+	public void setJGrande(int grande) {
+		jGrande = grande;
 	}
-	public void setJarra4(int jarra4) {
-		this.jarra4 = jarra4;
+
+	public int getJPeque() {
+		return jPeque;
 	}
+
+	public void setJPeque(int peque) {
+		jPeque = peque;
+	}
+
+
 	//Muestra informacion de un estado
 	public String mostrarInfo(){
-		String s = "Contenido Jarra pequeña: " + jarra3 + " litros;";
-		s = s + "\n" + "Contenido Jarra grande: " + jarra4 + " litros;";
+		String s = "Contenido Jarra pequeña: " + jPeque + " litros;";
+		s = s + "\n" + "Contenido Jarra grande: " + jGrande + " litros;";
 		return s;
 	}
 	//Comprobacion de igualdad de dos estados
 	public boolean equals(Object e2){
-		if ((jarra3 == ((EstadoJarras)e2).getJarra3()) &&
-				(jarra4 == ((EstadoJarras)e2).getJarra4()))
+		if ((jPeque == ((EstadoJarras)e2).getJPeque()) &&
+				(jGrande == ((EstadoJarras)e2).getJGrande()))
 			return true;
 		else
 			return false;
@@ -48,18 +63,18 @@ public class EstadoJarras implements Estado{
 		 *  Trasvase J3J4
 		 *  Trasvase J4J3
 		 * */
-		if (this.jarra3 < 3)
-			listaOperadores.add(new OperadorLlenarJ3(this));
-		if (this.jarra4 < 4)
-			listaOperadores.add(new OperadorLlenarJ4(this));
-		if (this.jarra3 > 0)
-			listaOperadores.add(new OperadorVaciarJ3(this));
-		if (this.jarra4 > 0)
-			listaOperadores.add(new OperadorVaciarJ4(this));
-		if (this.jarra3 < 3 && this.jarra4 > 0)
-			listaOperadores.add(new OperadorTrasvaseJ4J3(this));
-		if (this.jarra4 < 4 && this.jarra3 > 0)
-			listaOperadores.add(new OperadorTrasvaseJ3J4(this));
+		if (this.jPeque < tamP)
+			listaOperadores.add(new OperadorLlenarJarraPeque(this));
+		if (this.jGrande < tamG)
+			listaOperadores.add(new OperadorLlenarJarraGrande(this));
+		if (this.jPeque > 0)
+			listaOperadores.add(new OperadorVaciarJarraPeque(this));
+		if (this.jGrande > 0)
+			listaOperadores.add(new OperadorVaciarJarraGrande(this));
+		if (this.jPeque < tamP && this.jGrande > 0)
+			listaOperadores.add(new OperadorTrasvaseGrandePeque(this));
+		if (this.jGrande < tamG && this.jPeque > 0)
+			listaOperadores.add(new OperadorTrasvasePequeGrande(this));
 		
 
 //		System.out.println("Estado jarra3 = " + this.getJarra3() + "\n");
@@ -78,5 +93,21 @@ public class EstadoJarras implements Estado{
 	//Calcula la heuristica de un estado
 	public int getHeuristica(){
 		return 0;
+	}
+
+	public int getTamG() {
+		return tamG;
+	}
+
+	public void setTamG(int tamG) {
+		this.tamG = tamG;
+	}
+
+	public int getTamP() {
+		return tamP;
+	}
+
+	public void setTamP(int tamP) {
+		this.tamP = tamP;
 	}
 }
