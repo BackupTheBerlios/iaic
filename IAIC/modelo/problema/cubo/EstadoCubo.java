@@ -79,7 +79,7 @@ public class EstadoCubo  implements Estado{
 		return lista;
 	}
 		
-	boolean equals(Object e){
+	public boolean equals(Object e){
 		return ((EstadoCubo)e).getNumHabitacion() == numHabitacion;
 	}
 

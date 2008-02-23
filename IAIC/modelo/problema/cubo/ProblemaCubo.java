@@ -236,4 +236,9 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 		}
 	}
 
+	
+	public String toString (){
+		String cadena = "";
+		return cadena;
+	}
 }
