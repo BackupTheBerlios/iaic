@@ -18,7 +18,7 @@ public class OperadorArriba extends OperadorCubo{
 	protected void transitar() {
 		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
 		int num = c.getNumHabitacion();
-		EstadoFinal =  new EstadoCubo(num+100,c.abrirPuerta(num));
+		EstadoFinal =  new EstadoCubo(c.getCubo(),num+100,c.abrirPuerta(num));
 
 	}
 }

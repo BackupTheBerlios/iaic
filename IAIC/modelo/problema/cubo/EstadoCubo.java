@@ -3,6 +3,8 @@ package modelo.problema.cubo;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import modelo.IAvisoLocal;
 import modelo.problema.Estado;
 import modelo.problema.Operador;
 
@@ -11,10 +13,14 @@ public class EstadoCubo  implements Estado{
 	private int longitudCubo;
 	private int numHabitacion;
 	private ArrayList<Puerta> puertasAbiertas;
+	private IAvisoLocal aviso;
+	private ProblemaCubo cubo;
 //	private boolean[][][][] puertasAbiertas; 
 
 
-	EstadoCubo(int longitud){
+	EstadoCubo(int longitud, ProblemaCubo cubo){
+		this.cubo = cubo;
+		aviso = cubo.getAvisos();
 		longitudCubo = longitud;
 		numHabitacion = (int)(Math.random()*longitud-1) *100 + (int)(Math.random()*longitud-1) * 10 + (int)(Math.random()*longitud-1);
 		puertasAbiertas = new ArrayList<Puerta>();
@@ -28,7 +34,8 @@ public class EstadoCubo  implements Estado{
 */
 	}
 
-	EstadoCubo(int numHabitacion, ArrayList<Puerta> puertas){
+	EstadoCubo(ProblemaCubo cubo, int numHabitacion, ArrayList<Puerta> puertas){
+		this.cubo = cubo;
 		this.numHabitacion = numHabitacion;
 		this.puertasAbiertas = puertas;
 	}
@@ -51,7 +58,10 @@ public class EstadoCubo  implements Estado{
 
 	public ArrayList<Puerta> abrirPuerta(int puerta){
 		ArrayList<Puerta> puertasAux = this.puertasAbiertas;
-		puertasAux.add(new Puerta(puerta));
+		ArrayList<Puerta> puertas = cubo.getPuertas();
+		Puerta puertaAux = puertas.get(puertas.indexOf(new Puerta(puerta)));
+		puertasAux.add(puertaAux);
+		aviso.iniciarEjecucionLocal(puertaAux.getCodigoProblema());
 		return puertasAux;
 	}
 	
@@ -95,6 +105,20 @@ public class EstadoCubo  implements Estado{
 	public String mostrarInfo() {
 		// TODO esto cuando funcione
 		return null;
+	}
+
+	/**
+	 * @return the cubo
+	 */
+	public ProblemaCubo getCubo() {
+		return cubo;
+	}
+
+	/**
+	 * @param cubo the cubo to set
+	 */
+	public void setCubo(ProblemaCubo cubo) {
+		this.cubo = cubo;
 	}
 
 

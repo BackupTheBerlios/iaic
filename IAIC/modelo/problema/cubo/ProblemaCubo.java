@@ -36,7 +36,7 @@ public class ProblemaCubo implements Problema {
 		_longitud = 0;
 		puertasCerradas = new ArrayList<Puerta>();
 		puertas = new ArrayList<Puerta>();
-		_estado = new EstadoCubo (0);
+		_estado = new EstadoCubo (0,this);
 	}
 	
 	public ProblemaCubo (int longitud, int puertasCerradasPorHab){
@@ -44,7 +44,7 @@ public class ProblemaCubo implements Problema {
 		puertasCerradas = new ArrayList<Puerta>();
 		puertas = new ArrayList<Puerta>();
 		cerrarPuertas(longitud,puertasCerradasPorHab);
-		_estado = new EstadoCubo (longitud);
+		_estado = new EstadoCubo (longitud,this);
 	}
 	
 	public ProblemaCubo(IAvisoLocal avisos, ProblemaCubo cubo){
@@ -58,7 +58,7 @@ public class ProblemaCubo implements Problema {
 
 	public void inicializa (int longitud, int puertasCerradasPorHab, int numPro){
 		_longitud = longitud;
-		_estado = new EstadoCubo (longitud);
+		_estado = new EstadoCubo (longitud,this);
 		int a = 0;
 		for (int i = 0; i<longitud; i++)
 			for (int j = 0; j<longitud; j++)
@@ -301,7 +301,7 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 			aux = aux + puertaAux.getNumeroPuerta();
 		}
 		cadena = cadena + aux + "\n";
-		cadena = cadena+ "Estado Inicial: " + _estado.getNumHabitacion() + "\n";
+		cadena = cadena+ "Estado Inicial: " + _estado.getNumHabitacion() + "\n";	
 		return cadena;
 	}
 
@@ -314,7 +314,7 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	}
 
 	public Estado getInicial() {
-		return new EstadoCubo(_longitud);
+		return new EstadoCubo(_longitud,this);
 	}
 
 	/**
@@ -323,21 +323,12 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	public EstadoCubo get_estado() {
 		return _estado;
 	}
-
-	/**
-	 * @param _estado the _estado to set
-	 */
-	public void set_estado(EstadoCubo _estado) {
-		this._estado = _estado;
-	}
-
 	/**
 	 * @return the _longitud
 	 */
 	public int get_longitud() {
 		return _longitud;
 	}
-
 	/**
 	 * @param _longitud the _longitud to set
 	 */
@@ -345,6 +336,7 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 		this._longitud = _longitud;
 	}
 
+	
 	/**
 	 * @return the puertas
 	 */
@@ -358,7 +350,6 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	public void setPuertas(ArrayList<Puerta> puertas) {
 		this.puertas = puertas;
 	}
-
 	/**
 	 * @return the puertasCerradas
 	 */
@@ -371,6 +362,10 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	 */
 	public void setPuertasCerradas(ArrayList<Puerta> puertasCerradas) {
 		this.puertasCerradas = puertasCerradas;
+	}
+
+	public IAvisoLocal getAvisos() {
+		return this.avisos;
 	}
 
 }

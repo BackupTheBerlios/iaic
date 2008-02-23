@@ -17,7 +17,7 @@ public class OperadorAbajo extends OperadorCubo  {
 		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
 		int num = c.getNumHabitacion();
 		//EstadoFinal = new EstadoCubo(aux,c.getLO(),aux,c.getCO());
-		EstadoFinal =  new EstadoCubo(num-100,c.abrirPuerta(num-100));
+		EstadoFinal =  new EstadoCubo(c.getCubo(),num-100,c.abrirPuerta(num-100));
 
 	}
 
