@@ -12,6 +12,12 @@ public class Puerta {
 		estaAbierta = false;
 	}
 	
+	Puerta(int num, int codPro){
+		numeroPuerta = num;
+		codigoProblema = codPro;
+		estaAbierta = false;
+	}
+	
 	Puerta(int num, boolean clausurada){
 		numeroPuerta = num;
 		estaClausurada = clausurada;

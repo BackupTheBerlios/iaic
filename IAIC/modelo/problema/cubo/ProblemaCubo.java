@@ -4,6 +4,8 @@ package modelo.problema.cubo;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
+
+import modelo.laberinto.Habitacion;
 /**
  * @author gnufede
  *
@@ -15,6 +17,7 @@ public class ProblemaCubo{// implements Problema {
 	 */
 	private int _longitud;
 	private ArrayList<Puerta> puertasCerradas;
+	private ArrayList<Puerta> puertas;
 //	private boolean[][][][] puertasCerradas; 
 //	private String strPuertasCerradas;
 	/**
@@ -25,35 +28,40 @@ public class ProblemaCubo{// implements Problema {
 	public ProblemaCubo(){
 		_longitud = 0;
 		puertasCerradas = new ArrayList<Puerta>();
-		_estado = new EstadoCubo (longitud);
+		puertas = new ArrayList<Puerta>();
+		_estado = new EstadoCubo (0);
 	}
 	
 	public ProblemaCubo (int longitud, int puertasCerradasPorHab){
 		_longitud = longitud;
-/*		strPuertasCerradas = "";
-		for (int i = 0; i<longitud; i++)
-			for (int j = 0; j<longitud; j++)
-				for (int k = 0; k<longitud; k++)
-					for (int l = 0; l<3; l++)
-						puertasCerradas[i][j][k][l] = false;
-*/
 		puertasCerradas = new ArrayList<Puerta>();
+		puertas = new ArrayList<Puerta>();
 		cerrarPuertas(longitud,puertasCerradasPorHab);
 		_estado = new EstadoCubo (longitud);
 	}
 
-	public void inicializa (int longitud, int puertasCerradasPorHab){
+	public void inicializa (int longitud, int puertasCerradasPorHab, int numPro){
 		_longitud = longitud;
-		/*		strPuertasCerradas = "";
-				for (int i = 0; i<longitud; i++)
-					for (int j = 0; j<longitud; j++)
-						for (int k = 0; k<longitud; k++)
-							for (int l = 0; l<3; l++)
-								puertasCerradas[i][j][k][l] = false;
-		*/
-				puertasCerradas = new ArrayList<Puerta>();
-				cerrarPuertas(longitud,puertasCerradasPorHab);
-				_estado = new EstadoCubo (longitud);
+		_estado = new EstadoCubo (longitud);
+		int a = 0;
+		for (int i = 0; i<longitud; i++)
+			for (int j = 0; j<longitud; j++)
+				for (int k = 0; k<longitud; k++)
+					for (int j = 0; j<3; j++){
+						a = (int)Math.random() * numPro;
+						puertas.add(new Puerta(j*1000+i*100+j*10+k, a));
+					}
+		cerrarPuertas(longitud,puertasCerradasPorHab);
+	}
+	
+	private void otorgaProblema(int numPro, int puerta) {
+//		for (int i = 0; i<numPro;i++){
+//			Random ran	=	new	Random();
+			int a = (int)Math.random() * numPro;
+			int indice = puertas.indexOf(puerta);
+			Puerta aux = puertas.get(indice);
+			aux.setCodigoProblema(a);
+		}
 	}
 	
 	public EstadoCubo getEstado(){
@@ -95,23 +103,16 @@ public class ProblemaCubo{// implements Problema {
 	}
 	
 	public void cerrarPuerta(int puerta){
-/*		int x = (puerta/100)%10;
-		int y = (puerta/10)%10;
-		int z = puerta%10;
-		int pos = (puerta/1000)%10;
-	*/
 		puertasCerradas.add(new Puerta(puerta));
-		//puertasCerradas[x][y][z][pos] = true;
+		Puerta puertaAux = new Puerta(puerta);
+		int aux = puertas.indexOf(puertaAux);
+		puertaAux = puertas.get(aux);
+		puertaAux.setClausurada(true);
 	}
 
 	public boolean estaCerrada(int puerta){
 		return puertasCerradas.contains(new Puerta(puerta));
-/*		int x = (puerta/100)%10;
-		int y = (puerta/10)%10;
-		int z = puerta%10;
-		int pos = (puerta/1000)%10;
-		return puertasCerradas[x][y][z][pos];
-*/	}
+	}
 
 	public boolean[][][][] abrirPuerta(int puerta, boolean[][][][] puertasAbiertas){
 		int x,y,z,pos;
@@ -211,7 +212,7 @@ System.out.println("Abrimos la puerta "+puerta);
 	public static void main (String args[]){
 	try{
 		int longitud_cubo = Integer.parseInt(args[0]);
-		ProblemaCubo cubo = new ProblemaCubo(longitud_cubo);
+/*		ProblemaCubo cubo = new ProblemaCubo(longitud_cubo);
 
 		for (int i = 0; i<longitud_cubo; i++){
 			for (int j = 0; j < longitud_cubo; j++){
@@ -221,7 +222,7 @@ System.out.println("Abrimos la puerta "+puerta);
 			}
 			System.out.println();
 		}
-
+*/
 
 /*
 System.out.println("Empezamos en: " +cubo.getEstado().getNumHabitacion());
@@ -261,9 +262,9 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	public String toString (){
 		String cadena = "";
 		cadena = cadena + "Tamaño: " + _longitud + "\n";
-		cadena = cadena + "Salidas: "+ "000,00"+_longitud+",0"+_longitud+"0,"+"0"+_longitud+""+_longitud+","+
-									_longitud+"00,"+_longitud+"0"+_longitud+","+_longitud+""+_longitud+"0,"+
-									_longitud+""+_longitud+""+_longitud;
+		cadena = cadena + "Salidas: "+ "000,00"+(_longitud-1)+",0"+(_longitud-1)+"0,"+"0"+(_longitud-1)+""+(_longitud-1)+","+
+		(_longitud-1)+"00,"+(_longitud-1)+"0"+(_longitud-1)+","+(_longitud-1)+""+(_longitud-1)+"0,"+
+		(_longitud-1)+""+(_longitud-1)+""+(_longitud-1);
 		puertasCerradas.trimToSize();
 		cadena = cadena + "Puertas clausuradas: ";
 		String aux = "";
