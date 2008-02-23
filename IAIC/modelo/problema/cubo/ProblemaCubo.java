@@ -35,7 +35,7 @@ public class ProblemaCubo implements Problema {
 		_longitud = 0;
 		puertasCerradas = new ArrayList<Puerta>();
 		puertas = new ArrayList<Puerta>();
-		_estado = new EstadoCubo (0,this);
+		_estado = new EstadoCubo (this);
 	}
 	
 	public ProblemaCubo (int longitud, int puertasCerradasPorHab){
@@ -43,7 +43,7 @@ public class ProblemaCubo implements Problema {
 		puertasCerradas = new ArrayList<Puerta>();
 		puertas = new ArrayList<Puerta>();
 		cerrarPuertas(longitud,puertasCerradasPorHab);
-		_estado = new EstadoCubo (longitud,this);
+		_estado = new EstadoCubo (this);
 	}
 	
 	public ProblemaCubo(IAvisoLocal avisos, ProblemaCubo cubo){
@@ -57,7 +57,7 @@ public class ProblemaCubo implements Problema {
 
 	public void inicializa (int longitud, int puertasCerradasPorHab, int numPro){
 		_longitud = longitud;
-		_estado = new EstadoCubo (longitud,this);
+		_estado = new EstadoCubo (this);
 		int a = 0;
 		for (int i = 0; i<longitud; i++)
 			for (int j = 0; j<longitud; j++)
@@ -313,7 +313,7 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	}
 
 	public Estado getInicial() {
-		return new EstadoCubo(_longitud,this);
+		return new EstadoCubo(this);
 	}
 
 	/**

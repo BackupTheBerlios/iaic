@@ -10,7 +10,7 @@ import modelo.problema.Operador;
 
 
 public class EstadoCubo  implements Estado{
-	private int longitudCubo;
+	//private int longitudCubo;
 	private int numHabitacion;
 	private ArrayList<Puerta> puertasAbiertas;
 	private IAvisoLocal aviso;
@@ -18,12 +18,13 @@ public class EstadoCubo  implements Estado{
 //	private boolean[][][][] puertasAbiertas; 
 
 
-	EstadoCubo(int longitud, ProblemaCubo cubo){
+	EstadoCubo(ProblemaCubo cubo){
 		this.cubo = cubo;
+		int longitud = cubo.get_longitud();
 		aviso = cubo.getAvisos();
-		longitudCubo = longitud;
-//		numHabitacion = (int)(Math.random()*longitud-1) *100 + (int)(Math.random()*longitud-1) * 10 + (int)(Math.random()*longitud-1);
-		numHabitacion = 111;
+	//	longitudCubo = longitud;
+		numHabitacion = (int)(Math.random()*longitud-1) *100 + (int)(Math.random()*longitud-1) * 10 + (int)(Math.random()*longitud-1);
+//		numHabitacion = 111;
 		puertasAbiertas = new ArrayList<Puerta>();
 						
 	}
@@ -64,19 +65,21 @@ public class EstadoCubo  implements Estado{
 	}
 	
 	public int getHeuristica() {
+		int longitudCubo = cubo.get_longitud();
 		int x = (numHabitacion % 10);
 		int y = (numHabitacion/10) % 10;
 		int z = (numHabitacion/100) % 10;
 		int h = 0;
 		h+= Math.min ((x % (longitudCubo-1)), ((longitudCubo-1-x) % (longitudCubo-1)));
 		h+= Math.min ((y % (longitudCubo-1)),((longitudCubo-1-y) % (longitudCubo-1)));
-		h+= Math.min ((z % (longitudCubo-1)), ((longitudCubo-1-z) % (longitudCubo-1))) ;	
+		h+= Math.min ((z % (longitudCubo-1)), ((longitudCubo-1-z) % (longitudCubo-1))) ;
 		return h;
 	}
 	
 
 
 	public List<Operador> getOperadoresAplicables() {
+		int longitudCubo = cubo.get_longitud();
 		List<Operador>	lista	=	new	LinkedList<Operador>();
 		
 			if ((numHabitacion/100)%10 != longitudCubo-1)
