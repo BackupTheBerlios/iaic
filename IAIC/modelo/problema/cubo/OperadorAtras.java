@@ -16,7 +16,8 @@ public class OperadorAtras extends OperadorCubo{
 
 	@Override
 	protected void transitar() {
-		EstadoCubo c = (EstadoCubo)getInicial();
+		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
+		
 		int aux = 0;
 		if (aux == 0) aux = 1;
 		else aux = 0;

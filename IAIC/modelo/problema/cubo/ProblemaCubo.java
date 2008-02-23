@@ -1,7 +1,8 @@
 package modelo.problema.cubo;
 //import  EstadoCubo;
 //import problema.Problema;
-//import java.util.ArrayList;
+import java.util.List;
+import java.util.ArrayList;
 /**
  * @author gnufede
  *
@@ -12,22 +13,25 @@ public class ProblemaCubo{// implements Problema {
 	 * (non-javadoc)
 	 */
 	private int _longitud;
-	private boolean[][][][] puertasCerradas; 
-	private String strPuertasCerradas;
+	private List<Puerta> puertasCerradas;
+//	private boolean[][][][] puertasCerradas; 
+//	private String strPuertasCerradas;
 	/**
 	 *
 	 */
 	private EstadoCubo _estado;
 
-	public ProblemaCubo (int longitud){
+	public ProblemaCubo (int longitud, int puertasCerradasPorHab){
 		_longitud = longitud;
-		strPuertasCerradas = "";
+/*		strPuertasCerradas = "";
 		for (int i = 0; i<longitud; i++)
 			for (int j = 0; j<longitud; j++)
 				for (int k = 0; k<longitud; k++)
 					for (int l = 0; l<3; l++)
 						puertasCerradas[i][j][k][l] = false;
-		cerrarPuertas(longitud);
+*/
+		puertasCerradas = new ArrayList<Puerta>();
+		cerrarPuertas(longitud,puertasCerradasPorHab);
 		_estado = new EstadoCubo (longitud);
 	}
 
@@ -50,7 +54,7 @@ public class ProblemaCubo{// implements Problema {
 		return numhc;
 	}
 	
-	private void cerrarPuertas(int longitud){
+	private void cerrarPuertas(int longitud, int puertasCerradasPorHab){
 	//	numHabCerrables = longitud*longitud*longitud*2;
 	//	for (int i = 0; i<numHabCerrables; i++){}
 		int numHab = 0;
@@ -59,13 +63,10 @@ public class ProblemaCubo{// implements Problema {
 			for (int j = 0; j<longitud; j++)
 				for (int k = 0; k<longitud; k++){
 					numHab = i*100+j*10+k;
-					switch (contarPuertasCerradas(numHab)){
-						case 0: cerrarPuerta(aux*1000+numHab);
-								strPuertasCerradas = strPuertasCerradas +","+(aux*1000+numHab);
-						case 1: cerrarPuerta(((aux+1)%3)*1000+numHab);
-								strPuertasCerradas = strPuertasCerradas +","+(((aux+1)%3)*1000+numHab);
-						//case 2: break;
-						default: break;
+					while (contarPuertasCerradas(numHab)<puertasCerradasPorHab){
+						cerrarPuerta((aux%3)*1000+numHab);
+				//		strPuertasCerradas = strPuertasCerradas +","+(aux*1000+numHab);
+						aux++;
 					}
 					
 				}
@@ -73,20 +74,23 @@ public class ProblemaCubo{// implements Problema {
 	}
 	
 	public void cerrarPuerta(int puerta){
-		int x = (puerta/100)%10;
+/*		int x = (puerta/100)%10;
 		int y = (puerta/10)%10;
 		int z = puerta%10;
 		int pos = (puerta/1000)%10;
-		puertasCerradas[x][y][z][pos] = true;
+	*/
+		puertasCerradas.add(new Puerta(puerta));
+		//puertasCerradas[x][y][z][pos] = true;
 	}
 
 	public boolean estaCerrada(int puerta){
-		int x = (puerta/100)%10;
+		return puertasCerradas.contains(new Puerta(puerta));
+/*		int x = (puerta/100)%10;
 		int y = (puerta/10)%10;
 		int z = puerta%10;
 		int pos = (puerta/1000)%10;
 		return puertasCerradas[x][y][z][pos];
-	}
+*/	}
 
 	public boolean[][][][] abrirPuerta(int puerta, boolean[][][][] puertasAbiertas){
 		int x,y,z,pos;
