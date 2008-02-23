@@ -70,6 +70,14 @@ public class ProblemaCubo implements Problema {
 		cerrarPuertas(longitud,puertasCerradasPorHab);
 	}
 	
+	public void vacia(){
+		puertas.clear();
+		puertasCerradas.clear();
+		_estado = null;
+		_longitud = 0;
+	}
+
+/*	
 	private void otorgaProblema(int numPro, int puerta) {
 //		for (int i = 0; i<numPro;i++){
 //			Random ran	=	new	Random();
@@ -79,7 +87,7 @@ public class ProblemaCubo implements Problema {
 			aux.setCodigoProblema(a);
 		}
 	
-	
+*/	
 	public EstadoCubo getEstado(){
 		return this._estado;
 	}
