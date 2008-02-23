@@ -47,13 +47,13 @@ public class ProblemaCubo implements Problema {
 		_estado = new EstadoCubo (longitud);
 	}
 	
-	public ProblemaCubo(IAvisoLocal avisos){
+	public ProblemaCubo(IAvisoLocal avisos, ProblemaCubo cubo){
 		super();
 		this.avisos = avisos;
-		_longitud = 0;
-		puertasCerradas = new ArrayList<Puerta>();
-		puertas = new ArrayList<Puerta>();
-		_estado = new EstadoCubo (0);
+		_longitud = cubo.get_longitud();
+		puertasCerradas = cubo.getPuertasCerradas();
+		puertas = cubo.getPuertas();
+		_estado = cubo.get_estado();
 	}
 
 	public void inicializa (int longitud, int puertasCerradasPorHab, int numPro){
@@ -301,6 +301,7 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 			aux = aux + puertaAux.getNumeroPuerta();
 		}
 		cadena = cadena + aux + "\n";
+		cadena = cadena+ "Estado Inicial: " + _estado.getNumHabitacion() + "\n";
 		return cadena;
 	}
 
@@ -314,6 +315,62 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 
 	public Estado getInicial() {
 		return new EstadoCubo(_longitud);
+	}
+
+	/**
+	 * @return the _estado
+	 */
+	public EstadoCubo get_estado() {
+		return _estado;
+	}
+
+	/**
+	 * @param _estado the _estado to set
+	 */
+	public void set_estado(EstadoCubo _estado) {
+		this._estado = _estado;
+	}
+
+	/**
+	 * @return the _longitud
+	 */
+	public int get_longitud() {
+		return _longitud;
+	}
+
+	/**
+	 * @param _longitud the _longitud to set
+	 */
+	public void set_longitud(int _longitud) {
+		this._longitud = _longitud;
+	}
+
+	/**
+	 * @return the puertas
+	 */
+	public ArrayList<Puerta> getPuertas() {
+		return puertas;
+	}
+
+	/**
+	 * @param puertas the puertas to set
+	 */
+	public void setPuertas(ArrayList<Puerta> puertas) {
+		this.puertas = puertas;
+	}
+
+	/**
+	 * @return the puertasCerradas
+	 */
+	public ArrayList<Puerta> getPuertasCerradas() {
+		return puertasCerradas;
+	}
+
+	/**
+	 * @param puertasCerradas the puertasCerradas to set
+	 */
+	public void setPuertasCerradas(ArrayList<Puerta> puertasCerradas) {
+		this.puertasCerradas = puertasCerradas;
 	}
 
 }

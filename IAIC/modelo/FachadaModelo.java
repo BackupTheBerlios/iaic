@@ -94,7 +94,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	public void iniciarEjecucionGlobal() {
 		
 		global	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
-		problemaGlobal	=	new	ProblemaCubo(this);
+		problemaGlobal	=	new	ProblemaCubo(this,cubo);
 		global.setProblema(problemaGlobal);
 		global.inicializar();
 	}
