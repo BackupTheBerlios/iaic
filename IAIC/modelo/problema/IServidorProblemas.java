@@ -6,7 +6,7 @@ public interface IServidorProblemas {
 	 */
 	public	enum	Codigo{Jarras,Granjero,Canibales,OchoPuzzle, Mono, Test}
 	
-	Problema	dameProblema(int i);
+	Problema	dameProblema(int i,boolean resoluble);
 
 	int dameNumeroProblemas();
 }
