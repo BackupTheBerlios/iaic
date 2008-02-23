@@ -10,7 +10,7 @@ public class OperadorVaciarJarraGrande extends OperadorJarras{
 	
 	public Estado transitar(){
 		EstadoJarras eFinal = (EstadoJarras)getInicial();
-		estadoFinal = new EstadoJarras(eFinal.getJPeque(),0);
+		estadoFinal = new EstadoJarras(eFinal.getJPeque(),0,eFinal.getTamP(),eFinal.getTamG());
 		return estadoFinal;
 	}
 	

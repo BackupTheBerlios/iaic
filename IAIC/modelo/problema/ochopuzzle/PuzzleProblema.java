@@ -5,6 +5,10 @@ import modelo.problema.Problema;
 
 public class PuzzleProblema implements Problema {
 	
+	public PuzzleProblema(boolean resoluble){
+		super();
+	}
+	
 	public Estado getInicial() {
 		int[][] tabla = new int[3][3];
 		for (int fila = 0; fila < tabla.length; fila++) {			

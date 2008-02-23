@@ -58,9 +58,9 @@ public class EstadoCubo  implements Estado{
 		puertasAux.add(puertaAux);
 /*
  * Esto hay que rehabilitarlo
-
+*/
 		aviso.iniciarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
- */
+ 
 		return puertasAux;
 	}
 	

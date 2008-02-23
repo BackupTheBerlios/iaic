@@ -19,12 +19,12 @@ public class ServidorProblemas implements IServidorProblemas {
 			respuesta	=	new	 ProblemaMisionerosCanibales(resoluble);
 		} else if (c == Codigo.Jarras){
 			respuesta	=	new	ProblemaJarras(resoluble);
-//		} else if (c == Codigo.Granjero){
-//			respuesta	=	new	GranjeroProblema(resoluble);
-//		} else if (c == Codigo.OchoPuzzle){
-//			respuesta	=	new	PuzzleProblema(resoluble);
-//		} else if (c == Codigo.Mono){
-//			respuesta	=	new	MonoProblema(resoluble);
+		} else if (c == Codigo.Granjero){
+			respuesta	=	new	GranjeroProblema(resoluble);
+		} else if (c == Codigo.OchoPuzzle){
+			respuesta	=	new	PuzzleProblema(resoluble);
+		} else if (c == Codigo.Mono){
+			respuesta	=	new	MonoProblema(resoluble);
 		} else {
 			respuesta	=	new	TestProblema(resoluble);
 		}

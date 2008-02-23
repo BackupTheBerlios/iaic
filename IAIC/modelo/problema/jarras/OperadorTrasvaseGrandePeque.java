@@ -17,7 +17,7 @@ public class OperadorTrasvaseGrandePeque extends OperadorJarras{
 		little = eFinal.getJPeque() + big;
 		if (big > 3)
 			big = 3;
-		estadoFinal = new EstadoJarras(little,big);
+		estadoFinal = new EstadoJarras(little,big,eFinal.getTamP(),eFinal.getTamG());
 		return estadoFinal;
 	}
 	

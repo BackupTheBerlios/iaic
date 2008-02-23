@@ -5,6 +5,10 @@ import modelo.problema.Problema;
 
 public class MonoProblema implements Problema {
 
+	public MonoProblema(boolean resoluble){
+		super();
+	}
+	
 	public Estado getInicial() {
 		return new MonoEstado(0,0,2,0);
 	}

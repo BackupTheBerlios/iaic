@@ -5,6 +5,10 @@ import modelo.problema.Problema;
 
 public class GranjeroProblema implements Problema{
 
+	public GranjeroProblema(boolean resoluble){
+		super();
+	}
+	
 	public Estado getInicial() {
 		return new GranjeroEstado(0,0,0,0);
 	}

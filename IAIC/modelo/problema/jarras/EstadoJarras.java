@@ -47,11 +47,9 @@ public class EstadoJarras implements Estado{
 	}
 	//Comprobacion de igualdad de dos estados
 	public boolean equals(Object e2){
-		if ((jPeque == ((EstadoJarras)e2).getJPeque()) &&
-				(jGrande == ((EstadoJarras)e2).getJGrande()))
-			return true;
-		else
-			return false;
+		return ((jPeque == ((EstadoJarras)e2).getJPeque()) &&
+				(jGrande == ((EstadoJarras)e2).getJGrande()));
+
 	}
 	//Lista de operadores aplicables a un estado
 	public List<Operador> getOperadoresAplicables(){
