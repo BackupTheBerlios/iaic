@@ -58,4 +58,7 @@ public class ProblemaJarras implements Problema{
 	public void setTamPeque(int tamPeque) {
 		this.tamPeque = tamPeque;
 	}
+	public Estado getEstado() {
+		return getInicial();
+	}
 }

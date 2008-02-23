@@ -367,4 +367,11 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 		return this.avisos;
 	}
 
+	/**
+	 * @param avisos the avisos to set
+	 */
+	public void setAvisos(IAvisoLocal avisos) {
+		this.avisos = avisos;
+	}
+
 }

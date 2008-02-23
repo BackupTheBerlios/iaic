@@ -22,16 +22,10 @@ public class EstadoCubo  implements Estado{
 		this.cubo = cubo;
 		aviso = cubo.getAvisos();
 		longitudCubo = longitud;
-		numHabitacion = (int)(Math.random()*longitud-1) *100 + (int)(Math.random()*longitud-1) * 10 + (int)(Math.random()*longitud-1);
+//		numHabitacion = (int)(Math.random()*longitud-1) *100 + (int)(Math.random()*longitud-1) * 10 + (int)(Math.random()*longitud-1);
+		numHabitacion = 111;
 		puertasAbiertas = new ArrayList<Puerta>();
-		//boolean [longitud][longitud][longitud][3];
-/*		for (int i = 0; i<longitud; i++)
-			for (int j = 0; j<longitud; j++)
-				for (int k = 0; k<longitud; k++)
-					for (int l = 0; l<3; l++)
-						puertasAbiertas.[i][j][k][l] = false;
 						
-*/
 	}
 
 	EstadoCubo(ProblemaCubo cubo, int numHabitacion, ArrayList<Puerta> puertas){
@@ -61,7 +55,11 @@ public class EstadoCubo  implements Estado{
 		ArrayList<Puerta> puertas = cubo.getPuertas();
 		Puerta puertaAux = puertas.get(puertas.indexOf(new Puerta(puerta)));
 		puertasAux.add(puertaAux);
+/*
+ * Esto hay que rehabilitarlo
+
 		aviso.iniciarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
+ */
 		return puertasAux;
 	}
 	
@@ -102,9 +100,12 @@ public class EstadoCubo  implements Estado{
 		return ((EstadoCubo)e).getNumHabitacion() == numHabitacion;
 	}
 
+	public String toString(){
+		return new String ("Num Habitacion "+ this.numHabitacion);
+	}
+	
 	public String mostrarInfo() {
-		// TODO esto cuando funcione
-		return null;
+		return this.toString();
 	}
 
 	/**

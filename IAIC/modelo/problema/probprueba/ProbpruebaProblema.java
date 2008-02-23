@@ -24,4 +24,7 @@ public class ProbpruebaProblema implements Problema {
 		return "Problema de los Canibales y Misioneros.";
 	}
 
+	public Estado getEstado() {
+		return getInicial();
+	}
 }

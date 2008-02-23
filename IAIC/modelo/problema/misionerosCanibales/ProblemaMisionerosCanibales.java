@@ -51,4 +51,7 @@ public class ProblemaMisionerosCanibales implements Problema {
 	public void setTamMaxMisioneros(int tamMaxMisioneros) {
 		this.tamMaxMisioneros = tamMaxMisioneros;
 	}
+	public Estado getEstado() {
+		return getInicial();
+	}
 }

@@ -54,4 +54,7 @@ public class PuzzleProblema implements Problema {
 		return "Problema del 8-puzzle \n\n";
 	}
 
+	public Estado getEstado() {
+		return getInicial();
+	}
 }

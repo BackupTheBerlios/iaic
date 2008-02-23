@@ -22,4 +22,7 @@ public class MonoProblema implements Problema {
 		return "Problema del Mono y el Pl�tano \n";
 	}
 
+	public Estado getEstado() {
+		return getInicial();
+	}
 }

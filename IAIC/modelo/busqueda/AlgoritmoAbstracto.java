@@ -47,7 +47,7 @@ abstract class AlgoritmoAbstracto implements IAlgoritmo {
 	public String muestra() {
 		StringBuffer	informacion	= 	new	StringBuffer();
 		informacion.append("PROBLEMA: " + problema.toString());
-		informacion.append("ESTADO INICIAL:\n" + problema.getInicial().mostrarInfo() );
+		informacion.append("ESTADO INICIAL:\n" + problema.getEstado().mostrarInfo() );
 		informacion.append("ALGORTIMO USADO: " + getNombreAlgoritmo() + "\n");
 		informacion.append(imprimeExpandidos());
 		if (haySolucion()){

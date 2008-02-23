@@ -22,4 +22,8 @@ public class GranjeroProblema implements Problema{
 		return "Problema del Granjero la col la cabra y el lobo \n\n";
 	}
 
+	public Estado getEstado() {
+		return getInicial();
+	}
+
 }

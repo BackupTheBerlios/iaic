@@ -59,5 +59,9 @@ public	class TestProblema implements Problema {
 		TestOperador ope	=	new	TestOperador(in,fi,coste);
 		in.getOperadoresAplicables().add(ope);
 	}
+	
+	public Estado getEstado() {
+		return getInicial();
+	}
 
 }
