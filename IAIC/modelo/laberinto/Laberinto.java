@@ -101,8 +101,9 @@ public class Laberinto implements Serializable {
 
 	private void otorgaProblemas(int numPro) {
 		for (int i = 0; i<numPro;i++){
-			Random ran	=	new	Random();
-			int a = Math.abs(ran.nextInt()) % numPro;
+//			Random ran	=	new	Random();
+//			int a = Math.abs(ran.nextInt()) % numPro;
+			int a = 0;
 			Habitacion h = habitaciones.get(i);
 			h.setCodigoProblema(a);
 		}

@@ -2,7 +2,7 @@ package modelo.problema;
 
 import modelo.problema.canibales.CanibalesProblema;
 import modelo.problema.granjero.GranjeroProblema;
-import modelo.problema.jarras.JarrasProblema;
+import modelo.problema.jarras.ProblemaJarras;
 import modelo.problema.mono.MonoProblema;
 import modelo.problema.ochopuzzle.PuzzleProblema;
 import modelo.problema.problemaTesting.TestProblema;
@@ -18,7 +18,7 @@ public class ServidorProblemas implements IServidorProblemas {
 		if (c == Codigo.Canibales){
 			respuesta	=	new	 CanibalesProblema();
 		} else if (c == Codigo.Jarras){
-			respuesta	=	new	JarrasProblema();
+			respuesta	=	new	ProblemaJarras();
 		} else if (c == Codigo.Granjero){
 			respuesta	=	new	GranjeroProblema();
 		} else if (c == Codigo.OchoPuzzle){
