@@ -14,9 +14,7 @@ import modelo.problema.Problema;
 import modelo.problema.ServidorProblemas;
 import modelo.problema.cubo.ProblemaCubo;
 
-/**
- * @author  Diego
- */
+
 public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	private	OyenteModelo	oyente;
@@ -99,9 +97,9 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		global.inicializar();
 	}
 	
-	public	void	iniciarEjecucionLocal(int codigoProblema){
+	public	void	iniciarEjecucionLocal(int codigoProblema,boolean resoluble){
 		local	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
-		Problema	problemaLocal	=	probserver.dameProblema(codigoProblema % (probserver.dameNumeroProblemas()));
+		Problema	problemaLocal	=	probserver.dameProblema(codigoProblema % (probserver.dameNumeroProblemas()),resoluble);
 		local.setProblema(problemaLocal);
 		local.inicializar();
 		oyente.empiezaLocal();
