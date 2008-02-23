@@ -16,7 +16,7 @@ class GranjeroOperadorPasaCol extends GranjeroOperador {
 		
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Pasa la Col con el Granjero \n";
 	}
 

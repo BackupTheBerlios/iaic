@@ -18,7 +18,7 @@ public class MonoOperadorEmpujarCajaCV extends MonoOperador{
 		EstadoFinal = new MonoEstado(m.getPosHor(),m.getPosVer(),aux,m.getPlatano());
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "El mono empuja la Caja entre el centro y la ventana\n";
 	}
 

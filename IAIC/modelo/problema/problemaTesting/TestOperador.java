@@ -31,7 +31,7 @@ public class TestOperador implements	Operador {
 		return inicial;
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Operador entre " + inicial.mostrarInfo() + " " + fin.mostrarInfo();
 	}
 

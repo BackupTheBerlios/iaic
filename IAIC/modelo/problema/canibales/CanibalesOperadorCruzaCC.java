@@ -23,7 +23,7 @@ class CanibalesOperadorCruzaCC extends CanibalesOperador{
 		
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Cruzan dos Canibales a la otra orilla\n";
 	}
 

@@ -15,7 +15,7 @@ class GranjeroOperadorPasaLobo extends GranjeroOperador {
 		EstadoFinal = new GranjeroEstado(aux,aux,g.getCA(),g.getCO());
 	}
 	
-	public String getNombre() {
+	public String toString() {
 		return "Pasa el Lobo con el Granjero \n";
 	}
 	

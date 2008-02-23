@@ -13,7 +13,7 @@ import modelo.problema.Problema;
  */
 abstract class AlgoritmoAbstracto implements IAlgoritmo {
 	/** Este campo representa el problema sobre el que el algoritmo 
-	 * está operando. Es un campo de registro, con getter y setter.*/
+	 * estï¿½ operando. Es un campo de registro, con getter y setter.*/
 	protected Problema problema;
 
 	/**
@@ -53,7 +53,7 @@ abstract class AlgoritmoAbstracto implements IAlgoritmo {
 		if (haySolucion()){
 			informacion.append(imprimeSolucion());
 		} else if (fallido){
-			informacion.append("Lo sentimos, La búsqueda Ha Fracasado y no hay solución\n");
+			informacion.append("Lo sentimos, La bï¿½squeda Ha Fracasado y no hay soluciï¿½n\n");
 		}
 		return informacion.toString();
 	}
@@ -72,9 +72,9 @@ abstract class AlgoritmoAbstracto implements IAlgoritmo {
 		while	(! pila.isEmpty()){
 			Operador	ope	=	pila.pop();   //retira y remueve
 			costeTotal	+=	ope.getCoste();
-			res.append(ope.getNombre()  + "\n");
+			res.append(ope.toString()  + "\n");
 		}
-		res.append("Coste total de la solución: " + costeTotal + "\n");
+		res.append("Coste total de la soluciï¿½n: " + costeTotal + "\n");
 		return res;		
 	}
 	

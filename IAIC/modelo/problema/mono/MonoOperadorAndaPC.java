@@ -20,7 +20,7 @@ public class MonoOperadorAndaPC extends MonoOperador{
 		
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Anda el Mono entre puerta y centro";
 	}
 

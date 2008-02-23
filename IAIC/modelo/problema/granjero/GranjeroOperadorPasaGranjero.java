@@ -15,7 +15,7 @@ class GranjeroOperadorPasaGranjero extends GranjeroOperador{
 		EstadoFinal = new GranjeroEstado(aux,g.getLO(),g.getCA(),g.getCO());		
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Pasa el granjero solo \n";
 	}
 

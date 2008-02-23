@@ -20,8 +20,8 @@ public class MonoOperadorCogerPlatano extends MonoOperador {
 		
 	}
 
-	public String getNombre() {
-		return "El Mono coge el Plátano";
+	public String toString() {
+		return "El Mono coge el Plï¿½tano";
 	}
 
 }

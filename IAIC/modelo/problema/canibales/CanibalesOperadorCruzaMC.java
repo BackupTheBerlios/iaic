@@ -25,7 +25,7 @@ class CanibalesOperadorCruzaMC extends CanibalesOperador {
 		
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Cruzan un Misionero y un Canibal a la otra orilla\n";
 	}
 

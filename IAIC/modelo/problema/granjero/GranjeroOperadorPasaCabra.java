@@ -15,7 +15,7 @@ class GranjeroOperadorPasaCabra extends GranjeroOperador {
 		
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Pasa la Cabra con el Granjero \n";
 	}
 

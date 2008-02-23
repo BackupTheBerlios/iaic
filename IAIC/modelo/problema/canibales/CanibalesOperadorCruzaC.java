@@ -22,7 +22,7 @@ class CanibalesOperadorCruzaC extends CanibalesOperador{
 
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Cruza un solo Canibal a la otra orilla\n";
 	}
 

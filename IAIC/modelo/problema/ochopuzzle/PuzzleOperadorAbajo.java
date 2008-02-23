@@ -32,7 +32,7 @@ public class PuzzleOperadorAbajo extends PuzzleOperador {
 		EstadoFinal	= new PuzzleEstado(tablaux);
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Mover ficha hacia abajo.\n";
 	}
 

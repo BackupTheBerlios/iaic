@@ -12,7 +12,7 @@ public class ProbpruebaOperadorDeUnoAOtro extends ProbpruebaOperador {
 		EstadoFinal = new ProbpruebaEstado(estadoFinal);		
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Se pasa del estado " + ((ProbpruebaEstado)getInicial()).getID() + " al " + estadoFinal + ".\n";
 	}
 	

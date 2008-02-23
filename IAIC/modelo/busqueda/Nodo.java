@@ -76,12 +76,12 @@ abstract class Nodo {
 
 	public StringBuffer muestra() {
 		StringBuffer	res	=	new	StringBuffer();
-		res.append("Nodo de búsqueda número " + numero + "\n");
+		res.append("Nodo de bï¿½squeda nï¿½mero " + numero + "\n");
 		if (padre == null){
-			res.append("Es el nodo inicial, la raíz del árbol\n");				
+			res.append("Es el nodo inicial, la raï¿½z del ï¿½rbol\n");				
 		} else {
 			res.append("Nodo Padre: " + getPadre().numero + "\n");
-			res.append("Operador aplicado: " + operador.getNombre() + "\n");
+			res.append("Operador aplicado: " + operador.toString() + "\n");
 			res.append(mostrarCoste()); // Mostrar el coste del camino menor
 		}
 		res.append("Estado del nodo:\n" + estado.mostrarInfo() + "\n");		

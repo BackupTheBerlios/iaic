@@ -22,7 +22,7 @@ class CanibalesOperadorCruzaM extends CanibalesOperador{
 		
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Cruza un solo Misionero a la otra orilla\n";
 	}
 

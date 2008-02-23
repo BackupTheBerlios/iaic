@@ -18,7 +18,7 @@ public class MonoOperadorAndaCV extends MonoOperador{
 		EstadoFinal = new MonoEstado(aux,m.getPosVer(),m.getPosCaja(),m.getPlatano());
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "Anda el mono entre centro y ventana";
 	}
 

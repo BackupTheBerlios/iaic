@@ -18,7 +18,7 @@ public class MonoOperadorSubirCaja extends MonoOperador {
 		EstadoFinal = new MonoEstado(m.getPosHor(),aux,m.getPosCaja(),m.getPlatano());
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return "El Mono se sube a la Caja";
 	}
 

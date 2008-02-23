@@ -37,7 +37,7 @@ class LaberintoOperador implements Operador {
 		return 1;
 	}
 
-	public String getNombre() {
+	public String toString() {
 		return mipuerta.muestra();
 	}
 
