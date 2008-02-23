@@ -1,6 +1,7 @@
 package modelo.problema.cubo;
 //import  EstadoCubo;
 //import problema.Problema;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ArrayList;
 /**
@@ -13,7 +14,7 @@ public class ProblemaCubo{// implements Problema {
 	 * (non-javadoc)
 	 */
 	private int _longitud;
-	private List<Puerta> puertasCerradas;
+	private ArrayList<Puerta> puertasCerradas;
 //	private boolean[][][][] puertasCerradas; 
 //	private String strPuertasCerradas;
 	/**
@@ -41,7 +42,7 @@ public class ProblemaCubo{// implements Problema {
 		_estado = new EstadoCubo (longitud);
 	}
 
-	public inicializa (int longitud, int puertasCerradasPorHab){
+	public void inicializa (int longitud, int puertasCerradasPorHab){
 		_longitud = longitud;
 		/*		strPuertasCerradas = "";
 				for (int i = 0; i<longitud; i++)
@@ -260,7 +261,18 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	public String toString (){
 		String cadena = "";
 		cadena = cadena + "Tamaño: " + _longitud + "\n";
-		cadena = cadena +
+		cadena = cadena + "Salidas: "+ "000,00"+_longitud+",0"+_longitud+"0,"+"0"+_longitud+""+_longitud+","+
+									_longitud+"00,"+_longitud+"0"+_longitud+","+_longitud+""+_longitud+"0,"+
+									_longitud+""+_longitud+""+_longitud;
+		puertasCerradas.trimToSize();
+		cadena = cadena + "Puertas clausuradas: ";
+		String aux = "";
+		for (Iterator<Puerta> iterator = puertasCerradas.iterator(); iterator.hasNext();) {
+			if (aux.length() > 0) aux = aux + ",";
+			Puerta puertaAux = (Puerta) iterator.next();
+			aux = aux + puertaAux.getNumeroPuerta();
+		}
+		cadena = cadena + aux;
 		return cadena;
 	}
 }
