@@ -96,7 +96,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		
 		global	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
 		//FIXME
-		problemaGlobal	=	(Problema)new ProblemaCubo(this,cubo);
+		problemaGlobal	=	new	ProblemaCubo(this);
 		global.setProblema(problemaGlobal);
 		global.inicializar();
 	}
