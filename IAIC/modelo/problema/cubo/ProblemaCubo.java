@@ -21,6 +21,12 @@ public class ProblemaCubo{// implements Problema {
 	 */
 	private EstadoCubo _estado;
 
+	public ProblemaCubo(){
+		_longitud = 0;
+		puertasCerradas = new ArrayList<Puerta>();
+		_estado = new EstadoCubo (longitud);
+	}
+	
 	public ProblemaCubo (int longitud, int puertasCerradasPorHab){
 		_longitud = longitud;
 /*		strPuertasCerradas = "";
@@ -35,6 +41,20 @@ public class ProblemaCubo{// implements Problema {
 		_estado = new EstadoCubo (longitud);
 	}
 
+	public inicializa (int longitud, int puertasCerradasPorHab){
+		_longitud = longitud;
+		/*		strPuertasCerradas = "";
+				for (int i = 0; i<longitud; i++)
+					for (int j = 0; j<longitud; j++)
+						for (int k = 0; k<longitud; k++)
+							for (int l = 0; l<3; l++)
+								puertasCerradas[i][j][k][l] = false;
+		*/
+				puertasCerradas = new ArrayList<Puerta>();
+				cerrarPuertas(longitud,puertasCerradasPorHab);
+				_estado = new EstadoCubo (longitud);
+	}
+	
 	public EstadoCubo getEstado(){
 		return this._estado;
 	}
@@ -239,6 +259,8 @@ System.out.println("Salida: "+	cubo.getEstado().getNumHabitacion());
 	
 	public String toString (){
 		String cadena = "";
+		cadena = cadena + "Tamaño: " + _longitud + "\n";
+		cadena = cadena +
 		return cadena;
 	}
 }
