@@ -14,6 +14,8 @@ public	class TestProblema implements Problema {
 	private	TestEstado	c;
 	private	TestEstado	d;
 	private	TestEstado	o;
+	
+	
 
 	public boolean esObjetivo(Estado e) {
 		return e.equals(o);
@@ -31,7 +33,7 @@ public	class TestProblema implements Problema {
 		return "Problema de testing";
 	}
 	
-	public	TestProblema(){
+	public	TestProblema(boolean resoluble){
 		super();
 		i	=	new	TestEstado('i',45);
 		a	=	new	TestEstado('a',30);
