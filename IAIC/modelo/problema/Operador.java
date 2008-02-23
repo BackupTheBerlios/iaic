@@ -5,5 +5,5 @@ public interface Operador {
 	Estado getInicial();
 	Estado getFinal();
 	int getCoste();
-	String getNombre();
+	String toString();
 }
