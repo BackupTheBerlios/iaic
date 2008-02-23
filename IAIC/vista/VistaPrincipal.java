@@ -765,7 +765,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 			cerrarMenuItem.setText("Cerrar");
 			cerrarMenuItem.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					modelo.cerrarLaberinto();
+					//modelo.cerrarLaberinto();
 				}
 			});
 		}

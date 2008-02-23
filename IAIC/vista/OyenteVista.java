@@ -14,8 +14,7 @@ public interface OyenteVista {
 	 * @param habitaciones es el número de habitaciones de un laberinto.
 	 * @param puertas es el número de puertas -conexiones entre habitaciones- en el laberinto.
 	 * @param ventanas es el número de ventanas que hay en el laberinto. */
-	public abstract void nuevoLaberinto(int habitaciones, int puertas,
-			int ventanas, int salidas);
+	public abstract void nuevoCubo(int habitaciones, int puertas); //int ventanas, int salidas
 
 	/** Ordena guardar un objeto de laberinto en un archivo binario.	 */
 	public abstract void guardarBinario(ObjectOutputStream output)
@@ -35,9 +34,9 @@ public interface OyenteVista {
 	 * al que se accede con un FileReader*/
 	public abstract void cargarTexto(FileReader input) throws Exception;
 
-	/** Manda cerrar un laberinto*/
+	/** Manda cerrar un laberinto*//*
 	public abstract void cerrarLaberinto();
-
+*/
 	/**Da la orden para que comience la ejecución de la búsqueda de nivel global.
 	 * El modelo luego debe avisar de que su estado ha cambiado*/
 	public abstract void iniciarEjecucionGlobal();

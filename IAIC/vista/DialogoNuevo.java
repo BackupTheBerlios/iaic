@@ -1,7 +1,7 @@
 package vista;
 
 import java.awt.FlowLayout;
-import java.awt.Font;
+//import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
