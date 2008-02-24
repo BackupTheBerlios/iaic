@@ -1,7 +1,13 @@
 package modelo.problema.cubo;
 
-public class Puerta {
+import java.io.Serializable;
 
+public class Puerta implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7484032693814725704L;
 	private int numeroPuerta;
 	private int codigoProblema;
 	private boolean estaClausurada;

@@ -1,8 +1,9 @@
 package modelo.problema.cubo;
 //import  EstadoCubo;
 //import problema.Problema;
+import java.io.Serializable;
 import java.util.Iterator;
-import java.util.List;
+//import java.util.List;
 import java.util.ArrayList;
 
 import modelo.IAvisoLocal;
@@ -12,8 +13,12 @@ import modelo.problema.Problema;
  * @author gnufede
  *
  */
-public class ProblemaCubo implements Problema {
+public class ProblemaCubo implements Problema, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7124103484129684206L;
 	/*
 	 * (non-javadoc)
 	 */

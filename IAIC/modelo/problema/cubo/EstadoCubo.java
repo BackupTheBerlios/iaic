@@ -1,5 +1,6 @@
 package modelo.problema.cubo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,7 +10,11 @@ import modelo.problema.Estado;
 import modelo.problema.Operador;
 
 
-public class EstadoCubo  implements Estado{
+public class EstadoCubo  implements Estado, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6006486732624592260L;
 	//private int longitudCubo;
 	private int numHabitacion;
 	private ArrayList<Puerta> puertasAbiertas;
