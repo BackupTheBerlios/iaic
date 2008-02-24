@@ -21,11 +21,11 @@ public class ProblemaMisionerosCanibales implements Problema {
 	}
 	
 	public Estado getInicial(){
-		return (new EstadoMisionerosCanibales(tamMaxMisioneros,tamMaxCanibales,1));
+		return (new EstadoMisionerosCanibales(tamMaxMisioneros,tamMaxCanibales,1,tamMaxMisioneros,tamMaxCanibales));
 	}
 	
 	public boolean esObjetivo(Estado e){
-		EstadoMisionerosCanibales estadoObjetivo = new EstadoMisionerosCanibales(0,0,0);
+		EstadoMisionerosCanibales estadoObjetivo = new EstadoMisionerosCanibales(0,0,0,tamMaxMisioneros,tamMaxCanibales);
 		if (e.equals(estadoObjetivo))
 			return true;
 		else 

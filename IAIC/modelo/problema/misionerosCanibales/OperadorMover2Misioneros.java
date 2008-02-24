@@ -10,17 +10,21 @@ public class OperadorMover2Misioneros extends OperadorMisionerosCanibales{
 	
 	public Estado transitar(){
 		EstadoMisionerosCanibales eFinal = (EstadoMisionerosCanibales)getInicial();
-		int posB;
-		if (eFinal.getPosicionBarca() == 0)
+		int posB, numM;
+		if (eFinal.getPosicionBarca() == 0){
 			posB = 1;
-		else 
+			numM = eFinal.getNumMisioneros()+2;
+		}
+		else{ 
 			posB = 0;
-		estadoFinal = new EstadoMisionerosCanibales(eFinal.getNumMisioneros()- 2,eFinal.getNumCanibales(),posB);
+			numM = eFinal.getNumMisioneros()-2;
+		}		
+		estadoFinal = new EstadoMisionerosCanibales(numM,eFinal.getNumCanibales(),posB,eFinal.getTamMaxMisioneros(),eFinal.getTamMaxCanibales());
 		return estadoFinal;
 	}
 
 	public String toString(){
-		return ("Mover un canibal");
+		return ("Mover dos misioneros");
 	}
 	
 	public int getCoste(){

@@ -60,7 +60,7 @@ public class EstadoMisionerosCanibales implements Estado{
 	//Muestra informacion de un estado
 	public String mostrarInfo(){
 		String s;
-		s = "Posicion orilla izquierda: ";
+		s = "ESTADO:";
 		s = s + numMisioneros + " misioneros, ";
 		s = s + numCanibales + " canibales. ";
 		if (posicionBarca == 1)
@@ -89,13 +89,17 @@ public class EstadoMisionerosCanibales implements Estado{
 		 *  Mover 1 Misionero y 1 Canibal
 		 * */
 		if (!peligro()){
-			if (((numMisioneros > 0) && (posicionBarca == 1)) || ((numMisioneros < tamMaxMisioneros) && (posicionBarca == 0)))
+			if (((numMisioneros > 0) && (posicionBarca == 1)) || 
+					((numMisioneros < tamMaxMisioneros) && (posicionBarca == 0)))
 				listaOperadores.add(new OperadorMover1Misionero(this));
-			if (((numMisioneros > 1) && (posicionBarca == 1)) || ((numMisioneros < (tamMaxMisioneros-1)) && (posicionBarca == 0)))
+			if (((numMisioneros > 1) && (posicionBarca == 1)) || 
+					((numMisioneros < (tamMaxMisioneros-1)) && (posicionBarca == 0)))
 				listaOperadores.add(new OperadorMover2Misioneros(this));
-			if (((numCanibales > 0) && (posicionBarca == 1)) || ((numCanibales < tamMaxCanibales) && (posicionBarca == 0)))
+			if (((numCanibales > 0) && (posicionBarca == 1)) || 
+					((numCanibales < tamMaxCanibales) && (posicionBarca == 0)))
 				listaOperadores.add(new OperadorMover1Canibal(this));
-			if (((numCanibales > 1) && (posicionBarca == 1)) || ((numCanibales < (tamMaxCanibales-1)) && (posicionBarca == 0)))
+			if (((numCanibales > 1) && (posicionBarca == 1)) || 
+					((numCanibales < (tamMaxCanibales-1)) && (posicionBarca == 0)))
 				listaOperadores.add(new OperadorMover2Canibales(this));
 			if (((numMisioneros > 0) && (numCanibales > 0) && (posicionBarca == 1)) || 
 					((numMisioneros < tamMaxMisioneros) && (numCanibales < tamMaxCanibales) && (posicionBarca == 0)))
@@ -109,10 +113,30 @@ public class EstadoMisionerosCanibales implements Estado{
 	}
 
 	private boolean peligro(){
-		if (((numCanibales > numMisioneros) && (numMisioneros!=0) && (posicionBarca == 1)) || 
-				((numCanibales < numMisioneros) && (numMisioneros!=3) && (posicionBarca == 0)))
+//		if (((numCanibales > numMisioneros) && (numMisioneros!=0) && (posicionBarca == 1)) || 
+//				((numCanibales < numMisioneros) && (numMisioneros!=tamMaxMisioneros) && (posicionBarca == 0)))
+		if (((numCanibales > numMisioneros) && (numMisioneros!=0)) || 
+				((numCanibales < numMisioneros) && (numMisioneros!=tamMaxMisioneros))){
+			System.out.println("PELIGRO!! " + this.mostrarInfo());
 			return true;
+		}
 		else 
 			return false;
+	}
+
+	public int getTamMaxCanibales() {
+		return tamMaxCanibales;
+	}
+
+	public void setTamMaxCanibales(int tamMaxCanibales) {
+		this.tamMaxCanibales = tamMaxCanibales;
+	}
+
+	public int getTamMaxMisioneros() {
+		return tamMaxMisioneros;
+	}
+
+	public void setTamMaxMisioneros(int tamMaxMisioneros) {
+		this.tamMaxMisioneros = tamMaxMisioneros;
 	}
 }
