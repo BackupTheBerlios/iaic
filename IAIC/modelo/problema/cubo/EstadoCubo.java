@@ -30,6 +30,7 @@ public class EstadoCubo  implements Estado{
 	}
 
 	EstadoCubo(ProblemaCubo cubo, int numHabitacion, ArrayList<Puerta> puertas){
+		aviso = cubo.getAvisos();
 		this.cubo = cubo;
 		this.numHabitacion = numHabitacion;
 		this.puertasAbiertas = puertas;
