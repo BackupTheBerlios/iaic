@@ -133,4 +133,8 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		return local.muestra();
 	}
 
+	public boolean getFinEjecucionLocal() {
+		return !(local.isFallido());
+	}
+
 }

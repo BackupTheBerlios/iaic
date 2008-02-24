@@ -94,5 +94,11 @@ abstract class AlgoritmoAbstracto implements IAlgoritmo {
 
 	protected abstract String 		getNombreAlgoritmo();
 	protected abstract Nodo			getSolucion();
+	/**
+	 * @return the fallido
+	 */
+	public boolean isFallido() {
+		return fallido;
+	}
 
 }

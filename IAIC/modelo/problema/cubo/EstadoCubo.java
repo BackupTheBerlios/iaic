@@ -60,8 +60,10 @@ public class EstadoCubo  implements Estado{
  * Esto hay que rehabilitarlo
 */
 		aviso.iniciarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
- 
-		return puertasAux;
+		if (aviso.getFinEjecucionLocal())
+			return puertasAux;
+		else return new ArrayList<Puerta>();
+		
 	}
 	
 	public int getHeuristica() {

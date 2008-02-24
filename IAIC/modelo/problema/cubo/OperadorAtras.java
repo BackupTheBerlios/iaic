@@ -1,5 +1,7 @@
 package modelo.problema.cubo;
 
+import java.util.ArrayList;
+
 import modelo.problema.cubo.EstadoCubo;
 
 public class OperadorAtras extends OperadorCubo{
@@ -17,7 +19,9 @@ public class OperadorAtras extends OperadorCubo{
 	protected void transitar() {
 		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
 		int num = c.getNumHabitacion();
-		EstadoFinal =  new EstadoCubo(c.getCubo(),num-1,c.abrirPuerta(num-1+2000));
+		ArrayList<Puerta> aux = c.abrirPuerta(num-1+2000);
+		if (aux.isEmpty()) EstadoFinal = (EstadoCubo)getInicial();
+		else EstadoFinal =  new EstadoCubo(c.getCubo(),num-1,aux);
 
 	}
 
