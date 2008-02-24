@@ -15,6 +15,7 @@ public class EstadoCubo  implements Estado{
 	private ArrayList<Puerta> puertasAbiertas;
 	private IAvisoLocal aviso;
 	private ProblemaCubo cubo;
+	private OperadorCubo opCubo;
 //	private boolean[][][][] puertasAbiertas; 
 
 
@@ -52,19 +53,17 @@ public class EstadoCubo  implements Estado{
 		this.puertasAbiertas = puertas;
 	}
 
-	public ArrayList<Puerta> abrirPuerta(int puerta){
-		ArrayList<Puerta> puertasAux = this.puertasAbiertas;
+	public void abrirPuerta(int puerta, OperadorCubo op){
 		ArrayList<Puerta> puertas = cubo.getPuertas();
 		Puerta puertaAux = puertas.get(puertas.indexOf(new Puerta(puerta)));
-		puertasAux.add(puertaAux);
-/*
- * Esto hay que rehabilitarlo
-*/
-		aviso.iniciarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
-		if (aviso.getFinEjecucionLocal())
-			return puertasAux;
-		else return new ArrayList<Puerta>();
-		
+		 aviso.ejecutarLocal(puertaAux,this,op);
+	}
+	
+	public void abrirDelTodo(Puerta p, boolean seAbre, OperadorCubo op){
+		ArrayList<Puerta> puertasAux = this.puertasAbiertas;
+		puertasAux.add(p);
+		op.transitarDelTodo(puertasAux);
+		//return puertasAux;
 	}
 	
 	public int getHeuristica() {

@@ -20,8 +20,15 @@ public class OperadorArriba extends OperadorCubo{
 	protected void transitar() {
 		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
 		int num = c.getNumHabitacion();
-		ArrayList<Puerta> aux = c.abrirPuerta(num);
-		if (aux.isEmpty()) EstadoFinal = (EstadoCubo)getInicial();
-		else EstadoFinal =  new EstadoCubo(c.getCubo(),num+100,aux);
+		c.abrirPuerta(num,this);
+		EstadoFinal = c;
 	}
+	
+	protected void transitarDelTodo (ArrayList <Puerta> puertasAbiertas){
+		EstadoCubo c = (EstadoCubo)getInicial();
+		int num = c.getNumHabitacion();
+		EstadoFinal =  new EstadoCubo(c.getCubo(),num+100,puertasAbiertas);
+	}
+
+	
 }

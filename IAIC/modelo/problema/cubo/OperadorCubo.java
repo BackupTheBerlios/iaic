@@ -1,14 +1,17 @@
 package modelo.problema.cubo;
 
+import java.util.ArrayList;
+
 import modelo.problema.Estado;
 import modelo.problema.Operador;
-//import modelo.problema.granjero.GranjeroEstado;
+
 
 
 public abstract class OperadorCubo implements Operador  {
 
 	private EstadoCubo inicial;
 	protected EstadoCubo EstadoFinal;
+	private boolean listo;
 	
 	public int getCoste() {
 		// TODO Auto-generated method stub
@@ -25,7 +28,7 @@ public abstract class OperadorCubo implements Operador  {
 	
 	protected abstract void transitar();
 
-
+	protected abstract void transitarDelTodo(ArrayList <Puerta> puertasAbiertas);
 	
 	public void setInicial(Estado e) {
 		inicial = (EstadoCubo) e;

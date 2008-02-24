@@ -18,9 +18,14 @@ public class OperadorAbajo extends OperadorCubo  {
 	protected void transitar() {
 		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
 		int num = c.getNumHabitacion();
-		ArrayList<Puerta> aux = c.abrirPuerta(num-100);
-		if (aux.isEmpty()) EstadoFinal = (EstadoCubo)getInicial();
-		else EstadoFinal =  new EstadoCubo(c.getCubo(),num-100,aux);
+		c.abrirPuerta(num-100,this);
+		EstadoFinal = c;
+	}
+	
+	protected void transitarDelTodo (ArrayList <Puerta> puertasAbiertas){
+		EstadoCubo c = (EstadoCubo)getInicial();
+		int num = c.getNumHabitacion();
+		EstadoFinal =  new EstadoCubo(c.getCubo(),num-100,puertasAbiertas);
 	}
 
 }

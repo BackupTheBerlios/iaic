@@ -15,14 +15,19 @@ public class OperadorAtras extends OperadorCubo{
 		return "Cruzamos la puerta de atras";
 	}
 
-	@Override
+	@Override	
 	protected void transitar() {
 		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
 		int num = c.getNumHabitacion();
-		ArrayList<Puerta> aux = c.abrirPuerta(num-1+2000);
-		if (aux.isEmpty()) EstadoFinal = (EstadoCubo)getInicial();
-		else EstadoFinal =  new EstadoCubo(c.getCubo(),num-1,aux);
-
+		c.abrirPuerta(num-1+2000,this);
+		EstadoFinal = c;
 	}
+	
+	protected void transitarDelTodo (ArrayList <Puerta> puertasAbiertas){
+		EstadoCubo c = (EstadoCubo)getInicial();
+		int num = c.getNumHabitacion();
+		EstadoFinal =  new EstadoCubo(c.getCubo(),num-1,puertasAbiertas);
+	}
+
 
 }

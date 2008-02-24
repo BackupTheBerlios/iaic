@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.LinkedList;
+
 import modelo.busqueda.IAlgoritmo;
 import modelo.busqueda.IAlgoritmoServidor;
 import modelo.busqueda.ServidorAlgoritmo;
@@ -12,13 +14,24 @@ import modelo.busqueda.ServidorAlgoritmo;
 import modelo.problema.IServidorProblemas;
 import modelo.problema.Problema;
 import modelo.problema.ServidorProblemas;
+import modelo.problema.cubo.EstadoCubo;
+import modelo.problema.cubo.OperadorCubo;
 import modelo.problema.cubo.ProblemaCubo;
+import modelo.problema.cubo.Puerta;
 
 
 public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	private	OyenteModelo	oyente;
 	private	ProblemaCubo	cubo;
+	private EstadoCubo		estadoCubo;
+	private Puerta			puerta;
+	
+	private LinkedList<Puerta>	colaProblemas;
+	private LinkedList<EstadoCubo>	colaEstados;
+	private LinkedList<OperadorCubo> colaOperadores;
+	
+	private boolean 	localTerminado;
 
 	public void nuevoCubo(int dim, int puertas) { //, int ventanas, int salidas
 		cubo.inicializa(dim,puertas, probserver.dameNumeroProblemas());
@@ -54,6 +67,11 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		cubo	=	new	ProblemaCubo();
 		probserver	=	new	ServidorProblemas();
 		algserver	=	new	ServidorAlgoritmo();
+		puerta 	= null;
+		localTerminado = true;
+		colaProblemas = new LinkedList<Puerta>();
+		colaEstados = new LinkedList<EstadoCubo>();
+		colaOperadores = new LinkedList<OperadorCubo>();
 	}
 
 	private	IServidorProblemas probserver;
@@ -81,8 +99,18 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	public void ejecutaPasoLocal() {
 		local.avanzarPaso();
 		if (local.estaResuelto()){
+			localTerminado = true;
+			EstadoCubo e = colaEstados.poll();
+			OperadorCubo op = colaOperadores.poll();
+			e.abrirDelTodo(colaProblemas.poll(),!(local.isFallido()), op);
 			oyente.terminaLocal();
 		}
+		if (!colaProblemas.isEmpty()){
+			Puerta sigProblema = colaProblemas.peek();
+			iniciarEjecucionLocal(sigProblema.getCodigoProblema(),sigProblema.isClausurada());
+		}
+			
+			
 	}
 
 	public Object[] getListaAlgoritmos() {
@@ -98,11 +126,12 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	}
 	
 	public	void	iniciarEjecucionLocal(int codigoProblema,boolean resoluble){
-		local	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
-		Problema	problemaLocal	=	probserver.dameProblema(codigoProblema % (probserver.dameNumeroProblemas()),resoluble);
-		local.setProblema(problemaLocal);
-		local.inicializar();
-		oyente.empiezaLocal();
+			local	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
+			Problema	problemaLocal	=	probserver.dameProblema(codigoProblema % (probserver.dameNumeroProblemas()),resoluble);
+			local.setProblema(problemaLocal);
+			local.inicializar();
+			oyente.empiezaLocal();	
+		
 	}	
 	
 	/**
@@ -135,6 +164,20 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	public boolean getFinEjecucionLocal() {
 		return !(local.isFallido());
+	}
+
+	public void ejecutarLocal(Puerta puerta, EstadoCubo estado, OperadorCubo op) {
+		if (colaProblemas.isEmpty()){
+			colaProblemas.add(puerta);
+			colaEstados.add(estado);
+			colaOperadores.add(op);
+			iniciarEjecucionLocal(puerta.getCodigoProblema(),!(puerta.isClausurada()));
+		}
+		else {
+			colaProblemas.add(puerta);
+			colaEstados.add(estado);
+			colaOperadores.add(op);
+		}
 	}
 
 }
