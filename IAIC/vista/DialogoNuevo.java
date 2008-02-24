@@ -184,7 +184,7 @@ class DialogoNuevo extends JDialog {
 			numPuertLabel.setText("2");
 			numPuertLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
 			puertasLabel = new JLabel();
-			puertasLabel.setText("Maximo de Puertas Clausuradas por habitacion");
+			puertasLabel.setText("Maximo de Puertas Clausuradas por Habitacion");
 			puertasLabel.setFont(new java.awt.Font("Garamond", java.awt.Font.PLAIN, 19));
 			puertasPanel = new JPanel();
 			puertasPanel.add(puertasLabel, null);
