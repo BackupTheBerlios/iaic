@@ -11,10 +11,10 @@ public class OperadorTrasvaseGrandePeque extends OperadorJarras{
 	int little = 0;
 	public Estado transitar(){
 		EstadoJarras eFinal = (EstadoJarras)getInicial();
-		big = eFinal.getJGrande() - (3 - eFinal.getJPeque());
+		big = eFinal.getJGrande() - (eFinal.getTamP() - eFinal.getJPeque());
 		if (big < 0)
 			big = 0;
-		little = eFinal.getJPeque() + big;
+		little = eFinal.getJPeque() + (eFinal.getJGrande()-big);
 		if (big > 3)
 			big = 3;
 		estadoFinal = new EstadoJarras(little,big,eFinal.getTamP(),eFinal.getTamG());

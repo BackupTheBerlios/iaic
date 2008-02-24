@@ -75,15 +75,15 @@ public class EstadoJarras implements Estado{
 			listaOperadores.add(new OperadorTrasvasePequeGrande(this));
 		
 
-//		System.out.println("Estado jarra3 = " + this.getJarra3() + "\n");
-//		System.out.println("Estado jarra4 = " + this.getJarra4() + "\n");
-//		System.out.println("Lista de operadores aplicables:" + "\n");
-//		if (listaOperadores != null){
-//			Object[] opers = listaOperadores.toArray();
-//			for(int i=0;i<opers.length;i++){
-//				System.out.println(((Operador)opers[i]).getNombre() + "\n");
-//			}
-//		}
+		System.out.println("Estado jarra3 = " + this.getJPeque());
+		System.out.println("Estado jarra4 = " + this.getJGrande());
+		System.out.println("Lista de operadores aplicables:");
+		if (listaOperadores != null){
+			Object[] opers = listaOperadores.toArray();
+			for(int i=0;i<opers.length;i++){
+				System.out.println(((Operador)opers[i]).toString());
+			}
+		}
 		
 		
 		return listaOperadores;

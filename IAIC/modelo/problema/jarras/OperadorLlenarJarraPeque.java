@@ -11,6 +11,7 @@ public class OperadorLlenarJarraPeque extends OperadorJarras{
 	public Estado transitar(){
 		EstadoJarras eFinal = (EstadoJarras)getInicial();
 		estadoFinal = new EstadoJarras(eFinal.getTamP(),eFinal.getJGrande(),eFinal.getTamP(),eFinal.getTamG());
+//		System.out.println("Transita: \n" + eFinal.toString() + "a\n" + estadoFinal.toString());
 		return estadoFinal;
 	}
 	
