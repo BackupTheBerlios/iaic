@@ -1,21 +1,21 @@
 package modelo.problema.mono;
 
-public class MonoOperadorCogerPlatano extends MonoOperador {
+public class OperadorCogerPlatano extends OperadorMono {
 
-	public MonoOperadorCogerPlatano(MonoEstado inicial) {
+	public OperadorCogerPlatano(EstadoMono inicial) {
 		super(inicial);
 	}
 
 	
 	protected void calculaFinal() {
-		MonoEstado m = (MonoEstado)getInicial();
+		EstadoMono m = (EstadoMono)getInicial();
 		int aux = m.getPlatano();
 		if (aux == 0){
 			aux = 1;
 		}else{
 			aux = 0;			
 		}
-		EstadoFinal = new MonoEstado(m.getPosHor(),m.getPosVer(),m.getPosCaja(),aux);
+		EstadoFinal = new EstadoMono(m.getPosHor(),m.getPosVer(),m.getPosCaja(),aux);
 
 		
 	}

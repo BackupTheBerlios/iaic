@@ -3,14 +3,14 @@ package modelo.problema.mono;
 import modelo.problema.Estado;
 import modelo.problema.Problema;
 
-public class MonoProblema implements Problema {
+public class ProblemaMono implements Problema {
 
-	public MonoProblema(boolean resoluble){
+	public ProblemaMono(boolean resoluble){
 		super();
 	}
 	
 	public Estado getInicial() {
-		return new MonoEstado(0,0,2,0);
+		return new EstadoMono(0,0,2,0);
 	}
 
 	public int evaluarHeuristica(Estado e) {
@@ -18,12 +18,12 @@ public class MonoProblema implements Problema {
 	}
 
 	public boolean esObjetivo(Estado e) {
-		MonoEstado m = (MonoEstado) e;
+		EstadoMono m = (EstadoMono) e;
 		return (m.getPlatano() == 1);
 	}
 
 	public String toString() {
-		return "Problema del Mono y el Pl�tano \n";
+		return "Problema del Mono y el Platano \n";
 	}
 
 	public Estado getEstado() {

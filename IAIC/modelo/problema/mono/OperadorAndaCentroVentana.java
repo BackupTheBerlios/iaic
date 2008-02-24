@@ -1,21 +1,21 @@
 package modelo.problema.mono;
 
-public class MonoOperadorAndaCV extends MonoOperador{
+public class OperadorAndaCentroVentana extends OperadorMono{
 
-	public MonoOperadorAndaCV(MonoEstado inicial) {
+	public OperadorAndaCentroVentana(EstadoMono inicial) {
 		super(inicial);
 	}
 
 	
 	protected void calculaFinal() {
-		MonoEstado m = (MonoEstado)getInicial();
+		EstadoMono m = (EstadoMono)getInicial();
 		int aux = m.getPosHor();
 		if (aux == 1){
 			aux = 2;
 		}else{
 			aux = 1;			
 		}
-		EstadoFinal = new MonoEstado(aux,m.getPosVer(),m.getPosCaja(),m.getPlatano());
+		EstadoFinal = new EstadoMono(aux,m.getPosVer(),m.getPosCaja(),m.getPlatano());
 	}
 
 	public String toString() {

@@ -6,7 +6,7 @@ import java.util.List;
 import modelo.problema.Estado;
 import modelo.problema.Operador;
 
-public class MonoEstado implements Estado {
+public class EstadoMono implements Estado {
 	
 	/**El estado va a ser una tupla de 4 enteros
 	 * en la que posHor representa dónde está el mono.
@@ -22,7 +22,7 @@ public class MonoEstado implements Estado {
 	
 	
 	
-	public MonoEstado(int posHor, int posVer, int posCaja, int platano) {
+	public EstadoMono(int posHor, int posVer, int posCaja, int platano) {
 		super();
 		this.posHor = posHor;
 		this.posVer = posVer;
@@ -109,29 +109,29 @@ public class MonoEstado implements Estado {
 	public List<Operador> getOperadoresAplicables() {
 		List<Operador>	lista	=	new	LinkedList<Operador>();
 		
-		if ((getPosHor() >= 0)&&(getPosHor()< 2) && (getPosVer() == 0)){
-			lista.add(new MonoOperadorAndaPC(this));
-		}
+		if (((posHor == 0)||(posHor == 1)) && 
+				(posVer == 0))
+			lista.add(new OperadorAndaPuertaCentro(this));
 		
-		if ((getPosHor() >= 1)&&(getPosHor() < 3) && (getPosVer() == 0)){
-			lista.add(new MonoOperadorAndaCV(this));
-		}
+		if (((posHor == 1)||(posHor == 2)) && 
+				(posVer == 0))
+			lista.add(new OperadorAndaCentroVentana(this));
 		
-		if ((getPosHor() >= 0)&&(getPosHor() < 2)&&(getPosCaja() == getPosHor()) &&(getPosVer() == 0)){
-			lista.add(new MonoOperadorEmpujarCajaPC(this));
-		}
+		if (((posHor == 0)||(posHor == 1)) &&
+				(posCaja == posHor) &&
+				(posVer == 0))
+			lista.add(new OperadorEmpujarPuertaCentro(this));
 		
-		if ((getPosHor() >= 1)&&(getPosHor() < 3)&&(getPosCaja() == getPosHor()) &&(getPosVer() == 0)){
-			lista.add(new MonoOperadorEmpujarCajaCV(this));
-		}
+		if (((posHor == 1)||(posHor == 2)) &&
+				(posCaja == posHor) &&
+				(posVer == 0))
+			lista.add(new OperadorEmpujarCentroVentana(this));
 		
-		if ((getPosHor() == getPosCaja())){
-			lista.add(new MonoOperadorSubirCaja(this));
-		}
+		if ((posHor == posCaja) && (posHor == 1))
+			lista.add(new OperadorSubir(this));
 		
-		if ((getPosVer() == 1)&&(getPosCaja() == 1) ){
-			lista.add(new MonoOperadorCogerPlatano(this));
-		}
+		if ((posVer == 1)&&(posCaja == 1))
+			lista.add(new OperadorCogerPlatano(this));
 		return lista;
 	}
 	
@@ -141,7 +141,7 @@ public class MonoEstado implements Estado {
 	}
 	
 	public boolean equals(Object e) {
-		MonoEstado m = (MonoEstado) e;
+		EstadoMono m = (EstadoMono) e;
 		return (this.platano == m.platano)&&(this.posCaja == m.posCaja)&&(this.posHor == m.posHor)&&(this.posVer == m.posVer);
 	}
 	

@@ -13,22 +13,22 @@ import modelo.problema.Operador;
  * LA CAJA) y coger el plátano (SI ESTA SUBIDO ENCIMA DE LA CAJA
  * Y LA CAJA ESTA JUSTO EN EL CENTRO, DEBAJO DEL PLÁTANO)*/
 
-public abstract class MonoOperador implements Operador{
+public abstract class OperadorMono implements Operador{
 	
-	private MonoEstado inicial;
+	private EstadoMono inicial;
 
 	public Estado getInicial(){
 		return inicial;
 	}
 	
 	public void setInicial(Estado e){
-		inicial = (MonoEstado) e;
+		inicial = (EstadoMono) e;
 	}
 	public int getCoste(){
 		return 1;
 	}
 	
-	protected MonoEstado EstadoFinal;
+	protected EstadoMono EstadoFinal;
 	
 	public Estado getFinal(){
 		if (EstadoFinal == null){
@@ -39,7 +39,7 @@ public abstract class MonoOperador implements Operador{
 	
 	protected	abstract	void	calculaFinal();
 
-	public MonoOperador(MonoEstado inicial) {
+	public OperadorMono(EstadoMono inicial) {
 		super();
 		this.inicial = inicial;
 	}
