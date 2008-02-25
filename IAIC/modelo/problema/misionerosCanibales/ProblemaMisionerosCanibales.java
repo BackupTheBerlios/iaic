@@ -1,5 +1,7 @@
 package modelo.problema.misionerosCanibales;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import modelo.problema.Estado;
 import modelo.problema.Problema;
 

@@ -1,5 +1,7 @@
 package vista;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,9 +27,7 @@ import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.border.BevelBorder;
 
-/**
- * @author  Diego
- */
+
 public class VistaPrincipal extends JFrame implements	Visualizable{
 
 	private static final long serialVersionUID = 441754492724484437L;
@@ -163,12 +163,10 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		}
 		return nuevoMenuItem;
 	}
-//TODO Cositas por corregir
 	protected void nuevoCubo() {
 		int dim = dialogoNuevo.getDimensionCubo();
 		int puertas = dialogoNuevo.getNumeroPuertas();
-		//int	sali	=	dialogoNuevo.getNumeroSalidas();
-		modelo.nuevoCubo(dim,puertas); //,vent,sali				
+		modelo.nuevoCubo(dim,puertas);				
 	}
 
 	/**
@@ -494,7 +492,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		return dialogoNuevo;
 	}
 	
-	private	OyenteVista	modelo;  //  @jve:decl-index=0:
+	private	OyenteVista	modelo; 
 	private JMenuItem abrirTextoMenuItem = null;
 	private JMenuItem guardarTextoMenuItem = null;
 	/**
@@ -588,7 +586,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		
 	}
 
-	private	EstadoVista	estado;  //  @jve:decl-index=0:
+	private	EstadoVista	estado; 
 	private JMenu ejecucionMenu = null;
 	private JMenuItem iniciarMenuItem = null;
 	private JMenuItem terminarMenuItem = null;
@@ -601,15 +599,9 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 	private JButton okGlobalButton = null;
 	private JButton okLocalButton = null;
 	private JCheckBox ocultaLocalCheckBox = null;
-	
-	/**
-	 * @author  Diego
-	 */
+
 	private	enum Estado{Sin,Con, ExecGlob, ExecLoc,TermGlob,TermLoc};
 	
-	/**
-	 * @author  Diego
-	 */
 	private	class EstadoVista{
 		/** Cuando no hay laberinto, no ves ningún panel y el meú de 
 		 * ejecución está desactivado, así como las opciones cerrar, guardar de Archivo.*/
@@ -888,7 +880,6 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 			okLocalButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					modelo.iniciarEjecucionLocalActual();
-					//modelo.cierraLocal();
 				}
 			});
 		}
@@ -955,4 +946,4 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 		getDialogoAlgoritmo().dispose();
 		super.dispose();
 	}
-}  //  @jve:decl-index=0:visual-constraint="210,-6"
+} 

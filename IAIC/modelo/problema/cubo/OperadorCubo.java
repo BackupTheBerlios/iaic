@@ -1,5 +1,7 @@
 package modelo.problema.cubo;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.util.ArrayList;
 
 import modelo.problema.Estado;

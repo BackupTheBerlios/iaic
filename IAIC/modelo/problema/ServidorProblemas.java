@@ -1,12 +1,12 @@
 package modelo.problema;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import modelo.problema.cuadradoMagico.ProblemaCuadradoMagico;
 import modelo.problema.granjero.GranjeroProblema;
 import modelo.problema.jarras.ProblemaJarras;
 import modelo.problema.misionerosCanibales.ProblemaMisionerosCanibales;
 import modelo.problema.mono.ProblemaMono;
-import modelo.problema.ochopuzzle.PuzzleProblema;
-import modelo.problema.problemaTesting.TestProblema;
 
 
 public class ServidorProblemas implements IServidorProblemas {
@@ -24,14 +24,9 @@ public class ServidorProblemas implements IServidorProblemas {
 			respuesta	=	new	GranjeroProblema(resoluble);
 		} else if (c == Codigo.CuadradoMagico){
 			respuesta	=	new	ProblemaCuadradoMagico(resoluble);
-		} else// if (c == Codigo.Mono)
-			{
+		} else			{
 			respuesta	=	new	ProblemaMono(resoluble);
 		}
-	//	else {
-	//		respuesta	=	new	TestProblema(resoluble);
-	//	}
-		
 		return respuesta;
 	}
 

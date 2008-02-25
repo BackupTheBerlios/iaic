@@ -15,7 +15,6 @@ abstract class AlgoritmoPrioritario extends AlgoritmoAbstracto {
 
 	private 	NodoInformado solucion;
 	private 	PriorityQueue<NodoInformado> abiertos;
-//	private		Hashtable<NodoInformado,Integer> records;
 	private		List<NodoInformado>	visitados;
 	
 	public void inicializar() {
@@ -23,19 +22,16 @@ abstract class AlgoritmoPrioritario extends AlgoritmoAbstracto {
 		fallido	=	false;
 		solucion = null;		
 		expandidos.clear();
-		abiertos.clear(); 	//metemos en la lista de abiertos el primer nodo
+		abiertos.clear();
 		visitados.clear();
-//		records.clear();
 		NodoInformado inicial	=	construyeNodo(problema.getInicial(), 0, null, null);
 		abiertos.add(inicial);
 		visitados.add(inicial);
-//		records.put( inicial, new Integer(inicial.getCoste()));
 	}
 
 	public	AlgoritmoPrioritario(){
 		super();
 		abiertos	=	new	PriorityQueue<NodoInformado>(100);
-//		records		=	new	Hashtable<NodoInformado,Integer>();
 		visitados	=	new	LinkedList<NodoInformado>();
 	}
 
@@ -52,7 +48,6 @@ abstract class AlgoritmoPrioritario extends AlgoritmoAbstracto {
 				List<Operador> lista = aux.getOperadoresAplicables();
 				for (int i = 0; i < lista.size(); i++){
 					Operador opera	=	lista.get(i);
-					//Invariante: todo nodo accedido estará en records.
 					NodoInformado	nue	=	construyeNodo(opera.getFinal(), cuentaNodo,nodoAct,opera);
 					if (! expandidos.contains(nue) && ! abiertos.contains(nue)){
 						cuentaNodo	++;

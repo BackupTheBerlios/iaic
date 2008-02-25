@@ -1,5 +1,7 @@
 package modelo.problema.mono;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 public class OperadorAndaPuertaCentro extends OperadorMono{
 
 	

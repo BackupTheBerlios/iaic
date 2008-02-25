@@ -1,5 +1,7 @@
 package vista;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.awt.FlowLayout;
 //import java.awt.Font;
 import javax.swing.BoxLayout;
@@ -9,9 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
-/**
- * @author  Paloma
- */
 class DialogoNuevo extends JDialog {
 
 	private static final long serialVersionUID = -4880828098010150796L;
@@ -61,7 +60,6 @@ class DialogoNuevo extends JDialog {
 			dialogoContentPane.setLayout(new BoxLayout(getJContentPane(), BoxLayout.Y_AXIS));
 			dialogoContentPane.add(getDimensionesCuboPanel(), null);
 			dialogoContentPane.add(getPuertasPanel(), null);
-			//dialogoContentPane.add(getSalidasPanel(), null);
 			dialogoContentPane.add(getBotonesPanel(), null);
 		}
 		return dialogoContentPane;
@@ -165,8 +163,7 @@ class DialogoNuevo extends JDialog {
 					 * hemos puesto el doble del numero de nodos */
 					int nod = dimensionesSlider.getValue();
 					dimCuboLabel.setText(Integer.toString(nod));					
-					puertasSlider.setMaximum(2); //(nod * (nod-1)) / 
-					//salidasSlider.setMaximum(8);
+					puertasSlider.setMaximum(2); 
 				}
 			});
 		}
@@ -225,16 +222,8 @@ class DialogoNuevo extends JDialog {
 		return puertasSlider.getValue();
 	}
 	
-	/*public	int	getNumeroSalidas(){
-		return	salidasSlider.getValue();
-	}*/
-	
 	private boolean aceptado;
-	/*private JPanel salidasPanel = null;
-	private JLabel salidasLabel = null;
-	private JSlider salidasSlider = null;
-	private JLabel numSalLabel = null;
-	*/
+
 	/**
 	 * @return  the aceptado
 	 * @uml.property  name="aceptado"
@@ -242,51 +231,4 @@ class DialogoNuevo extends JDialog {
 	public boolean isAceptado() {
 		return aceptado;
 	}
-/*
-	*//**
-	 * This method initializes salidasPanel	
-	 * @return  javax.swing.JPanel
-	 * @uml.property  name="salidasPanel"
-	 *//*
-	private JPanel getSalidasPanel() {
-		if (salidasPanel == null) {
-			numSalLabel = new JLabel();
-			numSalLabel.setText("3");
-			numSalLabel.setFont(new Font("Garamond", Font.PLAIN, 18));
-			salidasLabel = new JLabel();
-			salidasLabel.setText("Salidas");
-			salidasLabel.setFont(new Font("Garamond", Font.PLAIN, 18));
-			salidasPanel = new JPanel();
-			salidasPanel.setLayout(new FlowLayout());
-			salidasPanel.add(salidasLabel, null);
-			salidasPanel.add(getSalidasSlider(), null);
-			salidasPanel.add(numSalLabel, null);
-		}
-		return salidasPanel;
-	}
-
-	*//**
-	 * This method initializes salidasSlider	
-	 * @return  javax.swing.JSlider
-	 * @uml.property  name="salidasSlider"
-	 *//*
-	private JSlider getSalidasSlider() {
-		if (salidasSlider == null) {
-			salidasSlider = new JSlider();
-			salidasSlider.setMajorTickSpacing(5);
-			salidasSlider.setMinorTickSpacing(1);
-			salidasSlider.setPaintLabels(true);
-			salidasSlider.setPaintTicks(true);
-			salidasSlider.setSnapToTicks(true);
-			salidasSlider.setValue(3);
-			salidasSlider.setMaximum(11);
-			salidasSlider.addChangeListener(new javax.swing.event.ChangeListener() {
-				public void stateChanged(javax.swing.event.ChangeEvent e) {
-					numSalLabel.setText(Integer.toString(salidasSlider.getValue()));
-				}
-			});
-		}
-		return salidasSlider;
-	}
-*/
-}  //  @jve:decl-index=0:visual-constraint="-22,-34"
+}

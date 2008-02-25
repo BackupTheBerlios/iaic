@@ -1,5 +1,7 @@
 package modelo.problema.cubo;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,26 +13,18 @@ import modelo.problema.Operador;
 
 
 public class EstadoCubo  implements Estado, Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6006486732624592260L;
-	//private int longitudCubo;
 	private int numHabitacion;
 	private ArrayList<Puerta> puertasAbiertas;
 	private IAvisoLocal aviso;
 	private ProblemaCubo cubo;
 	private OperadorCubo opCubo;
-//	private boolean[][][][] puertasAbiertas; 
-
 
 	EstadoCubo(ProblemaCubo cubo){
 		this.cubo = cubo;
 		int longitud = cubo.get_longitud();
 		aviso = cubo.getAvisos();
-	//	longitudCubo = longitud;
 		numHabitacion = (int)(Math.random()*longitud-1) *100 + (int)(Math.random()*longitud-1) * 10 + (int)(Math.random()*longitud-1);
-//		numHabitacion = 111;
 		puertasAbiertas = new ArrayList<Puerta>();
 						
 	}
@@ -62,14 +56,11 @@ public class EstadoCubo  implements Estado, Serializable{
 		ArrayList<Puerta> puertasAux = this.puertasAbiertas;
 		ArrayList<Puerta> puertas = cubo.getPuertas();
 		Puerta puertaAux = puertas.get(puertas.indexOf(new Puerta(puerta)));
-		//Si la puerta está cerrada, devolvemos una lista de puertas vacía
-		//aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
 		if  (puertaAux.isClausurada())
 			puertaAux.setCodigoProblema(puertaAux.getCodigoProblema()%2);
 		aviso.lanzarEjecucionLocal(puertaAux);
 		
 		if (puertaAux.isClausurada()){
-System.out.println("La puerta está clausurada");
 			return new ArrayList<Puerta>();
 		}
 		puertasAux.add(puertaAux);

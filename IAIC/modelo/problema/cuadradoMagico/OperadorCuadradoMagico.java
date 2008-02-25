@@ -1,5 +1,7 @@
 package modelo.problema.cuadradoMagico;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import modelo.problema.Estado;
 import modelo.problema.Operador;
 

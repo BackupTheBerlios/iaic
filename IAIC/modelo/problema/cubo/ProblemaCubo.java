@@ -1,4 +1,7 @@
 package modelo.problema.cubo;
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 //import  EstadoCubo;
 //import problema.Problema;
 import java.io.IOException;
@@ -11,31 +14,16 @@ import java.util.ArrayList;
 import modelo.IAvisoLocal;
 import modelo.problema.Estado;
 import modelo.problema.Problema;
-/**
- * @author gnufede
- *
- */
+
 public class ProblemaCubo implements Problema, Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7124103484129684206L;
-	/*
-	 * (non-javadoc)
-	 */
+
 	private int _longitud;
 	private ArrayList<Puerta> puertasCerradas;
 	private ArrayList<Puerta> puertas;
 	
 	private IAvisoLocal avisos;
-	
-	
-//	private boolean[][][][] puertasCerradas; 
-//	private String strPuertasCerradas;
-	/**
-	 *
-	 */
 	private EstadoCubo _estado;
 
 	public ProblemaCubo(){
@@ -103,8 +91,6 @@ public class ProblemaCubo implements Problema, Serializable {
 	}
 	
 	private void cerrarPuertas(int longitud, int puertasCerradasPorHab){
-	//	numHabCerrables = longitud*longitud*longitud*2;
-	//	for (int i = 0; i<numHabCerrables; i++){}
 		int numHab = 0;
 		int aux = (int)Math.random()*3;
 		for (int i = 0; i<longitud; i++)
@@ -113,12 +99,9 @@ public class ProblemaCubo implements Problema, Serializable {
 					numHab = i*100+j*10+k;
 					while (contarPuertasCerradas(numHab)< puertasCerradasPorHab){
 						cerrarPuerta((aux%3)*1000+numHab);
-				//		strPuertasCerradas = strPuertasCerradas +","+(aux*1000+numHab);
 						aux++;
-					}
-					
-				}
-						
+					}			
+				}					
 	}
 	
 	public void cerrarPuerta(int puerta){
@@ -267,10 +250,9 @@ public class ProblemaCubo implements Problema, Serializable {
 		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
 			texto2 = texto2.substring(1);
 		}
-		// HABITACIONES CLAUSURADAS***************************************************************
+
 		String texto3=texto2.substring(0, "Puertas Clausuradas:".length());
-		//System.out.println(texto3);
-		if (!texto3.equalsIgnoreCase("Puertas Clausuradas:")){//!texto2.startsWith("Puertas Clausuradas:")){
+		if (!texto3.equalsIgnoreCase("Puertas Clausuradas:")){
 			throw new IOException("El primer campo debe decir la palabra \"Puertas Clausuradas:\"");
 		}
 		texto2 = texto2.substring("Puertas Clausuradas:".length());
@@ -318,9 +300,6 @@ public class ProblemaCubo implements Problema, Serializable {
 		}		
 		strTok = new StringTokenizer(texto2);		
 		leerFin(strTok);		
-		//Ahora que el laberinto ha sido correctamente parseado, se puede cambiar el objeto actual
-		//this._longitud = longi;
-		//this = new ProblemaCubo(longi,puertasClau);
 		_estado = new EstadoCubo (this);
 	}
 	

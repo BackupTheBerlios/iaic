@@ -1,5 +1,7 @@
 package principal;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import controlador.Controlador;
 import modelo.FachadaModelo;
 import vista.VistaPrincipal;

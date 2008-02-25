@@ -10,7 +10,6 @@ public class ServidorAlgoritmo implements IAlgoritmoServidor {
 	public AlgoritmoAbstracto dameAlgoritmo(Object obj) {
 		AlgoritmoAbstracto	resul;
 		Codigo	cod	=	(Codigo)obj;
-		/* Ahora se pone a probar qué codigo es el de */
 		if (cod == Codigo.Anchura){
 			resul	=	new	Anchura();
 		} else if (cod == Codigo.Profundidad){

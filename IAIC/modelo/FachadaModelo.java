@@ -24,16 +24,11 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	private	OyenteModelo	oyente;
 	private	ProblemaCubo	cubo;
-	private EstadoCubo		estadoCubo;
+//	private EstadoCubo		estadoCubo;
 	private LinkedList<Puerta> problemas;
 	protected boolean 		problemaIniciado;
 	
-//	private LinkedList<Puerta>	colaProblemas;
-//	private LinkedList<EstadoCubo>	colaEstados;
-//	private LinkedList<OperadorCubo> colaOperadores;
-	
-
-	public void nuevoCubo(int dim, int puertas) { //, int ventanas, int salidas
+	public void nuevoCubo(int dim, int puertas) { 
 		cubo.inicializa(dim,puertas, probserver.dameNumeroProblemas());
 	}
 
@@ -69,11 +64,6 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		algserver	=	new	ServidorAlgoritmo();
 		problemas  = new LinkedList<Puerta>();
 		problemaIniciado = false;
-//		puerta 	= null;
-//		localTerminado = true;
-//		colaProblemas = new LinkedList<Puerta>();
-//		colaEstados = new LinkedList<EstadoCubo>();
-//		colaOperadores = new LinkedList<OperadorCubo>();
 	}
 
 	private	IServidorProblemas probserver;
@@ -89,7 +79,6 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	public void cierraLocal() {
 		local	=	null;
-		//problemaIniciado = false;
 	}
 
 	public void ejecutaPasoGlobal() {
@@ -105,11 +94,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		local.avanzarPaso();
 		if (local.estaResuelto()){
 			oyente.terminaLocal();
-			//problemas.peek();
-			problemaIniciado = false;
-			
-		//	iniciarEjecucionLocalActual(); //TODO: Borrar si no funciona
-			
+			problemaIniciado = false;			
 		}
 	}
 
@@ -164,11 +149,6 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	public boolean getFinEjecucionLocal() {
 		return !(local.isFallido());
 	}
-
-//	public void lanzarEjecucionLocal(int codigoProblema, boolean resoluble) {
-		
-//	}
-
 	public void lanzarEjecucionLocal(Puerta puerta) {
 		problemas.offer(puerta);
 		if (!problemaIniciado)
@@ -191,8 +171,6 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 			iniciarEjecucionLocal(puerta.getCodigoProblema(),!(puerta.isClausurada()));
 		}
 		problemas.offer(puerta);
-//		colaEstados.add(estado);
-//		colaOperadores.add(op);
 	}
 	
 	public boolean hayProblemasLocales(){

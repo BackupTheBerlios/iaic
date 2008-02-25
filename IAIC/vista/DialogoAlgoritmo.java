@@ -1,5 +1,7 @@
 package vista;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.awt.Frame;
 import java.util.Random;
 import javax.swing.BoxLayout;
@@ -13,9 +15,6 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 
-/**
- * @author  Diego
- */
 class DialogoAlgoritmo extends JDialog {
 
 	private static final long serialVersionUID = 1L;

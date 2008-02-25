@@ -1,12 +1,10 @@
 package modelo.problema.cubo;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.io.Serializable;
 
 public class Puerta implements Serializable{
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7484032693814725704L;
 	private int numeroPuerta;
 	private int codigoProblema;

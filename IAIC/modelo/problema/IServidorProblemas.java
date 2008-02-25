@@ -1,9 +1,9 @@
 package modelo.problema;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 public interface IServidorProblemas {
-	/**
-	 * @author  Diego
-	 */
+
 	public	enum	Codigo{Jarras,Canibales,Mono,
 		Granjero,CuadradoMagico}
 	

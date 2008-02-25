@@ -27,7 +27,7 @@ abstract class AlgoritmoCiego extends AlgoritmoAbstracto {
 
 	public void avanzarPaso() {
 		if ((solucion == null) && (quedanAbiertos())){
-			NodoCiego nodoAct = sacaAbierto(); //recupera y eliminar el 1�elemento de la lista
+			NodoCiego nodoAct = sacaAbierto();
 			expandidos.add(nodoAct);
 			if (problema.esObjetivo(nodoAct.getEstado())) {
 				solucion = nodoAct;

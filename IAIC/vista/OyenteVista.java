@@ -1,5 +1,7 @@
 package vista;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
@@ -14,8 +16,7 @@ public interface OyenteVista {
 	 * @param habitaciones es el número de habitaciones de un laberinto.
 	 * @param puertas es el número de puertas -conexiones entre habitaciones- en el laberinto.
 	 * @param ventanas es el número de ventanas que hay en el laberinto. */
-	public abstract void nuevoCubo(int habitaciones, int puertas); //int ventanas, int salidas
-
+	public abstract void nuevoCubo(int habitaciones, int puertas); 
 	/** Ordena guardar un objeto de laberinto en un archivo binario.	 */
 	public abstract void guardarBinario(ObjectOutputStream output)
 			throws Exception;

@@ -47,8 +47,8 @@ public class Controlador implements OyenteVista, OyenteModelo {
 		this.vista = vista;
 	}
 
-	public void nuevoCubo(int habitaciones, int puertas) { //, int ventanas,int salidas
-		modelo.nuevoCubo(habitaciones,puertas); //,ventanas,salidas
+	public void nuevoCubo(int habitaciones, int puertas) { 
+		modelo.nuevoCubo(habitaciones,puertas);
 		vista.muestraCubo(modelo.mostrarCubo());
 		vista.atiendeConCubo();
 	}

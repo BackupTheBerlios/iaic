@@ -1,4 +1,8 @@
 package vista;
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
+
 /** Un Visualizable es una interfaz de Usuario capaz de mostrarle a éste
  * la información sobre un Laberinto o sobre la s búsquedas global y local, 
  * por los canales más convenientes para ello.

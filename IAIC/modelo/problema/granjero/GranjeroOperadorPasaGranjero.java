@@ -1,5 +1,7 @@
 package modelo.problema.granjero;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 class GranjeroOperadorPasaGranjero extends GranjeroOperador{
 
 	public GranjeroOperadorPasaGranjero(GranjeroEstado inicial) {

@@ -1,5 +1,7 @@
 package modelo.problema.jarras;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import modelo.problema.*;
 
 public class OperadorTrasvaseGrandePeque extends OperadorJarras{

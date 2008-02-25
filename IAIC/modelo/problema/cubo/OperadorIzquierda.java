@@ -1,4 +1,7 @@
 package modelo.problema.cubo;
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.util.ArrayList;
 
 import modelo.problema.cubo.EstadoCubo;
@@ -8,8 +11,6 @@ public class OperadorIzquierda extends OperadorCubo {
 	public OperadorIzquierda(EstadoCubo inicial) {
 		super(inicial);
 		numPuerta = inicial.getNumHabitacion()+1000;
-		
-		// TODO Auto-generated constructor stub
 	}
 	
 	public String toString() {
@@ -18,7 +19,7 @@ public class OperadorIzquierda extends OperadorCubo {
 
 	@Override
 	protected void transitar() {
-		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
+		EstadoCubo c = (EstadoCubo)getInicial();
 		int num = c.getNumHabitacion();		
 		ArrayList<Puerta> aux = c.abrirPuerta(num+1000);
 		if (aux.isEmpty()) EstadoFinal = (EstadoCubo)getInicial();
