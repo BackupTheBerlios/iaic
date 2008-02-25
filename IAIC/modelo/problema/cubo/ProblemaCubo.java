@@ -1,8 +1,10 @@
 package modelo.problema.cubo;
 //import  EstadoCubo;
 //import problema.Problema;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Iterator;
+import java.util.StringTokenizer;
 //import java.util.List;
 import java.util.ArrayList;
 
@@ -234,4 +236,108 @@ public class ProblemaCubo implements Problema, Serializable {
 		this.avisos = avisos;
 	}
 
+//////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/** Reconstruye el laberinto tomando los datos
+	 * escritos en un texto.*/
+	public	void	lee(String texto) throws Exception{
+		String texto2 = new String(texto.toLowerCase());
+		StringTokenizer strTok = new StringTokenizer(texto2);
+		leerCubo(strTok);
+		texto2 = texto2.substring("cubo".length());
+		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
+			texto2 = texto2.substring(1);
+		}
+		//LONGITUD ***************************************************************
+		if (!texto2.startsWith("longitud de Cubo")){
+			throw new IOException("El primer campo debe decir la palabra \"Longitud de Cubo\"");
+		}
+		texto2 = texto2.substring("Longitud de Cubo".length());
+		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
+			texto2 = texto2.substring(1);
+		}
+		int longi;// = leerHab(strTok);
+		try {
+			longi = miparseint(texto2);			
+			texto2 = texto2.substring(("" + longi).length());			
+		} catch (NumberFormatException e) {
+			throw new IOException("El primer campo debe decir el tamanyo de cubo.");
+		}
+		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
+			texto2 = texto2.substring(1);
+		}
+		// HABITACIONES CLAUSURADAS***************************************************************
+		if (!texto2.startsWith("Puertas Clausuradas por Habitacion:")){
+			throw new IOException("El primer campo debe decir la palabra \"Puertas Clausuradas por Habitacion:\"");
+		}
+		texto2 = texto2.substring("Puertas Clausuradas por Habitacion:".length());
+		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
+			texto2 = texto2.substring(1);
+		}
+		int puertasClau;// = leerHab(strTok);
+		try {
+			puertasClau = miparseint(texto2);			
+			texto2 = texto2.substring(("" + puertasClau).length());			
+		} catch (NumberFormatException e) {
+			throw new IOException("El primer campo debe decir el número de puertas Clausuradas por habitaciones.");
+		}
+		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
+			texto2 = texto2.substring(1);
+		}		
+		strTok = new StringTokenizer(texto2);		
+		leerFin(strTok);		
+		vacia();
+		_longitud = longi;
+		puertasCerradas = new ArrayList<Puerta>();
+		puertas = new ArrayList<Puerta>();
+		cerrarPuertas(longi,puertasClau);
+		_estado = new EstadoCubo (this);
+	}
+	
+	
+	private int miparseint(String texto2) throws NumberFormatException{
+		int n = 0;		
+		while (Character.isDigit(texto2.charAt(0))){
+			n = n*10 + Character.digit(texto2.charAt(0),10);
+			texto2 = texto2.substring(1);
+		}
+		return n;
+	}
+
+	private void leerCubo(StringTokenizer strTok) throws IOException {
+		if (!((strTok.nextToken(" \n")).equalsIgnoreCase("Cubo"))){
+				throw new IOException("El fichero de texto debe comenzar con \"Cubo\\n\".");
+		};		
+	}	
+
+	private void leerFin(StringTokenizer strTok) throws IOException {
+		if (!((strTok.nextToken(" \n")).equalsIgnoreCase("FinCubo"))){
+				throw new IOException("El fichero de texto debe terminar con \"FinCubo\".");
+		};		
+	}
+	
+	/** Muestra toda la información del laberinto.*/
+	public	String	muestra(){
+		return escribe();		
+	}
+	
+	
+	public	String	escribe(){
+		StringBuffer salida = new StringBuffer();
+		salida.append("Cubo\nLongitud Cubo ");
+		salida.append(this._longitud + "\n");
+		salida.append("Puertas Clausuradas por habitación: \n");
+		for (Iterator iter = puertasCerradas.iterator(); iter.hasNext();) {
+			Puerta p = (Puerta) iter.next();
+			salida.append("(" + 
+					p.getNumeroPuerta() + ")");
+			if (iter.hasNext()){
+				salida.append(";");
+			}
+		}		
+		
+		salida.append("\nFinCubo");
+		return salida.toString();		
+	}
 }

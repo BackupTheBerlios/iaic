@@ -38,7 +38,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	}
 
 	public void guardarTexto(FileWriter fil) throws Exception {
-		//FIXME: fil.write(cubo.escribe());
+		fil.write(cubo.escribe());
 	}
 
 	public void guardarBinario(ObjectOutputStream output) throws Exception{
@@ -56,7 +56,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 			input.read(buf,0,1);
 			s.append(buf);
 		}
-		//FIXME: cubo.lee(s.toString());
+		cubo.lee(s.toString());
 	}
 
 	public void cerrarCubo() {
