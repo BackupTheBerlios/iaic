@@ -1,5 +1,6 @@
 package modelo.problema;
 
+import modelo.problema.cuadradoMagico.ProblemaCuadradoMagico;
 import modelo.problema.granjero.GranjeroProblema;
 import modelo.problema.jarras.ProblemaJarras;
 import modelo.problema.misionerosCanibales.ProblemaMisionerosCanibales;
@@ -25,6 +26,8 @@ public class ServidorProblemas implements IServidorProblemas {
 			respuesta	=	new	PuzzleProblema(resoluble);
 		} else if (c == Codigo.Mono){
 			respuesta	=	new	ProblemaMono(resoluble);
+		} else if (c == Codigo.CuadradoMagico){
+			respuesta	=	new	ProblemaCuadradoMagico(resoluble);
 		} else {
 			respuesta	=	new	TestProblema(resoluble);
 		}
