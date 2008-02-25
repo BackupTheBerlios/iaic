@@ -63,6 +63,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		cubo	=	new	ProblemaCubo();
 		probserver	=	new	ServidorProblemas();
 		algserver	=	new	ServidorAlgoritmo();
+		problemas  = new LinkedList<Puerta>();
 		problemaIniciado = false;
 //		puerta 	= null;
 //		localTerminado = true;
@@ -100,7 +101,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		local.avanzarPaso();
 		if (local.estaResuelto()){
 			oyente.terminaLocal();
-			problemas.peek();
+			//problemas.peek();
 			problemaIniciado = false;
 		}
 	}
@@ -157,9 +158,9 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		return !(local.isFallido());
 	}
 
-	public void lanzarEjecucionLocal(int codigoProblema, boolean resoluble) {
+//	public void lanzarEjecucionLocal(int codigoProblema, boolean resoluble) {
 		
-	}
+//	}
 
 	public void lanzarEjecucionLocal(Puerta puerta) {
 		problemas.offer(puerta);
@@ -171,7 +172,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	private void iniciarEjecucionLocalActual() {
 		if (!problemaIniciado && !problemas.isEmpty()){
-			Puerta puerta = problemas.poll();
+			Puerta puerta = problemas.peek();
 			problemaIniciado = true;
 			iniciarEjecucionLocal(puerta.getCodigoProblema(), !puerta.isClausurada());
 		}
