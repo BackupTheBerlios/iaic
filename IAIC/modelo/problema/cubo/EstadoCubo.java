@@ -64,6 +64,8 @@ public class EstadoCubo  implements Estado, Serializable{
 		Puerta puertaAux = puertas.get(puertas.indexOf(new Puerta(puerta)));
 		//Si la puerta está cerrada, devolvemos una lista de puertas vacía
 		//aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
+		if  (puertaAux.isClausurada())
+			puertaAux.setCodigoProblema(puertaAux.getCodigoProblema()%2);
 		aviso.lanzarEjecucionLocal(puertaAux);
 		
 		if (puertaAux.isClausurada()){
@@ -91,15 +93,7 @@ System.out.println("La puerta está clausurada");
 
 
 	public List<Operador> getOperadoresAplicables() {
-		int longitudCubo = cubo.get_longitud();
-	//FIXME: Poner las puertas a abrir en cada caso	
-//		
-//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
-//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
-//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
-//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
-//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
-//		
+		int longitudCubo = cubo.get_longitud();		
 		List<Operador>	lista	=	new	LinkedList<Operador>();
 		
 			if ((numHabitacion/100)%10 != longitudCubo-1)

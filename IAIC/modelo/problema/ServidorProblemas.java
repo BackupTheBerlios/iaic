@@ -22,15 +22,15 @@ public class ServidorProblemas implements IServidorProblemas {
 			respuesta	=	new	ProblemaJarras(resoluble);
 		} else if (c == Codigo.Granjero){
 			respuesta	=	new	GranjeroProblema(resoluble);
-		} else if (c == Codigo.OchoPuzzle){
-			respuesta	=	new	PuzzleProblema(resoluble);
-		} else if (c == Codigo.Mono){
-			respuesta	=	new	ProblemaMono(resoluble);
 		} else if (c == Codigo.CuadradoMagico){
 			respuesta	=	new	ProblemaCuadradoMagico(resoluble);
-		} else {
-			respuesta	=	new	TestProblema(resoluble);
+		} else// if (c == Codigo.Mono)
+			{
+			respuesta	=	new	ProblemaMono(resoluble);
 		}
+	//	else {
+	//		respuesta	=	new	TestProblema(resoluble);
+	//	}
 		
 		return respuesta;
 	}
