@@ -24,4 +24,8 @@ public class OperadorArriba extends OperadorCubo{
 		if (aux.isEmpty()) EstadoFinal = (EstadoCubo)getInicial();
 		else EstadoFinal =  new EstadoCubo(c.getCubo(),num+100,aux);
 	}
+	
+	public int getCoste(){
+		return 1;
+	}
 }

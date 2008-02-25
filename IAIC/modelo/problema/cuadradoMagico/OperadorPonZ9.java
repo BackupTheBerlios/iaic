@@ -17,4 +17,9 @@ public class OperadorPonZ9 extends OperadorCuadradoMagico{
 	public String toString(){
 		return ("Poner 9 en Z");
 	}
+	
+	public int getCoste(){
+		return 2;
+	}
+
 }

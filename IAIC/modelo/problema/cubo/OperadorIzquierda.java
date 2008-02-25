@@ -25,4 +25,8 @@ public class OperadorIzquierda extends OperadorCubo {
 		else EstadoFinal =  new EstadoCubo(c.getCubo(),num+10,aux);
 
 	}
+	
+	public int getCoste(){
+		return 1;
+	}
 }

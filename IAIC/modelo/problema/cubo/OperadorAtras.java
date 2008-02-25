@@ -26,5 +26,9 @@ public class OperadorAtras extends OperadorCubo{
 		else EstadoFinal =  new EstadoCubo(c.getCubo(),num-1,aux);
 
 	}
+	
+	public int getCoste(){
+		return 1;
+	}
 
 }

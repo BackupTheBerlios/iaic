@@ -17,4 +17,9 @@ public class OperadorPonY8 extends OperadorCuadradoMagico{
 	public String toString(){
 		return ("Poner 8 en Y");
 	}
+	
+	public int getCoste(){
+		return 2;
+	}
+
 }
