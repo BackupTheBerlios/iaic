@@ -1,5 +1,9 @@
 package modelo;
 
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;

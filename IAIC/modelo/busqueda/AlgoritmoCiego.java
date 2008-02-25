@@ -1,12 +1,11 @@
 package modelo.busqueda;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.util.List;
 import modelo.problema.Estado;
 import modelo.problema.Operador;
 
-/**
- * @author  Diego
- */
 abstract class AlgoritmoCiego extends AlgoritmoAbstracto {
 
 	private NodoCiego solucion;

@@ -11,7 +11,7 @@ import vista.OyenteVista;
 import vista.Visualizable;
 
 /**
- * @author  Diego
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
  */
 public class Controlador implements OyenteVista, OyenteModelo {
 

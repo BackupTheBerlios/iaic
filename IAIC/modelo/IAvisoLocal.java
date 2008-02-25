@@ -1,5 +1,9 @@
 package modelo;
 
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
+
 import modelo.problema.cubo.EstadoCubo;
 import modelo.problema.cubo.OperadorCubo;
 import modelo.problema.cubo.Puerta;

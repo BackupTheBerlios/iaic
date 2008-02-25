@@ -1,4 +1,7 @@
 package modelo.busqueda;
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.util.Stack;
 
 

@@ -1,5 +1,7 @@
 package modelo.busqueda;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 //import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,9 +10,7 @@ import java.util.PriorityQueue;
 import modelo.problema.Estado;
 import modelo.problema.Operador;
 
-/**
- * @author  Diego
- */
+
 abstract class AlgoritmoPrioritario extends AlgoritmoAbstracto {
 
 	private 	NodoInformado solucion;

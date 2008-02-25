@@ -1,10 +1,10 @@
 package modelo.busqueda;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 public class ServidorAlgoritmo implements IAlgoritmoServidor {
 	
-	/**
-	 * @author  Diego
-	 */
+	
 	private	enum	Codigo{Anchura,Profundidad,Uniforme,Voraz,Optima}
 
 	public AlgoritmoAbstracto dameAlgoritmo(Object obj) {

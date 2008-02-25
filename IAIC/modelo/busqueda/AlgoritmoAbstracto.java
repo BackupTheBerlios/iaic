@@ -1,5 +1,7 @@
 package modelo.busqueda;
-
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,10 +9,6 @@ import java.util.Stack;
 import modelo.problema.Operador;
 import modelo.problema.Problema;
 
-
-/**
- * @author  Diego
- */
 abstract class AlgoritmoAbstracto implements IAlgoritmo {
 	/** Este campo representa el problema sobre el que el algoritmo 
 	 * est� operando. Es un campo de registro, con getter y setter.*/

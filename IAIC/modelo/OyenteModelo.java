@@ -1,5 +1,8 @@
 package modelo;
 
+/**
+ * @author  Paloma de la Fuente, Ines Gonzalez, Federico Mon
+ */
 
 /**Un oyente del modelo es algo capaz de atender y escuchar
  * 
