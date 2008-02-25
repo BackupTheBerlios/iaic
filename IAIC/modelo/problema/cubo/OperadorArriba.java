@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import modelo.problema.cubo.EstadoCubo;
 
 public class OperadorArriba extends OperadorCubo{
-
-
+	private int numPuerta;
 	public OperadorArriba(EstadoCubo inicial) {
 		super(inicial);
+		numPuerta = inicial.getNumHabitacion();
 		// TODO Auto-generated constructor stub
 	}
 	
 	public String toString() {
-		return "Cruzamos la puerta de arriba";
+		return "Cruzamos la puerta de arriba: "+numPuerta;
 	}
 
 	@Override

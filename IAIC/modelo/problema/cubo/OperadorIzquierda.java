@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import modelo.problema.cubo.EstadoCubo;
 
 public class OperadorIzquierda extends OperadorCubo {
+	private int numPuerta;
 	public OperadorIzquierda(EstadoCubo inicial) {
 		super(inicial);
+		numPuerta = inicial.getNumHabitacion()+1000;
+		
 		// TODO Auto-generated constructor stub
 	}
 	
 	public String toString() {
-		return "Cruzamos la puerta de atras";
+		return "Cruzamos la puerta de atras: "+numPuerta;
 	}
 
 	@Override

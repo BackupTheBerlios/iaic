@@ -6,11 +6,12 @@ import modelo.problema.cubo.EstadoCubo;
 public class OperadorDerecha extends OperadorCubo  {
 	public OperadorDerecha(EstadoCubo inicial) {
 		super(inicial);
+		numPuerta = inicial.getNumHabitacion()+990;
 		// TODO Auto-generated constructor stub
 	}
 	
 	public String toString() {
-		return "Cruzamos la puerta de derecha";
+		return "Cruzamos la puerta de derecha: "+numPuerta ;
 	}
 
 	@Override

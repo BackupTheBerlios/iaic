@@ -111,7 +111,7 @@ public class ProblemaCubo implements Problema, Serializable {
 			for (int j = 0; j<longitud; j++)
 				for (int k = 0; k<longitud; k++){
 					numHab = i*100+j*10+k;
-					while (contarPuertasCerradas(numHab)<puertasCerradasPorHab){
+					while (contarPuertasCerradas(numHab)< puertasCerradasPorHab){
 						cerrarPuerta((aux%3)*1000+numHab);
 				//		strPuertasCerradas = strPuertasCerradas +","+(aux*1000+numHab);
 						aux++;
@@ -268,10 +268,10 @@ public class ProblemaCubo implements Problema, Serializable {
 			texto2 = texto2.substring(1);
 		}
 		// HABITACIONES CLAUSURADAS***************************************************************
-		if (!texto2.startsWith("Puertas Clausuradas por Habitacion:")){
-			throw new IOException("El primer campo debe decir la palabra \"Puertas Clausuradas por Habitacion:\"");
+		if (!texto2.startsWith("Puertas Clausuradas:")){
+			throw new IOException("El primer campo debe decir la palabra \"Puertas Clausuradas:\"");
 		}
-		texto2 = texto2.substring("Puertas Clausuradas por Habitacion:".length());
+		texto2 = texto2.substring("Puertas Clausuradas:".length());
 		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
 			texto2 = texto2.substring(1);
 		}
@@ -352,7 +352,7 @@ public class ProblemaCubo implements Problema, Serializable {
 	
 	public	String	escribe(){
 		StringBuffer salida = new StringBuffer();
-		salida.append("Cubo\nLongitud Cubo ");
+		salida.append("Cubo \n Longitud Cubo ");
 		salida.append(this._longitud + "\n");
 		salida.append("Puertas Clausuradas por habitación: \n");
 		for (Iterator iter = puertasCerradas.iterator(); iter.hasNext();) {

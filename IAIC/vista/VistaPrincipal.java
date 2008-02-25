@@ -887,7 +887,8 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 			okLocalButton.setVisible(false);
 			okLocalButton.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					modelo.cierraLocal();
+					modelo.iniciarEjecucionLocalActual();
+					//modelo.cierraLocal();
 				}
 			});
 		}
@@ -916,7 +917,7 @@ public class VistaPrincipal extends JFrame implements	Visualizable{
 
 	public void atiendeEjecutandoLocal() {
 		if (ocultaLocalCheckBox.isSelected()){
-			//modelo.cierraLocal();
+			modelo.cierraLocal();
 		} else{
 			estado.ponEjecutandoLocal();
 		}

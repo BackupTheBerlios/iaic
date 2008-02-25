@@ -65,9 +65,11 @@ public class EstadoCubo  implements Estado, Serializable{
 		//Si la puerta está cerrada, devolvemos una lista de puertas vacía
 		//aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
 		aviso.lanzarEjecucionLocal(puertaAux);
-		if (puertaAux.isClausurada())
-			return new ArrayList<Puerta>();
 		
+		if (puertaAux.isClausurada()){
+System.out.println("La puerta está clausurada");
+			return new ArrayList<Puerta>();
+		}
 		puertasAux.add(puertaAux);
 		return puertasAux;
 		

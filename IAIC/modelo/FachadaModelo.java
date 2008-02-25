@@ -22,7 +22,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	private	ProblemaCubo	cubo;
 	private EstadoCubo		estadoCubo;
 	private LinkedList<Puerta> problemas;
-	private boolean 		problemaIniciado;
+	protected boolean 		problemaIniciado;
 	
 //	private LinkedList<Puerta>	colaProblemas;
 //	private LinkedList<EstadoCubo>	colaEstados;
@@ -85,7 +85,7 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	public void cierraLocal() {
 		local	=	null;
-		problemaIniciado = false;
+		//problemaIniciado = false;
 	}
 
 	public void ejecutaPasoGlobal() {
@@ -103,6 +103,9 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 			oyente.terminaLocal();
 			//problemas.peek();
 			problemaIniciado = false;
+			
+		//	iniciarEjecucionLocalActual(); //TODO: Borrar si no funciona
+			
 		}
 	}
 
@@ -170,9 +173,9 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		
 	}
 
-	private void iniciarEjecucionLocalActual() {
+	public void iniciarEjecucionLocalActual() {
 		if (!problemaIniciado && !problemas.isEmpty()){
-			Puerta puerta = problemas.peek();
+			Puerta puerta = problemas.poll();
 			problemaIniciado = true;
 			iniciarEjecucionLocal(puerta.getCodigoProblema(), !puerta.isClausurada());
 		}
@@ -186,6 +189,10 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		problemas.offer(puerta);
 //		colaEstados.add(estado);
 //		colaOperadores.add(op);
+	}
+	
+	public boolean hayProblemasLocales(){
+		return !(problemas.isEmpty());
 	}
 
 }

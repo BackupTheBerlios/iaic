@@ -8,7 +8,7 @@ import modelo.problema.Operador;
 
 
 public abstract class OperadorCubo implements Operador  {
-
+	protected int numPuerta;
 	private EstadoCubo inicial;
 	protected EstadoCubo EstadoFinal;
 	

@@ -126,4 +126,12 @@ public class Controlador implements OyenteVista, OyenteModelo {
 		vista.muestraGlobal(modelo.mostrarGlobal());
 		vista.atiendeFinGlobal();		
 	}
+	public void iniciarEjecucionLocalActual() {
+		if (modelo.hayProblemasLocales()){
+			modelo.iniciarEjecucionLocalActual();
+			vista.atiendeEjecutandoLocal();
+			}
+		else this.cierraLocal();
+		
+	}
 }

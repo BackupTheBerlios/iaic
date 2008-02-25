@@ -5,13 +5,16 @@ import modelo.problema.cubo.EstadoCubo;
 
 public class OperadorAbajo extends OperadorCubo  {
 
+	private int numPuerta;
+	
 	public OperadorAbajo(EstadoCubo inicial) {
 		super(inicial);
+		numPuerta = inicial.getNumHabitacion()-100;
 		// TODO Auto-generated constructor stub
 	}
 	
 	public String toString() {
-		return "Cruzamos la puerta de abajo";
+		return "Cruzamos la puerta de abajo: "+numPuerta;
 	}
 
 	@Override

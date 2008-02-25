@@ -62,4 +62,6 @@ public interface OyenteVista {
 	/** Ordena al modelo que cierre la búsqueda local que se hubiera iniciado.*/
 	public abstract void cierraLocal();
 
+	public abstract void iniciarEjecucionLocalActual();
+
 }

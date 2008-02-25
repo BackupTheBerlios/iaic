@@ -18,5 +18,7 @@ public interface Modelable extends OyenteVista {
 
 	/** Pide la información del búsquedaLocal*/
 	String	mostrarLocal();
+	
+	boolean hayProblemasLocales();
 
 }
