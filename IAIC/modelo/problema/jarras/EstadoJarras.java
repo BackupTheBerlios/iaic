@@ -15,12 +15,6 @@ public class EstadoJarras implements Estado{
 		this.tamP = tamP;
 		this.tamG = tamG;
 	}
-	
-	public EstadoJarras(int jP,int jG) {
-		super();
-		this.jPeque = jP;
-		this.jGrande = jG;
-	}
 
 	public int getJGrande() {
 		return jGrande;
@@ -72,19 +66,7 @@ public class EstadoJarras implements Estado{
 		if (this.jPeque < tamP && this.jGrande > 0)
 			listaOperadores.add(new OperadorTrasvaseGrandePeque(this));
 		if (this.jGrande < tamG && this.jPeque > 0)
-			listaOperadores.add(new OperadorTrasvasePequeGrande(this));
-		
-
-		System.out.println("Estado jarra3 = " + this.getJPeque());
-		System.out.println("Estado jarra4 = " + this.getJGrande());
-		System.out.println("Lista de operadores aplicables:");
-		if (listaOperadores != null){
-			Object[] opers = listaOperadores.toArray();
-			for(int i=0;i<opers.length;i++){
-				System.out.println(((Operador)opers[i]).toString());
-			}
-		}
-		
+			listaOperadores.add(new OperadorTrasvasePequeGrande(this));	
 		
 		return listaOperadores;
 	}
