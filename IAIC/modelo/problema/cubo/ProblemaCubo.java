@@ -250,10 +250,10 @@ public class ProblemaCubo implements Problema, Serializable {
 			texto2 = texto2.substring(1);
 		}
 		//LONGITUD ***************************************************************
-		if (!texto2.startsWith("Longitud Cubo")){
-			throw new IOException("El primer campo debe decir la palabra \"Longitud Cubo\"");
+		if(!texto2.substring(0, "Longitud".length()).equalsIgnoreCase("Longitud")){
+			throw new IOException("El primer campo debe decir la palabra \"Longitud\"");
 		}
-		texto2 = texto2.substring("Longitud Cubo".length());
+		texto2=texto2.substring(0, "Longitud".length());
 		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
 			texto2 = texto2.substring(1);
 		}
@@ -268,7 +268,9 @@ public class ProblemaCubo implements Problema, Serializable {
 			texto2 = texto2.substring(1);
 		}
 		// HABITACIONES CLAUSURADAS***************************************************************
-		if (!texto2.startsWith("Puertas Clausuradas:")){
+		String texto3=texto2.substring(0, "Puertas Clausuradas:".length());
+		//System.out.println(texto3);
+		if (!texto3.equalsIgnoreCase("Puertas Clausuradas:")){//!texto2.startsWith("Puertas Clausuradas:")){
 			throw new IOException("El primer campo debe decir la palabra \"Puertas Clausuradas:\"");
 		}
 		texto2 = texto2.substring("Puertas Clausuradas:".length());
@@ -352,8 +354,8 @@ public class ProblemaCubo implements Problema, Serializable {
 	
 	public	String	escribe(){
 		StringBuffer salida = new StringBuffer();
-		salida.append("Cubo \n Longitud Cubo ");
-		salida.append(this._longitud + "\n");
+		salida.append("Cubo \n"+"Longitud ");
+		salida.append(this._longitud + " \n");
 		salida.append("Puertas Clausuradas por habitación: \n");
 		for (Iterator iter = puertasCerradas.iterator(); iter.hasNext();) {
 			Puerta p = (Puerta) iter.next();
