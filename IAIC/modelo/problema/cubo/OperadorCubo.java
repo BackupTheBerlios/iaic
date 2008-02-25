@@ -11,7 +11,11 @@ public abstract class OperadorCubo implements Operador  {
 
 	private EstadoCubo inicial;
 	protected EstadoCubo EstadoFinal;
-	private boolean listo;
+	protected boolean estadoEstable;
+	
+	public boolean isEstadoEstable() {
+		return estadoEstable;
+	}
 	
 	public int getCoste() {
 		// TODO Auto-generated method stub
@@ -22,13 +26,14 @@ public abstract class OperadorCubo implements Operador  {
 	public Estado getFinal() {
 		if (EstadoFinal == null){
 			transitar();
+			estadoEstable = false;
 		}
 		return EstadoFinal;
 	}
 	
 	protected abstract void transitar();
 
-	protected abstract void transitarDelTodo(ArrayList <Puerta> puertasAbiertas);
+	protected abstract void transitarDelTodo(boolean transitado, ArrayList <Puerta> puertasAbiertas);
 	
 	public void setInicial(Estado e) {
 		inicial = (EstadoCubo) e;
@@ -48,6 +53,7 @@ public abstract class OperadorCubo implements Operador  {
 	public OperadorCubo (EstadoCubo inicial) {
 		super();
 		this.inicial = inicial;
+		this.estadoEstable = false;
 	}
 
 

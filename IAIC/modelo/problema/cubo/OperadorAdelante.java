@@ -21,10 +21,16 @@ public class OperadorAdelante extends OperadorCubo  {
 		EstadoFinal = c;
 	}
 	
-	protected void transitarDelTodo (ArrayList <Puerta> puertasAbiertas){
-		EstadoCubo c = (EstadoCubo)getInicial();
-		int num = c.getNumHabitacion();
-		EstadoFinal =  new EstadoCubo(c.getCubo(),num+2000,puertasAbiertas);
+	protected void transitarDelTodo (boolean transitado,ArrayList <Puerta> puertasAbiertas){
+
+System.out.println("transitando la vuelta");
+		
+		if (transitado) {
+			EstadoCubo c = (EstadoCubo)getInicial();
+			int num = c.getNumHabitacion();
+			EstadoFinal =  new EstadoCubo(c.getCubo(),num+2000,puertasAbiertas);
+		}
+		this.estadoEstable = true;
 	}
 
 	

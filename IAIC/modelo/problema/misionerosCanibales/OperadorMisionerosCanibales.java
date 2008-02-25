@@ -25,5 +25,9 @@ public abstract class OperadorMisionerosCanibales implements Operador{
 		return estadoFinal;
 	}
 	
+	public boolean isEstadoEstable() {
+		return true;
+	}
+	
 	public abstract Estado transitar();
 }

@@ -61,13 +61,17 @@ public class EstadoCubo  implements Estado, Serializable{
 	public void abrirPuerta(int puerta, OperadorCubo op){
 		ArrayList<Puerta> puertas = cubo.getPuertas();
 		Puerta puertaAux = puertas.get(puertas.indexOf(new Puerta(puerta)));
+System.out.println("ejecutando local");		
 		 aviso.ejecutarLocal(puertaAux,this,op);
 	}
 	
 	public void abrirDelTodo(Puerta p, boolean seAbre, OperadorCubo op){
+
+		System.out.println("abriendo del todo");
+		
 		ArrayList<Puerta> puertasAux = this.puertasAbiertas;
 		puertasAux.add(p);
-		op.transitarDelTodo(puertasAux);
+		op.transitarDelTodo(seAbre,puertasAux);
 		//return puertasAux;
 	}
 	

@@ -90,25 +90,30 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	}
 
 	public void ejecutaPasoGlobal() {
-		global.avanzarPaso();
+		global.prepararPaso();
 		if (global.estaResuelto()){
 			oyente.terminaGlobal();
 		}
 	}
 
 	public void ejecutaPasoLocal() {
+		local.prepararPaso();
 		local.avanzarPaso();
+System.out.println("avanzando paso local");
 		if (local.estaResuelto()){
 			localTerminado = true;
 			EstadoCubo e = colaEstados.poll();
 			OperadorCubo op = colaOperadores.poll();
+	System.out.println("ejecutando pasos locales terminados");
 			e.abrirDelTodo(colaProblemas.poll(),!(local.isFallido()), op);
 			oyente.terminaLocal();
+			if (!colaProblemas.isEmpty()){
+				Puerta sigProblema = colaProblemas.peek();
+				iniciarEjecucionLocal(sigProblema.getCodigoProblema(),!(sigProblema.isClausurada()));
+			}
+			else global.avanzarPaso();
 		}
-		if (!colaProblemas.isEmpty()){
-			Puerta sigProblema = colaProblemas.peek();
-			iniciarEjecucionLocal(sigProblema.getCodigoProblema(),sigProblema.isClausurada());
-		}
+		
 			
 			
 	}
@@ -168,16 +173,11 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	public void ejecutarLocal(Puerta puerta, EstadoCubo estado, OperadorCubo op) {
 		if (colaProblemas.isEmpty()){
-			colaProblemas.add(puerta);
-			colaEstados.add(estado);
-			colaOperadores.add(op);
 			iniciarEjecucionLocal(puerta.getCodigoProblema(),!(puerta.isClausurada()));
 		}
-		else {
-			colaProblemas.add(puerta);
-			colaEstados.add(estado);
-			colaOperadores.add(op);
-		}
+		colaProblemas.add(puerta);
+		colaEstados.add(estado);
+		colaOperadores.add(op);
 	}
 
 }

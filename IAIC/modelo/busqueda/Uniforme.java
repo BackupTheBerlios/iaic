@@ -32,5 +32,10 @@ public class Uniforme extends AlgoritmoPrioritario{
 	protected NodoInformado construyeNodo(Estado estado, int numero, NodoInformado padre, Operador opera) {
 		return new NodoUni(estado,numero,padre,opera);
 	}
+
+	public void prepararPaso() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

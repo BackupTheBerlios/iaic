@@ -26,6 +26,7 @@ public interface IAlgoritmo {
 	 * que reitera el proceso seleección-expansión. Este método es 
 	 * como una vuelta del bucle. */
 	abstract public void avanzarPaso();
+	abstract public void prepararPaso();
 	abstract public boolean isFallido();
 
 }

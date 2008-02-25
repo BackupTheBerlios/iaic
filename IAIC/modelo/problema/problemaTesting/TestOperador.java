@@ -41,5 +41,10 @@ public class TestOperador implements	Operador {
 		this.fin = fin;
 		this.coste = coste;
 	}
+	
+	
+	public boolean isEstadoEstable() {
+		return true;
+	}
 
 }

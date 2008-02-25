@@ -35,4 +35,9 @@ class Optima extends AlgoritmoPrioritario {
 		return new NodoOpt(estado,numero,padre,opera);
 	}
 
+	public void prepararPaso() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
