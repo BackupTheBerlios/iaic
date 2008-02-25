@@ -5,17 +5,13 @@ import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.LinkedList;
-
 import modelo.busqueda.IAlgoritmo;
 import modelo.busqueda.IAlgoritmoServidor;
 import modelo.busqueda.ServidorAlgoritmo;
-//import modelo.laberinto.Laberinto;
-//import modelo.laberinto.LaberintoProblema;
 import modelo.problema.IServidorProblemas;
 import modelo.problema.Problema;
 import modelo.problema.ServidorProblemas;
 import modelo.problema.cubo.EstadoCubo;
-import modelo.problema.cubo.OperadorCubo;
 import modelo.problema.cubo.ProblemaCubo;
 import modelo.problema.cubo.Puerta;
 
@@ -25,13 +21,13 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 	private	OyenteModelo	oyente;
 	private	ProblemaCubo	cubo;
 	private EstadoCubo		estadoCubo;
-	private Puerta			puerta;
+	private LinkedList<Puerta> problemas;
+	private boolean 		problemaIniciado;
 	
-	private LinkedList<Puerta>	colaProblemas;
-	private LinkedList<EstadoCubo>	colaEstados;
-	private LinkedList<OperadorCubo> colaOperadores;
+//	private LinkedList<Puerta>	colaProblemas;
+//	private LinkedList<EstadoCubo>	colaEstados;
+//	private LinkedList<OperadorCubo> colaOperadores;
 	
-	private boolean 	localTerminado;
 
 	public void nuevoCubo(int dim, int puertas) { //, int ventanas, int salidas
 		cubo.inicializa(dim,puertas, probserver.dameNumeroProblemas());
@@ -67,11 +63,12 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 		cubo	=	new	ProblemaCubo();
 		probserver	=	new	ServidorProblemas();
 		algserver	=	new	ServidorAlgoritmo();
-		puerta 	= null;
-		localTerminado = true;
-		colaProblemas = new LinkedList<Puerta>();
-		colaEstados = new LinkedList<EstadoCubo>();
-		colaOperadores = new LinkedList<OperadorCubo>();
+		problemaIniciado = false;
+//		puerta 	= null;
+//		localTerminado = true;
+//		colaProblemas = new LinkedList<Puerta>();
+//		colaEstados = new LinkedList<EstadoCubo>();
+//		colaOperadores = new LinkedList<OperadorCubo>();
 	}
 
 	private	IServidorProblemas probserver;
@@ -87,35 +84,25 @@ public class FachadaModelo implements Modelable, IAvisoLocal {
 
 	public void cierraLocal() {
 		local	=	null;
+		problemaIniciado = false;
 	}
 
 	public void ejecutaPasoGlobal() {
-		global.prepararPaso();
+		global.avanzarPaso();
 		if (global.estaResuelto()){
 			oyente.terminaGlobal();
 		}
 	}
 
 	public void ejecutaPasoLocal() {
-		local.prepararPaso();
+		if (!problemaIniciado)
+			iniciarEjecucionLocalActual();
 		local.avanzarPaso();
-System.out.println("avanzando paso local");
 		if (local.estaResuelto()){
-			localTerminado = true;
-			EstadoCubo e = colaEstados.poll();
-			OperadorCubo op = colaOperadores.poll();
-	System.out.println("ejecutando pasos locales terminados");
-			e.abrirDelTodo(colaProblemas.poll(),!(local.isFallido()), op);
 			oyente.terminaLocal();
-			if (!colaProblemas.isEmpty()){
-				Puerta sigProblema = colaProblemas.peek();
-				iniciarEjecucionLocal(sigProblema.getCodigoProblema(),!(sigProblema.isClausurada()));
-			}
-			else global.avanzarPaso();
+			problemas.peek();
+			problemaIniciado = false;
 		}
-		
-			
-			
 	}
 
 	public Object[] getListaAlgoritmos() {
@@ -123,7 +110,6 @@ System.out.println("avanzando paso local");
 	}
 
 	public void iniciarEjecucionGlobal() {
-		
 		global	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
 		problemaGlobal	=	new	ProblemaCubo(this,cubo);
 		global.setProblema(problemaGlobal);
@@ -131,12 +117,12 @@ System.out.println("avanzando paso local");
 	}
 	
 	public	void	iniciarEjecucionLocal(int codigoProblema,boolean resoluble){
-			local	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
-			Problema	problemaLocal	=	probserver.dameProblema(codigoProblema % (probserver.dameNumeroProblemas()),resoluble);
-			local.setProblema(problemaLocal);
-			local.inicializar();
-			oyente.empiezaLocal();	
-		
+		local	=	algserver.dameAlgoritmo(oyente.escogeAlgoritmo());
+		Problema	problemaLocal	=	probserver.dameProblema(codigoProblema % (probserver.dameNumeroProblemas()),resoluble);
+		local.setProblema(problemaLocal);
+		local.inicializar();
+		oyente.empiezaLocal();
+	
 	}	
 	
 	/**
@@ -171,13 +157,34 @@ System.out.println("avanzando paso local");
 		return !(local.isFallido());
 	}
 
-	public void ejecutarLocal(Puerta puerta, EstadoCubo estado, OperadorCubo op) {
-		if (colaProblemas.isEmpty()){
+	public void lanzarEjecucionLocal(int codigoProblema, boolean resoluble) {
+		
+	}
+
+	public void lanzarEjecucionLocal(Puerta puerta) {
+		problemas.offer(puerta);
+		if (!problemaIniciado)
+			iniciarEjecucionLocalActual();
+			
+		
+	}
+
+	private void iniciarEjecucionLocalActual() {
+		if (!problemaIniciado && !problemas.isEmpty()){
+			Puerta puerta = problemas.poll();
+			problemaIniciado = true;
+			iniciarEjecucionLocal(puerta.getCodigoProblema(), !puerta.isClausurada());
+		}
+		
+	}
+
+	public void ejecutarLocal(Puerta puerta) {
+		if (problemas.isEmpty()){
 			iniciarEjecucionLocal(puerta.getCodigoProblema(),!(puerta.isClausurada()));
 		}
-		colaProblemas.add(puerta);
-		colaEstados.add(estado);
-		colaOperadores.add(op);
+		problemas.offer(puerta);
+//		colaEstados.add(estado);
+//		colaOperadores.add(op);
 	}
 
 }

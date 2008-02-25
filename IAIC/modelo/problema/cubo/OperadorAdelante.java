@@ -13,27 +13,13 @@ public class OperadorAdelante extends OperadorCubo  {
 		return "Cruzamos la puerta de adelante";
 	}
 	
-	@Override	
+	@Override
 	protected void transitar() {
 		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
 		int num = c.getNumHabitacion();
-		c.abrirPuerta(num+2000,this);
-		EstadoFinal = c;
+		//EstadoFinal = new EstadoCubo(aux,c.getLO(),aux,c.getCO());
+		ArrayList<Puerta> aux = c.abrirPuerta(num+2000);
+		if (aux.isEmpty()) EstadoFinal = (EstadoCubo)getInicial();
+		else EstadoFinal =  new EstadoCubo(c.getCubo(),num+1,aux);
 	}
-	
-	protected void transitarDelTodo (boolean transitado,ArrayList <Puerta> puertasAbiertas){
-
-System.out.println("transitando la vuelta");
-		
-		if (transitado) {
-			EstadoCubo c = (EstadoCubo)getInicial();
-			int num = c.getNumHabitacion();
-			EstadoFinal =  new EstadoCubo(c.getCubo(),num+2000,puertasAbiertas);
-		}
-		this.estadoEstable = true;
-	}
-
-	
-	
-	
 }

@@ -58,21 +58,20 @@ public class EstadoCubo  implements Estado, Serializable{
 		this.puertasAbiertas = puertas;
 	}
 
-	public void abrirPuerta(int puerta, OperadorCubo op){
+	public ArrayList<Puerta> abrirPuerta(int puerta){
+		ArrayList<Puerta> puertasAux = this.puertasAbiertas;
 		ArrayList<Puerta> puertas = cubo.getPuertas();
 		Puerta puertaAux = puertas.get(puertas.indexOf(new Puerta(puerta)));
-System.out.println("ejecutando local");		
-		 aviso.ejecutarLocal(puertaAux,this,op);
-	}
-	
-	public void abrirDelTodo(Puerta p, boolean seAbre, OperadorCubo op){
-
-		System.out.println("abriendo del todo");
+		//Si la puerta está cerrada, devolvemos una lista de puertas vacía
+		//aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
+		aviso.lanzarEjecucionLocal(puertaAux);
+		if (puertaAux.isClausurada())
+			return new ArrayList<Puerta>();
 		
-		ArrayList<Puerta> puertasAux = this.puertasAbiertas;
-		puertasAux.add(p);
-		op.transitarDelTodo(seAbre,puertasAux);
-		//return puertasAux;
+		puertasAux.add(puertaAux);
+		return puertasAux;
+		
+		
 	}
 	
 	public int getHeuristica() {
@@ -91,6 +90,14 @@ System.out.println("ejecutando local");
 
 	public List<Operador> getOperadoresAplicables() {
 		int longitudCubo = cubo.get_longitud();
+	//FIXME: Poner las puertas a abrir en cada caso	
+//		
+//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
+//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
+//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
+//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
+//		aviso.lanzarEjecucionLocal(puertaAux.getCodigoProblema(),!(puertaAux.isClausurada()));
+//		
 		List<Operador>	lista	=	new	LinkedList<Operador>();
 		
 			if ((numHabitacion/100)%10 != longitudCubo-1)

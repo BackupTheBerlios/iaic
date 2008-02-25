@@ -16,25 +16,10 @@ public class OperadorIzquierda extends OperadorCubo {
 	@Override
 	protected void transitar() {
 		EstadoCubo c = (EstadoCubo)getInicial();//Aqui estoy
-		int num = c.getNumHabitacion();
-		c.abrirPuerta(num+1000,this);
-		EstadoFinal = c;
-	}
-	
-	protected void transitarDelTodo (boolean transitado, ArrayList <Puerta> puertasAbiertas){
-System.out.println("transitando la vuelta");
-		
-		if (transitado) {
-
-			EstadoCubo c = (EstadoCubo)getInicial();
-			int num = c.getNumHabitacion();
-			EstadoFinal =  new EstadoCubo(c.getCubo(),num+10,puertasAbiertas);
-	
-		}
-		estadoEstable = true;
+		int num = c.getNumHabitacion();		
+		ArrayList<Puerta> aux = c.abrirPuerta(num+1000);
+		if (aux.isEmpty()) EstadoFinal = (EstadoCubo)getInicial();
+		else EstadoFinal =  new EstadoCubo(c.getCubo(),num+10,aux);
 
 	}
-
-	
-	
 }
