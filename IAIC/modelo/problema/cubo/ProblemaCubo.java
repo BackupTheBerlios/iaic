@@ -70,7 +70,7 @@ public class ProblemaCubo implements Problema, Serializable {
 			for (int j = 0; j<longitud; j++)
 				for (int k = 0; k<longitud; k++)
 					for (int l = 0; l<3; l++){
-						a = (int)Math.random() * numPro;
+						a = (int)(Math.random() * numPro);
 						puertas.add(new Puerta(l*1000+i*100+j*10+k, a));
 					}
 		cerrarPuertas(longitud,puertasCerradasPorHab);
