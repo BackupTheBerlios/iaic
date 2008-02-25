@@ -43,8 +43,4 @@ public abstract class PuzzleOperador implements Operador {
 		this.inicial = inicial;
 	}
 	
-	public boolean isEstadoEstable() {
-		return true;
-	}
-	
 }

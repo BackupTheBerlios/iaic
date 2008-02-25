@@ -19,7 +19,6 @@ abstract class AlgoritmoCiego extends AlgoritmoAbstracto {
 		cuentaNodo	=	0;
 		fallido	=	false;
 		expandidos.clear();
-		enProceso.clear();
 		solucion = null;
 		vaciaAbiertos();
 		//metemos en abiertos el primer nodo
@@ -27,42 +26,29 @@ abstract class AlgoritmoCiego extends AlgoritmoAbstracto {
 		agnadirAbierto(inicial);
 	}
 
-	public void prepararPaso() {
+	public void avanzarPaso() {
 		if ((solucion == null) && (quedanAbiertos())){
 			NodoCiego nodoAct = sacaAbierto(); //recupera y eliminar el 1�elemento de la lista
 			expandidos.add(nodoAct);
 			if (problema.esObjetivo(nodoAct.getEstado())) {
 				solucion = nodoAct;
-			}
-			else{
+			}	else{
 				Estado aux = nodoAct.getEstado();
 				/* Operadores del estado actual */
 				List<Operador> lista = aux.getOperadoresAplicables();
 				for (int i = 0; i < lista.size(); i++){
-					Operador opera	=	lista.get(i);	
+					Operador opera	=	lista.get(i);
 					NodoCiego	nue	=	new	NodoCiego(opera.getFinal(), cuentaNodo, opera,nodoAct);
-					enProceso.add(nue);
-				}
-			}
-		}
-	}
-	public void avanzarPaso() {
-System.out.println("avanzando");
-		if ((solucion == null)){
-				for (int i = 0; i < enProceso.size(); i++){
-					NodoCiego nue = (NodoCiego)enProceso.get(i);
-					if (nue.getOperador().isEstadoEstable()){
-						if (! expandidos.contains(nue) && ! estaEnAbiertos(nue)){
-							cuentaNodo	++;
-							nue.setNumero(cuentaNodo);
-							agnadirAbierto(nue);
-						}
-					}else break;
+					if (! expandidos.contains(nue) && ! estaEnAbiertos(nue)){
+						cuentaNodo	++;
+						nue.setNumero(cuentaNodo);
+						agnadirAbierto(nue);
+					} 
 				}
 				fallido	=	! quedanAbiertos();
 			}
 		}  
-	
+	}
 	
 	/**
 	 * @return  the solucion

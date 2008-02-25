@@ -35,10 +35,5 @@ class Voraz extends AlgoritmoPrioritario{
 	protected NodoInformado construyeNodo(Estado estado, int numero, NodoInformado padre, Operador opera) {
 		return new	NodoVor(estado, numero, opera,padre);
 	}
-
-	public void prepararPaso() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }

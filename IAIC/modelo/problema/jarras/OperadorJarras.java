@@ -29,10 +29,6 @@ public abstract class OperadorJarras implements Operador{
 		return 1;
 	}
 	
-	public boolean isEstadoEstable() {
-		return true;
-	}
-	
 	public abstract Estado transitar();
 
 }

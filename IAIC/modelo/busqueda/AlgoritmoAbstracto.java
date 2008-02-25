@@ -32,14 +32,12 @@ abstract class AlgoritmoAbstracto implements IAlgoritmo {
 	};
 
 	protected List<Nodo> expandidos;
-	protected List<Nodo> enProceso;
 	protected int cuentaNodo;
 	protected boolean fallido;
 
 	public	AlgoritmoAbstracto(){
 		super();
 		expandidos	=	new	LinkedList<Nodo>();
-		enProceso	=	new	LinkedList<Nodo>();
 	}
 	
 	public boolean estaResuelto() {
@@ -49,13 +47,13 @@ abstract class AlgoritmoAbstracto implements IAlgoritmo {
 	public String muestra() {
 		StringBuffer	informacion	= 	new	StringBuffer();
 		informacion.append("PROBLEMA: " + problema.toString());
-		informacion.append("ESTADO INICIAL:\n" + problema.getEstado().mostrarInfo() +"\n");
+		informacion.append("ESTADO INICIAL:\n" + problema.getEstado().mostrarInfo() );
 		informacion.append("ALGORTIMO USADO: " + getNombreAlgoritmo() + "\n");
 		informacion.append(imprimeExpandidos());
 		if (haySolucion()){
 			informacion.append(imprimeSolucion());
 		} else if (fallido){
-			informacion.append("Lo sentimos, La busqueda ha fracasado y no hay solucion\n");
+			informacion.append("Lo sentimos, La busqueda Ha Fracasado y no hay solucion\n");
 		}
 		return informacion.toString();
 	}
