@@ -250,10 +250,10 @@ public class ProblemaCubo implements Problema, Serializable {
 			texto2 = texto2.substring(1);
 		}
 		//LONGITUD ***************************************************************
-		if (!texto2.startsWith("longitud de Cubo")){
-			throw new IOException("El primer campo debe decir la palabra \"Longitud de Cubo\"");
+		if (!texto2.startsWith("Longitud Cubo")){
+			throw new IOException("El primer campo debe decir la palabra \"Longitud Cubo\"");
 		}
-		texto2 = texto2.substring("Longitud de Cubo".length());
+		texto2 = texto2.substring("Longitud Cubo".length());
 		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
 			texto2 = texto2.substring(1);
 		}
@@ -275,23 +275,50 @@ public class ProblemaCubo implements Problema, Serializable {
 		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
 			texto2 = texto2.substring(1);
 		}
-		int puertasClau;// = leerHab(strTok);
-		try {
-			puertasClau = miparseint(texto2);			
-			texto2 = texto2.substring(("" + puertasClau).length());			
-		} catch (NumberFormatException e) {
-			throw new IOException("El primer campo debe decir el número de puertas Clausuradas por habitaciones.");
-		}
-		while (texto2.startsWith(" ")||texto2.startsWith("\n")){
-			texto2 = texto2.substring(1);
-		}		
-		strTok = new StringTokenizer(texto2);		
-		leerFin(strTok);		
+		int puerta1;
+		boolean seguir = true;
 		vacia();
 		_longitud = longi;
 		puertasCerradas = new ArrayList<Puerta>();
 		puertas = new ArrayList<Puerta>();
-		cerrarPuertas(longi,puertasClau);
+		while ((texto2.length()>0) && seguir){
+			while (texto2.startsWith(" ")){
+				texto2 = texto2.substring(1);
+			}
+			if (!texto2.startsWith("(")){
+				seguir = false;
+			} else {
+				texto2 = texto2.substring(1); //Consumo el parentesis
+				while (texto2.startsWith(" ")){
+					texto2 = texto2.substring(1);
+				}
+				try{
+					puerta1 = miparseint(texto2);					
+				}catch (NumberFormatException e){
+					throw new IOException("Puertas: La puerta es un numero. Mezcla del numero de habitacion y la situacion de la puerta.");
+				}
+				texto2 = texto2.substring(("" + puerta1).length());
+				if (!texto2.startsWith(")")){
+					throw new IOException("Puertas: falta un parentesis de cierre.");
+				}
+				texto2 = texto2.substring(1);
+				while (texto2.startsWith(" ")){
+					texto2 = texto2.substring(1);
+				}
+				if (!texto2.startsWith(";") && !texto2.startsWith("\n")){
+					throw new IOException("Puertas: las puertas van separadas con punto y coma.");
+				}
+				if (texto2.startsWith(";")){
+					texto2 = texto2.substring(1);
+				}
+				cerrarPuerta(puerta1);
+			}
+		}		
+		strTok = new StringTokenizer(texto2);		
+		leerFin(strTok);		
+		//Ahora que el laberinto ha sido correctamente parseado, se puede cambiar el objeto actual
+		//this._longitud = longi;
+		//this = new ProblemaCubo(longi,puertasClau);
 		_estado = new EstadoCubo (this);
 	}
 	
