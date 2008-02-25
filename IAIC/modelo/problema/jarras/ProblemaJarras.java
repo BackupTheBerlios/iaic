@@ -14,6 +14,7 @@ public class ProblemaJarras implements Problema{
 			litrosObjetivo = 2;
 		else
 			litrosObjetivo = 5;
+		System.out.println("Jarras: "+ litrosObjetivo);
 	}
 	
 	public int evaluarHeuristica(Estado e){

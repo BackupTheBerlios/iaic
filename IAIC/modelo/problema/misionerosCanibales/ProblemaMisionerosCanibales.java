@@ -3,10 +3,6 @@ package modelo.problema.misionerosCanibales;
 import modelo.problema.Estado;
 import modelo.problema.Problema;
 
-/**
- * @author gnufede
- *
- */
 public class ProblemaMisionerosCanibales implements Problema {
 	
 	private int tamMaxMisioneros = 3;
@@ -14,6 +10,9 @@ public class ProblemaMisionerosCanibales implements Problema {
 	
 	public ProblemaMisionerosCanibales(boolean resoluble){
 		super();
+		if (!resoluble)
+			this.tamMaxCanibales = 4;
+		System.out.println("Canibales: " + tamMaxCanibales);
 	}
 	
 	public int evaluarHeuristica(Estado e){

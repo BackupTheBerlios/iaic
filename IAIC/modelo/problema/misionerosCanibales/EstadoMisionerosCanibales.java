@@ -20,13 +20,6 @@ public class EstadoMisionerosCanibales implements Estado{
 		this.tamMaxCanibales = tamC;
 	}
 	
-	public EstadoMisionerosCanibales(int nM,int nC,int pB) {
-		super();
-		this.numMisioneros = nM;
-		this.numCanibales = nC;
-		this.posicionBarca = pB;
-	}
-	
 	public int getNumMisioneros() {
 		return numMisioneros;
 	}
@@ -113,11 +106,8 @@ public class EstadoMisionerosCanibales implements Estado{
 	}
 
 	private boolean peligro(){
-//		if (((numCanibales > numMisioneros) && (numMisioneros!=0) && (posicionBarca == 1)) || 
-//				((numCanibales < numMisioneros) && (numMisioneros!=tamMaxMisioneros) && (posicionBarca == 0)))
 		if (((numCanibales > numMisioneros) && (numMisioneros!=0)) || 
 				((numCanibales < numMisioneros) && (numMisioneros!=tamMaxMisioneros))){
-			System.out.println("PELIGRO!! " + this.mostrarInfo());
 			return true;
 		}
 		else 
