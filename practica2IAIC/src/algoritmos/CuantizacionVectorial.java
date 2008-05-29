@@ -64,6 +64,7 @@ public class CuantizacionVectorial {
 					salida.print(",");
 					salida.print(centro[j]);
 				}
+				salida.println();
 			}
 			for (int i=0;i<vectorClases.size();i++){
 				Clase c = (Clase)vectorClases.elementAt(i);
