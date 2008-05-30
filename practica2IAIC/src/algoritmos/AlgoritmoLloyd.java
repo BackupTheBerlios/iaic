@@ -13,13 +13,11 @@ public class AlgoritmoLloyd {
 	private Float[][] vectorMuestras;
 	private Vector<Clase> vectorClases = new Vector<Clase>();
 
-	public AlgoritmoLloyd(String ficheroTraining,String ficheroMuesrasNuevas,String ficheroAprende){
+	public AlgoritmoLloyd(String ficheroTraining,String ficheroAprende){
 		leerFicheroTraining(ficheroTraining);
 	}
 	
 	private void leerFicheroTraining(String ficheroTraining){
-		int row = 0;
-		int col = 0;
 		try{
 			File f = new File(ficheroTraining);
 			FileReader entrada = new FileReader(f);
@@ -36,14 +34,19 @@ public class AlgoritmoLloyd {
 				while (st.hasMoreTokens()){
 					Float valor = Float.valueOf(st.nextToken()).floatValue();
 					v_atributos.addElement(valor);
+					this.atributos++;
 				}
-				this.atributos = v_atributos.size();
 			}
-			for (int i=0;i<clases;i++){
-				Clase c = new Clase(muestras,atributos);
+			Clase c = new Clase(muestras,atributos);
+			Float[] centro = new Float[atributos];
+			centro = v_atributos.toArray(centro);
+			c.setCentro(centro);
+			vectorClases.addElement(c);
+			for (int i=1;i<clases;i++){
+				c = new Clase(muestras,atributos);
 				if ((line = buffer.readLine())!= null){
 					StringTokenizer st = new StringTokenizer(line,",");
-					Float[] centro = new Float[atributos];
+					centro = new Float[atributos];
 					int j = 0;
 					while (st.hasMoreTokens()){
 						Float valor = Float.valueOf(st.nextToken()).floatValue();
@@ -51,26 +54,31 @@ public class AlgoritmoLloyd {
 						j++;
 					}
 					c.setCentro(centro);
+					vectorClases.addElement(c);
 				}
 			}
 			/* Ya tengo el numero de Muestras, el numero de clases y los centro de cada clase 
 			 * Queda repartir cada muestra en su clase 
 			 */
-			for (int i=0;i<muestras;i++){
-				if ((line = buffer.readLine()) != null){
-					StringTokenizer st = new StringTokenizer(line,",");
-					//int numClase = new Integer(st.nextToken());
-					Float[] muestra = new Float[atributos];
-					int j=1;
-					while (st.hasMoreTokens()){
-						Float valor = Float.valueOf(st.nextToken()).floatValue();
-						muestra[j-1] = valor;
-						vectorMuestras[i][j-1] = valor;
-						j++;
-					}
-				}
+			vectorMuestras = new Float[muestras][atributos];
+			int k=0;
+			while ((line = buffer.readLine())!= null){
+				StringTokenizer st = new StringTokenizer(line,",");
+				int numClase = Integer.parseInt(st.nextToken());//class number
+				Float[] m = new Float[atributos];//creo una muestra nueva
+				int j=0;
+				while (st.hasMoreTokens()){
+					Float valor = Float.valueOf(st.nextToken()).floatValue();
+					m[j] = valor;
+					j++;
+				}// Ya tengo la muestra leida
+				c = (Clase)vectorClases.elementAt(numClase);
+				c.addMuestra(m);
+				vectorMuestras[k] = m;
+				k++;
 			}
 		}catch(Exception ex) {System.out.println(ex.toString());}
+		System.out.println("Fin Lloyd");
 	}
 
 }

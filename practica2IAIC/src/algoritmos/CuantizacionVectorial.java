@@ -69,7 +69,7 @@ public class CuantizacionVectorial {
 			for (int i=0;i<vectorClases.size();i++){
 				Clase c = (Clase)vectorClases.elementAt(i);
 				for (int k=0;k<c.getNumMuestras();k++){
-					salida.print(i+1);					
+					salida.print(i);					
 					for(int j=0;j<atributos;j++){
 						salida.print(",");
 						salida.print(c.getMuestras()[k][j]);
@@ -157,16 +157,16 @@ public class CuantizacionVectorial {
 	private void muestraSolucion(){
 		for (int i=0;i<vectorClases.size();i++){
 			Clase c = (Clase)vectorClases.elementAt(i);
-			System.out.println("CENTRO CLASE " + (i+1));
+			System.out.println("CENTRO CLASE " + (i));
 			String sol = "(" + c.getCentro()[0];
 			for(int j=1;j<atributos;j++){
 				sol = sol + "," + c.getCentro()[j];
 			}
 			sol = sol + ")";
 			System.out.println(sol);
-			System.out.print("NUMERO MUESTRAS CLASE " + (i+1) + " ");
+			System.out.print("NUMERO MUESTRAS CLASE " + (i) + " ");
 			System.out.println(c.getNumMuestras());
-			System.out.println("MUESTRAS CLASE " + (i+1));
+			System.out.println("MUESTRAS CLASE " + (i));
 			for (int k=0;k<c.getNumMuestras();k++){
 				sol = "(" + c.getMuestras()[k][0];
 				for(int j=1;j<atributos;j++){
