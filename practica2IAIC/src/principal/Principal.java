@@ -14,7 +14,8 @@ public class Principal {
 		// TODO Auto-generated method stub
 //178x13
 		if (args.length == 3){
-			CuantizacionVectorial clasificador = new CuantizacionVectorial (args[0],args[1],muestras,atributos);
+			CuantizacionVectorial clasificador = new CuantizacionVectorial 
+										(args[0],args[1],muestras,atributos);
 			AlgoritmoLloyd aprende = new AlgoritmoLloyd(args[1],args[2]);
 		}else{
 			System.out.println("Argumentos mal");

@@ -49,7 +49,8 @@ public class AlgoritmoLloyd {
 					centro = new Float[atributos];
 					int j = 0;
 					while (st.hasMoreTokens()){
-						Float valor = Float.valueOf(st.nextToken()).floatValue();
+						Float valor = Float.valueOf
+										(st.nextToken()).floatValue();
 						centro[j] = valor;
 						j++;
 					}
@@ -57,7 +58,8 @@ public class AlgoritmoLloyd {
 					vectorClases.addElement(c);
 				}
 			}
-			/* Ya tengo el numero de Muestras, el numero de clases y los centro de cada clase 
+			/* Ya tengo el numero de Muestras, el numero de clases
+			 * y los centro de cada clase. 
 			 * Queda repartir cada muestra en su clase 
 			 */
 			vectorMuestras = new Float[muestras][atributos];

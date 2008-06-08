@@ -1,6 +1,7 @@
 package algoritmos;
 
-import java.util.*;
+import java.util.Vector;
+import java.util.StringTokenizer;
 import java.io.*;
 
 public class CuantizacionVectorial {
@@ -10,7 +11,8 @@ public class CuantizacionVectorial {
 	private Float[][] vectorMuestras;
 	private Vector<Clase> vectorClases = new Vector<Clase>();
 	
-	public CuantizacionVectorial(String ficheroEntrada,String ficheroSalida,int muestras,int atributos){
+	public CuantizacionVectorial(String ficheroEntrada,String ficheroSalida,
+								int muestras,int atributos){
 		System.out.println("inicio CV");
 		this.muestras = muestras;
 		this.atributos = atributos;
@@ -78,7 +80,9 @@ public class CuantizacionVectorial {
 				}
 			}
 			salida.close();
-		}catch (Exception ex){System.out.println(ex.toString());}
+		}catch (Exception ex){
+			System.out.println(ex.toString());
+			}
 
 	}
 	
@@ -95,10 +99,11 @@ public class CuantizacionVectorial {
 				d = distanciaEuclidea(i,j);
 				distancias[j] = d;
 			}
-			/* dmenor es el indice del vectorClases con menor distancia del centro a la muestra*/
+			/* dmenor es el indice del vectorClases con menor distancia 
+			 * del centro a la muestra*/
 			dmenor = menorDistancia(distancias);
 			if (distancias[dmenor] < umbral){
-				añadirMuestra(dmenor,i);
+				aadirMuestra(dmenor,i);
 				actualizaCentro(dmenor);
 			}else{
 				c1 = new Clase(this.muestras,this.atributos);
@@ -133,7 +138,7 @@ public class CuantizacionVectorial {
 		return menor;
 	}
 	
-	private void añadirMuestra(int indiceClase,int indiceMuestra){
+	private void aadirMuestra(int indiceClase,int indiceMuestra){
 		Clase c = (Clase)vectorClases.elementAt(indiceClase);
 		c.addMuestra(vectorMuestras[indiceMuestra]);
 		vectorClases.set(indiceClase,c);
