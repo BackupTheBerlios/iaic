@@ -8,7 +8,7 @@ public class CuantizacionVectorial {
 	private int muestras;
 	private int atributos;
 	private float umbral = 20;
-	private Float[][] vectorMuestras;
+	private float[][] vectorMuestras;
 	private Vector<Clase> vectorClases = new Vector<Clase>();
 	
 	public CuantizacionVectorial(String ficheroEntrada,String ficheroSalida,
@@ -16,7 +16,7 @@ public class CuantizacionVectorial {
 		System.out.println("inicio CV");
 		this.muestras = muestras;
 		this.atributos = atributos;
-		vectorMuestras = new Float[this.muestras][this.atributos];
+		vectorMuestras = new float[this.muestras][this.atributos];
 		leeFichero(ficheroEntrada);
 		ejecuta();
 		muestraSolucion();
@@ -37,7 +37,7 @@ public class CuantizacionVectorial {
 				StringTokenizer st = new StringTokenizer(line,",");
 				st.nextToken();
 				while (st.hasMoreTokens()){
-					Float valor = Float.valueOf(st.nextToken()).floatValue();
+					float valor = Float.valueOf(st.nextToken()).floatValue();
 					vectorMuestras[row][col] = valor;
 				col++;
 				}
@@ -60,7 +60,7 @@ public class CuantizacionVectorial {
 			salida.println(this.vectorClases.size());
 			for(int i=0;i<vectorClases.size();i++){
 				Clase c = (Clase)vectorClases.elementAt(i);
-				Float[] centro = c.getCentro();
+				float[] centro = c.getCentro();
 				salida.print(centro[0]);
 				for (int j=1;j<atributos;j++){
 					salida.print(",");
@@ -87,7 +87,7 @@ public class CuantizacionVectorial {
 	}
 	
 	private void ejecuta(){
-		Clase c1 = new Clase(this.muestras,this.atributos);
+		Clase c1 = new Clase(0, this.muestras,this.atributos);
 		c1.setCentro(vectorMuestras[0]);
 		c1.addMuestra(vectorMuestras[0]);
 		vectorClases.addElement(c1);
@@ -106,7 +106,7 @@ public class CuantizacionVectorial {
 				aadirMuestra(dmenor,i);
 				actualizaCentro(dmenor);
 			}else{
-				c1 = new Clase(this.muestras,this.atributos);
+				c1 = new Clase(i, this.muestras,this.atributos);
 				c1.setCentro(vectorMuestras[i]);
 				c1.addMuestra(vectorMuestras[i]);
 				vectorClases.addElement(c1);
@@ -117,7 +117,7 @@ public class CuantizacionVectorial {
 	
 	private float distanciaEuclidea(int m,int c){
 		float distancia = 0;
-		Float[] centro = ((Clase)vectorClases.elementAt(c)).getCentro();
+		float[] centro = ((Clase)vectorClases.elementAt(c)).getCentro();
 		float a;
 		float b = 0;
 		for (int i=0;i<atributos;i++){
@@ -146,11 +146,11 @@ public class CuantizacionVectorial {
 	
 	private void actualizaCentro(int indiceClase){
 		Clase c = (Clase)vectorClases.elementAt(indiceClase);
-		Float[] nuevoCentro = new Float[atributos];
+		float[] nuevoCentro = new float[atributos];
 		for (int i=0;i<atributos;i++){
 			float a = 0;
 			for (int j=0;j<c.getNumMuestras();j++){
-				Float[] muestraC = (c.getMuestras())[j];
+				float[] muestraC = (c.getMuestras())[j];
 				a = a + muestraC[i];
 			}
 			a = a / c.getNumMuestras();

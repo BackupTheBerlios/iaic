@@ -10,7 +10,7 @@ public class AlgoritmoLloyd {
 	private int muestras;
 	private int atributos;
 	private int clases;
-	private Float[][] vectorMuestras;
+	private float[][] vectorMuestras;
 	private Vector<Clase> vectorClases = new Vector<Clase>();
 
 	public AlgoritmoLloyd(String ficheroTraining,String ficheroAprende){
@@ -32,24 +32,24 @@ public class AlgoritmoLloyd {
 			if ((line = buffer.readLine())!= null){
 				StringTokenizer st = new StringTokenizer(line,",");
 				while (st.hasMoreTokens()){
-					Float valor = Float.valueOf(st.nextToken()).floatValue();
+					float valor = Float.valueOf(st.nextToken()).floatValue();
 					v_atributos.addElement(valor);
 					this.atributos++;
 				}
 			}
-			Clase c = new Clase(muestras,atributos);
+			Clase c = new Clase(0,muestras,atributos);
 			Float[] centro = new Float[atributos];
 			centro = v_atributos.toArray(centro);
 			c.setCentro(centro);
 			vectorClases.addElement(c);
 			for (int i=1;i<clases;i++){
-				c = new Clase(muestras,atributos);
+				c = new Clase(i,muestras,atributos);
 				if ((line = buffer.readLine())!= null){
 					StringTokenizer st = new StringTokenizer(line,",");
 					centro = new Float[atributos];
 					int j = 0;
 					while (st.hasMoreTokens()){
-						Float valor = Float.valueOf
+						float valor = Float.valueOf
 										(st.nextToken()).floatValue();
 						centro[j] = valor;
 						j++;
@@ -62,15 +62,15 @@ public class AlgoritmoLloyd {
 			 * y los centro de cada clase. 
 			 * Queda repartir cada muestra en su clase 
 			 */
-			vectorMuestras = new Float[muestras][atributos];
+			vectorMuestras = new float[muestras][atributos];
 			int k=0;
 			while ((line = buffer.readLine())!= null){
 				StringTokenizer st = new StringTokenizer(line,",");
 				int numClase = Integer.parseInt(st.nextToken());//class number
-				Float[] m = new Float[atributos];//creo una muestra nueva
+				float[] m = new float[atributos];//creo una muestra nueva
 				int j=0;
 				while (st.hasMoreTokens()){
-					Float valor = Float.valueOf(st.nextToken()).floatValue();
+					float valor = Float.valueOf(st.nextToken()).floatValue();
 					m[j] = valor;
 					j++;
 				}// Ya tengo la muestra leida

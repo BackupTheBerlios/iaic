@@ -28,9 +28,13 @@ public class kMeansPoint {
 	private int y;
 	
 
-	/** Assigned cluster */
-	private int clusterNumber;
 	
+	private float[] muestra;
+	
+	/** Assigned Clase */
+	private int ClaseNumber;
+	
+
 
 	/**
 	 * Creates a new instance of data point
@@ -38,36 +42,35 @@ public class kMeansPoint {
 	 * @param	_x	value in dimension x
 	 * @param	_y	value in dimension y
 	 */
-	public kMeansPoint(int _x, int _y) {
-	
-		this.x = _x;
-		this.y = _y;
-		this.clusterNumber=0;
+	public kMeansPoint(float [] muestra) {
+		this.muestra = muestra;
+		this.ClaseNumber=0;
 	} // end of kMeansPoint()
 	
 	
-	/**
-	 * Assigns the data point to a cluster
-	 *
-	 * @param	_clusterNumber	the cluster to which this data point is to be assigned
-	 */
-	public void assignToCluster(int _clusterNumber) {
-	
-		this.clusterNumber = _clusterNumber;
-	
-	} // end of assignToCluster()
-	
 	
 	/**
-	 * Returns the cluster to which the data point belongs
+	 * Assigns the data point to a Clase
 	 *
-	 * @return	the cluster number to which the data point belongs
+	 * @param	_ClaseNumber	the Clase to which this data point is to be assigned
 	 */
-	public int getClusterNumber() {
+	public void assignToClase(int _ClaseNumber) {
 	
-		return this.clusterNumber;
+		this.ClaseNumber = _ClaseNumber;
 	
-	} // end of getClusterNumber()
+	} // end of assignToClase()
+	
+	
+	/**
+	 * Returns the Clase to which the data point belongs
+	 *
+	 * @return	the Clase number to which the data point belongs
+	 */
+	public int getClaseNumber() {
+	
+		return this.ClaseNumber;
+	
+	} // end of getClaseNumber()
 	
 	
 	/**
@@ -75,9 +78,9 @@ public class kMeansPoint {
 	 *
 	 * @return	the value in x dimension
 	 */
-	public int getX() {
+	public float getX() {
 	
-		return this.x;
+		return muestra[0];// this.x;
 	
 	} // end of getX()
 	
@@ -87,13 +90,24 @@ public class kMeansPoint {
 	 *
 	 * @return	the value in y dimension
 	 */
-	public int getY() {
+	public float getY() {
 	
-		return this.y;
+		return muestra[1]; //this.y;
 	
 	} // end of getY()
 	
+	public float get(int pos){
+		return muestra[pos];
+	}
 	
+
+	public float[] toFloatArray(){
+		return muestra;
+	}
+	
+	public int length(){
+		return muestra.length;
+	}
 	/**
 	 * Returns the distance between two data points
 	 *
@@ -104,11 +118,18 @@ public class kMeansPoint {
 	public static double distance(kMeansPoint dp1, kMeansPoint dp2) {
 	
 		double result = 0;
+		long arg0 = 0;
 		double resultX = dp1.getX() - dp2.getX();
 		double resultY = dp1.getY() - dp2.getY();
 		result = Math.sqrt(resultX*resultX + resultY*resultY);
-		return result;
 	
+		double [] resultVector = new double[dp1.length()];
+		for (int i = 0; i < resultVector.length; i++){
+			resultVector[i] = dp1.get(i) - dp2.get(i);
+			arg0 += (resultVector[i]*resultVector[i]);
+		}
+		result = Math.sqrt(arg0);
+		return result;	
 	} // end of distance()
 	
 	
@@ -119,7 +140,7 @@ public class kMeansPoint {
 	 */
 	public String toString(){
 	
-		return "(" + this.x + "," + this.y + ")[" + this.clusterNumber + "]";
+		return "(" + this.x + "," + this.y + ")[" + this.ClaseNumber + "]";
 	
 	} // end of toString()
 	
@@ -130,17 +151,18 @@ public class kMeansPoint {
 	 * @param	args	command line arguments
 	 */
 	public static void main(String[] args) {
-	
-		kMeansPoint dp1 = new kMeansPoint(-3,-4);
-		kMeansPoint dp2 = new kMeansPoint(0,4);
+		float[] a = {-3f,-4f};
+		kMeansPoint dp1 = new kMeansPoint(a);
+		a = new float[] {0f,4f};
+		kMeansPoint dp2 = new kMeansPoint(a);
 		System.out.println(kMeansPoint.distance(dp1, dp2));
 		System.out.println(dp1.getX());
 		System.out.println(dp2.getY());
-		dp1.assignToCluster(7);
-		System.out.println(dp1.getClusterNumber());
-		dp1.assignToCluster(17);
-		System.out.println(dp1.getClusterNumber());
-		System.out.println(dp2.getClusterNumber());
+		dp1.assignToClase(7);
+		System.out.println(dp1.getClaseNumber());
+		dp1.assignToClase(17);
+		System.out.println(dp1.getClaseNumber());
+		System.out.println(dp2.getClaseNumber());
 		System.out.println(dp1);
 	
 	} // end of main()

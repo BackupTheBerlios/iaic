@@ -23,12 +23,12 @@ import java.util.*;
 public class kMeans {
 
 
-	/** Number of clusters */
+	/** Number of Clases */
 	private int k;
 	
 
-	/** Array of clusters */
-	private cluster[] clusters;
+	/** Array of Clases */
+	private Clase[] Clases;
 	
 	
 	/** Number of iterations */
@@ -46,14 +46,14 @@ public class kMeans {
 	/**
 	 * Returns a new instance of kMeans algorithm
 	 *
-	 * @param	k		number of clusters
+	 * @param	k		number of Clases
 	 * @param	inputFileName	name of the file containing input data
 	 */
          public kMeans(int k, String inputFileName) {
 	
 		this.k = k;
 		this.inputFileName = inputFileName;
-		this.clusters = new cluster[this.k];
+		this.Clases = new Clase[this.k];
 		this.nIterations = 0;
 		this.kMeansPoints = new Vector<kMeansPoint>();
 	
@@ -63,14 +63,14 @@ public class kMeans {
 	/**
 	 * Returns a new instance of kMeans algorithm
 	 *
-	 * @param	k		number of clusters
+	 * @param	k		number of Clases
 	 * @param	kMeansPoints	List containing objects of type kMeansPoint
 	 */
          public kMeans(int k, List<kMeansPoint> kMeansPoints) {
 	
 		this.k = k;
 		this.inputFileName = inputFileName;
-		this.clusters = new cluster[this.k];
+		this.Clases = new Clase[this.k];
 		this.nIterations = 0;
 		this.kMeansPoints=new Vector<kMeansPoint>(kMeansPoints);
 	
@@ -89,8 +89,13 @@ public class kMeans {
 			StringTokenizer st = new StringTokenizer(line, " \t\n\r\f,");
 				if (st.countTokens() == 2) {
 					
-					kMeansPoint dp = new kMeansPoint(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
-					dp.assignToCluster(0);
+					kMeansPoint dp = new kMeansPoint(
+								new float[]{
+										Float.parseFloat(st.nextToken()),
+										Float.parseFloat(st.nextToken())
+								}
+							);
+					dp.assignToClase(0);
 					this.kMeansPoints.add(dp);
                         
                         }
@@ -110,17 +115,25 @@ public class kMeans {
 		// Select k points as initial means
 		for (int i=0; i < k; i++){
 		
-			this.clusters[i] = new cluster(i);
-			this.clusters[i].setMean((kMeansPoint)(this.kMeansPoints.get((int)(Math.random() * this.kMeansPoints.size()))));
+			this.Clases[i] = new Clase(i);
+			this.Clases[i].setCentro(
+									(kMeansPoint)(this.kMeansPoints.get
+										(
+												(int)(Math.random() 
+													* this.kMeansPoints.size()
+												)
+										)
+									)
+									);
 		
 		}
 		
 		
 		do {
-			// Form k clusters
+			// Form k Clases
 			Iterator<kMeansPoint> i = this.kMeansPoints.iterator();
 			while (i.hasNext())
-				this.assignToCluster((kMeansPoint)(i.next()));
+				this.assignToClase((kMeansPoint)(i.next()));
 				
 			this.nIterations++;
 		
@@ -132,32 +145,34 @@ public class kMeans {
 	
 	
 	/**
-	 * Assigns a data point to one of the k clusters based on its distance from the means of the clusters
+	 * Assigns a data point to one of the k Clases based on its distance 
+	 * from the means of the Clases
 	 *
 	 * @param	dp	data point to be assigned
 	 */
-	private void assignToCluster(kMeansPoint dp) {
+	private void assignToClase(kMeansPoint dp) {
 	
-		int currentCluster = dp.getClusterNumber();
-		double minDistance = kMeansPoint.distance(dp, this.clusters[currentCluster].getMean());;
+		int currentClase = dp.getClaseNumber();
+		double minDistance = kMeansPoint.distance
+				(dp, new kMeansPoint(this.Clases[currentClase].getCentro()));
 		
-		for (int i=0; i <this.k; i++)
-			if (kMeansPoint.distance(dp, this.clusters[i].getMean()) < minDistance) {
-		
-				minDistance = kMeansPoint.distance(dp, this.clusters[i].getMean());
-				currentCluster = i;
+		for (int i=0; i <this.k; i++){
+			kMeansPoint dc = new kMeansPoint(this.Clases[i].getCentro());
+			if (kMeansPoint.distance(dp, dc) < minDistance) {
+					minDistance = kMeansPoint.distance(dp, dc);
+					currentClase = i;
 				
 			}
-		
-		dp.assignToCluster(currentCluster);	
+		}
+		dp.assignToClase(currentClase);	
 	
-	} // end of assignToCluster
+	} // end of assignToClase
 	
 	
 	/**
-	 * Updates the means of all k clusters, and returns if they have changed or not
+	 * Updates the means of all k Clases, and returns if they have changed or not
 	 *
-	 * @return	have the updated means of the clusters changed or not
+	 * @return	have the updated means of the Clases changed or not
 	 */
 	private boolean updateMeans() {
 	
@@ -173,7 +188,7 @@ public class kMeans {
 			x[i] = 0;
 			y[i] = 0;
 			size[i] = 0;
-			pastMeans[i] = this.clusters[i].getMean();
+			pastMeans[i] = this.Clases[i].getCentroPoint();
 		
 		}
 		
@@ -182,11 +197,11 @@ public class kMeans {
 		
 		
 			kMeansPoint dp = (kMeansPoint)(i.next());
-			int currentCluster = dp.getClusterNumber();
+			int currentClase = dp.getClaseNumber();
 			
-			x[currentCluster] += dp.getX();
-			y[currentCluster] += dp.getY();
-			size[currentCluster]++;
+			x[currentClase] += dp.getX();
+			y[currentClase] += dp.getY();
+			size[currentClase]++;
 		
 		}
 		
@@ -195,10 +210,10 @@ public class kMeans {
 			
 				x[j] /= size[j];
 				y[j] /= size[j];
-				kMeansPoint temp = new kMeansPoint(x[j], y[j]);
-				temp.assignToCluster(j);
-				this.clusters[j].setMean(temp);
-				if (kMeansPoint.distance(pastMeans[j], this.clusters[j].getMean()) !=0 )
+				kMeansPoint temp = new kMeansPoint(new float[] {x[j], y[j]});
+				temp.assignToClase(j);
+				this.Clases[j].setCentro(temp);
+				if (kMeansPoint.distance(pastMeans[j], this.Clases[j].getCentroPoint()) !=0 )
 					reply = true;
 					
 			}
@@ -221,16 +236,16 @@ public class kMeans {
 	
 	
 	/**
-	 * Returns the specified cluster by index
+	 * Returns the specified Clase by index
 	 *
-	 * @param	index	index of the cluster to be returned
-	 * @return	return the specified cluster by index
+	 * @param	index	index of the Clase to be returned
+	 * @return	return the specified Clase by index
 	 */
-	public cluster getCluster(int index) {
+	public Clase getClase(int index) {
 	
-		return this.clusters[index];
+		return this.Clases[index];
 	
-	} // end of getCluster()
+	} // end of getClase()
         
         
 	/**
@@ -282,7 +297,7 @@ public class kMeans {
 
 
 /*
- * Represents an abstraction for a cluster of data points in two dimensional space
+ * Represents an abstraction for a Clase of data points in two dimensional space
  *
  * Manas Somaiya
  * Computer and Information Science and Engineering
@@ -294,82 +309,4 @@ public class kMeans {
  */
  
 
- 
-/**
- * Represents an abstraction for a cluster of data points in two dimensional space
- * @author	Manas Somaiya	mhs@cise.ufl.edu
- */
- class cluster {
 
-
-	/** Cluster Number */
-	private int clusterNumber;
-	
-	
-	/** Mean data point of this cluster */
-	private kMeansPoint mean;
-	
-	
-	/**
-	 * Returns a new instance of cluster
-	 *
-	 * @param	_clusterNumber	the cluster number of this cluster
-	 */
-	public cluster(int _clusterNumber) {
-	
-		this.clusterNumber = _clusterNumber;
-		
-	} // end of cluster()
-	
-	
-	/**
-	 * Sets the mean data point of this cluster
-	 *
-	 * @param	meanDataPoint	the new mean data point for this cluster
-	 */
-	public void setMean(kMeansPoint meanDataPoint) {
-	
-		this.mean = meanDataPoint;
-	
-	} // end of setMean()
-	
-	
-	/**
-	 * Returns the mean data point of this cluster
-	 *
-	 * @return	the mean data point of this cluster
-	 */
-	public kMeansPoint getMean() {
-	
-		return this.mean;
-	
-	} // end of getMean()
-	
-	
-	/**
-	 * Returns the cluster number of this cluster
-	 *
-	 * @return	the cluster number of this cluster
-	 */
-	public int getClusterNumber() {
-	
-		return this.clusterNumber;
-	
-	} // end of getClusterNumber()
-	
-
-	/**
-	 * Main method -- to test the cluster class
-	 *
-	 * @param	args	command line arguments
-	 */
-	public static void main(String[] args) {
-	
-		cluster c1 = new cluster(1);
-		c1.setMean(new kMeansPoint(3,4));
-		System.out.println(c1.getMean());
-
-	
-	} // end of main()
-
-} // end of class
