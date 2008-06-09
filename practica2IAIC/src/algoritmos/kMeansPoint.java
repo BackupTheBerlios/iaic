@@ -52,7 +52,7 @@ public class kMeansPoint {
 	/**
 	 * Assigns the data point to a Clase
 	 *
-	 * @param	_ClaseNumber	the Clase to which this data point is to be assigned
+	 * @param _ClaseNumber the Clase to which this data point is to be assigned
 	 */
 	public void assignToClase(int _ClaseNumber) {
 	
@@ -119,10 +119,6 @@ public class kMeansPoint {
 	
 		double result = 0;
 		long arg0 = 0;
-		double resultX = dp1.getX() - dp2.getX();
-		double resultY = dp1.getY() - dp2.getY();
-		result = Math.sqrt(resultX*resultX + resultY*resultY);
-	
 		double [] resultVector = new double[dp1.length()];
 		for (int i = 0; i < resultVector.length; i++){
 			resultVector[i] = dp1.get(i) - dp2.get(i);

@@ -69,7 +69,7 @@ public class kMeans {
          public kMeans(int k, List<kMeansPoint> kMeansPoints) {
 	
 		this.k = k;
-		this.inputFileName = inputFileName;
+	//	this.inputFileName = inputFileName;
 		this.Clases = new Clase[this.k];
 		this.nIterations = 0;
 		this.kMeansPoints=new Vector<kMeansPoint>(kMeansPoints);
@@ -78,17 +78,18 @@ public class kMeans {
 	
 	
 	/**
-	 * Reads the input data from the file and stores the data points in the vector
+	 * Reads the input data from the file 
+	 * and stores the data points in the vector
 	 */
 	public void readData() throws IOException{
 	
-		BufferedReader in = new BufferedReader(new FileReader(this.inputFileName));
+		BufferedReader in = new BufferedReader(
+										new FileReader(this.inputFileName));
 		String line = "";
 		while ((line = in.readLine()) != null ){
                         
 			StringTokenizer st = new StringTokenizer(line, " \t\n\r\f,");
-				if (st.countTokens() == 2) {
-					
+				if (st.countTokens() == 2) {					
 					kMeansPoint dp = new kMeansPoint(
 								new float[]{
 										Float.parseFloat(st.nextToken()),
@@ -140,6 +141,18 @@ public class kMeans {
 		}
 		// Repeat while centroids do not change
 		while (this.updateMeans());
+		
+		Iterator<kMeansPoint> i = this.kMeansPoints.iterator();
+		
+
+		while (i.hasNext())
+
+			//this.assignToClase((kMeansPoint)(i.next()));
+			Clase clase = (kMeanspPoint)i.
+			this.Clases[i].add
+			
+		this.nIterations++;
+	
 	
 	} // end of runKMeans()
 	
@@ -170,7 +183,8 @@ public class kMeans {
 	
 	
 	/**
-	 * Updates the means of all k Clases, and returns if they have changed or not
+	 * Updates the means of all k Clases, 
+	 * and returns if they have changed or not
 	 *
 	 * @return	have the updated means of the Clases changed or not
 	 */
@@ -188,7 +202,7 @@ public class kMeans {
 			x[i] = 0;
 			y[i] = 0;
 			size[i] = 0;
-			pastMeans[i] = this.Clases[i].getCentroPoint();
+			pastMeans[i] = new kMeansPoint(this.Clases[i].getCentro());
 		
 		}
 		
@@ -213,7 +227,8 @@ public class kMeans {
 				kMeansPoint temp = new kMeansPoint(new float[] {x[j], y[j]});
 				temp.assignToClase(j);
 				this.Clases[j].setCentro(temp);
-				if (kMeansPoint.distance(pastMeans[j], this.Clases[j].getCentroPoint()) !=0 )
+				if (kMeansPoint.distance(pastMeans[j], 
+							new kMeansPoint(this.Clases[j].getCentro())) !=0 )
 					reply = true;
 					
 			}
