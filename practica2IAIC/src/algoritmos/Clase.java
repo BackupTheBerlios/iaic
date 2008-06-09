@@ -1,6 +1,8 @@
 package algoritmos;
 
 public class Clase {
+	int claseID; //TODO: falta por hacer getters y setters e
+				//inicializarlo al principio
 	Float[] centro;
 	Float[][] muestras;
 	int numMuestras = 0;
