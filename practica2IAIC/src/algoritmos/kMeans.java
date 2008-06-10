@@ -143,15 +143,17 @@ public class kMeans {
 		while (this.updateMeans());
 		
 		Iterator<kMeansPoint> i = this.kMeansPoints.iterator();
-		
+		int j = 0;
+		kMeansPoint aux = new kMeansPoint();
 
-		while (i.hasNext())
+		while (i.hasNext()){
 
 			//this.assignToClase((kMeansPoint)(i.next()));
-			Clase clase = (kMeanspPoint)i.
-			this.Clases[i].add
-			
-		this.nIterations++;
+			aux =(kMeansPoint)i.next(); 
+			j = aux.getClaseNumber();
+			this.Clases[j].addMuestra(aux.toFloatArray());
+		}
+		
 	
 	
 	} // end of runKMeans()

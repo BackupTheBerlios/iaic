@@ -35,6 +35,14 @@ public class kMeansPoint {
 	private int ClaseNumber;
 	
 
+	/**
+	 * Creates a new instance of data point
+	 */
+	public kMeansPoint() {
+		this.muestra = null;
+		this.ClaseNumber=0;
+	} // end of kMeansPoint()
+	
 
 	/**
 	 * Creates a new instance of data point
