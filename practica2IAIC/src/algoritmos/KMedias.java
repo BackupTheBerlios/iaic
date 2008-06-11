@@ -7,9 +7,30 @@ public class KMedias {
 
 	//peso exponencial
 	private final int b = 2;
-	private int n; 
+	//numero de muestras
+	private int nMuestras;
+	//error
 	private int epsilon;
 	private Vector<Clase> vectorClases = new Vector<Clase>();
+	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
+	
+	
+	public KMedias(int nClases, float[][] centros, float[][] muestras, int err){
+		this.epsilon = err;
+		this.nMuestras = muestras.length;
+		vectorMuestras = new Vector<Muestra>(nMuestras);
+		vectorClases = new Vector<Clase>(nClases);
+		Clase claseAux;
+		for (int i = 0; i < nClases; i++) {
+			claseAux = new Clase(i);
+			claseAux.setCentro(centros[i]);
+			vectorClases.add(claseAux);
+		}
+		for (int i = 0; i < nMuestras; i++)
+			vectorMuestras.add(new Muestra(muestras[i]));
+		
+	}
+	
 	
 	/**
 	 * Returns the distance between two data points
@@ -31,10 +52,18 @@ public class KMedias {
 		return result;	
 	} // end of distance()
 	
+	public static double distance(Muestra m1, Muestra m2){
+		return distance(m1.getContent(), m2.getContent());
+	}
+	
 	
 	public double convergencia (float[] muestra, int clase, int t){
 		return Math.abs(Math.pow(pertenencia(muestra, clase), t) -
 						Math.pow(pertenencia(muestra, clase), (t-1) ));
+	}
+	
+	public double convergencia (Muestra m1, int clase, int t){
+		return convergencia (m1.getContent(), clase, t);	
 	}
 	
 	public double pertenencia (float[] vector, int clase){
@@ -54,6 +83,9 @@ public class KMedias {
 		return result;
 	}
 	
+	public double pertenencia (Muestra m1, int clase){
+		return pertenencia (m1.getContent(), clase);
+	}
 	
 	public float[] muestraPorEscalar (float[] muestra, double esc){
 		float [] resultado = new float[muestra.length];
@@ -63,12 +95,20 @@ public class KMedias {
 		return resultado;
 	}
 	
+	public float[] muestraPorEscalar (Muestra m1, double esc){
+		return muestraPorEscalar(m1, esc);
+	}
+		
 	public float[] divPorEscalar (float[] muestra, double esc){
 		float [] resultado = new float[muestra.length];
 		for (int i = 0; i < muestra.length; i++){
 			resultado[i] = (float)(muestra[i]/esc);
 		}
 		return resultado;
+	}
+	
+	public float[] divPorEscalar (Muestra m1, double esc){
+		return divPorEscalar(m1.getContent(), esc);
 	}
 	
 	public float[] sumaVect (float[] muestra, float[] acum){
@@ -78,13 +118,15 @@ public class KMedias {
 		return result;
 	}
 	
-	
+	public float[] sumaVect (Muestra m1, float[] acum){
+		return sumaVect(m1.getContent(), acum);
+	}
 	
 	public float[] eme (float[] muestra){
 		float [] result = new float[muestra.length];
 		float [] numerador = new float[muestra.length];
 		double pesoActual, denominador = 0;
-		for (int i = 0; i < n; i++){
+		for (int i = 0; i < nMuestras; i++){
 			pesoActual = Math.pow((pertenencia (muestra, i)),b);
 			numerador = sumaVect(muestraPorEscalar(muestra, pesoActual),
 								numerador);
@@ -94,7 +136,9 @@ public class KMedias {
 		return result;
 	}
 	
-	
+	public float[] eme (Muestra m1){
+		return eme(m1.getContent());
+	}
 	
 	
 	
