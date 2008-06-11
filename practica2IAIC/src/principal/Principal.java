@@ -17,6 +17,7 @@ public class Principal {
 			CuantizacionVectorial clasificador = new CuantizacionVectorial 
 										(args[0],args[1],muestras,atributos);
 			AlgoritmoLloyd aprende = new AlgoritmoLloyd(args[1],args[2]);
+			//kMeans kmedias = new kMeans();
 		}else{
 			System.out.println("Argumentos mal");
 		}
