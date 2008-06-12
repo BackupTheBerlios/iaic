@@ -9,8 +9,14 @@ public class KMedias {
 	private final int b = 2;
 	//numero de muestras
 	private int nMuestras;
+	//numero de clases
+	private int nClases;
 	//error
 	private int epsilon;
+
+	//P para t-1
+	private double[] PPrev;
+	
 	private Vector<Clase> vectorClases = new Vector<Clase>();
 	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
 	
@@ -18,6 +24,7 @@ public class KMedias {
 	public KMedias(int nClases, float[][] centros, float[][] muestras, int err){
 		this.epsilon = err;
 		this.nMuestras = muestras.length;
+		this.nClases = nClases;
 		vectorMuestras = new Vector<Muestra>(nMuestras);
 		vectorClases = new Vector<Clase>(nClases);
 		Clase claseAux;
@@ -141,6 +148,38 @@ public class KMedias {
 	}
 	
 	
+	
+	public boolean termina (){
+		double pertAux = 0;
+		double pertMax = 0;//Mantiene la pertenencia maxima a una clase que
+							//tiene determinada muestra
+		int claseMax = 0; //Mantiene la clase a la que una muestra tiene
+							//pertenencia maxima
+		boolean termina = true; //en cuanto sea false terminamos el bucle
+		int j = 0; //contador total 
+				   //(Para recorrer PPrev), es i*vectorMuestras.length
+		for (Iterator iter = vectorMuestras.iterator();
+			termina && iter.hasNext();) {
+				Muestra muestra = (Muestra) iter.next();
+				for (int i = 0; termina && i < this.nClases; i++, j++) {
+					//Calculamos la pertenencia de la muestra a la clase
+					pertAux = pertenencia(muestra, i);
+					termina = termina &&
+							  (Math.abs(pertAux - PPrev[j]) < epsilon);
+					//despues de comparar el error, metemos el pertAux en
+					//PPrev, para las siguientes vueltas
+					PPrev[j] = pertAux;
+					pertMax = Math.max(pertAux, pertMax);
+					if (pertAux > pertMax){
+						pertMax = pertAux;
+						claseMax = i;
+					}
+				}
+				muestra.setClase(claseMax);
+				j++;
+		}
+		return termina;
+	}
 	
 	
 }
