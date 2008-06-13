@@ -7,24 +7,28 @@ public class KMedias {
 
 	//peso exponencial
 	private final int b = 2;
+	//error
+	private final double epsilon = 0.3;
+	
 	//numero de muestras
 	private int nMuestras;
 	//numero de clases
 	private int nClases;
-	//error
-	private int epsilon;
-
+	//numero de atributos
+	private int nAtribs;
 	//P para t-1
 	private double[] PPrev;
+//	//m para t-1
+//	private float[] mPrev;
 	
 	private Vector<Clase> vectorClases = new Vector<Clase>();
 	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
 	
 	
-	public KMedias(int nClases, float[][] centros, float[][] muestras, int err){
-		this.epsilon = err;
+	public KMedias(int nClases, float[][] centros, float[][] muestras){
 		this.nMuestras = muestras.length;
 		this.nClases = nClases;
+		this.nAtribs = muestras[0].length;
 		vectorMuestras = new Vector<Muestra>(nMuestras);
 		vectorClases = new Vector<Clase>(nClases);
 		Clase claseAux;
@@ -36,6 +40,9 @@ public class KMedias {
 		for (int i = 0; i < nMuestras; i++)
 			vectorMuestras.add(new Muestra(muestras[i]));
 		
+		PPrev = new double[nMuestras*nClases];
+		for (int i = 0; i < nMuestras*nClases; i++)
+			PPrev[i] = 0;
 	}
 	
 	
@@ -84,7 +91,8 @@ public class KMedias {
 			resultadoParcial = Math.pow((1/distancia),(1/(b-1)));
 			sumat += resultadoParcial;
 		}
-		double numerador = (1/(distance(vectorClases.get(clase).getCentro(), vector)));	
+		double numerador = (1/(distance(vectorClases.get(clase).getCentro(),
+																	vector)));	
 		numerador = Math.pow((numerador),(1/(b-1)));
 		result = (numerador/resultadoParcial);
 		return result;
@@ -129,13 +137,15 @@ public class KMedias {
 		return sumaVect(m1.getContent(), acum);
 	}
 	
-	public float[] eme (float[] muestra){
-		float [] result = new float[muestra.length];
-		float [] numerador = new float[muestra.length];
+	public float[] eme (int clase){
+		float [] result = new float[nAtribs];
+		float [] numerador = new float[nAtribs];
 		double pesoActual, denominador = 0;
+		Muestra muestraAux;
 		for (int i = 0; i < nMuestras; i++){
-			pesoActual = Math.pow((pertenencia (muestra, i)),b);
-			numerador = sumaVect(muestraPorEscalar(muestra, pesoActual),
+			muestraAux = vectorMuestras.get(i);
+			pesoActual = Math.pow((pertenencia(muestraAux,clase)),b);
+			numerador = sumaVect(muestraPorEscalar(muestraAux, pesoActual),
 								numerador);
 			denominador += pesoActual;
 			}
@@ -143,10 +153,12 @@ public class KMedias {
 		return result;
 	}
 	
-	public float[] eme (Muestra m1){
-		return eme(m1.getContent());
-	}
 	
+	
+	public void actualizaCentros(){
+		
+		
+	}
 	
 	
 	public boolean termina (){
@@ -158,25 +170,27 @@ public class KMedias {
 		boolean termina = true; //en cuanto sea false terminamos el bucle
 		int j = 0; //contador total 
 				   //(Para recorrer PPrev), es i*vectorMuestras.length
-		for (Iterator iter = vectorMuestras.iterator();
-			termina && iter.hasNext();) {
-				Muestra muestra = (Muestra) iter.next();
-				for (int i = 0; termina && i < this.nClases; i++, j++) {
-					//Calculamos la pertenencia de la muestra a la clase
-					pertAux = pertenencia(muestra, i);
-					termina = termina &&
-							  (Math.abs(pertAux - PPrev[j]) < epsilon);
-					//despues de comparar el error, metemos el pertAux en
-					//PPrev, para las siguientes vueltas
-					PPrev[j] = pertAux;
-					pertMax = Math.max(pertAux, pertMax);
-					if (pertAux > pertMax){
-						pertMax = pertAux;
-						claseMax = i;
+		while(termina){
+			for (Iterator iter = vectorMuestras.iterator();	iter.hasNext();) {
+					Muestra muestra = (Muestra) iter.next();
+					for (int i = 0; termina && i < this.nClases; i++, j++) {
+						//Calculamos la pertenencia de la muestra a la clase
+						pertAux = pertenencia(muestra, i);
+						termina = termina &&
+								  !(Math.abs(pertAux - PPrev[j]) < epsilon);
+						//despues de comparar el error, metemos el pertAux en
+						//PPrev, para las siguientes vueltas
+						PPrev[j] = pertAux;
+						pertMax = Math.max(pertAux, pertMax);
+						if (pertAux > pertMax){//En pertAux se mantiene el max
+							pertMax = pertAux;//de la pertenencia de la muestra
+							claseMax = i;//a cada clase, de forma que al final
+						}//se asigna a la clase a la que más pertenencia tiene
 					}
-				}
-				muestra.setClase(claseMax);
-				j++;
+					muestra.setClase(claseMax);
+					j++;
+			}
+			 actualizaCentros();
 		}
 		return termina;
 	}
