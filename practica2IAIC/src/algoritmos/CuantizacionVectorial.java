@@ -8,15 +8,12 @@ public class CuantizacionVectorial {
 	private int muestras;
 	private int atributos;
 	private float umbral = 20;
-	private float[][] vectorMuestras;
-	private Vector<Clase> vectorClases = new Vector<Clase>();
+	private int numClases = 0;
+	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
+	private Vector<Muestra> vectorCentros = new Vector<Muestra>();
 	
-	public CuantizacionVectorial(String ficheroEntrada,String ficheroSalida,
-								int muestras,int atributos){
+	public CuantizacionVectorial(String ficheroEntrada,String ficheroSalida){
 		System.out.println("inicio CV");
-		this.muestras = muestras;
-		this.atributos = atributos;
-		vectorMuestras = new float[this.muestras][this.atributos];
 		leeFichero(ficheroEntrada);
 		ejecuta();
 		muestraSolucion();
@@ -25,28 +22,30 @@ public class CuantizacionVectorial {
 	}
 
 	private void leeFichero(String ficheroEntrada){
-		int row = 0;
-		int col = 0;
 		try{
 			File f = new File(ficheroEntrada);
 			FileReader entrada = new FileReader(f);
 			BufferedReader buffer = new BufferedReader(entrada);
 			String line;
+			line = buffer.readLine();
+			StringTokenizer st = new StringTokenizer(line,",");
+			this.atributos = st.countTokens()-1;
 			//lee linea por linea del fichero de texto:
-			while((line = buffer.readLine()) != null){	
-				StringTokenizer st = new StringTokenizer(line,",");
-				st.nextToken();
+			while (line != null){
+				float[] m = new float[atributos];
+				int i = 0;
+				st = new StringTokenizer(line,",");
+				st.nextToken();//Quita el primer valor ==> clase
 				while (st.hasMoreTokens()){
 					float valor = Float.valueOf(st.nextToken()).floatValue();
-					vectorMuestras[row][col] = valor;
-				col++;
+					m[i] = valor;
+					i++;
 				}
-				if (getAtributos()==0)
-					setAtributos(col);
-				col = 0;
-				row++;
+				Muestra muestraNueva = new Muestra(m);
+				vectorMuestras.add(muestraNueva);
+				line = buffer.readLine();
 			}
-			setMuestras(row);
+			this.muestras = vectorMuestras.size();
 		}catch(Exception ex) {System.out.println(ex.toString());}
 	}
 	
@@ -56,28 +55,13 @@ public class CuantizacionVectorial {
 			FileWriter fw = new FileWriter(f);
 			BufferedWriter buffer = new BufferedWriter(fw);
 			PrintWriter salida = new PrintWriter(buffer);
-			salida.println(this.vectorMuestras.length);
-			salida.println(this.vectorClases.size());
-			for(int i=0;i<vectorClases.size();i++){
-				Clase c = (Clase)vectorClases.elementAt(i);
-				float[] centro = c.getCentro();
-				salida.print(centro[0]);
-				for (int j=1;j<atributos;j++){
-					salida.print(",");
-					salida.print(centro[j]);
-				}
-				salida.println();
+			/** CENTROS **/
+			for (int i=0;i<vectorCentros.size();i++){
+				salida.println(vectorCentros.elementAt(i).toString());
 			}
-			for (int i=0;i<vectorClases.size();i++){
-				Clase c = (Clase)vectorClases.elementAt(i);
-				for (int k=0;k<c.getNumMuestras();k++){
-					salida.print(i);					
-					for(int j=0;j<atributos;j++){
-						salida.print(",");
-						salida.print(c.getMuestras()[k][j]);
-					}
-					salida.println();
-				}
+			/** MUESTRAS **/
+			for (int i=0;i<vectorMuestras.size();i++){
+				salida.println(vectorMuestras.elementAt(i).toString());
 			}
 			salida.close();
 		}catch (Exception ex){
@@ -87,102 +71,74 @@ public class CuantizacionVectorial {
 	}
 	
 	private void ejecuta(){
-		Clase c1 = new Clase(0, this.muestras,this.atributos);
-		c1.setCentro(vectorMuestras[0]);
-		c1.addMuestra(vectorMuestras[0]);
-		vectorClases.addElement(c1);
-		float[] distancias = new float[vectorClases.size()];
-		float d = 0;
-		int dmenor = java.lang.Integer.MAX_VALUE;
-		for (int i=1;i<muestras;i++){
-			for (int j=0;j<vectorClases.size();j++){
-				d = distanciaEuclidea(i,j);
-				distancias[j] = d;
-			}
-			/* dmenor es el indice del vectorClases con menor distancia 
-			 * del centro a la muestra*/
-			dmenor = menorDistancia(distancias);
-			if (distancias[dmenor] < umbral){
-				aadirMuestra(dmenor,i);
-				actualizaCentro(dmenor);
-			}else{
-				c1 = new Clase(i, this.muestras,this.atributos);
-				c1.setCentro(vectorMuestras[i]);
-				c1.addMuestra(vectorMuestras[i]);
-				vectorClases.addElement(c1);
-				distancias = new float[vectorClases.size()]; 
-			}
-		}
-	}
-	
-	private float distanciaEuclidea(int m,int c){
-		float distancia = 0;
-		float[] centro = ((Clase)vectorClases.elementAt(c)).getCentro();
-		float a;
-		float b = 0;
-		for (int i=0;i<atributos;i++){
-			a = vectorMuestras[m][i] - centro[i];
-			a = a*a;
-			b = b + a;
-		}
-		distancia = (float)Math.sqrt(b);
-		return distancia;
-	}
-	
-	private int menorDistancia(float[] vector){
-		int menor = 0;
-		for (int i=1;i<vector.length;i++){
-			if (vector[i]<vector[menor])
-				menor = i;
-		}
-		return menor;
-	}
-	
-	private void aadirMuestra(int indiceClase,int indiceMuestra){
-		Clase c = (Clase)vectorClases.elementAt(indiceClase);
-		c.addMuestra(vectorMuestras[indiceMuestra]);
-		vectorClases.set(indiceClase,c);
-	}
-	
-	private void actualizaCentro(int indiceClase){
-		Clase c = (Clase)vectorClases.elementAt(indiceClase);
-		float[] nuevoCentro = new float[atributos];
-		for (int i=0;i<atributos;i++){
-			float a = 0;
-			for (int j=0;j<c.getNumMuestras();j++){
-				float[] muestraC = (c.getMuestras())[j];
-				a = a + muestraC[i];
-			}
-			a = a / c.getNumMuestras();
-			nuevoCentro[i] = a;
-		}
-		c.setCentro(nuevoCentro);
-	}
-	
-	private void muestraSolucion(){
-		for (int i=0;i<vectorClases.size();i++){
-			Clase c = (Clase)vectorClases.elementAt(i);
-			System.out.println("CENTRO CLASE " + (i));
-			String sol = "(" + c.getCentro()[0];
-			for(int j=1;j<atributos;j++){
-				sol = sol + "," + c.getCentro()[j];
-			}
-			sol = sol + ")";
-			System.out.println(sol);
-			System.out.print("NUMERO MUESTRAS CLASE " + (i) + " ");
-			System.out.println(c.getNumMuestras());
-			System.out.println("MUESTRAS CLASE " + (i));
-			for (int k=0;k<c.getNumMuestras();k++){
-				sol = "(" + c.getMuestras()[k][0];
-				for(int j=1;j<atributos;j++){
-					sol = sol + "," + c.getMuestras()[k][j];
+		Muestra m0 = vectorMuestras.firstElement();
+		m0.setClase(0);
+		vectorCentros.add(m0);
+		int muestrasProcesadas = 1;
+		for (int i=1;i<vectorMuestras.size();i++){
+			Muestra m = vectorMuestras.elementAt(i);
+			float distMenor = java.lang.Integer.MAX_VALUE;
+			int indice = -1;
+			for(int j=0;j<vectorCentros.size();j++){
+				Muestra c = vectorCentros.elementAt(j);
+				float dist = distance(m.getContent(),c.getContent());
+				if (dist < distMenor){
+					distMenor = dist;
+					indice = j;
 				}
-				sol = sol + ")";
-				System.out.println(sol);		
+			}
+			muestrasProcesadas++;
+			if (distMenor < umbral){
+				m.setClase(indice);
+				actualizaCentro(indice,muestrasProcesadas);
+			}else{
+				numClases++;
+				m.setClase(vectorCentros.size());
+				vectorCentros.add(m);
 			}
 		}
 	}
-
+	
+	public float distance(float[] dp1, float[] dp2) {
+		
+		float result = 0;
+		long arg0 = 0;
+		float [] resultVector = new float[dp1.length];
+		for (int i = 0; i < resultVector.length; i++){
+			resultVector[i] = dp1[i] - dp2[i];
+			arg0 += (resultVector[i]*resultVector[i]);
+		}
+		result = (float)Math.sqrt(arg0);
+		return result;
+	}
+	
+	private void actualizaCentro(int indiceClase, int muestrasProcesadas){
+		float[] nuevoCentro = new float[atributos];
+		for (int j=0;j<atributos;j++){
+			int muestrasClase = 0;
+			float a = 0;
+			for (int i=0;i<muestrasProcesadas;i++){
+				Muestra m = vectorMuestras.elementAt(i);
+				if (m.getClase() == indiceClase){
+					muestrasClase++;
+					a = a + m.getContent()[j];
+				}
+			}
+			a = a / muestrasClase;
+			nuevoCentro[j] = a;
+		}
+		Muestra centroClase = new Muestra(nuevoCentro);
+		centroClase.setClase(indiceClase);
+		vectorCentros.remove(indiceClase);
+		vectorCentros.add(indiceClase, centroClase);
+	}
+		
+	private void muestraSolucion(){
+		for (int i=0;i<vectorMuestras.size();i++){
+			Muestra c = (Muestra)vectorMuestras.elementAt(i);
+			System.out.println(c.toString());
+		}
+	}
 
 	public int getMuestras() {
 		return muestras;
@@ -198,5 +154,37 @@ public class CuantizacionVectorial {
 
 	public void setAtributos(int atributos) {
 		this.atributos = atributos;
+	}
+
+	public float getUmbral() {
+		return umbral;
+	}
+
+	public void setUmbral(float umbral) {
+		this.umbral = umbral;
+	}
+
+	public int getNumClases() {
+		return numClases;
+	}
+
+	public void setNumClases(int numClases) {
+		this.numClases = numClases;
+	}
+
+	public Vector<Muestra> getVectorMuestras() {
+		return vectorMuestras;
+	}
+
+	public void setVectorMuestras(Vector<Muestra> vectorMuestras) {
+		this.vectorMuestras = vectorMuestras;
+	}
+
+	public Vector<Muestra> getVectorCentros() {
+		return vectorCentros;
+	}
+
+	public void setVectorCentros(Vector<Muestra> vectorCentros) {
+		this.vectorCentros = vectorCentros;
 	}
 }

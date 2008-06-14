@@ -21,28 +21,25 @@ public class KMedias {
 //	//m para t-1
 //	private float[] mPrev;
 	
-	private Vector<Clase> vectorClases = new Vector<Clase>();
+	private Vector<Muestra> vectorCentros = new Vector<Muestra>();
 	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
 	
 	
-	public KMedias(int nClases, float[][] centros, float[][] muestras){
-		this.nMuestras = muestras.length;
+	public KMedias(int nClases, Vector<Muestra> muestras){
+		this.nMuestras = muestras.size();
 		this.nClases = nClases;
-		this.nAtribs = muestras[0].length;
-		vectorMuestras = new Vector<Muestra>(nMuestras);
-		vectorClases = new Vector<Clase>(nClases);
-		Clase claseAux;
-		for (int i = 0; i < nClases; i++) {
-			claseAux = new Clase(i);
-			claseAux.setCentro(centros[i]);
-			vectorClases.add(claseAux);
-		}
-		for (int i = 0; i < nMuestras; i++)
-			vectorMuestras.add(new Muestra(muestras[i]));
-		
+		this.nAtribs = muestras.elementAt(0).getContent().length;
+
 		PPrev = new double[nMuestras*nClases];
 		for (int i = 0; i < nMuestras*nClases; i++)
 			PPrev[i] = 0;
+		for (int i=0;i<nClases;i++){
+			Muestra centro = vectorMuestras.elementAt((int)(Math.random() 
+													* this.vectorMuestras.size()));
+			centro.setClase(i);
+			vectorCentros.add(centro);
+		}
+		termina();
 	}
 	
 	
@@ -85,13 +82,13 @@ public class KMedias {
 		int sumat = 0;
 		double resultadoParcial = 0;
 		double distancia = 0;
-		for (Iterator<Clase> i = vectorClases.iterator(); i.hasNext();) {
-			Clase claseAux = (Clase) i.next();
-			distancia = distance(vector,claseAux.getCentro());
+		for (Iterator<Muestra> i = vectorCentros.iterator(); i.hasNext();) {
+			Muestra centroAux = (Muestra) i.next();
+			distancia = distance(vector,centroAux.getContent());
 			resultadoParcial = Math.pow((1/distancia),(1/(b-1)));
 			sumat += resultadoParcial;
 		}
-		double numerador = (1/(distance(vectorClases.get(clase).getCentro(),
+		double numerador = (1/(distance(vectorCentros.get(clase).getContent(),
 																	vector)));	
 		numerador = Math.pow((numerador),(1/(b-1)));
 		result = (numerador/resultadoParcial);
@@ -156,7 +153,9 @@ public class KMedias {
 	
 	
 	public void actualizaCentros(){
-		
+		for (int i=0;i<nMuestras;i++){
+			
+		}
 		
 	}
 	
@@ -172,23 +171,23 @@ public class KMedias {
 				   //(Para recorrer PPrev), es i*vectorMuestras.length
 		while(termina){
 			for (Iterator iter = vectorMuestras.iterator();	iter.hasNext();) {
-					Muestra muestra = (Muestra) iter.next();
-					for (int i = 0; termina && i < this.nClases; i++, j++) {
-						//Calculamos la pertenencia de la muestra a la clase
-						pertAux = pertenencia(muestra, i);
-						termina = termina &&
-								  !(Math.abs(pertAux - PPrev[j]) < epsilon);
-						//despues de comparar el error, metemos el pertAux en
-						//PPrev, para las siguientes vueltas
-						PPrev[j] = pertAux;
-						pertMax = Math.max(pertAux, pertMax);
-						if (pertAux > pertMax){//En pertAux se mantiene el max
-							pertMax = pertAux;//de la pertenencia de la muestra
-							claseMax = i;//a cada clase, de forma que al final
-						}//se asigna a la clase a la que más pertenencia tiene
-					}
-					muestra.setClase(claseMax);
-					j++;
+				Muestra muestra = (Muestra) iter.next();
+				for (int i = 0; termina && i < this.nClases; i++, j++) {
+					//Calculamos la pertenencia de la muestra a la clase
+					pertAux = pertenencia(muestra, i);
+					termina = termina && 
+									!(Math.abs(pertAux - PPrev[j]) < epsilon);
+					//despues de comparar el error, metemos el pertAux en
+					//PPrev, para las siguientes vueltas
+					PPrev[j] = pertAux;
+					pertMax = Math.max(pertAux, pertMax);
+					if (pertAux > pertMax){//En pertAux se mantiene el max
+						pertMax = pertAux;//de la pertenencia de la muestra
+						claseMax = i;//a cada clase, de forma que al final
+					}//se asigna a la clase a la que más pertenencia tiene
+				}
+				muestra.setClase(claseMax);
+				j++;
 			}
 			 actualizaCentros();
 		}

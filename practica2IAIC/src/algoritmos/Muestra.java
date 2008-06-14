@@ -7,7 +7,7 @@ public class Muestra {
 	
 	public Muestra(float[] content){
 		contenido = content;
-		clase = 0;
+		clase = -1;
 	}
 	
 	public int getClase(){
