@@ -1,5 +1,7 @@
 package principal;
 
+import java.util.Vector;
+
 import algoritmos.*;
 
 public class Principal {
@@ -7,20 +9,22 @@ public class Principal {
 	/**
 	 * @param args
 	 */
-	private static int muestras = 8;
-	private static int atributos = 3;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//178x13
-		if (args.length == 3){
-			CuantizacionVectorial clasificador = new CuantizacionVectorial 
-										(args[0],args[1],muestras,atributos);
-			AlgoritmoLloyd aprende = new AlgoritmoLloyd(args[1],args[2]);
-			//kMeans kmedias = new kMeans();
+		if (args.length == 2){
+			CuantizacionVectorial clasificador = new CuantizacionVectorial(args[0],args[1]);
+			int numClases = clasificador.getNumClases();
+			Vector<Muestra> todasMuestras = addMuestras(clasificador.getVectorMuestras(),args[1]);
+			KMedias kmedias = new KMedias(numClases,todasMuestras);
+			//AlgoritmoLloyd aprende = new AlgoritmoLloyd(args[1],args[2]);
 		}else{
 			System.out.println("Argumentos mal");
 		}
+	}
+	
+	private static Vector<Muestra> addMuestras(Vector<Muestra> muestras,String fileAprender){
+		return muestras;
 	}
 
 }
