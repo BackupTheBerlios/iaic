@@ -1,6 +1,9 @@
 package principal;
 
-import algoritmos.*;
+import algoritmos.AlgoritmoLloyd;
+import algoritmos.KMedias;
+import algoritmos.CuantizacionVectorial;
+import algoritmos.Muestra;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -217,7 +220,7 @@ public class Principal {
 				if (princip.lloyd){
 					Vector<Muestra> muestrasLloyd = new Vector<Muestra>();
 					muestrasLloyd = (Vector<Muestra>) resultado.clone();
-					AlgoritmoLloyd algLloyd = new AlgoritmoLloyd(numClases,
+					AlgoritmoLloyd algLloyd = new AlgoritmoLloyd(numClases, centros,
 											muestrasLloyd);
 					vuelcaFichero(salida, centros, "Centros de Lloyd");
 					vuelcaFichero(salida, resultado, "Resultado de Lloyd");
