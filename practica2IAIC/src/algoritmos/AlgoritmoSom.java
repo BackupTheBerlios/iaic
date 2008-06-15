@@ -59,7 +59,7 @@ public class AlgoritmoSom {
 			compara();
 			vectorCentros = vCentrosMasUno;
 		}
-		clasifica();
+		//clasifica();
 	}
 
 	private void itera() {
@@ -82,6 +82,7 @@ public class AlgoritmoSom {
 					float [] suma = sumaVect(c,resta);
 					//Ahora tengo que almacenar el resultado en algo para poder comparar con el anterior
 					Muestra centro = new Muestra(suma);
+					vectorMuestras.elementAt(j).setClase(k);
 					vCentrosMasUno.set(k, centro);
 				}
 			}
@@ -99,20 +100,20 @@ public class AlgoritmoSom {
 		}
 	}
 	
-	private void clasifica(){
-		//boolean encontrado=false;
-		Vector <Float> d = new Vector<Float>();
-		for (int i=0; i<muestras;i++){
-			Muestra mi= vectorMuestras.elementAt(i);
-			for (int j=0;j<vectorCentros.size();j++){
-				Muestra ci = vectorCentros.elementAt(j);
-				float distancia = distance(mi.getContent(),ci.getContent());
-				d.add(j, distancia);
-			}
-			int k = menorDist(d);
-			vectorMuestras.elementAt(i).setClase(k);
-		}
-	}
+//	private void clasifica(){
+//		//boolean encontrado=false;
+//		Vector <Float> d = new Vector<Float>();
+//		for (int i=0; i<muestras;i++){
+//			Muestra mi= vectorMuestras.elementAt(i);
+//			for (int j=0;j<vectorCentros.size();j++){
+//				Muestra ci = vectorCentros.elementAt(j);
+//				float distancia = distance(mi.getContent(),ci.getContent());
+//				d.add(j, distancia);
+//			}
+//			int k = menorDist(d);
+//			vectorMuestras.elementAt(i).setClase(k);
+//		}
+//	}
 
 	private boolean convergencia(){
 		for (int i=0; i< conver.size();i++){
