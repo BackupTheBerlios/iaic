@@ -8,7 +8,7 @@ public class KMedias {
 	//peso exponencial
 	private final int b = 2;
 	//error
-	private final double epsilon = 0.3;
+	private final double epsilon = 0.05;
 	
 	//numero de muestras
 	private int nMuestras;
@@ -19,26 +19,29 @@ public class KMedias {
 	//P para t-1
 	private double[] PPrev;
 //	//m para t-1
-//	private float[] mPrev;
+	private float[][] mPrev;
 	
 	private Vector<Muestra> vectorCentros = new Vector<Muestra>();
 	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
 	
 	
-	public KMedias(int nClases, Vector<Muestra> muestras){
+	public KMedias(int nClases, Vector<Muestra> centros, Vector<Muestra> muestras){
 		this.nMuestras = muestras.size();
 		this.nClases = nClases;
 		this.nAtribs = muestras.elementAt(0).getContent().length;
+		this.vectorMuestras = muestras;
+		this.vectorCentros = centros;
 
 		PPrev = new double[nMuestras*nClases];
-		for (int i = 0; i < nMuestras*nClases; i++)
-			PPrev[i] = 0;
-		for (int i=0;i<nClases;i++){
-			Muestra centro = vectorMuestras.elementAt((int)(Math.random() 
-													* this.vectorMuestras.size()));
-			centro.setClase(i);
-			vectorCentros.add(centro);
+		for (int i = 0; i < nMuestras*nClases; i++){
+			PPrev[i] = 0.5;
 		}
+		for (int j=0;j<nClases;j++){
+			for (int i=0;i<nAtribs;i++){
+				mPrev[j][i] = 0;
+			}
+		}
+
 		termina();
 	}
 	
@@ -53,11 +56,11 @@ public class KMedias {
 	public static double distance(float[] dp1, float[] dp2) {
 	
 		double result = 0;
-		long arg0 = 0;
+		double arg0 = 0;
 		double [] resultVector = new double[dp1.length];
 		for (int i = 0; i < resultVector.length; i++){
 			resultVector[i] = dp1[i] - dp2[i];
-			arg0 += (resultVector[i]*resultVector[i]);
+			arg0 = arg0 + (resultVector[i]*resultVector[i]);
 		}
 		result = Math.sqrt(arg0);
 		return result;	
@@ -68,30 +71,32 @@ public class KMedias {
 	}
 	
 	
-	public double convergencia (float[] muestra, int clase, int t){
+/*	public double convergencia (float[] muestra, int clase, int t){
 		return Math.abs(Math.pow(pertenencia(muestra, clase), t) -
 						Math.pow(pertenencia(muestra, clase), (t-1) ));
 	}
 	
 	public double convergencia (Muestra m1, int clase, int t){
 		return convergencia (m1.getContent(), clase, t);	
-	}
+	}*/
 	
 	public double pertenencia (float[] vector, int clase){
 		double result = 0;
-		int sumat = 0;
+		double sumat = 0;
 		double resultadoParcial = 0;
 		double distancia = 0;
 		for (Iterator<Muestra> i = vectorCentros.iterator(); i.hasNext();) {
 			Muestra centroAux = (Muestra) i.next();
 			distancia = distance(vector,centroAux.getContent());
 			resultadoParcial = Math.pow((1/distancia),(1/(b-1)));
-			sumat += resultadoParcial;
+			sumat = sumat + resultadoParcial;
 		}
-		double numerador = (1/(distance(vectorCentros.get(clase).getContent(),
-																	vector)));	
+		double d = (distance(vectorCentros.get(clase).getContent(),vector));
+		double numerador = 0;
+		if (d != 0)
+			numerador = 1/d;
 		numerador = Math.pow((numerador),(1/(b-1)));
-		result = (numerador/resultadoParcial);
+		result = (numerador/sumat);
 		return result;
 	}
 	
@@ -153,8 +158,13 @@ public class KMedias {
 	
 	
 	public void actualizaCentros(){
-		for (int i=0;i<nMuestras;i++){
-			
+		for (int i=0;i<vectorCentros.size();i++){
+			float[] nuevoCentro = eme(vectorCentros.elementAt(i).getClase());
+			mPrev[vectorCentros.elementAt(i).getClase()] = nuevoCentro;
+			Muestra m = new Muestra(nuevoCentro);
+			m.setClase(vectorCentros.elementAt(i).getClase());
+			vectorCentros.remove(i);
+			vectorCentros.add(i, m);
 		}
 		
 	}
@@ -172,22 +182,26 @@ public class KMedias {
 		while(termina){
 			for (Iterator iter = vectorMuestras.iterator();	iter.hasNext();) {
 				Muestra muestra = (Muestra) iter.next();
-				for (int i = 0; termina && i < this.nClases; i++, j++) {
+				pertMax = 0;
+				//for (int i = 0; termina && i < this.nClases; i++, j++) {
+				for (int i = 0; termina && i < this.nClases; i++) {
+					
+					System.out.println(j);
 					//Calculamos la pertenencia de la muestra a la clase
 					pertAux = pertenencia(muestra, i);
-					termina = termina && 
-									!(Math.abs(pertAux - PPrev[j]) < epsilon);
+					termina = termina && convergenciaP(PPrev[j],pertAux); 									
+									//!(Math.abs(pertAux - PPrev[j]) < epsilon);
 					//despues de comparar el error, metemos el pertAux en
 					//PPrev, para las siguientes vueltas
-					PPrev[j] = pertAux;
+					PPrev[j] = pertAux;j++;
 					pertMax = Math.max(pertAux, pertMax);
-					if (pertAux > pertMax){//En pertAux se mantiene el max
+					if (pertAux >= pertMax){//En pertAux se mantiene el max
 						pertMax = pertAux;//de la pertenencia de la muestra
 						claseMax = i;//a cada clase, de forma que al final
-					}//se asigna a la clase a la que más pertenencia tiene
+					}//se asigna a la clase a la que mas pertenencia tiene
 				}
 				muestra.setClase(claseMax);
-				j++;
+				//j++;
 			}
 			 actualizaCentros();
 		}
