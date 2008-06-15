@@ -43,23 +43,24 @@ public class AlgoritmoSom {
 		vectorCentros = centros;
 		vCentrosMasUno = centros;
 		muestras = vectorMuestras.size();
-		int i = 1;
-		int eleva;
+		double i = 1;
+		double eleva;
 		for (int j=0; j<muestras;j++){
 			conver.add(j, Boolean.FALSE);
 		}
 		for (int j=0; j<clases;j++){
 			K.add(j, new Float(Float.MIN_VALUE));
 		}
-		while((i++ < maxIter) && !convergencia()){
+		while((i < maxIter) && !convergencia()){
 			eleva = i / maxIter;
 			aprendizaje = ainicial * (float) Math.pow((ainicial/afinal), eleva);
 			gamma = 1 / (10 + i);
 			itera();
 			compara();
+			i = i+1;
 			vectorCentros = vCentrosMasUno;
 		}
-		clasifica();
+		//clasifica();
 	}
 
 	private void itera() {
@@ -102,23 +103,20 @@ public class AlgoritmoSom {
 		}
 	}
 	
-	private void clasifica(){
-		//boolean encontrado=false;
-		Vector <Float> d = new Vector<Float>();
-		for (int j=0; j<clases;j++){
-			d.add(j, new Float(Float.MIN_VALUE));
-		}
-		for (int i=0; i<muestras;i++){
-			Muestra mi= vectorMuestras.elementAt(i);
-			for (int j=0;j<vectorCentros.size();j++){
-				Muestra ci = vectorCentros.elementAt(j);
-				float distancia = distance(mi.getContent(),ci.getContent());
-				d.set(j, distancia);
-			}
-			int k = menorDist(d);
-			if (vectorMuestras.elementAt(i).getClase()==-1) vectorMuestras.elementAt(i).setClase(k);
-		}
-	}
+//	private void clasifica(){
+//		//boolean encontrado=false;
+//		Vector <Float> d = new Vector<Float>();
+//		for (int i=0; i<muestras;i++){
+//			Muestra mi= vectorMuestras.elementAt(i);
+//			for (int j=0;j<vectorCentros.size();j++){
+//				Muestra ci = vectorCentros.elementAt(j);
+//				float distancia = distance(mi.getContent(),ci.getContent());
+//				d.add(j, distancia);
+//			}
+//			int k = menorDist(d);
+//			vectorMuestras.elementAt(i).setClase(k);
+//		}
+//	}
 
 	private boolean convergencia(){
 		boolean aux = true;
@@ -132,7 +130,7 @@ public class AlgoritmoSom {
 		int j = 0;
 		Float daux = d.get(0);
 		for (int i= 1; i<d.size();i++){
-			if (d.get(i)< daux){
+			if ((d.get(i)< daux) && d.get(i)>T){
 				j=i;
 				daux = d.get(i);
 			}
