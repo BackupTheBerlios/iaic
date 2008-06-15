@@ -18,7 +18,7 @@ public class KMedias {
 	private int nAtribs;
 	//P para t-1
 	private double[] PPrev;
-//	//m para t-1
+	//m para t-1
 	private float[][] mPrev;
 	
 	private Vector<Muestra> vectorCentros = new Vector<Muestra>();
@@ -36,6 +36,7 @@ public class KMedias {
 		for (int i = 0; i < nMuestras*nClases; i++){
 			PPrev[i] = 0.5;
 		}
+		mPrev = new float[nClases][nAtribs];
 		for (int j=0;j<nClases;j++){
 			for (int i=0;i<nAtribs;i++){
 				mPrev[j][i] = 0;
@@ -43,9 +44,19 @@ public class KMedias {
 		}
 
 		termina();
+		muestraSolucion();
 	}
 	
-	
+	private void muestraSolucion(){
+		for (int i=0;i<vectorCentros.size();i++){
+			Muestra c = (Muestra)vectorCentros.elementAt(i);
+			System.out.println(c.toString());
+		}
+		for (int i=0;i<vectorMuestras.size();i++){
+			Muestra c = (Muestra)vectorMuestras.elementAt(i);
+			System.out.println(c.toString());
+		}
+	}
 	/**
 	 * Returns the distance between two data points
 	 *
@@ -69,16 +80,6 @@ public class KMedias {
 	public static double distance(Muestra m1, Muestra m2){
 		return distance(m1.getContent(), m2.getContent());
 	}
-	
-	
-/*	public double convergencia (float[] muestra, int clase, int t){
-		return Math.abs(Math.pow(pertenencia(muestra, clase), t) -
-						Math.pow(pertenencia(muestra, clase), (t-1) ));
-	}
-	
-	public double convergencia (Muestra m1, int clase, int t){
-		return convergencia (m1.getContent(), clase, t);	
-	}*/
 	
 	public double pertenencia (float[] vector, int clase){
 		double result = 0;
@@ -113,7 +114,7 @@ public class KMedias {
 	}
 	
 	public float[] muestraPorEscalar (Muestra m1, double esc){
-		return muestraPorEscalar(m1, esc);
+		return muestraPorEscalar(m1.getContent(), esc);
 	}
 		
 	public float[] divPorEscalar (float[] muestra, double esc){
@@ -179,20 +180,16 @@ public class KMedias {
 		int claseMax = 0; //Mantiene la clase a la que una muestra tiene
 							//pertenencia maxima
 		boolean termina = true; //en cuanto sea false terminamos el bucle
-		int j = 0; //contador total 
-				   //(Para recorrer PPrev), es i*vectorMuestras.length
 		while(termina){
+			int j = 0; //contador total 
+			   //(Para recorrer PPrev), es i*vectorMuestras.length	
 			for (Iterator iter = vectorMuestras.iterator();	iter.hasNext();) {
 				Muestra muestra = (Muestra) iter.next();
 				pertMax = 0;
-				//for (int i = 0; termina && i < this.nClases; i++, j++) {
-				for (int i = 0; termina && i < this.nClases; i++) {
-					
-					System.out.println(j);
+				for (int i = 0; i < this.nClases; i++) {
 					//Calculamos la pertenencia de la muestra a la clase
 					pertAux = pertenencia(muestra, i);
 					termina = termina && !convergenciaP(PPrev[j],pertAux); 									
-									//!(Math.abs(pertAux - PPrev[j]) < epsilon);
 					//despues de comparar el error, metemos el pertAux en
 					//PPrev, para las siguientes vueltas
 					PPrev[j] = pertAux;j++;
@@ -203,7 +200,7 @@ public class KMedias {
 					}//se asigna a la clase a la que mas pertenencia tiene
 				}
 				muestra.setClase(claseMax);
-				//j++;
+				System.out.println(muestra.toString());				
 			}
 			termina = termina && !actualizaCentros();
 		}
