@@ -297,15 +297,23 @@ public class Principal {
 	private static void vuelcaFichero(PrintWriter salida,
 			Vector<Muestra> vector,	String info){
 	//String ficheroSalida){
-		if (salida == null)
-			salida = new PrintWriter(System.out);
+	//	if (salida == null)
+	//		salida = new PrintWriter(System.out);
 		try{
-			salida.println("Inicio de: "+info);
+			if (salida == null)
+				System.out.println("Inicio de: "+info);
+			else
+				salida.println("Inicio de: "+info);
 			for (int i=0;i<vector.size();i++){
+				if (salida == null)
+					System.out.println(vector.elementAt(i).toString());
+				else
 				salida.println(vector.elementAt(i).toString());
 			}
-			salida.println("Fin de: "+info);
-			salida.println();
+			if (salida == null)
+				System.out.println("Fin de: "+info+"\n");
+			else
+				salida.println("Fin de: "+info+"\n");
 		//	salida.close();
 		}catch (Exception ex){
 			System.out.println(ex.toString());
