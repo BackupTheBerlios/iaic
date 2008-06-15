@@ -219,9 +219,9 @@ public class KMedias {
 	
 	private boolean convergenciaM(float[] mAnt, float[] m){
 		boolean fin = false;
-		for (int i=0;i<mAnt.length && fin;i++){
+		for (int i=0;i<mAnt.length && !fin;i++){
 			double abs = Math.abs(mAnt[i] - m[i]);
-			fin = fin && (abs < epsilon);
+			fin = (abs < epsilon);
 		}
 		return fin;
 	}

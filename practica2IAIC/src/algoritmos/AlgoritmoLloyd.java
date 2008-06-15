@@ -3,6 +3,7 @@ package algoritmos;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -10,82 +11,89 @@ public class AlgoritmoLloyd {
 	private int muestras;
 	private int atributos;
 	private int clases;
-	private float[][] vectorMuestras;
-	private Vector<Clase> vectorClases = new Vector<Clase>();
+	private Vector<Muestra> vectorCentros = new Vector<Muestra>();
+	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
 
-	public AlgoritmoLloyd(String ficheroTraining,String ficheroAprende){
-		leerFicheroTraining(ficheroTraining);
-	}
-
-	public AlgoritmoLloyd(int numMuestras,Vector<Muestra> vectorMuestras){
-		//leerFicheroTraining(ficheroTraining);
-	}
+	private double razon = 0.01;
+	private final double epsilon = 0.05;
+	private float[][] cPrev;
 	
-	
-	private void leerFicheroTraining(String ficheroTraining){
-		try{
-			File f = new File(ficheroTraining);
-			FileReader entrada = new FileReader(f);
-			BufferedReader buffer = new BufferedReader(entrada);
-			String line;
-			//lee linea por linea del fichero de texto:
-			if ((line = buffer.readLine())!= null)
-				this.muestras = new Integer(line);
-			if ((line = buffer.readLine())!= null)
-				this.clases = new Integer(line);
-			Vector<Float> v_atributos = new Vector<Float>();
-			if ((line = buffer.readLine())!= null){
-				StringTokenizer st = new StringTokenizer(line,",");
-				while (st.hasMoreTokens()){
-					float valor = Float.valueOf(st.nextToken()).floatValue();
-					v_atributos.addElement(valor);
-					this.atributos++;
-				}
+	public AlgoritmoLloyd(int numMuestras,Vector<Muestra> centros,Vector<Muestra> vectorMuestras){
+		this.muestras = numMuestras;
+		this.vectorCentros = centros;
+		this.vectorMuestras = vectorMuestras;
+		this.clases = vectorCentros.size();
+		this.atributos = vectorMuestras.elementAt(0).getContent().length;
+		
+		cPrev = new float[clases][atributos];
+		for (int j=0;j<clases;j++){
+			for (int i=0;i<atributos;i++){
+				cPrev[j][i] = 0;
 			}
-			Clase c = new Clase(0,muestras,atributos);
-			Float[] centro = new Float[atributos];
-			centro = v_atributos.toArray(centro);
-			c.setCentro(centro);
-			vectorClases.addElement(c);
-			for (int i=1;i<clases;i++){
-				c = new Clase(i,muestras,atributos);
-				if ((line = buffer.readLine())!= null){
-					StringTokenizer st = new StringTokenizer(line,",");
-					centro = new Float[atributos];
-					int j = 0;
-					while (st.hasMoreTokens()){
-						float valor = Float.valueOf
-										(st.nextToken()).floatValue();
-						centro[j] = valor;
-						j++;
+		}
+		ejecuta();
+	}
+	
+	private void ejecuta(){
+		boolean termina = true;
+		while (termina){
+			for (Iterator iter = vectorMuestras.iterator();iter.hasNext();) {
+				Muestra muestra = (Muestra) iter.next();
+				int jMin = 0;
+				double distanciaMin = java.lang.Integer.MAX_VALUE;
+				for (int i = 0; i < this.clases; i++) {
+					double distancia = distance(muestra,vectorCentros.elementAt(i));
+					if (distancia < distanciaMin){
+						distanciaMin = distancia;
+						jMin = i;
 					}
-					c.setCentro(centro);
-					vectorClases.addElement(c);
 				}
+				muestra.setClase(jMin);
+				termina = termina && !actualizaCentros(jMin,muestra);
 			}
-			/* Ya tengo el numero de Muestras, el numero de clases
-			 * y los centro de cada clase. 
-			 * Queda repartir cada muestra en su clase 
-			 */
-			vectorMuestras = new float[muestras][atributos];
-			int k=0;
-			while ((line = buffer.readLine())!= null){
-				StringTokenizer st = new StringTokenizer(line,",");
-				int numClase = Integer.parseInt(st.nextToken());//class number
-				float[] m = new float[atributos];//creo una muestra nueva
-				int j=0;
-				while (st.hasMoreTokens()){
-					float valor = Float.valueOf(st.nextToken()).floatValue();
-					m[j] = valor;
-					j++;
-				}// Ya tengo la muestra leida
-				c = (Clase)vectorClases.elementAt(numClase);
-				c.addMuestra(m);
-				vectorMuestras[k] = m;
-				k++;
-			}
-		}catch(Exception ex) {System.out.println(ex.toString());}
-		System.out.println("Fin Lloyd");
+		}
+	}
+	
+	public static double distance(float[] dp1, float[] dp2) {
+		
+		double result = 0;
+		double arg0 = 0;
+		double [] resultVector = new double[dp1.length];
+		for (int i = 0; i < resultVector.length; i++){
+			resultVector[i] = dp1[i] - dp2[i];
+			arg0 = arg0 + (resultVector[i]*resultVector[i]);
+		}
+		result = Math.sqrt(arg0);
+		return result;	
+	} // end of distance()
+	
+	public static double distance(Muestra m1, Muestra m2){
+		return distance(m1.getContent(), m2.getContent());
 	}
 
+	public boolean actualizaCentros(int indice,Muestra m){
+		boolean converge = false;
+		float[] aux;
+		int claseAux;
+		float[] nuevoCentro = new float[this.atributos];
+		float[] antCentro = vectorCentros.elementAt(indice).getContent();
+		for (int i=0;i<atributos;i++){
+			double r = Math.abs(m.getContent()[i]-antCentro[i]);
+			r = r * razon;
+			nuevoCentro[i] = antCentro[i] + (float)r;
+		}
+		claseAux = vectorCentros.elementAt(indice).getClase();
+		aux = cPrev[claseAux];
+		//Convergencia
+		for (int i=0;i<atributos && !converge;i++){
+			double abs = Math.abs(antCentro[i] - nuevoCentro[i]);
+			converge = (abs < epsilon);
+		}
+		cPrev[vectorCentros.elementAt(indice).getClase()] = nuevoCentro;
+		Muestra m2 = new Muestra(nuevoCentro);
+		m2.setClase(vectorCentros.elementAt(indice).getClase());
+		vectorCentros.remove(indice);
+		vectorCentros.add(indice, m2);
+		return converge;
+	}
 }
