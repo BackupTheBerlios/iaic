@@ -16,6 +16,11 @@ public class AlgoritmoLloyd {
 	public AlgoritmoLloyd(String ficheroTraining,String ficheroAprende){
 		leerFicheroTraining(ficheroTraining);
 	}
+
+	public AlgoritmoLloyd(int numMuestras,Vector<Muestra> vectorMuestras){
+		//leerFicheroTraining(ficheroTraining);
+	}
+	
 	
 	private void leerFicheroTraining(String ficheroTraining){
 		try{

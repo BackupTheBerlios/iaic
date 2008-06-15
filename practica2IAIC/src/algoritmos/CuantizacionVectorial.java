@@ -21,6 +21,20 @@ public class CuantizacionVectorial {
 		System.out.println("fin CV");
 	}
 
+	public CuantizacionVectorial(int muest, int atrib, 
+								Vector<Muestra> vectorM, String ficheroSalida){
+		System.out.println("inicio CV");
+		this.vectorMuestras = vectorM;
+		this.muestras = muest;
+		this.atributos = atrib;
+		//leeFichero(ficheroEntrada);
+		ejecuta();
+		muestraSolucion();
+		vuelcaFichero(ficheroSalida);
+		System.out.println("fin CV");
+	}
+	
+	
 	private void leeFichero(String ficheroEntrada){
 		try{
 			File f = new File(ficheroEntrada);
