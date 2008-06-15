@@ -157,16 +157,18 @@ public class KMedias {
 	
 	
 	
-	public void actualizaCentros(){
+	public boolean actualizaCentros(){
+		boolean fin = false;
 		for (int i=0;i<vectorCentros.size();i++){
 			float[] nuevoCentro = eme(vectorCentros.elementAt(i).getClase());
+			fin = convergenciaM(mPrev[vectorCentros.elementAt(i).getClase()], nuevoCentro);
 			mPrev[vectorCentros.elementAt(i).getClase()] = nuevoCentro;
 			Muestra m = new Muestra(nuevoCentro);
 			m.setClase(vectorCentros.elementAt(i).getClase());
 			vectorCentros.remove(i);
 			vectorCentros.add(i, m);
 		}
-		
+		return fin;
 	}
 	
 	
@@ -189,7 +191,7 @@ public class KMedias {
 					System.out.println(j);
 					//Calculamos la pertenencia de la muestra a la clase
 					pertAux = pertenencia(muestra, i);
-					termina = termina && convergenciaP(PPrev[j],pertAux); 									
+					termina = termina && !convergenciaP(PPrev[j],pertAux); 									
 									//!(Math.abs(pertAux - PPrev[j]) < epsilon);
 					//despues de comparar el error, metemos el pertAux en
 					//PPrev, para las siguientes vueltas
@@ -203,10 +205,22 @@ public class KMedias {
 				muestra.setClase(claseMax);
 				//j++;
 			}
-			 actualizaCentros();
+			termina = termina && !actualizaCentros();
 		}
 		return termina;
 	}
 	
+	private boolean convergenciaP(double tAnt, double t){
+		double abs = Math.abs(tAnt - t);
+		return (abs < epsilon);
+	}
 	
+	private boolean convergenciaM(float[] mAnt, float[] m){
+		boolean fin = false;
+		for (int i=0;i<mAnt.length && fin;i++){
+			double abs = Math.abs(mAnt[i] - m[i]);
+			fin = fin && (abs < epsilon);
+		}
+		return fin;
+	}
 }
