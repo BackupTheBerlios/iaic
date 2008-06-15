@@ -227,8 +227,8 @@ public class Principal {
 			}
 		
 		}
-		
-		salida.close();
+		if (salida != null)
+			salida.close();
 			
 		
 		for (int i = g.getOptind(); i < args.length ; i++)
