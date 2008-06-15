@@ -1,6 +1,7 @@
 package principal;
 
 import algoritmos.AlgoritmoLloyd;
+import algoritmos.AlgoritmoSom;
 import algoritmos.KMedias;
 import algoritmos.CuantizacionVectorial;
 import algoritmos.Muestra;
@@ -216,32 +217,38 @@ public class Principal {
 					Muestra m = (Muestra) iter.next();
 					resultado.add(m);
 				}
-					
+				if (princip.som){ //FIXME: Sustituir por el constructor de SOM 
+					//cuando este hecho
+					Vector<Muestra> muestrasSOM = new Vector<Muestra>();
+					muestrasSOM = (Vector<Muestra>) resultado.clone();
+					Vector<Muestra> centrosSOM = new Vector<Muestra>();
+					centrosSOM = (Vector<Muestra>) centros.clone();
+					AlgoritmoSom SOM = new AlgoritmoSom(numClases, centrosSOM, muestrasSOM);
+					vuelcaFichero(salida, centrosSOM, "Centros de SOM");
+					vuelcaFichero(salida, muestrasSOM, "Resultado de SOM");
+			
+				}	
 				if (princip.lloyd){
 					Vector<Muestra> muestrasLloyd = new Vector<Muestra>();
 					muestrasLloyd = (Vector<Muestra>) resultado.clone();
-					AlgoritmoLloyd algLloyd = new AlgoritmoLloyd(numClases, centros,
+					Vector<Muestra> centrosLloyd = new Vector<Muestra>();
+					centrosLloyd = (Vector<Muestra>) centros.clone();
+					AlgoritmoLloyd algLloyd = new AlgoritmoLloyd(numClases, centrosLloyd,
 											muestrasLloyd);
-					vuelcaFichero(salida, centros, "Centros de Lloyd");
-					vuelcaFichero(salida, resultado, "Resultado de Lloyd");
+					vuelcaFichero(salida, centrosLloyd, "Centros de Lloyd");
+					vuelcaFichero(salida, muestrasLloyd, "Resultado de Lloyd");
 				}
 				if (princip.kmedias){
 					Vector<Muestra> muestrasKmedias = new Vector<Muestra>();
 					muestrasKmedias = (Vector<Muestra>) resultado.clone();
-					KMedias KMedias = new KMedias(numClases, centros,
+					Vector<Muestra> centrosKmedias = new Vector<Muestra>();
+					centrosKmedias = (Vector<Muestra>) centros.clone();
+					KMedias KMedias = new KMedias(numClases, centrosKmedias,
 														muestrasKmedias);
-					vuelcaFichero(salida, centros, "Centros de Kmedias");
-					vuelcaFichero(salida, resultado, "Resultado de Kmedias");
+					vuelcaFichero(salida, centrosKmedias, "Centros de Kmedias");
+					vuelcaFichero(salida, muestrasKmedias, "Resultado de Kmedias");
 				}
-				if (princip.som){ //FIXME: Sustituir por el constructor de SOM 
-							//cuando este hecho
-					Vector<Muestra> muestrasSOM = new Vector<Muestra>();
-					muestrasSOM = (Vector<Muestra>) resultado.clone();
-					KMedias SOM = new KMedias(numClases, centros, muestrasSOM);
-					vuelcaFichero(salida, centros, "Centros de SOM");
-					vuelcaFichero(salida, resultado, "Resultado de SOM");
-					
-				}
+				
 
 				
 			}
