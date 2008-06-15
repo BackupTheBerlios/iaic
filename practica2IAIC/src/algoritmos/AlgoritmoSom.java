@@ -37,7 +37,7 @@ public class AlgoritmoSom {
 	/**
 	 * 
 	 */
-	public AlgoritmoSom(int c, Vector<Muestra> m, Vector<Muestra> centros) {
+	public AlgoritmoSom(int c, Vector<Muestra> centros, Vector<Muestra> m) {
 		clases = c;
 		vectorMuestras = m;
 		vectorCentros = centros;
@@ -100,7 +100,7 @@ public class AlgoritmoSom {
 	}
 	
 	private void clasifica(){
-		boolean encontrado=false;
+		//boolean encontrado=false;
 		Vector <Float> d = new Vector<Float>();
 		for (int i=0; i<muestras;i++){
 			Muestra mi= vectorMuestras.elementAt(i);
