@@ -102,8 +102,8 @@ public class Principal {
 		longopts[0] = new LongOpt("ayuda", LongOpt.NO_ARGUMENT, null, 'h');
 		
 		longopts[1] = new LongOpt("salida", LongOpt.REQUIRED_ARGUMENT, sb, 'o'); 
-		longopts[2] = new LongOpt("entrenamiento", LongOpt.REQUIRED_ARGUMENT, sb2, 't');
-		longopts[3] = new LongOpt("entrada", LongOpt.REQUIRED_ARGUMENT, sb3, 'i'); 
+		longopts[2] = new LongOpt("entrenamiento", LongOpt.REQUIRED_ARGUMENT, sb, 't');
+		longopts[3] = new LongOpt("entrada", LongOpt.REQUIRED_ARGUMENT, sb, 'i'); 
 		
 		longopts[4] = new LongOpt("lloyd", LongOpt.NO_ARGUMENT, null, 'l');
 		longopts[5] = new LongOpt("kmedias", LongOpt.NO_ARGUMENT, null, 'k');
@@ -120,7 +120,21 @@ public class Principal {
 		while ((c = g.getopt()) != -1)
 		  switch (c)
 		    {
-		  
+		    case 0:
+		      //    arg = g.getOptarg();
+		          char opt = (char)(new Integer(sb.toString())).intValue();
+		          switch (opt){
+		          case 'o':
+					  princip.output = g.getOptarg();
+					  break;
+				  case 't':
+					  princip.training = g.getOptarg();
+					  break;
+				  case 'i':
+					  princip.input = g.getOptarg();
+					  break;	
+		          }
+		          break;
 		  case 'l':
 			  princip.lloyd = true;
 			  break;
