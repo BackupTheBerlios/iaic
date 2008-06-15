@@ -51,7 +51,7 @@ public class AlgoritmoSom {
 		for (int j=0; j<clases;j++){
 			K.add(j, new Float(Float.MIN_VALUE));
 		}
-		while((i < maxIter) && !convergencia()){
+		while((i++ < maxIter) && !convergencia()){
 			eleva = i / maxIter;
 			aprendizaje = ainicial * (float) Math.pow((ainicial/afinal), eleva);
 			gamma = 1 / (10 + i);
@@ -118,10 +118,11 @@ public class AlgoritmoSom {
 //	}
 
 	private boolean convergencia(){
+		boolean aux = true;
 		for (int i=0; i< conver.size();i++){
-			if (conver.get(i).booleanValue()) return true;
+			aux = aux && (conver.get(i).booleanValue());// return true;
 		}
-		return false;
+		return aux;
 	}
 
 	private int menorDist(Vector<Float> d){
