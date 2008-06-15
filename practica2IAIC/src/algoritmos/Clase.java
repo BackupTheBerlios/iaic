@@ -48,12 +48,12 @@ public class Clase {
 	 *
 	 * @param	meanDataPoint	the new mean data point for this Clase
 	 */
-	public void setCentro(kMeansPoint meanDataPoint) {
+/*	public void setCentro(kMeansPoint meanDataPoint) {
 	
 		this.centro = meanDataPoint.toFloatArray();
 	
 	} // end of setMean()
-	
+	*/
 	
 	public float[][] getMuestras() {
 		return muestras;
