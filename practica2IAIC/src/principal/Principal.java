@@ -113,7 +113,7 @@ public class Principal {
 		longopts[6] = new LongOpt("som", LongOpt.NO_ARGUMENT, null, 's');
 		
 		// 
-		Getopt g = new Getopt("testprog", args, "slkmho:t:i:", longopts);
+		Getopt g = new Getopt("testprog", args, "lksho:t:i:", longopts);
 		g.setOpterr(false); // We'll do our own error handling
 		//
 		
