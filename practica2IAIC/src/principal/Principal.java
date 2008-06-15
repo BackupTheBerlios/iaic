@@ -23,6 +23,7 @@ public class Principal {
 	 */
 	public  int muestras;
 	public  int atributos;
+	public  float umbral;
 	
 	public  boolean lloyd ;
 	public  boolean kmedias;
@@ -39,8 +40,9 @@ public class Principal {
 	public Principal(){
 		vectorMuestrasEntrada = new Vector<Muestra>();
 		vectorMuestrasEntrenamiento = new Vector<Muestra>();
-		muestras = 8;
-		atributos = 3;
+		muestras = 3;
+		atributos = 2;
+		umbral = 20;
 		
 		lloyd = false;
 		kmedias = false;
@@ -92,8 +94,7 @@ public class Principal {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//178x13
-	
+
 		Principal princip = new Principal();
 		
 		int c;
@@ -174,7 +175,6 @@ public class Principal {
 		         //
 		       default:
 		    	   Principal.ayuda();
-		         //System.out.println("getopt() returned " + c);
 		         break;
 		    }
 		//
@@ -197,7 +197,7 @@ public class Principal {
 		if (princip.training.length() > 0){
 			princip.leeFichero(princip.training, princip.vectorMuestrasEntrenamiento);
 			CuantizacionVectorial clasificador = 
-				new CuantizacionVectorial(princip.muestras, princip.atributos, 
+				new CuantizacionVectorial(princip.umbral,princip.muestras, princip.atributos, 
 						princip.vectorMuestrasEntrenamiento);
 			int numClases = clasificador.getNumClases();
 			
@@ -260,31 +260,6 @@ public class Principal {
 		
 		for (int i = g.getOptind(); i < args.length ; i++)
 			     System.out.println(args[i] + " no es una opcion \n");
-
-		
-		
-		/*
-		
-		if (args.length == 3){
-			CuantizacionVectorial clasificador = new CuantizacionVectorial 
-										(args[0],args[1],muestras,atributos);
-			AlgoritmoLloyd aprende = new AlgoritmoLloyd(args[1],args[2]);
-			//kMeans kmedias = new kMeans();
-		}else{
-			System.out.println("Argumentos mal");
-		}
-		*/
-/*		
-		if (args.length == 2){
-			CuantizacionVectorial clasificador = new CuantizacionVectorial(args[0],args[1]);
-			int numClases = clasificador.getNumClases();
-			Vector<Muestra> todasMuestras = addMuestras(clasificador.getVectorMuestras(),args[1]);
-		//	KMedias kmedias = new KMedias(numClases,todasMuestras);
-			//AlgoritmoLloyd aprende = new AlgoritmoLloyd(args[1],args[2]);
-		}else{
-			System.out.println("Argumentos mal");
-		}
-*/
 	}
 	
 	
@@ -295,7 +270,9 @@ public class Principal {
 			FileReader entrada = new FileReader(f);
 			BufferedReader buffer = new BufferedReader(entrada);
 			String line;
-			line = buffer.readLine();		
+			line = buffer.readLine();
+			umbral = Float.valueOf(line).floatValue();
+			line = buffer.readLine();
 			StringTokenizer st = new StringTokenizer(line,",");
 			atributos = st.countTokens()-1;
 			//lee linea por linea del fichero de texto:
@@ -320,9 +297,6 @@ public class Principal {
 	
 	private static void vuelcaFichero(PrintWriter salida,
 			Vector<Muestra> vector,	String info){
-	//String ficheroSalida){
-	//	if (salida == null)
-	//		salida = new PrintWriter(System.out);
 		try{
 			if (salida == null)
 				System.out.println("Inicio de: "+info);
@@ -338,7 +312,6 @@ public class Principal {
 				System.out.println("Fin de: "+info+"\n");
 			else
 				salida.println("Fin de: "+info+"\n");
-		//	salida.close();
 		}catch (Exception ex){
 			System.out.println(ex.toString());
 			}
@@ -349,8 +322,4 @@ public class Principal {
 	private static Vector<Muestra> addMuestras(Vector<Muestra> muestras,String fileAprender){
 		return muestras;
 	}
-		
-		
-	
-
 }

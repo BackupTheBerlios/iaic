@@ -7,31 +7,18 @@ import java.io.*;
 public class CuantizacionVectorial {
 	private int muestras;
 	private int atributos;
-	private float umbral = 20;
+	private float umbral = 250;
 	private int numClases = 1;
 	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
 	private Vector<Muestra> vectorCentros = new Vector<Muestra>();
 	
-	public CuantizacionVectorial(String ficheroEntrada,String ficheroSalida){
-//		System.out.println("inicio CV");
-//		leeFichero(ficheroEntrada);
-		ejecuta();
-//		muestraSolucion();
-//		vuelcaFichero(ficheroSalida);
-//		System.out.println("fin CV");
-	}
-
-	public CuantizacionVectorial(int muest, int atrib, 
+	public CuantizacionVectorial(float umb, int muest, int atrib, 
 								Vector<Muestra> vectorM){
-//		System.out.println("inicio CV");
 		this.vectorMuestras = vectorM;
 		this.muestras = muest;
 		this.atributos = atrib;
-		//leeFichero(ficheroEntrada);
+		this.umbral = umb;
 		ejecuta();
-//		muestraSolucion();
-		//vuelcaFichero(ficheroSalida);
-		//System.out.println("fin CV");
 	}
 	
 	
