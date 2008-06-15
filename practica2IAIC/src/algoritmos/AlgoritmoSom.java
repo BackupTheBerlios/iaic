@@ -12,7 +12,7 @@ import java.util.Vector;
 public class AlgoritmoSom {
 
 	private int muestras;
-	final int maxIter = 100;
+	final int maxIter = 5;
 	private int clases;
 	private float aprendizaje; //alfa
 	private double gamma;
@@ -22,7 +22,7 @@ public class AlgoritmoSom {
 	final float ainicial = (float)1.0;
 	final float afinal = (float)0.8;
 	final double T = 0.2;
-	final float Error = (float)0.0001;
+	final float Error = (float)0.01;
 	
 	private Vector<Muestra> vectorCentros = new Vector<Muestra>();
 	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
@@ -84,6 +84,7 @@ public class AlgoritmoSom {
 					Muestra centro = new Muestra(suma);
 					vectorMuestras.elementAt(j).setClase(k);
 					vCentrosMasUno.set(k, centro);
+					vCentrosMasUno.elementAt(k).setClase(k);
 				}
 			}
 		}
@@ -94,6 +95,7 @@ public class AlgoritmoSom {
 			Muestra cj = vectorCentros.elementAt(i);
 			Muestra cj1 = vCentrosMasUno.elementAt(i);
 			float resta = distance(cj.getContent(),cj1.getContent());
+			resta = Math.abs(resta);
 			if (resta < Error){
 				conver.set(i, Boolean.TRUE);
 			}
