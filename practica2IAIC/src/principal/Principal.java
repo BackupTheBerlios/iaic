@@ -186,7 +186,7 @@ public class Principal {
 			Vector<Muestra> resultado = clasificador.getVectorMuestras();
 			Vector<Muestra> centros = clasificador.getVectorCentros();
 			
-			vuelcaFichero(salida, centros, "Centros de las clases");
+			vuelcaFichero(salida, centros, "Centros de CV");
 			vuelcaFichero(salida, resultado, "Resultado de CV");
 			
 			if (princip.input.length() > 0){
@@ -205,6 +205,7 @@ public class Principal {
 					muestrasLloyd = (Vector<Muestra>) resultado.clone();
 					AlgoritmoLloyd algLloyd = new AlgoritmoLloyd(numClases,
 											muestrasLloyd);
+					vuelcaFichero(salida, centros, "Centros de Lloyd");
 					vuelcaFichero(salida, resultado, "Resultado de Lloyd");
 				}
 				if (princip.kmedias){
@@ -212,6 +213,7 @@ public class Principal {
 					muestrasKmedias = (Vector<Muestra>) resultado.clone();
 					KMedias KMedias = new KMedias(numClases, centros,
 														muestrasKmedias);
+					vuelcaFichero(salida, centros, "Centros de Kmedias");
 					vuelcaFichero(salida, resultado, "Resultado de Kmedias");
 				}
 				if (princip.som){ //FIXME: Sustituir por el constructor de SOM 
@@ -219,6 +221,7 @@ public class Principal {
 					Vector<Muestra> muestrasSOM = new Vector<Muestra>();
 					muestrasSOM = (Vector<Muestra>) resultado.clone();
 					KMedias SOM = new KMedias(numClases, centros, muestrasSOM);
+					vuelcaFichero(salida, centros, "Centros de SOM");
 					vuelcaFichero(salida, resultado, "Resultado de SOM");
 					
 				}
@@ -273,7 +276,6 @@ public class Principal {
 			atributos = st.countTokens()-1;
 			//lee linea por linea del fichero de texto:
 			while (line != null){
-				System.out.println(line);
 				float[] m = new float[atributos];
 				int i = 0;
 				st = new StringTokenizer(line,",");

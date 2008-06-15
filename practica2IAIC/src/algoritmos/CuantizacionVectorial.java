@@ -8,81 +8,32 @@ public class CuantizacionVectorial {
 	private int muestras;
 	private int atributos;
 	private float umbral = 20;
-	private int numClases = 0;
+	private int numClases = 1;
 	private Vector<Muestra> vectorMuestras = new Vector<Muestra>();
 	private Vector<Muestra> vectorCentros = new Vector<Muestra>();
 	
 	public CuantizacionVectorial(String ficheroEntrada,String ficheroSalida){
-		System.out.println("inicio CV");
-		leeFichero(ficheroEntrada);
+//		System.out.println("inicio CV");
+//		leeFichero(ficheroEntrada);
 		ejecuta();
-		muestraSolucion();
-		vuelcaFichero(ficheroSalida);
-		System.out.println("fin CV");
+//		muestraSolucion();
+//		vuelcaFichero(ficheroSalida);
+//		System.out.println("fin CV");
 	}
 
 	public CuantizacionVectorial(int muest, int atrib, 
 								Vector<Muestra> vectorM){
-		System.out.println("inicio CV");
+//		System.out.println("inicio CV");
 		this.vectorMuestras = vectorM;
 		this.muestras = muest;
 		this.atributos = atrib;
 		//leeFichero(ficheroEntrada);
 		ejecuta();
-		muestraSolucion();
+//		muestraSolucion();
 		//vuelcaFichero(ficheroSalida);
 		//System.out.println("fin CV");
 	}
 	
-	
-	private void leeFichero(String ficheroEntrada){
-		try{
-			File f = new File(ficheroEntrada);
-			FileReader entrada = new FileReader(f);
-			BufferedReader buffer = new BufferedReader(entrada);
-			String line;
-			line = buffer.readLine();
-			StringTokenizer st = new StringTokenizer(line,",");
-			this.atributos = st.countTokens()-1;
-			//lee linea por linea del fichero de texto:
-			while (line != null){
-				float[] m = new float[atributos];
-				int i = 0;
-				st = new StringTokenizer(line,",");
-				st.nextToken();//Quita el primer valor ==> clase
-				while (st.hasMoreTokens()){
-					float valor = Float.valueOf(st.nextToken()).floatValue();
-					m[i] = valor;
-					i++;
-				}
-				Muestra muestraNueva = new Muestra(m);
-				vectorMuestras.add(muestraNueva);
-				line = buffer.readLine();
-			}
-			this.muestras = vectorMuestras.size();
-		}catch(Exception ex) {System.out.println(ex.toString());}
-	}
-	
-	private void vuelcaFichero(String ficheroSalida){
-		try{
-			File f = new File(ficheroSalida);
-			FileWriter fw = new FileWriter(f);
-			BufferedWriter buffer = new BufferedWriter(fw);
-			PrintWriter salida = new PrintWriter(buffer);
-			/** CENTROS **/
-			for (int i=0;i<vectorCentros.size();i++){
-				salida.println(vectorCentros.elementAt(i).toString());
-			}
-			/** MUESTRAS **/
-			for (int i=0;i<vectorMuestras.size();i++){
-				salida.println(vectorMuestras.elementAt(i).toString());
-			}
-			salida.close();
-		}catch (Exception ex){
-			System.out.println(ex.toString());
-			}
-
-	}
 	
 	private void ejecuta(){
 		Muestra m0 = vectorMuestras.firstElement();
@@ -147,12 +98,7 @@ public class CuantizacionVectorial {
 		vectorCentros.add(indiceClase, centroClase);
 	}
 		
-	private void muestraSolucion(){
-		for (int i=0;i<vectorMuestras.size();i++){
-			Muestra c = (Muestra)vectorMuestras.elementAt(i);
-			System.out.println(c.toString());
-		}
-	}
+
 
 	public int getMuestras() {
 		return muestras;

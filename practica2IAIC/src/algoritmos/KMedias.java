@@ -44,7 +44,7 @@ public class KMedias {
 		}
 
 		termina();
-		muestraSolucion();
+//		muestraSolucion();
 	}
 	
 	private void muestraSolucion(){
@@ -57,6 +57,7 @@ public class KMedias {
 			System.out.println(c.toString());
 		}
 	}
+	
 	/**
 	 * Returns the distance between two data points
 	 *
@@ -160,9 +161,13 @@ public class KMedias {
 	
 	public boolean actualizaCentros(){
 		boolean fin = false;
+		float[] aux;
+		int claseAux;
 		for (int i=0;i<vectorCentros.size();i++){
 			float[] nuevoCentro = eme(vectorCentros.elementAt(i).getClase());
-			fin = convergenciaM(mPrev[vectorCentros.elementAt(i).getClase()], nuevoCentro);
+			claseAux = vectorCentros.elementAt(i).getClase();
+			aux = mPrev[claseAux];
+			fin = convergenciaM(aux, nuevoCentro);
 			mPrev[vectorCentros.elementAt(i).getClase()] = nuevoCentro;
 			Muestra m = new Muestra(nuevoCentro);
 			m.setClase(vectorCentros.elementAt(i).getClase());
@@ -200,7 +205,7 @@ public class KMedias {
 					}//se asigna a la clase a la que mas pertenencia tiene
 				}
 				muestra.setClase(claseMax);
-				System.out.println(muestra.toString());				
+				//System.out.println(muestra.toString());				
 			}
 			termina = termina && !actualizaCentros();
 		}

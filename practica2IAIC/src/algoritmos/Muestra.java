@@ -25,8 +25,8 @@ public class Muestra {
 	public String toString(){
 		String cadena = "[";
 		for (int i = 0; i < contenido.length; i++)
-			cadena += " "+contenido[i];
-		cadena += " ] : Clase: ";
+			cadena += "\t"+contenido[i];
+		cadena += " ] :\tClase: ";
 		cadena += clase;
 		return cadena;
 	}
