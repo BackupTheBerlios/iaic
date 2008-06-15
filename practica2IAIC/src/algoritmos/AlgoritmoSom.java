@@ -59,7 +59,7 @@ public class AlgoritmoSom {
 			compara();
 			vectorCentros = vCentrosMasUno;
 		}
-		//clasifica();
+		clasifica();
 	}
 
 	private void itera() {
@@ -102,20 +102,23 @@ public class AlgoritmoSom {
 		}
 	}
 	
-//	private void clasifica(){
-//		//boolean encontrado=false;
-//		Vector <Float> d = new Vector<Float>();
-//		for (int i=0; i<muestras;i++){
-//			Muestra mi= vectorMuestras.elementAt(i);
-//			for (int j=0;j<vectorCentros.size();j++){
-//				Muestra ci = vectorCentros.elementAt(j);
-//				float distancia = distance(mi.getContent(),ci.getContent());
-//				d.add(j, distancia);
-//			}
-//			int k = menorDist(d);
-//			vectorMuestras.elementAt(i).setClase(k);
-//		}
-//	}
+	private void clasifica(){
+		//boolean encontrado=false;
+		Vector <Float> d = new Vector<Float>();
+		for (int j=0; j<clases;j++){
+			d.add(j, new Float(Float.MIN_VALUE));
+		}
+		for (int i=0; i<muestras;i++){
+			Muestra mi= vectorMuestras.elementAt(i);
+			for (int j=0;j<vectorCentros.size();j++){
+				Muestra ci = vectorCentros.elementAt(j);
+				float distancia = distance(mi.getContent(),ci.getContent());
+				d.set(j, distancia);
+			}
+			int k = menorDist(d);
+			if (vectorMuestras.elementAt(i).getClase()==-1) vectorMuestras.elementAt(i).setClase(k);
+		}
+	}
 
 	private boolean convergencia(){
 		boolean aux = true;
@@ -129,7 +132,7 @@ public class AlgoritmoSom {
 		int j = 0;
 		Float daux = d.get(0);
 		for (int i= 1; i<d.size();i++){
-			if ((d.get(i)< daux) && d.get(i)>T){
+			if (d.get(i)< daux){
 				j=i;
 				daux = d.get(i);
 			}
