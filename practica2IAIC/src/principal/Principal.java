@@ -3,8 +3,11 @@ package principal;
 import algoritmos.*;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.Vector;
@@ -14,19 +17,36 @@ public class Principal {
 	/**
 	 * @param args
 	 */
-	private static int muestras = 8;
-	private static int atributos = 3;
+	public  int muestras;
+	public  int atributos;
 	
-	private static boolean lloyd = false;
-	private static boolean kmedias = false;
-	private static boolean som = false;
+	public  boolean lloyd ;
+	public  boolean kmedias;
+	public  boolean som;
 	
-	private static String input = "";
-	private static String training = "";
-	private static String output = "";
+	public  String input;
+	public  String training;
+	public  String output;
 	
-	private static Vector<Muestra> vectorMuestrasEntrenamiento;
-	private static Vector<Muestra> vectorMuestrasEntrada;
+	public  Vector<Muestra> vectorMuestrasEntrenamiento;
+	public  Vector<Muestra> vectorMuestrasEntrada;
+	
+	
+	public Principal(){
+		vectorMuestrasEntrada = new Vector<Muestra>();
+		vectorMuestrasEntrenamiento = new Vector<Muestra>();
+		muestras = 8;
+		atributos = 3;
+		
+		lloyd = false;
+		kmedias = false;
+		som = false;
+		
+		 input = "";
+		training = "";
+		output = "";
+	}
+	
 	
 	
 	public static void ayuda(){
@@ -70,6 +90,8 @@ public class Principal {
 		// TODO Auto-generated method stub
 //178x13
 	
+		Principal princip = new Principal();
+		
 		int c;
 		String arg;
 		LongOpt[] longopts = new LongOpt[7];
@@ -100,30 +122,30 @@ public class Principal {
 		    {
 		  
 		  case 'l':
-			  lloyd = true;
+			  princip.lloyd = true;
 			  break;
 			  //
 		  case 'k':
-			  kmedias = true;
+			  princip.kmedias = true;
 			  break;
 			  //
 		  case 's':
-			  som = true;
+			  princip.som = true;
 			  break;
 			  //
 		  case 'h':
 			  System.out.println("Has pedido ayuda:");
-			  ayuda();
+			  Principal.ayuda();
 			  break;
 			  //
 		  case 'o':
-			  output = g.getOptarg();
+			  princip.output = g.getOptarg();
 			  break;
 		  case 't':
-			  training = g.getOptarg();
+			  princip.training = g.getOptarg();
 			  break;
 		  case 'i':
-			  input = g.getOptarg();
+			  princip.input = g.getOptarg();
 			  break;
 
 		         //
@@ -133,53 +155,80 @@ public class Principal {
 		         break;
 		         //
 		       default:
-		    	   ayuda();
+		    	   Principal.ayuda();
 		         //System.out.println("getopt() returned " + c);
 		         break;
 		    }
 		//
 		
-		if (training.length() > 0){
-			leeFichero(training, vectorMuestrasEntrenamiento);
+		PrintWriter salida = null;
+		
+		if (princip.output.length() > 0){
+			try {
+				File f = new File(princip.output);
+				FileWriter fw = new FileWriter(f);
+				BufferedWriter buffer = new BufferedWriter(fw);
+				salida = new PrintWriter(buffer);
+			}
+			catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+		
+		
+		if (princip.training.length() > 0){
+			princip.leeFichero(princip.training, princip.vectorMuestrasEntrenamiento);
 			CuantizacionVectorial clasificador = 
-				new CuantizacionVectorial(muestras, atributos, 
-						vectorMuestrasEntrenamiento, output);
+				new CuantizacionVectorial(princip.muestras, princip.atributos, 
+						princip.vectorMuestrasEntrenamiento);
 			int numClases = clasificador.getNumClases();
 			
+			Vector<Muestra> resultado = clasificador.getVectorMuestras();
+			Vector<Muestra> centros = clasificador.getVectorCentros();
 			
-			if (input.length() > 0){
+			vuelcaFichero(salida, centros, "Centros de las clases");
+			vuelcaFichero(salida, resultado, "Resultado de CV");
+			
+			if (princip.input.length() > 0){
 
-				Vector<Muestra> resultado = clasificador.getVectorMuestras();
 				
-				leeFichero(input, vectorMuestrasEntrada);
-				for (Iterator iter = vectorMuestrasEntrada.iterator();
+				
+				princip.leeFichero(princip.input, princip.vectorMuestrasEntrada);
+				for (Iterator iter = princip.vectorMuestrasEntrada.iterator();
 														iter.hasNext();) {
 					Muestra m = (Muestra) iter.next();
 					resultado.add(m);
 				}
 					
-				if (lloyd){
+				if (princip.lloyd){
 					Vector<Muestra> muestrasLloyd = new Vector<Muestra>();
 					muestrasLloyd = (Vector<Muestra>) resultado.clone();
 					AlgoritmoLloyd algLloyd = new AlgoritmoLloyd(numClases,
 											muestrasLloyd);
+					vuelcaFichero(salida, resultado, "Resultado de Lloyd");
 				}
-				if (kmedias){
+				if (princip.kmedias){
 					Vector<Muestra> muestrasKmedias = new Vector<Muestra>();
 					muestrasKmedias = (Vector<Muestra>) resultado.clone();
-					KMedias KMedias = new KMedias(numClases, muestrasKmedias);
+					KMedias KMedias = new KMedias(numClases, centros,
+														muestrasKmedias);
+					vuelcaFichero(salida, resultado, "Resultado de Kmedias");
 				}
-				if (som){ //FIXME: Sustituir por el constructor de SOM 
+				if (princip.som){ //FIXME: Sustituir por el constructor de SOM 
 							//cuando este hecho
 					Vector<Muestra> muestrasSOM = new Vector<Muestra>();
 					muestrasSOM = (Vector<Muestra>) resultado.clone();
-					KMedias SOM = new KMedias(numClases, muestrasSOM);
+					KMedias SOM = new KMedias(numClases, centros, muestrasSOM);
+					vuelcaFichero(salida, resultado, "Resultado de SOM");
 					
 				}
+
+				
 			}
+		
 		}
 		
-		
+		salida.close();
 			
 		
 		for (int i = g.getOptind(); i < args.length ; i++)
@@ -198,31 +247,33 @@ public class Principal {
 			System.out.println("Argumentos mal");
 		}
 		*/
-		
+/*		
 		if (args.length == 2){
 			CuantizacionVectorial clasificador = new CuantizacionVectorial(args[0],args[1]);
 			int numClases = clasificador.getNumClases();
 			Vector<Muestra> todasMuestras = addMuestras(clasificador.getVectorMuestras(),args[1]);
-			KMedias kmedias = new KMedias(numClases,todasMuestras);
+		//	KMedias kmedias = new KMedias(numClases,todasMuestras);
 			//AlgoritmoLloyd aprende = new AlgoritmoLloyd(args[1],args[2]);
 		}else{
 			System.out.println("Argumentos mal");
 		}
+*/
 	}
 	
 	
 
-	private static void leeFichero(String ficheroEntrada, Vector<Muestra> vectorMuestras){
+	private void leeFichero(String ficheroEntrada, Vector<Muestra> vectorMuestras){
 		try{
 			File f = new File(ficheroEntrada);
 			FileReader entrada = new FileReader(f);
 			BufferedReader buffer = new BufferedReader(entrada);
 			String line;
-			line = buffer.readLine();
+			line = buffer.readLine();		
 			StringTokenizer st = new StringTokenizer(line,",");
 			atributos = st.countTokens()-1;
 			//lee linea por linea del fichero de texto:
 			while (line != null){
+				System.out.println(line);
 				float[] m = new float[atributos];
 				int i = 0;
 				st = new StringTokenizer(line,",");
@@ -236,10 +287,29 @@ public class Principal {
 				vectorMuestras.add(muestraNueva);
 				line = buffer.readLine();
 			}
-			muestras += vectorMuestras.size();
+			muestras = vectorMuestras.size();
 		}catch(Exception ex) {System.out.println(ex.toString());}
 	}
 	
+	
+	private static void vuelcaFichero(PrintWriter salida,
+			Vector<Muestra> vector,	String info){
+	//String ficheroSalida){
+		if (salida == null)
+			salida = new PrintWriter(System.out);
+		try{
+			salida.println("Inicio de: "+info);
+			for (int i=0;i<vector.size();i++){
+				salida.println(vector.elementAt(i).toString());
+			}
+			salida.println("Fin de: "+info);
+			salida.println();
+		//	salida.close();
+		}catch (Exception ex){
+			System.out.println(ex.toString());
+			}
+
+	}
 	
 	
 	private static Vector<Muestra> addMuestras(Vector<Muestra> muestras,String fileAprender){

@@ -22,7 +22,7 @@ public class CuantizacionVectorial {
 	}
 
 	public CuantizacionVectorial(int muest, int atrib, 
-								Vector<Muestra> vectorM, String ficheroSalida){
+								Vector<Muestra> vectorM){
 		System.out.println("inicio CV");
 		this.vectorMuestras = vectorM;
 		this.muestras = muest;
@@ -30,8 +30,8 @@ public class CuantizacionVectorial {
 		//leeFichero(ficheroEntrada);
 		ejecuta();
 		muestraSolucion();
-		vuelcaFichero(ficheroSalida);
-		System.out.println("fin CV");
+		//vuelcaFichero(ficheroSalida);
+		//System.out.println("fin CV");
 	}
 	
 	
